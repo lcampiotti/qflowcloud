@@ -5,23 +5,23 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
 *   [Qflow Team](#)
     *   [Introducción](#introduccion)
     *   [Organización de este manual](#organizacion-de-este-manual)
@@ -42,14 +42,14 @@ Inicio
         *   [Configuración](#configuracion)
         *   [Propiedades adicionales](#propiedades-adicionales)
         *   [Licencias](#licencias)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
+*   [](index.md)
 *   Qflow Team
 
 - - -
@@ -130,9 +130,9 @@ Hay tres tipos de permiso en Qflow:
         
 *   **Permisos de los paquetes:** son los permisos relacionados con las operaciones sobre paquetes. Para cada uno de estos permisos se puede especificar si es heredable o no. Hay dos tipos de permisos sobre paquetes:
     
-    *   **Permisos de un paquete como contenedor de definiciones de procesos:** son los que se definen en Qflow Design. Estos están relacionados con las operaciones que permiten definir procesos y ver las representaciones de los procesos definidos. Consulte el manual de [Qflow Design](15-QflowDesign.html) por más información.
+    *   **Permisos de un paquete como contenedor de definiciones de procesos:** son los que se definen en Qflow Design. Estos están relacionados con las operaciones que permiten definir procesos y ver las representaciones de los procesos definidos. Consulte el manual de [Qflow Design](15-QflowDesign.md) por más información.
         
-    *   **Permisos de un paquete como contenedor de procesos en ejecución:** son los que se definen en Qflow Task y están relacionados con las operaciones relacionadas con la operación de los procesos. Consulte el manual de [Qflow Task](04-QflowTask.html) por más información.
+    *   **Permisos de un paquete como contenedor de procesos en ejecución:** son los que se definen en Qflow Task y están relacionados con las operaciones relacionadas con la operación de los procesos. Consulte el manual de [Qflow Task](04-QflowTask.md) por más información.
         
 
 #### Sujetos de los permisos: usuarios, grupos, nodos y roles de seguridad[](#sujetos-de-los-permisos-usuarios-grupos-nodos-y-roles-de-seguridad "Link to this heading")
@@ -1387,7 +1387,7 @@ Figura 738 Propiedades adicionales agregadas[](#id91 "Link to this image")
 
 Hay otra forma de definir propiedades, que implica configurar Qflow para que éstas queden definidas para todos los elementos de cierto tipo (por ejemplo, para todos los usuarios), y que el grupo “Propiedades”, en lugar de mostrar un cuadro, muestre un conjunto personalizado de controles ([Figura 739](#configurationextraproperties)). Las ventajas de hacerlo de esa forma son que se puede especificar el tipo de cada propiedad (si es un número, un texto, un miembro organizacional, o una fecha, por ejemplo), y cada propiedad se muestra de una forma adecuada a su tipo, lo cual permite evitar errores al asignarles valores. Por ejemplo, si una propiedad es del tipo “Sí/No”, se mostrará con un control que sólo permite elegir esos dos valores.
 
-Para definir las propiedades adicionales de esa forma se utiliza Qflow Admin (para más información ver el manual de de [QflowAdmin](19-QflowAdmin.html)). El hecho de definir propiedades de esa forma no implica que no se pueda seguir usando el cuadro. El cuadro seguirá disponible en la parte inferior del grupo, como se visualiza en la [Figura 739](#configurationextraproperties).
+Para definir las propiedades adicionales de esa forma se utiliza Qflow Admin (para más información ver el manual de de [QflowAdmin](19-QflowAdmin.md)). El hecho de definir propiedades de esa forma no implica que no se pueda seguir usando el cuadro. El cuadro seguirá disponible en la parte inferior del grupo, como se visualiza en la [Figura 739](#configurationextraproperties).
 
 [![Propiedades adicionales definidas por medio de configuración](_images/image825.png)](_images/image825.png)
 
@@ -1397,7 +1397,7 @@ Figura 739 Propiedades adicionales definidas por medio de configuración[](#i
 
 Qflow Team permite controlar el uso de licencias de Qflow, mediante el “Indicador de usuarios habilitados” de la página principal (ver [Figura 661](#homescreen)). Además, cuando alguien crea o habilita un usuario en Qflow Team, se controla que la operación no haga que se exceda la cantidad de licencias disponibles. Si esto sucede, la herramienta le dará un aviso al usuario y la operación se suspenderá.
 
-[Anterior](15-QflowDesign.html "Qflow Design") [Siguiente](19-QflowAdmin.html "Qflow Admin")
+[Anterior](15-QflowDesign.md "Qflow Design") [Siguiente](19-QflowAdmin.md "Qflow Admin")
 
 - - -
 
