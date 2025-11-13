@@ -5,21 +5,21 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
 *   [Qflow Task](#)
     *   [Introducción](#introduccion)
     *   [Organización de este manual](#organizacion-de-este-manual)
@@ -46,16 +46,16 @@ Inicio
         *   [Permisos de la herramienta](#permisos-de-la-herramienta)
         *   [Configuración de notificaciones de dispositivo](#configuracion-de-notificaciones-de-dispositivo)
         *   [Manejo de zonas horarias](#manejo-de-zonas-horarias)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
+*   [](index.md)
 *   Qflow Task
 
 - - -
@@ -74,7 +74,7 @@ Este manual está dividido en las siguientes partes:
     
 *   [Trabajo con procesos y tareas](#trabajo-con-procesos-y-tareas): describe cómo iniciar procesos, responder tareas y hacer seguimiento de los procesos en ejecución. Explica también el funcionamiento de las colas de trabajo, que permiten asignar tareas a un grupo de personas (por ejemplo, un departamento de una empresa o los empleados que trabajan en una misma sucursal) y ayudan a dividir el trabajo eficientemente.
     
-*   [Herramientas de seguimiento y análisis de procesos](24-QflowTaskTutorial.html#herramientas-de-seguimiento-y-analisis-de-procesos): explica cómo utilizar vistas, gráficas, indicadores y tableros de control. Estas herramientas permiten organizar y visualizar la información de los procesos para facilitar su seguimiento y control.
+*   [Herramientas de seguimiento y análisis de procesos](24-QflowTaskTutorial.md#herramientas-de-seguimiento-y-analisis-de-procesos): explica cómo utilizar vistas, gráficas, indicadores y tableros de control. Estas herramientas permiten organizar y visualizar la información de los procesos para facilitar su seguimiento y control.
     
 *   [Administración y configuración](#administracion-y-configuracion): explica cómo desempeñar tareas de administración y configuración, como definir permisos de acceso a las diferentes secciones y elementos del sitio, configurar los vínculos del menú lateral, administrar las notificaciones de dispositivo y definir cómo se muestran las colas de trabajo.
     
@@ -87,7 +87,7 @@ La [Figura 294](#website) muestra Qflow Task tal cual lo ve un usuario con todos
 
 Figura 294 Qflow Task[](#id11 "Link to this image")
 
-La página inicial de Qflow Task es, por defecto, un tablero de control, que se puede modificar para agregarle gráficas, indicadores y vistas, como se explica en la sección [Herramientas de seguimiento y análisis de procesos](24-QflowTaskTutorial.html#herramientas-de-seguimiento-y-analisis-de-procesos). Para acceder a la página inicial desde cualquier otra página del sitio, haga clic en el logo de Qflow Task, arriba a la izquierda.
+La página inicial de Qflow Task es, por defecto, un tablero de control, que se puede modificar para agregarle gráficas, indicadores y vistas, como se explica en la sección [Herramientas de seguimiento y análisis de procesos](24-QflowTaskTutorial.md#herramientas-de-seguimiento-y-analisis-de-procesos). Para acceder a la página inicial desde cualquier otra página del sitio, haga clic en el logo de Qflow Task, arriba a la izquierda.
 
 Qflow Task tiene dos menús: un menú lateral, a la izquierda y un menú superior, que aparece en el rincón superior derecho.
 
@@ -140,7 +140,7 @@ Las opciones por defecto del menú lateral son las que aparecen en la siguiente 
     
 *   **General:** esta opción tiene las siguientes subopciones:
     
-    *   **Tablero de control principal:** permite acceder al tablero de control principal (ver [Tableros de control](30.1-UpgradeGuide3_1_To_4_3.html#tableros-de-control)). Este viene creado por defecto en Qflow y por defecto no tiene contenido.
+    *   **Tablero de control principal:** permite acceder al tablero de control principal (ver [Tableros de control](30.1-UpgradeGuide3_1_To_4_3.md#tableros-de-control)). Este viene creado por defecto en Qflow y por defecto no tiene contenido.
         
     *   **Procesos:** permite acceder a la lista de procesos que el usuario tiene permiso de ver. Puede incluir procesos que no fueron iniciados por él, a diferencia de la vista Mis procesos, que está disponible a través del menú superior. Las vistas de procesos como esta se describen en la sección [Trabajo con procesos y tareas](#trabajo-con-procesos-y-tareas).
         
@@ -150,15 +150,15 @@ Las opciones por defecto del menú lateral son las que aparecen en la siguiente 
         
     *   **Tareas respondidas por mí:** permite acceder a la lista de tareas que fueron respondidas por mi usuario.
         
-*   **Colas de trabajo:** permite acceder a una página que muestra las colas de trabajo en las cuales el usuario tiene permiso de actuar. Como subopciones aparecen esas mismas colas de trabajo, de modo que el usuario puede acceder directamente a cada una de ellas. Las vistas de colas de trabajo se describen en la sección [Colas de trabajo](27-QflowTeamTutorial.html#colas-de-trabajo).
+*   **Colas de trabajo:** permite acceder a una página que muestra las colas de trabajo en las cuales el usuario tiene permiso de actuar. Como subopciones aparecen esas mismas colas de trabajo, de modo que el usuario puede acceder directamente a cada una de ellas. Las vistas de colas de trabajo se describen en la sección [Colas de trabajo](27-QflowTeamTutorial.md#colas-de-trabajo).
     
-*   **Vistas:** permite acceder a la página de vistas. Las vistas se describen en la sección [Vistas](24-QflowTaskTutorial.html#vistas). Como subopciones aparecen las vistas para las cuales se definió que deben aparecer en el menú y que el usuario tiene permiso de ver.
+*   **Vistas:** permite acceder a la página de vistas. Las vistas se describen en la sección [Vistas](24-QflowTaskTutorial.md#vistas). Como subopciones aparecen las vistas para las cuales se definió que deben aparecer en el menú y que el usuario tiene permiso de ver.
     
-*   **Gráficas:** permite acceder a la página de gráficas. Las gráficas se describen en [Gráficas](24-QflowTaskTutorial.html#graficas). Como subopciones aparecen las gráficas para las cuales se definió que deben aparecer en el menú y que el usuario tiene permiso de ver.
+*   **Gráficas:** permite acceder a la página de gráficas. Las gráficas se describen en [Gráficas](24-QflowTaskTutorial.md#graficas). Como subopciones aparecen las gráficas para las cuales se definió que deben aparecer en el menú y que el usuario tiene permiso de ver.
     
-*   **Indicadores:** permite acceder a la página de indicadores. Los indicadores se describen en [Indicadores](24-QflowTaskTutorial.html#indicadores). Como subopciones aparecen los indicadores para los cuales se definió que deben aparecer en el menú y que el usuario tiene permiso de ver.
+*   **Indicadores:** permite acceder a la página de indicadores. Los indicadores se describen en [Indicadores](24-QflowTaskTutorial.md#indicadores). Como subopciones aparecen los indicadores para los cuales se definió que deben aparecer en el menú y que el usuario tiene permiso de ver.
     
-*   **Tableros de control:** permite acceder a la página de tableros de control. Los tableros de control se describen en [Tableros de control](30.1-UpgradeGuide3_1_To_4_3.html#tableros-de-control). Como subopciones aparecen los tableros de control para los cuales se definió que deben aparecer en el menú y que el usuario tiene permiso de ver.
+*   **Tableros de control:** permite acceder a la página de tableros de control. Los tableros de control se describen en [Tableros de control](30.1-UpgradeGuide3_1_To_4_3.md#tableros-de-control). Como subopciones aparecen los tableros de control para los cuales se definió que deben aparecer en el menú y que el usuario tiene permiso de ver.
     
 
 ### Funcionamiento general de la interfaz de usuario[](#funcionamiento-general-de-la-interfaz-de-usuario "Link to this heading")
@@ -200,7 +200,7 @@ Los botones que se muestran agrupados sobre el recuadro que muestra la lista de 
 
 *   **Buscar:** permite ingresar un texto. Qflow filtrará la vista, mostrando solamente aquellos elementos que contengan en las columnas de tipo texto el texto ingresado, o que tengan en columnas de otros tipos valores iguales a los representados por el texto ingresado (por ejemplo, si se ingresa un número, Qflow comparará el ID de cada proceso de la lista, que es un número, con el número ingresado; ver la descripción del elemento “Buscar” del menú lateral, más arriba). Algunos datos de aplicación están asociados a dominios que buscan información que está almacenada fuera de Qflow. Los valores de estos datos son identificadores, que se guardan en Qflow y que se asocian a descripciones, que se almacenan fuera de Qflow. Qflow no utiliza esas descripciones para filtrar vistas.
     
-*   **Aplicar filtro avanzado:** permite filtrar la vista utilizando expresiones complejas, como por ejemplo, “Todos los procesos que pertenezcan a la plantilla ‘Aprobación de gastos’ o a la plantilla ‘Solicitud de cliente’, que hayan sido iniciados entre el 1/1/2016 y el 1/1/2017”, o incluso más complejas. Es útil cuando no alcanza con el filtro disponible a través de la opción “Buscar”. Una explicación detallada de cómo definir un filtro avanzado se da en la sección sobre vistas (ver [Vistas](24-QflowTaskTutorial.html#vistas)). Un filtro avanzado funciona como el filtro de una vista, salvo que el filtro avanzado solo puede utilizar columnas de la vista a la que se aplica, mientras que al definir el filtro de una vista el usuario puede elegir qué columnas desea usar para hacer el filtro. En el caso del filtro avanzado, entonces, no se eligen columnas, sino que solo se construyen condiciones y grupos de condiciones utilizando las columnas que aparecen en la vista.
+*   **Aplicar filtro avanzado:** permite filtrar la vista utilizando expresiones complejas, como por ejemplo, “Todos los procesos que pertenezcan a la plantilla ‘Aprobación de gastos’ o a la plantilla ‘Solicitud de cliente’, que hayan sido iniciados entre el 1/1/2016 y el 1/1/2017”, o incluso más complejas. Es útil cuando no alcanza con el filtro disponible a través de la opción “Buscar”. Una explicación detallada de cómo definir un filtro avanzado se da en la sección sobre vistas (ver [Vistas](24-QflowTaskTutorial.md#vistas)). Un filtro avanzado funciona como el filtro de una vista, salvo que el filtro avanzado solo puede utilizar columnas de la vista a la que se aplica, mientras que al definir el filtro de una vista el usuario puede elegir qué columnas desea usar para hacer el filtro. En el caso del filtro avanzado, entonces, no se eligen columnas, sino que solo se construyen condiciones y grupos de condiciones utilizando las columnas que aparecen en la vista.
     
 *   **Actualizar vista:** actualiza la pantalla que está mostrando la vista para reflejar cambios que puedan haber ocurrido desde que se actualizó la pantalla por última vez o desde que se ingresó a la pantalla.
     
@@ -273,7 +273,7 @@ Figura 305 Ejemplo de un formulario estándar de inicio de un proceso[](#id22
 
 ### Inicio de procesos por usuarios externos o anónimos[](#inicio-de-procesos-por-usuarios-externos-o-anonimos "Link to this heading")
 
-Qflow permite configurar los procesos para que puedan ser iniciados por usuarios ajenos al sistema, sin necesidad de estar registrados para hacerlo. Para que un proceso pueda ser iniciado de esta manera, se debe configurar explicitamente en Qflow Design (ver el [manual de Qflow Design](15-QflowDesign.html) para mas detalles).
+Qflow permite configurar los procesos para que puedan ser iniciados por usuarios ajenos al sistema, sin necesidad de estar registrados para hacerlo. Para que un proceso pueda ser iniciado de esta manera, se debe configurar explicitamente en Qflow Design (ver el [manual de Qflow Design](15-QflowDesign.md) para mas detalles).
 
 Los procesos iniciados de forma anónima muestran a un usuario «Invitado» como usuario iniciador de proceso.
 
@@ -303,7 +303,7 @@ Figura 307 Menú con tareas pendientes[](#id24 "Link to this image")
 
 Si selecciona una tarea, ya sea haciéndole clic en el propio menú o en una vista de tareas, Qflow lo lleva al formulario de la tarea. Ese formulario muestra los datos del proceso y permite responder la tarea.
 
-Un usuario también puede responder tareas que hayan sido asignadas a colas de trabajo en las que tenga permiso de actuar (ver [Colas de trabajo](27-QflowTeamTutorial.html#colas-de-trabajo)).
+Un usuario también puede responder tareas que hayan sido asignadas a colas de trabajo en las que tenga permiso de actuar (ver [Colas de trabajo](27-QflowTeamTutorial.md#colas-de-trabajo)).
 
 #### Respuesta rápida[](#respuesta-rapida "Link to this heading")
 
@@ -346,7 +346,7 @@ Es posible configurar vistas personalizadas que utilicen esta funcionalidad. Par
 4.  Guardar la configuración de la vista.
     
 
-Ahora ya tenemos una vista personalizada que nos permitirá dar respuesta rápida a nuestras tareas. Podemos usar la funcionalidad de respuesta rápida en cualquier vista personalizada, así como también en la vista de «Mis tareas», dentro de [Tableros de control](30.1-UpgradeGuide3_1_To_4_3.html#tableros-de-control).
+Ahora ya tenemos una vista personalizada que nos permitirá dar respuesta rápida a nuestras tareas. Podemos usar la funcionalidad de respuesta rápida en cualquier vista personalizada, así como también en la vista de «Mis tareas», dentro de [Tableros de control](30.1-UpgradeGuide3_1_To_4_3.md#tableros-de-control).
 
 Por último, la función también permite responder directamente desde el mail de notificación de la tarea (si se tiene configurado para ello). Si alguna de las posibles respuestas tiene configurado que se requieren comentario, al responder la tarea se le envía a una pantalla para que pueda agregar el comentario, de no ser así se le mostrará un mensaje indicando que la tarea fue respondida.
 
@@ -384,7 +384,7 @@ Figura 317 Historial de respuesta de tarea con usuario externo[](#id34 "Link 
 
 Al igual que las tareas a usuarios de sistema, podremos generar alertas, recordatorios, vencimientos y delegaciones para las mismas, las cuales llegarán a los usuarios externos mediante su correo. Podemos delegar tareas de usuarios externos a usuarios de sistema, pero no a usuarios externos.
 
-Para configurar que una pueda ser respondida por usuarios externos, vea la sección de [Respuesta de tarea externa](15-QflowDesign.html#respuesta-de-tarea-externa) en el manual de [Qflow Design](15-QflowDesign.html).
+Para configurar que una pueda ser respondida por usuarios externos, vea la sección de [Respuesta de tarea externa](15-QflowDesign.md#respuesta-de-tarea-externa) en el manual de [Qflow Design](15-QflowDesign.md).
 
 #### Mensajes de confirmación de inicio de proceso y respuesta de tarea[](#mensajes-de-confirmacion-de-inicio-de-proceso-y-respuesta-de-tarea "Link to this heading")
 
@@ -396,7 +396,7 @@ Estos mensajes pueden ser decorados con etiquetas para incluír datos, parámetr
 
 Figura 318 Mensaje de confirmación[](#id35 "Link to this image")
 
-Para configurar mensajes de confirmación al inicio o para respuesta de tareas, vea la configuración específica del [evento de inicio](15-QflowDesign.html#eventos-de-inicio) y de [tarea de usuario](15-QflowDesign.html#tarea-de-usuario) en el manual de [Qflow Design](15-QflowDesign.html).
+Para configurar mensajes de confirmación al inicio o para respuesta de tareas, vea la configuración específica del [evento de inicio](15-QflowDesign.md#eventos-de-inicio) y de [tarea de usuario](15-QflowDesign.md#tarea-de-usuario) en el manual de [Qflow Design](15-QflowDesign.md).
 
 #### Colas de trabajo[](#colas-de-trabajo "Link to this heading")
 
@@ -433,7 +433,7 @@ Las operaciones disponibles para las tareas de una cola de trabajo son las sigui
 
 *   **Archivar:** archiva temporalmente una tarea, de modo que esta deja de estar activa y pasa a aparecer en la lista de tareas archivadas. La tarea puede ser reactivada más tarde. Esta opción solo está disponible para tareas activas.
     
-*   **Asignar:** permite asignar la tarea a algún usuario. Al asignar una tarea a un usuario, la tarea queda tomada por él. Para que un usuario pueda asignar una tarea a otro usuario, debe ser supervisor del nodo al que pertenece ese usuario (ver manual de [Qflow Team](18-QflowTeam.html)). Además, el usuario al que se le asigna la tarea debe tener permiso para actuar en la cola de trabajo.
+*   **Asignar:** permite asignar la tarea a algún usuario. Al asignar una tarea a un usuario, la tarea queda tomada por él. Para que un usuario pueda asignar una tarea a otro usuario, debe ser supervisor del nodo al que pertenece ese usuario (ver manual de [Qflow Team](18-QflowTeam.md)). Además, el usuario al que se le asigna la tarea debe tener permiso para actuar en la cola de trabajo.
     
 *   **Responder:** lleva a la pantalla que permite responder la tarea. Si la tarea no está tomada por el usuario, al comenzar a completarla la tomará automáticamente.
     
@@ -705,7 +705,7 @@ Si hace clic en el ícono de agregar vista, Qflow lo lleva a una pantalla como l
 
 En esta pantalla debe definir:
 
-*   **El paquete al que pertenecerá la vista:** una vista pertenece a un determinado paquete, de la misma forma que las plantillas de procesos. El paquete al que pertenece una vista es importante porque determina muchos de los permisos que se aplican a la vista. Por ejemplo, si un usuario puede modificar una vista depende de si ese usuario tiene el permiso “Administrar vistas” para el paquete que contiene esa vista. También define qué columnas están disponibles en la vista (por ejemplo, qué datos de aplicación, ya que éstos también tienen un lugar en la estructura de paquetes; consulte el manual del [Diseñador de Procesos del Negocio](15-QflowDesign.html) por más información).
+*   **El paquete al que pertenecerá la vista:** una vista pertenece a un determinado paquete, de la misma forma que las plantillas de procesos. El paquete al que pertenece una vista es importante porque determina muchos de los permisos que se aplican a la vista. Por ejemplo, si un usuario puede modificar una vista depende de si ese usuario tiene el permiso “Administrar vistas” para el paquete que contiene esa vista. También define qué columnas están disponibles en la vista (por ejemplo, qué datos de aplicación, ya que éstos también tienen un lugar en la estructura de paquetes; consulte el manual del [Diseñador de Procesos del Negocio](15-QflowDesign.md) por más información).
     
 *   **El tipo de la vista:** el tipo de la vista indica qué tipo de ítem la vista contiene. Una vista puede contener ítems públicos o privados y dentro de cada una de estas categorías hay varios tipos de vista. Estos tipos indican qué tipos de elementos (plantillas, procesos, tareas, etc.) se muestran en las vistas.
     
@@ -935,7 +935,7 @@ Figura 347 Combinación de filtros con grupos de condiciones[](#id64 "Link to
 
 ###### Cómo definir filtros[](#como-definir-filtros "Link to this heading")
 
-Para definir filtros, agregue las columnas que desee utilizar de la misma forma que se agregan columnas a la vista (ver [Columnas](24-QflowTaskTutorial.html#columnas)): haciendo clic en el botón “[![image12](_images/image472.png)](_images/image472.png)” y arrastrando las columnas deseadas hacia donde dice “Arrastrar aquí”.
+Para definir filtros, agregue las columnas que desee utilizar de la misma forma que se agregan columnas a la vista (ver [Columnas](24-QflowTaskTutorial.md#columnas)): haciendo clic en el botón “[![image12](_images/image472.png)](_images/image472.png)” y arrastrando las columnas deseadas hacia donde dice “Arrastrar aquí”.
 
 Para agregar una condición, haga clic en “+Condición”. Para agregar un grupo, haga clic en “+Grupo”.
 
@@ -1168,7 +1168,7 @@ Las **Dimensiones** definen las columnas que determinan los valores que se relac
 
 Consulte los ejemplos [Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)](#ejemplo-graficas-sin-agrupamiento-de-datos-columnas-barras-anillo-circular) y [Ejemplo: gráficas con agrupamiento de datos (columnas apiladas y agrupadas; barras apiladas y agrupadas)](#ejemplo-graficas-con-agrupamiento-de-datos-columnas-apiladas-y-agrupadas-barras-apiladas-y-agrupadas) para ver cómo se utilizan estas propiedades en casos concretos de gráficas.
 
-Para agregar una dimensión, proceda de forma análoga a como se procede para agregar una columna a una vista (ver [Columnas](24-QflowTaskTutorial.html#columnas)).
+Para agregar una dimensión, proceda de forma análoga a como se procede para agregar una columna a una vista (ver [Columnas](24-QflowTaskTutorial.md#columnas)).
 
 Si hay más de una dimensión, el orden de las dimensiones importa. Por ejemplo, en una gráfica de columnas apiladas de dos dimensiones, la primera se usa para determinar los valores que van en el eje horizontal y la segunda para determinar las categorías en las que se subdivide cada columna. Para cambiar el orden de las dimensiones, presione el botón en una de ellas y arrástrela hacia el lugar deseado en el orden.
 
@@ -1811,10 +1811,10 @@ También incluye vínculos, accesibles desde un ícono en la parte superior dere
 
 *   **Administrar bandeja de sistema:** lleva a una página en la que se puede determinar qué vistas tiene la bandeja de sistema. Esta bandeja es la que está asociada por defecto a las colas de trabajo. Por lo tanto, si se crea una cola de trabajo nueva, tendrá las vistas que tiene esta bandeja. La forma de especificar las vistas de esta bandeja es la misma que para las otras bandejas (ver abajo; ver también la [Figura 406](#customizeviews)).
     
-*   **Administrar vistas de cola de trabajo:** permite crear, modificar y borrar vistas de colas de trabajo, es decir, las vistas que se pueden usar en las bandejas de las colas. Estas vistas se crean y definen de la misma forma que las otras vistas (ver [Vistas](24-QflowTaskTutorial.html#vistas)), pero para ellas no se elige de qué tipo son (son todas de tipo “Bandeja”).
+*   **Administrar vistas de cola de trabajo:** permite crear, modificar y borrar vistas de colas de trabajo, es decir, las vistas que se pueden usar en las bandejas de las colas. Estas vistas se crean y definen de la misma forma que las otras vistas (ver [Vistas](24-QflowTaskTutorial.md#vistas)), pero para ellas no se elige de qué tipo son (son todas de tipo “Bandeja”).
     
 
-Cuando un usuario entra en esta página, se le muestra el árbol de nodos de Qflow Team para que el usuario seleccione la cola de trabajo cuya bandeja desee modificar (las colas de trabajo son nodos especiales; por más información sobre nodos y colas de trabajo, consulte el manual del [Qflow Team](18-QflowTeam.html)). Además de colas de trabajo, se muestran nodos, porque una cola de trabajo puede pertenecer a un nodo que no es una cola de trabajo. Abra los nodos o colas de trabajo que correspondan hasta encontrar la cola de trabajo para la cual desea definir una bandeja.
+Cuando un usuario entra en esta página, se le muestra el árbol de nodos de Qflow Team para que el usuario seleccione la cola de trabajo cuya bandeja desee modificar (las colas de trabajo son nodos especiales; por más información sobre nodos y colas de trabajo, consulte el manual del [Qflow Team](18-QflowTeam.md)). Además de colas de trabajo, se muestran nodos, porque una cola de trabajo puede pertenecer a un nodo que no es una cola de trabajo. Abra los nodos o colas de trabajo que correspondan hasta encontrar la cola de trabajo para la cual desea definir una bandeja.
 
 Al seleccionar una cola de trabajo, al lado de la imagen se muestra la opción “Personalizar las vistas de esta bandeja”, junto con la lista de vistas que están actualmente en ella.
 
@@ -1881,7 +1881,7 @@ Al agregar un permiso, después de haber seleccionado el miembro al que se desea
 
 Además de permitir o denegar un permiso, se puede indicar si el permiso es heredable, es decir, si el mismo permiso se aplica a los paquetes descendientes del paquete que se está modificando.
 
-Por ejemplo, si se le da a un usuario el permiso “Ver ítems” en el paquete Raíz y se especifica que ese permiso es heredable, entonces podrá ver los ítems de todos los paquetes del sistema, porque todos los otros paquetes son descendientes del paquete Raíz (salvo que en algún paquete se le niegue explícitamente ese permiso). En cambio, si no se lo pone como heredable, el usuario podrá ver los ítems del paquete Raíz, pero no los de otros paquetes (a menos que tenga algún otro permiso que le permita hacerlo). El manual de [Qflow Team](18-QflowTeam.html) tiene una explicación detallada de cómo funcionan los permisos y la herencia de permisos.
+Por ejemplo, si se le da a un usuario el permiso “Ver ítems” en el paquete Raíz y se especifica que ese permiso es heredable, entonces podrá ver los ítems de todos los paquetes del sistema, porque todos los otros paquetes son descendientes del paquete Raíz (salvo que en algún paquete se le niegue explícitamente ese permiso). En cambio, si no se lo pone como heredable, el usuario podrá ver los ítems del paquete Raíz, pero no los de otros paquetes (a menos que tenga algún otro permiso que le permita hacerlo). El manual de [Qflow Team](18-QflowTeam.md) tiene una explicación detallada de cómo funcionan los permisos y la herencia de permisos.
 
 [![Selección de un paquete](_images/image1142.png)](_images/image1142.png)
 
@@ -1925,9 +1925,9 @@ Figura 413 Lista de permisos en la que se acaba de agregar el rol «Diseñador»
 
 ### Configuración de notificaciones de dispositivo[](#configuracion-de-notificaciones-de-dispositivo "Link to this heading")
 
-Para poder utilizar las notificaciones de dispositivo debe tener configurado correctamente un _sender_ de notificaciones de usuario. Para más detalles ver el manual de [Qflow Admin](19-QflowAdmin.html).
+Para poder utilizar las notificaciones de dispositivo debe tener configurado correctamente un _sender_ de notificaciones de usuario. Para más detalles ver el manual de [Qflow Admin](19-QflowAdmin.md).
 
-También debe tener el _sender_ correspondiente seleccionado para su usuario. Ver manual de [Qflow Team](18-QflowTeam.html). De lo contrario no recibirá notificaciones de dispositivo, aunque las tenga habilitadas.
+También debe tener el _sender_ correspondiente seleccionado para su usuario. Ver manual de [Qflow Team](18-QflowTeam.md). De lo contrario no recibirá notificaciones de dispositivo, aunque las tenga habilitadas.
 
 **Configurar las notificaciones de dispositivo**
 
@@ -1995,7 +1995,7 @@ Figura 420 Selector de fecha y hora.[](#id137 "Link to this image")
 
 Finalmente si se visualiza una fecha y esta no tiene ningún tipo de aclaración, puede asumirse que se encuentra en la zona horaria del usuario.
 
-[Anterior](37-QformTutorial.html "Crea tu formulario personalizado") [Siguiente](15-QflowDesign.html "Qflow Design")
+[Anterior](37-QformTutorial.md "Crea tu formulario personalizado") [Siguiente](15-QflowDesign.md "Qflow Design")
 
 - - -
 
