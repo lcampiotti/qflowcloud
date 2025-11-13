@@ -5,19 +5,19 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
+*   [Novedades](29-ReleaseNote.md)
 *   [Introducción a Qflow](#)
     *   [Introducción](#introduccion)
     *   [Organización de este manual](#organizacion-de-este-manual)
@@ -28,18 +28,18 @@ Inicio
     *   [Componentes de Qflow](#componentes-de-qflow)
     *   [Guía de la documentación de Qflow](#guia-de-la-documentacion-de-qflow)
         *   [Listado de manuales](#listado-de-manuales)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
+*   [](index.md)
 *   Introducción a Qflow
 
 - - -
@@ -253,24 +253,24 @@ Este manual es una introducción a Qflow y es recomendable leerlo antes de leer 
 
 La documentación de Qflow está compuesta por los siguientes manuales:
 
-*   [Introducción a Qflow:](01-QflowIntroduction.html) es este manual.
+*   [Introducción a Qflow:](01-QflowIntroduction.md) es este manual.
     
-*   [Tutorial de Qflow:](06-Tutorial.html) es un complemento a este manual. Explica paso a paso cómo diseñar un proceso y cómo ponerlo en funcionamiento. Se recomienda leer ese manual después de éste.
+*   [Tutorial de Qflow:](06-Tutorial.md) es un complemento a este manual. Explica paso a paso cómo diseñar un proceso y cómo ponerlo en funcionamiento. Se recomienda leer ese manual después de éste.
     
-*   [Qflow Task:](04-QflowTask.html) es el manual de Qflow Task. Esta es tal vez la única herramienta que utilizarán todos los usuarios, puesto que es a través de él que se inician procesos y se interactúa con ellos en general.
+*   [Qflow Task:](04-QflowTask.md) es el manual de Qflow Task. Esta es tal vez la única herramienta que utilizarán todos los usuarios, puesto que es a través de él que se inician procesos y se interactúa con ellos en general.
     
-*   [Qflow Design:](15-QflowDesign.html) es el manual de Qflow Design. Explica conceptos básicos muy importantes, y tiene instrucciones detalladas para diseñar procesos en notación BPMN, además de una referencia completa de todos los tipos de paso que pueden componer el diseño de un proceso.
+*   [Qflow Design:](15-QflowDesign.md) es el manual de Qflow Design. Explica conceptos básicos muy importantes, y tiene instrucciones detalladas para diseñar procesos en notación BPMN, además de una referencia completa de todos los tipos de paso que pueden componer el diseño de un proceso.
     
-*   [Qflow Team:](18-QflowTeam.html) es el manual de Qflow Team, sitio que permite crear y administrar las cuentas de los usuarios, definir las relaciones jerárquicas entre ellos y modelar la estructura de la organización. En ese sitio web se definen los roles de seguridad y grupos, elementos esenciales para la administración de la seguridad de Qflow. El modelo de seguridad también se explica en ese manual.
+*   [Qflow Team:](18-QflowTeam.md) es el manual de Qflow Team, sitio que permite crear y administrar las cuentas de los usuarios, definir las relaciones jerárquicas entre ellos y modelar la estructura de la organización. En ese sitio web se definen los roles de seguridad y grupos, elementos esenciales para la administración de la seguridad de Qflow. El modelo de seguridad también se explica en ese manual.
     
-*   [Qflow Admin:](19-QflowAdmin.html) es el manual de Qflow Admin, sitio que permite monitorear el estado de los distintos sitios y servicios de Qflow. Además, brinda la posibilidad de administrar propiedades extendidas, parámetros de sistema y licencias. En este manual se detallan las distintas configuraciones específicas de los elementos previamente mencionados.
+*   [Qflow Admin:](19-QflowAdmin.md) es el manual de Qflow Admin, sitio que permite monitorear el estado de los distintos sitios y servicios de Qflow. Además, brinda la posibilidad de administrar propiedades extendidas, parámetros de sistema y licencias. En este manual se detallan las distintas configuraciones específicas de los elementos previamente mencionados.
     
-*   [Web services API:](20-WebServicesAPI.html) manual de la API de web services de Qflow, orientado especialmente hacia programadores que pretendan utilizarlos.
+*   [Web services API:](20-WebServicesAPI.md) manual de la API de web services de Qflow, orientado especialmente hacia programadores que pretendan utilizarlos.
     
-*   [Referencia de la Interfaz de Scripting:](10-ScriptingInterface.html) descripción del modelo de objetos que Qflow pone a disposición de programadores que tengan que escribir código para que se ejecute en los procesos (pasos de código, pasos de evaluación por código, manejadores de eventos).
+*   [Referencia de la Interfaz de Scripting:](10-ScriptingInterface.md) descripción del modelo de objetos que Qflow pone a disposición de programadores que tengan que escribir código para que se ejecute en los procesos (pasos de código, pasos de evaluación por código, manejadores de eventos).
     
 
-[Anterior](29.1-ReleaseNote5_1_Cloud.html "v5.1") [Siguiente](TutorialsIndex.html "Tutoriales")
+[Anterior](29.1-ReleaseNote5_1_Cloud.md "v5.1") [Siguiente](TutorialsIndex.md "Tutoriales")
 
 - - -
 
