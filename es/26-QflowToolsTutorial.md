@@ -5,45 +5,45 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
     *   [Introducción a las herramientas de Qflow](#)
         *   [Introducción](#introduccion)
         *   [Qflow Design: diseñador web de procesos de negocio](#qflow-design-disenador-web-de-procesos-de-negocio)
         *   [Qflow Task: herramienta de tareas y procesos](#qflow-task-herramienta-de-tareas-y-procesos)
         *   [Qflow Team: administrador del equipo de trabajo y su estructura organizacional](#qflow-team-administrador-del-equipo-de-trabajo-y-su-estructura-organizacional)
         *   [Qflow Admin: administración y monitoreo del sistema](#qflow-admin-administracion-y-monitoreo-del-sistema)
-    *   [Crea tu primer proceso](06-Tutorial.html)
-    *   [Diseña un proceso de quejas](23-DesignTutorial.html)
-    *   [Descubre Qflow Task](24-QflowTaskTutorial.html)
-    *   [Configura el equipo](27-QflowTeamTutorial.html)
-    *   [Administra y monitorea el sistema](28-QflowAdminTutorial.html)
-    *   [Crea tu formulario personalizado](37-QformTutorial.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+    *   [Crea tu primer proceso](06-Tutorial.md)
+    *   [Diseña un proceso de quejas](23-DesignTutorial.md)
+    *   [Descubre Qflow Task](24-QflowTaskTutorial.md)
+    *   [Configura el equipo](27-QflowTeamTutorial.md)
+    *   [Administra y monitorea el sistema](28-QflowAdminTutorial.md)
+    *   [Crea tu formulario personalizado](37-QformTutorial.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Tutoriales](TutorialsIndex.html)
+*   [](index.md)
+*   [Tutoriales](TutorialsIndex.md)
 *   Introducción a las herramientas de Qflow
 
 - - -
@@ -83,7 +83,7 @@ Esta herramienta permite diseñar procesos para luego poder utilizarlos según l
 
 Figura 110 Qflow Design[](#id3 "Link to this image")
 
-Qflow Design nos permite diseñar en base a procesos creados manualmente, o creados a partir de una descripción textual usando nuestro [asistente de inteligencia artificial](15-QflowDesign.html#aiassistant), que es capaz de generar el flujo del proceso, así como también los datos y roles necesarios para su funcionamiento.
+Qflow Design nos permite diseñar en base a procesos creados manualmente, o creados a partir de una descripción textual usando nuestro [asistente de inteligencia artificial](15-QflowDesign.md#aiassistant), que es capaz de generar el flujo del proceso, así como también los datos y roles necesarios para su funcionamiento.
 
 Para comenzar a crear procesos es necesario acceder al árbol de paquetes en el panel izquierdo de la herramienta. Allí se encuentra el paquete “Raíz”, donde pueden crearse sub-paquetes por cada una de las áreas de la organización. Por último, desde la ruta donde se desea ubicar el proceso es necesario crear la plantilla de proceso.
 
@@ -115,7 +115,7 @@ Figura 113 Listado de roles de proceso[](#id6 "Link to this image")
 
 *   Dentro de las **integraciones** es posible invocar otros sistemas.
     
-*   Por más detalles sobre los ítems restantes puede consultar el manual del [Qflow Design.](15-QflowDesign.html)
+*   Por más detalles sobre los ítems restantes puede consultar el manual del [Qflow Design.](15-QflowDesign.md)
     
 
 Los procesos pueden ser definidos mediante diferentes elementos, como pueden ser los **eventos, tareas, compuertas** conectadas entre sí, entre otros. A su vez, cada elemento puede tener diferentes **tipos**. A modo de ejemplo, las tareas pueden ser tareas de usuario, fórmulas, etc.
@@ -228,16 +228,16 @@ La sección de **servicios de notificación** permite visualizar y administrar l
 
 Por más información sobre cada una de las herramientas puede referirse a sus respectivos manuales. Allí encontrará tanto sus funcionalidades como sus posibles usos, detallados con mayor profundidad:
 
-*   Manual de [Qflow Task](04-QflowTask.html)
+*   Manual de [Qflow Task](04-QflowTask.md)
     
-*   Manual de [Qflow Design](15-QflowDesign.html)
+*   Manual de [Qflow Design](15-QflowDesign.md)
     
-*   Manual de [Qflow Team](18-QflowTeam.html)
+*   Manual de [Qflow Team](18-QflowTeam.md)
     
-*   Manual de [Qflow Admin](19-QflowAdmin.html)
+*   Manual de [Qflow Admin](19-QflowAdmin.md)
     
 
-[Anterior](TutorialsIndex.html "Tutoriales") [Siguiente](06-Tutorial.html "Crea tu primer proceso")
+[Anterior](TutorialsIndex.md "Tutoriales") [Siguiente](06-Tutorial.md "Crea tu primer proceso")
 
 - - -
 
