@@ -1,0 +1,230 @@
+v5.2-v5.5
+=========
+
+La migración de la versión 5.2 a la `versión 5.5 <29.6-ReleaseNote5_5.html>`_ del 
+producto incluye los cambios de las versiones `5.3 <29.4-ReleaseNote5_3.html>`_ 
+y `5.4 <29.5-ReleaseNote5_4.html>`_. Estas versiones fueron liberadas para 
+la versión *Cloud* del producto, y con la liberación de la versión 5.5, se incluyen 
+sus cambios a la versión *OnPremise* del producto.
+
+
+Consideraciones de migración desde Qflow 5.2
+--------------------------------------------
+
+Cambios en formularios personalizados
+*************************************
+
+**Métodos asincrónicos de formularios personalizados**
+
+Muchos de los métodos usados para invocar acciones, como por ejemplo, 
+obtener el formulario de inicio de un proceso, responder una tarea o 
+editar un proceso fueron cambiados a métodos *asíncronos*, esto quiere 
+decir que hay que hacer cambios en los formularios que los utilizan para que
+funcionen.
+
+.. warning::
+
+    Dado estos cambios, es importante tener en cuenta que de acuerdo a como 
+    este implementado, los metodos pueden no dar errores a nivel de compilación. 
+    Los usuarios que desarrollan formularios pueden no percatarse de problemas, 
+    sin embargo, puede que ocurran efectos no deseados si no se agregan las 
+    instrucciones *await* donde corresponde.
+
+Puede ver estos cambios reflejados en la sección de :ref:`controladores 
+<CustomFormsDesignControllers>` del manual de diseño de formularios personalizados.
+
+**Soporte de inicio de procesos y tareas anónimas/externas en formularios personalizados**
+
+Ahora es posible utilizar formularios personalizados en inicio o respuesta de tareas
+anónimas/externas. Para que sigan funcionando los formularios personalizados 
+existentes en este tipo de acciones, tendrá que hacer modificaciones a los formularios 
+de inicio de proceso y respuesta de tarea.
+
+Lo primero que se debería hacer es :ref:`actualizar el archivo ViewStart 
+<ViewStartModification>` con los cambios necesarios para este tipo de formularios.
+Esto implica agregar la condición del nuevo layout, *CustomFormsGuestLayout*, a 
+este archivo. Este archivo debe quedar de la siguiente manera:
+
+    .. highlight:: c#
+    .. code-block:: c#
+
+        {
+            if (Qframework.Web.Mvc.SessionManagement.SessionManagerHelper.GetSessionManager<Qflow.Web.Mvc.SessionManagement.QflowSessionManager>().IsGuest)
+            {
+                Layout = "~/Views/Shared/_CustomFormsGuestLayout.cshtml";
+            } 
+            else if (Request.QueryString["useEmptyLayout"] == null || Request.QueryString["useEmptyLayout"] !="True")
+            {
+                Layout = "~/Views/Shared/_CustomFormsLayout.cshtml";
+            }
+            else
+            {
+                Layout = "~/Views/Shared/_CustomFormsEmptyLayout.cshtml";
+            }
+        }
+
+
+Tanto para los formularios de inicio y respuesta, se debe incluir la referencia 
+a la librería *Qflow.Mvc.Multitenancy* en sus vistas. Podemos hacerlo agregando 
+la siguiente línea a la lista de *usings* que se encuentra al principio del archivo 
+de la vista:
+
+.. highlight:: c#
+.. code-block:: c#
+
+    @using Qflow.Mvc.Multitenancy
+
+Para las vistas de formularios de **inicio de proceso**, reemplazar lo siguiente:
+
+.. highlight:: c#
+.. code-block:: c#
+
+    @using (Html.BeginForm(null, null, new { templateId = Model.TemplateId, useEmptyLayout = Request.QueryString["useEmptyLayout"] }, 
+    FormMethod.Post, new { id = "submitForm", enctype = "multipart/form-data" }))
+
+por el código a continuación:
+
+.. highlight:: c#
+.. code-block:: c#
+
+    @using (Html.BeginForm(null, null, new { templateId = Model.TemplateId, useEmptyLayout = Request.QueryString["useEmptyLayout"], 
+    tenantId = TenantResolver.GetRequestTenantIdOrDefault() }, FormMethod.Post, new { id = "submitForm", enctype = "multipart/form-data" }))
+
+Para las vistas de formularios de **respuesta de tarea**, reemplazar lo siguiente:
+
+.. highlight:: c#
+.. code-block:: c#
+
+    if (Request.QueryString["DisplayLinks"] == null || bool.Parse(Request.QueryString["DisplayLinks"]))
+    {
+        ViewBag.Links = ModelHelper.GetPageLinks("DisplayTask", Model.FlowId, Guid.Empty, Model.VersionId, Url);
+    }
+
+por el código a continuación:
+
+.. highlight:: c#
+.. code-block:: c#
+
+    var isGuest = Model is GuestTaskModel;
+    var displayLinks = Request.QueryString["DisplayLinks"] == null || bool.Parse(Request.QueryString["DisplayLinks"]);
+    if (!isGuest && displayLinks)
+    {
+        ViewBag.Links = ModelHelper.GetPageLinks("DisplayTask", Model.FlowId, Guid.Empty, Model.VersionId, Url);
+    }
+
+Además, reemplazar:
+
+.. highlight:: c#
+.. code-block:: c#
+
+    @using (Html.BeginForm(null, null, new { flowId = Model.FlowId, taskId = Model.FlowStepId, 
+    taskToId = Model.FlowStepToId, useEmptyLayout = Request.QueryString["useEmptyLayout"] }, FormMethod.Post, 
+    new { id = "submitForm", enctype = "multipart/form-data" }))
+
+por lo siguiente: 
+
+.. highlight:: c#
+.. code-block:: c#
+
+    @using (Html.BeginForm(null, null, new { flowId = Model.FlowId, taskId = Model.FlowStepId, 
+    taskToId = Model.FlowStepToId, useEmptyLayout = Request.QueryString["useEmptyLayout"], 
+    tenantId = TenantResolver.GetRequestTenantIdOrDefault() }, FormMethod.Post, 
+    new { id = "submitForm", enctype = "multipart/form-data" }))
+
+Para los formularios de respuesta de tarea, también debemos incluir el helper *QGuest* en la 
+vista de la siguiente manera:
+
+.. highlight:: c#
+.. code-block:: c#
+
+    @Html.QGuest(Request)
+
+
+Cambio de permiso "Administrar vínculos"
+****************************************
+
+Dado que en la versión 5.5 se quitó la funcionalidad de "Vínculos" de Qflow Task, 
+reemplazandola por la funcionalidad de "Personalizar el menú lateral". Por lo tanto, 
+se reemplazó también a nivel de instalación el permiso de "Administrar vínculos" 
+por el nuevo permiso de "Administrar el menú lateral". Para aquellos ambientes en donde 
+se use el sitio WebForms, este permiso tendrá que ser agregado nuevamente para que los 
+usuarios puedan seguir usando la funcionalidad de "Vínculos" del sitio WebForms.
+
+
+Propiedades nulleables de objetos de configuración de cola de trabajo
+*********************************************************************
+
+Las propiedades "ValidFrom" y "ValidTo" de los objetos *WorkQueueConfiguration*, 
+que son retornados por métodos que devuelven información de nodos organizacionales en 
+los `web services <20-WebServicesAPI.html>`_, pasan a ser objetos nulleables, por lo 
+que hay que tener en cuenta esta consideración para aquellos usuarios que los utilizan.
+
+Nuevos parámetros de sistema
+****************************
+
+Se agregaron una serie de parámetros de sistema en esta versión que cambian el comportamiento 
+de Qflow. Se deberá revisar el valor de cada uno de estos para verificar que todo funciona correctamente.
+Los parámetros son:
+
+-   **StartFlowAsGuestLink:** formato de los vínculos a el inicio de procesos anónimos/externos. 
+    Este parámetro es único por instalación, y no se debería modificar para asegurar su funcionamiento correcto.
+
+-   **GuestResponseLink:** formato de vínculo a las respuestas de tareas externas que se despachan a usuarios 
+    externos. Se agrega una instancia de este parámetro por cada espacio de trabajo, y no se debería modificar 
+    para asegurar su funcionamiento correcto.
+
+
+Cambios en archivos *web.config* de sitios y backend API
+********************************************************
+
+Los archivos *web.config* de los sitios y backend API tienen cambios en sus propiedades 
+*assemblyBinding*. Puede hacer una instalación limpia y ver los archivos instalados para ver
+cuales son estas propiedades.
+
+Se agregaron nuevas configuraciones que hay que agregar al archivo *web.config* del sitio de Qflow Task.
+Estas configuraciones se deben agregar bajo la sección *configuration/ appSettings* del archivo. 
+
+-   **Configuración de exportación de tablas:** se debe incluir la siguiente configuración relacionada a 
+    la exportación de tablas en el sitio:
+
+    .. highlight:: xml
+    .. code-block:: xml
+
+            <!-- Table export config -->
+            <add key="ExportFormats" value="csv,html,excel" />
+            <add key="ShowTableExportAsButtons" value="false" />
+
+    La propiedad *ExportFormats* nos deja elegir cuales son los formatos de exportacion en que se permite 
+    exportar tablas, pudiendo eliminar algunos de los valores que se muestran arriba si queremos deshabilitar la 
+    opcion de exportar en ese formato. La propiedad *ShowTableExportAsButtons* permite configurar si 
+    las opciones de exportación se muestran como acciones separadas o agrupadas en una lista desplegable.
+
+-   **Configuración de reCaptcha para inicio de procesos externos/anónimos:** se debe incluir la siguiente 
+    configuración para habilitar un desafío reCaptcha para el inicio de procesos externos/anónimos:
+
+    .. highlight:: xml
+    .. code-block:: xml
+
+        <!-- ReCAPTCHA config -->
+        <add key="ReCAPTCHASiteKey" value="" />
+        <add key="ReCAPTCHASecretKey" value="" />
+        <add key="ReCAPTCHAVerifyUrl" value="https://www.google.com/recaptcha/api/siteverify?secret={{0}}&amp;response={{1}}" /> 
+        <add key="ReCAPTCHARenderUrl" value="https://www.google.com/recaptcha/api.js?onload=onReCaptchaLoad&amp;render=explicit" />
+
+
+    Para habilitar el desafío reCaptcha, debemos completar los valores para las propiedades *ReCAPTCHASiteKey* y 
+    *ReCAPTCHASecretKey*. Puede leer sobre cómo obtener estos valores :ref:`aquí <reCaptchaConfiguration>`.
+    
+
+Se agrega la siguiente propiedad al archivo *system.config*, encontrado en el directorio de instalación 
+de los backend services de Qflow, en la sección *configuration*:
+
+    .. highlight:: xml
+    .. code-block:: xml
+
+        <SecurityProperties>
+            <TokenEncryptionPepper></TokenEncryptionPepper>
+        </SecurityProperties>
+
+Lo que se de como valor de esta propiedad, dentro del nodo *TokenEncryptionPepper* se agrega a los secretos 
+antes de encriptarlos, como una medida de seguridad extra para dificultar su desencriptación. 

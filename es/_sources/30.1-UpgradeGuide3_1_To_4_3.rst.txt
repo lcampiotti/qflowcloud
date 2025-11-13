@@ -1,0 +1,615 @@
+
+v3.01-v4.3
+==========
+
+Parámetros de sistema y propiedades extendidas
+**********************************************
+
+Tanto los parámetros de sistema como las propiedades extendidas pasan a ser almacenados en la base 
+de datos.
+El instalador de base de datos, al hacer un upgrade a 4.3, solicitará la ruta al archivo "system.config" (Configuration 
+path) y el nombre del servidor (Web server name) en donde están alojados los sitios, como lo muestra la 
+siguiente imagen:
+
+   .. figure:: _static/media/30-UpgradeGuide/QflowDatabaseInstaller.png
+      :width: 4in
+      :align: center
+      :alt: Instalador de upgrade
+      
+      Instalador de upgrade
+
+Al hacer clic en “Next”, se mostrará un resumen de la información ingresada, similar a la siguiente imagen:
+
+   .. figure:: _static/media/30-UpgradeGuide/QflowDatabaseInstallerSummary.png
+      :width: 4in
+      :align: center
+      :alt: Confirmar datos de instalación
+      
+      Confirmar datos de instalación
+
+Al confirmar la instalación, el instalador obtendrá las distintas propiedades extendidas y los parámetros 
+de sistema (excepto MaxDBConnectionRetries y QueryCommandTimeout, que seguirán siendo utilizados 
+desde el archivo). Luego, se insertarán en la base de datos con los valores correspondientes y se generará 
+un archivo llamado "newSystem.config" sin la información ya ingresada en la base de datos y que se recomienda sea el nuevo 
+"system.config" del sistema.
+
+En adición, se agregarán los distintos sitios y servicios, teniendo como servidor el ingresado como Web 
+server name, en la tabla RegisteredService. Si se quiere realizar alguna modificación se deberá hacer desde 
+la base de datos. Para más información sobre dicha tabla, vea el manual `Modelo de Base de Datos <13-DatabaseModel.html>`_.
+
+Para corroborar que la importación de la configuración haya sido correcta, podrá hacerlo desde SAM Web, 
+luego de su instalación. Para más información  vea el manual `Administración y monitoreo del sistema <19-QflowAdmin.html>`_.
+
+Cabe destacar que, si bien las imágenes son del instalador de base de datos de SQL Server, para Oracle se 
+comporta de manera análoga.
+
+Habilitar configuración de formularios personalizados del sitio WebForms
+************************************************************************
+
+Si se quiere habilitar la creación de nuevos formularios personalizados de tipo WebForms, es necesario 
+agregar en el archivo "web.config" de BPM Web una configuración:
+
+.. highlight:: xml
+.. code-block:: xml
+
+   <add key="ShowWebFormsProperties" value="true" />
+
+De lo contrario, no se mostrará la opción de WebForms, excepto que el formulario personalizado ya sea 
+de tipo WebForms.
+
+Consideraciones de migración desde Q-flow 3.6 o anterior
+********************************************************
+
+Validación de campo requerido tipo CheckBox
+-------------------------------------------
+
+Si un dato tipo CheckBox tiene alcance “Requerido” en un formulario, se validará que el mismo se 
+encuentre seleccionado.
+
+Formularios personalizados
+--------------------------
+
+El cambio de tecnología del sitio web provoca una incompatibilidad entre los formularios personalizados 
+del sitio WebForms y el nuevo Sitio MVC. Por lo tanto, si usted tiene un proceso con formularios 
+personalizados debe migrarlos a la nueva tecnología para poder utilizarlos en el Sitio MVC. Sin embargo, 
+se podrá seguir utilizando también el sitio WebForms en caso de ser necesario.
+Si se tienen formularios personalizados que únicamente cambian el aspecto del formulario, se recomienda 
+realizar un formulario MVC tipo Vista. Sin embargo, si el formulario incluye código c#, será necesario 
+implementar un formulario MVC tipo Área. Para obtener más detalles sobre cómo crear formularios 
+personalizados vea el manual de `Diseño de formularios personalizados <14-CustomFormDesign.html>`_.
+Cabe destacar que, las validaciones especificadas en la herramienta de diseño de procesos, deben ser 
+migradas siguiendo la nueva implementación del ScriptHost detallada en el manual antes mencionado.
+
+Filtros de vistas, gráficas e indicadores
+-----------------------------------------
+
+El nuevo sitio MVC utiliza una estructura tipo árbol para los filtros de las vistas, gráficas e indicadores, 
+mientras que el sitio WebForms utiliza sólo una lista. Por lo tanto, los filtros anteriores se migrarán al sitio 
+MVC, pero si se edita la vista, gráfica, o indicador en este sitio, se manejarán independiente los filtros en 
+cada sitio.
+
+Tableros de control
+-------------------
+
+La tecnología con la cual están implementados los tableros de control en el sitio WebForms es 
+incompatible con el nuevo sitio MVC. Por lo tanto, se realizará una migración única al momento de la 
+actualización de Q-flow. Luego, los tableros de control compartirán su definición (propiedades y 
+permisos), pero no los elementos que contienen.
+
+Propiedades de adjuntos
+-----------------------
+
+El nuevo sitio MVC no implementa las propiedades de los adjuntos de los procesos.
+
+Sitio WebForms deprecado
+------------------------
+
+El sitio WebForms es remplazado por el nuevo sitio MVC, por lo tanto, deja de ser necesario y ya no 
+pertenece a las instalaciones por defecto. Sin embargo, dado que la migración de los formularios 
+personalizados puede resultar costosa, se permite realizar manualmente la instalación ejecutando 
+DesktopFormsSiteSetup.msi que se encuentra en la carpeta del instalador. Esto permite que los 
+formularios personalizados de tipo WebForms sean accedidos desde el nuevo sitio MVC.
+
+Si se pretende utilizar los formularios personalizados de tipo WebForms y el directorio virtual del sitio 
+WebForms es distinto de ServidorActualDeInstalación/QFlowWebSite, se debe cambiar en el archivo "Web.config"
+del nuevo sitio MVC, en la sección siteConfiguration el atributo webFormsSite por la ruta al sitio 
+WebForms. En adición, si se pretende utilizar FormsAuthentication, se recomienda en los archivos de 
+configuración de ambos sitios asegurarse que los atributos protection, name, path y domain de la sección 
+authentication coincidan, así como también el elemento MachineKey. Esto permite que ambos sitios 
+compartan la cookie de autenticación y no se requiera el inicio de sesión del sitio WebForms al entrar a 
+un formulario personalizado desde el nuevo sitio MVC.
+
+A continuación, se muestra un ejemplo de los elementos necesarios en los archivos de configuración:
+
+   .. highlight:: xml
+   .. code-block:: xml
+      
+      <authentication mode="Forms">
+      <forms loginUrl=".." protection="All" defaultUrl=".." name="QflowAUTH" path="/" domain="" />
+      </authentication>
+      <machineKey validation="SHA1" validationKey="XX" decryption="AES" decryptionKey="YY" compatibilityMode="Framework20SP1"/>
+
+
+
+Este sitio no recibirá mejoras y se encontrará obsoleto en próximas versiones.
+
+Sitio Mobile deprecado
+----------------------
+
+Dado que el nuevo sitio MVC fue diseñado para poder ser utilizado desde distintos tipos de dispositivos, 
+el sitio Mobile deja de ser necesario y ya no pertenece a las instalaciones por defecto. Sin embargo, su 
+instalación se puede realizar manualmente ejecutando MobileFormsSiteSetup.msi que se encuentra en la 
+carpeta del instalador.
+
+Este sitio no tendrá actualizaciones y se encontrará obsoleto en próximas versiones.
+
+Consideraciones de migración desde qflow 3.5 o anterior
+*******************************************************
+
+Eliminación de servicio de envío de notificaciones Simple MAPI
+El servicio de notificaciones Simple MAPI deja de estar disponible como parte del producto. Se recomienda 
+reemplazar su uso por el nuevo servicio de envío de notificaciones Exchange Web Services.
+
+Actualización de las Web Parts de SharePoint
+--------------------------------------------
+
+Las web parts de SharePoint han sido actualizadas para ser distribuidas como un solution package (wsp). 
+Por este motivo la nueva versión de las web parts se soporta solamente en versiones de SharePoint 2010 
+y posteriores.
+
+Si su organización utiliza la versión anterior de las web parts en SharePoint 2003 o 2007, puede seguir 
+usándolas. Sin embargo, la versión anterior de las web parts no se mantendrá y a futuro podrían surgir 
+cambios en los web services que generen incompatibilidades.
+
+Cambios en el cuadro de texto enriquecidoVerificación de consistencia de datos ingresados programáticamente
+-----------------------------------------
+
+Producto de la corrección de algunos problemas que presentaba el cuadro de texto enriquecido, se debió 
+cambiar el identificador de cliente (atributo id en JavaScript) generado por el control. Esto afecta 
+exclusivamente a scripts que utilizan el identificador directamente, sin afectar en lo absoluto scripts que 
+manipulen el control a través de las funciones GetDataElement o Host.GetData, provistas por Q-flow.
+
+Cambios relacionados con localización en tiempo de ejecución
+------------------------------------------------------------
+
+Se realizan algunas correcciones al manejo de localización en tiempo de ejecución, que en algunos casos 
+no se estaba manejando consistentemente. Los cambios son los siguientes:
+
+   -  En código personalizado (pasos de código, eventos, integraciones) se fija el idioma utilizado para 
+      interpretar valores de tipo string al momento de asignar valores a datos de tipo numérico o fecha. 
+      Hasta ahora el texto se estaba interpretando en el idioma de la cuenta con que ejecutaban los 
+      servicios, pero de ahora se interpretará en cultura invariante (inglés). A modo de ejemplo analizar 
+      la siguiente sentencia:
+
+      .. highlight:: C#
+      .. code-block:: C#
+      
+         Host.GetData("número").Value = "1.23";
+      
+      La sentencia anterior tenía un comportamiento diferente en un servidor en español que en otro 
+      que se encontraba en inglés. Notar que si se estaba utilizando objetos de tipos numéricos (como 
+      int o decimal) o fechas (DateTime) este cambio no afectará en nada y el código seguirá 
+      funcionando igual que antes. A modo de ejemplo, la siguiente sentencia no cambia su significado 
+      en lo absoluto:
+      
+      .. highlight:: C#
+      .. code-block:: C#
+
+         Host.GetData("número").Value = 1.23;
+
+   -  En la API de código personalizado se elimina la propiedad Culture disponible en objetos de tipo 
+      User. Dicha propiedad no proporcionaba información útil, ya que los usuarios en Q-flow no tienen 
+      asociado un idioma a nivel de sistema.
+   -  En el reemplazo de etiquetas, usadas por ejemplo en los asuntos de los pasos interactivos, se pasa 
+      a usar el formato del idioma de la cuenta del usuario con que ejecutan los servicios. Esto afecta 
+      básicamente cómo se despliegan etiquetas correspondientes a datos de tipo fecha y números con 
+      decimales, que son las únicas afectadas por el idioma. Previamente se estaba usando el idioma de instalación de Windows, el cual es más difícil de cambiar y suele no ser el esperado por un 
+      usuario final.
+
+Cambios en el formato de exportación
+------------------------------------
+
+Se realizan cambios menores en el formato de algunos archivos de exportación. Los cambios se describen 
+a continuación:
+   -  Para los indicadores (KPI), las propiedades Top y Bottom de los rangos pasan a ser números con 
+      decimales, previamente eran strings.
+   -  Para los roles de template, las restricciones pasan a ser nuevos objetos, con propiedades para dar 
+      soporte a la aplicación de reglas.
+
+Consideraciones de migración desde qflow 3.4 o anterior
+*******************************************************
+
+Requisitos de software de base
+------------------------------
+
+Con la migración de Q-flow al .NET Framework 4.5.1, se producen cambios en el software de base 
+requerido. A continuación, se detallan los requisitos de software de base.
+
+**Sistema Operativo**
+
+Para el servidor:
+   -  Windows Server 2008 SP2
+   -  Windows Server 2008 R2 SP1
+   -  Windows Server 2012
+
+Para equipos cliente:
+   -  Windows 7 SP1
+   -  Windows 8
+
+**SQL Server**
+
+   -  SQL Server 2008
+   -  Oracle
+   -  Oracle 10g R2 con cliente ODP.NET 12c
+
+ASP.NET
+-------
+
+Los sitios web y web services pasan a usar ASP.NET 4.0 con pipeline integrado. Si utiliza un application 
+pool específico para Q-flow debe reconfigurarlo, sino pase a usar algún application pool que cumpla los 
+requisitos mencionados.
+
+
+Configuración de sistema
+------------------------
+
+En lo que respecta a los proveedores de base de datos, ya no se distingue la versión del mismo, pasando 
+a ser los valores aceptados únicamente "SQLServer" y "Oracle". Tener esto en cuenta en caso de reutilizar 
+en el archivo "system.config" anterior. 
+
+Código personalizado
+--------------------
+
+Con la migración al .NET Framework 4.5.1, todo el código personalizado y los formularios pasan a 
+ejecutarse en la nueva versión. Si bien es poco probable, es posible que su código personalizado tenga 
+alguna incompatibilidad con esta versión. Le recomendamos revisar la documentación sobre los cambios 
+que podrían generar problemas, consultando el siguiente vínculo: http://msdn.microsoft.com/en-us/library/ee941656%28VS.100%29.aspx#core.
+
+Acciones temporales en días
+---------------------------
+
+Se cambia el comportamiento de las acciones temporales especificadas en días, para que cuenten la 
+cantidad de días de trabajo en lugar de contar 24 horas laborales. Tenerlo en cuenta si se tienen acciones 
+temporales de este tipo.
+
+Cambios en Web Services
+-----------------------
+
+Las funciones GetUsersByExtendedProperties y GetUsersInGroup de WebOrganization devuelven ahora 
+un objeto de tipo SimpleUserMessage que contiene solamente las propiedades básicas de los usuarios. 
+
+Verificación de consistencia de datos ingresados programáticamente
+------------------------------------------------------------------
+
+**Control de tipo de datos de aplicación**
+
+En la presente versión se implementan funcionalidades que requieren convertir datos de aplicación de su 
+representación en texto al tipo de datos nativo. Por ejemplo, los datos de aplicación de tipo numérico se 
+guardan en base de datos en una representación de texto en cultura invariante (inglés), pero ciertas 
+funcionalidades lo convierten al número equivalente.
+
+El problema de compatibilidad radica en que los datos podrían guardar texto que no es convertible al tipo 
+de datos especificado. Esto solo se puede conseguir utilizando programación, ya que los controles de 
+formularios de Q-flow no permiten inconsistencias en el tipo de datos. A modo de ejemplo, si en un 
+formulario personalizado se asignaba programáticamente el valor “¡Hola mundo!” a un dato de tipo 
+numérico, Q-flow tomaba dicho valor y lo guardaba en la base de datos a pesar de ser inválido.
+
+Si se da un caso como el mencionado es casi seguro que la actualización fallará, con un mensaje indicando 
+que falló la conversión numérica. Desafortunadamente no hay una forma automática de resolver estos 
+casos, ya que modificar los valores podría resultar en pérdida de información. Las alternativas son cambiar 
+el tipo de datos a texto, que no impone restricciones de formato, o resolver las inconsistencias caso por 
+caso.
+
+**Control de cantidad de instancias de datos y roles**
+
+A partir de ahora se realiza un control de la cantidad de valores que se proveen para datos y roles al 
+momento de iniciar flows o responder tareas. Si bien los controles de formularios de Q-flow no permiten
+que la cantidad de valores ingresados sea inconsistente con el alcance del dato o rol, sí era posible lograr 
+inconsistencias si se utilizaba programación para cargar los valores, ya sea usando formularios 
+personalizados o web services. 
+El control ahora realizado afecta a flows en donde se dan este tipo de inconsistencias. Si recibe mensajes 
+de error de que un dato o rol tiene demasiadas o muy pocas instancias, verifique el mismo sea (o no) 
+multivaluado y que imponga restricciones consistentes en la cantidad de instancias permitidas.
+
+Consideraciones de migración desde qflow 3.3 o anterior
+*******************************************************
+
+Formularios personalizados
+--------------------------
+
+**Cambios en validaciones del lado del cliente**
+
+La forma en que se generan los identificadores de cliente1 para datos y roles multivaluados ha sido 
+modificada. Esto afecta solamente a validaciones que utilicen los identificadores escritos directamente en 
+javascript (“hardcoded”), no afecta a validaciones que utilicen las funciones de la API de Q-flow.
+
+Los cuadros de texto numérico ahora utilizan el atributo onkeydown. Esto es algo a tener en cuenta para 
+dominios personalizados que utilicen dicho atributo, ya que de ahora en más no podrán hacerlo con éxito. 
+En estos casos lo que se recomienda es agregar dinámicamente el manejador al evento keydown, lo cual 
+se puede hacer al cargar la página usando la función addEventListener, por ejemplo.
+
+**Cambios en validaciones del lado del servidor**
+
+Se cambió la interfaz del control de formularios para el manejo de adjuntos 
+(Qframework.Web.Interaction.Attachments). Si bien oficialmente el manejo de adjuntos utilizando dicho 
+control no estaba soportado, era posible realizar algunas operaciones con algo de esfuerzo. Quienes 
+usaban dicho control para manejar adjuntos, deberán ahora usar las nuevas funciones diseñadas para el 
+manejo de adjuntos desde formularios personalizados.
+
+Diseño de procesos
+------------------
+
+Se cambió la estructura de los archivos utilizados para almacenar localmente los datos no protegidos al 
+diseñar procesos en el BPM. Si bien siempre fue conveniente, en esta versión es fundamental asegurarse 
+de hacer check in de los cambios locales antes de migrar a la nueva versión, de lo contrario podría perderse 
+la información local.
+
+Se cambió el algoritmo utilizado para dibujar las aristas y sus etiquetas, por lo que es posible que los 
+diseños de procesos no se muestren exactamente igual que en versiones anteriores. De todos modos, se 
+hizo hincapié en mantener compatibilidad por lo que si existen cambios estos deberían ser menores.
+
+Base de datos
+-------------
+
+Se hicieron grandes cambios en el esquema de base de datos, puntualmente en tablas relacionadas con 
+la definición de los procesos. Si se dispone de reportes que acceden a la base de Q-flow y en particular 
+obtienen datos relacionados con el diseño de procesos, se recomienda revisarlos.
+
+Exportación e importación
+-------------------------
+
+El formato del archivo de exportación e importación del modelo organizacional tiene grandes cambios en 
+esta versión. Archivos exportados en versiones anteriores no podrán ser importados en esta versión.
+
+Consideraciones de migración desde qflow 3.2 o anterior
+*******************************************************
+
+Formularios personalizados
+--------------------------
+
+**Cambio en MasterPage predeterminada**
+
+En la MasterPage utilizada en los formularios por defecto se modificó la sobrecarga de la función 
+EnablePrint, la cual recibía dos argumentos y ahora pasa a recibir uno solo. Esto puede generar un error 
+de compilación en formularios personalizados que reutilicen ese código.
+De ser el caso, el problema se corrige modificando en el formulario personalizado la invocación a 
+EnablePrint pasando únicamente el primero de los argumentos.
+
+Hojas de estilos (CSS)
+----------------------
+
+**Cambios en estilos de multivaluados**
+
+Debido a cambios realizados para permitir la personalización de líneas y multivaluados, se cambiaron las 
+clases CSS utilizadas.
+
+En esta versión se reemplaza la clase CSS instanceButton definida en Styles.css por las clases 
+addInstanceButton y removeInstanceButton. Si su organización utiliza un skin personalizado, se 
+recomienda copiar estas nuevas clases desde alguno de los skins predeterminados (Jade o Sapphire) a su 
+hoja de estilos.
+
+Por más información sobre los skins y su personalización referirse a la sección “Personalización” del 
+manual del Sitio web.
+
+Consideraciones de migración desde qflow 3.1 o anterior
+*******************************************************
+
+Formularios personalizados
+--------------------------
+
+**Diálogos modales**
+
+El control de fecha y el selector de ítems se compatibilizaron con dispositivos móviles, y en consecuencia 
+ya no abren diálogos modales para desplegar su contenido. 
+   -  Si se usaba la página de calendario, ésta no estará disponible ya que ahora no es una página 
+      independiente.
+   -  Si se dependía del bloqueo que ejerce un diálogo modal antes de seleccionar un valor, un script 
+      podría dejar de funcionar ya que no se abren diálogos modales y por lo tanto no existe el bloqueo 
+      mencionado.
+
+**Manejo de líneas y multivaluados**
+
+Se refactorizó el manejo de líneas y multivaluados para simplificar el código y permitir establecer y 
+consumir valores de los controles a través de una API consistente.
+
+Este cambio podría llegar a ocasionar problemas en formularios personalizados que accedieran al árbol 
+de controles de las líneas o realizaran otras operaciones complejas.
+Se cambió un mecanismo Ajax personalizado, por update panels. Cambió la estructura de controles que 
+se generan para líneas y multivaluados, por lo que, si se accedía a instancias de controles dentro de líneas 
+o multivaluados accediendo al árbol de controles hijos, es probable que ese código ya no funcione.
+
+La función que hay que utilizar en lugar de este mecanismo es Interaction.GetDataControl, o directamente 
+utilizar los nuevos métodos que se definieron en los controles de los formularios personalizados para 
+acceder a sus valores (opción recomendada si está identificado el dato).
+
+**Generación dinámica de controles**
+
+En formularios personalizados donde se alterna la generación dinámica de controles a través del método 
+Interaction.GetGroupPanels con algunos controles fijos puede haber problemas.
+
+El problema se puede dar si se llama al método GetGroupPanels y dependiendo de algún criterio, por 
+ejemplo, el grouping text, se determina si el grupo se debe agregar o no a la página. Si a su vez se definen 
+controles a través del uso del control Data o Line, esto puede causar errores de ViewState.
+
+Si se usan sólo controles Data/Line, o sólo generación dinámica a través de GetGroupPanels no hay 
+problemas.
+
+El problema se soluciona iterando en la colección de paneles a través de Interaction.GetDataGroups y 
+luego llamando a la función Interaction.GetGroupPanel(groupName).
+
+Diseñador de procesos
+---------------------
+
+Se corrigió la forma en que se evalúan las expresiones del paso de evaluación, respetando la precedencia 
+usual de los operadores NOT, AND y OR.
+
+Esto no afecta a las evaluaciones que usaban paréntesis. Sí podría afectar a evaluaciones donde se 
+ejecutaban operaciones por distintos operadores sin agruparlos en paréntesis, ya que antes no se tomaba 
+una precedencia de operadores, sino que venía dada por el orden en que aparecían los operadores en la 
+consulta.
+
+Consideraciones de migración desde qflow 3.05 o anterior
+********************************************************
+
+Cola de mensajes
+----------------
+
+Asegúrese que las colas de mensajes creadas por Q-flow (de novedades y notificaciones) estén vacías. 
+Esto es especialmente importante si usted está migrando a Q-flow 3.1 o posterior, ya que las colas de 
+mensajes dejan de ser utilizadas a partir de dicha versión, por lo que cualquier mensaje pendiente no será 
+procesado por los motores. En caso de que la cola no esté vacía, deshabilite el acceso web de Q-flow y los 
+Web Services, de modo que no se realicen operaciones nuevas sobre el sistema, y espere a que el backend procese todos los mensajes pendientes.
+
+Las colas de mensajes creadas por Q-flow se encuentran dentro de las colas privadas en la administración 
+de Servicios y Aplicaciones de Windows.
+
+Consideraciones para migración de datos en Base de Personalización 
+------------------------------------------------------------------
+
+A partir de su versión 3.1 Q-flow incluye la posibilidad de almacenar los datos de la Base de 
+Personalización, en la misma base de Q-flow, de modo que quede integrada y no se necesite un proveedor 
+externo. Si usted está haciendo una actualización de una versión 3.05 o anterior a una versión 3.1 o 
+posterior, tiene la posibilidad de seguir utilizando la base de personalización tal cual lo estaba haciendo, 
+o de migrar los datos y utilizar el nuevo método. Vale la pena aclarar que al utilizar el nuevo modelo la 
+conexión a la base de datos se realiza a través del back-end de Q-flow, por lo que se elimina una conexión 
+directa del front-end a la base de datos.
+
+Si usted desea seguir utilizando la misma base de personalización, luego de la instalación del Sitio Web de 
+Q-flow debe reemplazar el archivo "Web.Config" del sitio web, para que acceda a esa BD de personalización.
+
+Si usted desea utilizar la nueva base de personalización, y tiene datos que desea conservar en la base 
+anterior, debe realizar una migración de esos datos, utilizando la herramienta de Migración que puede 
+descargar de aquí (esta herramienta solo está disponible para migración de base de datos SQL Server).
+
+Para realizar la migración, ejecute la herramienta, introduzca la información de servidor, nombre de base 
+de datos y credenciales para acceder a la base de personalización, y la información de servidor, base de 
+datos y credenciales para acceder a la base de Q-flow y haga clic en el botón “Ejecutar Migración”
+
+Es importante realizar esta migración antes de empezar a utilizar el nuevo sistema de almacenamiento de 
+los datos de personalización, ya que la migración sobreescribirá cualquier dato almacenado en la base de 
+destino.
+
+Consideraciones de acceso a datos de aplicación para actualización de Base de Datos 
+-----------------------------------------------------------------------------------
+
+Si está actualizando Q-flow desde la versión 3.05 o anterior a 3.1 o posterior, el mecanismo de 
+almacenamiento de los datos en la tabla FlowData se ha modificado, por lo cual si usted tiene reportes 
+que consultan directamente dicha tabla, u otras aplicaciones que acceden a dicha información 
+directamente, y no a través de las funciones expuestas por Q-flow, éstas probablemente dejen de 
+funcionar correctamente y deberán ser modificadas para contemplar dichos cambios.
+
+A su vez, la actualización de la base de datos puede demorar unos minutos o incluso horas dependiendo 
+del tamaño de la Base de Datos FlowData, ya que se actualizan todos sus datos. También tenga en cuenta 
+que durante este proceso la performance del motor de base de datos se verá afectada, dado el intenso 
+uso de recursos que se dará lugar durante esta migración.
+
+Compatibilidad de funcionalidades con versiones de Servidor de Base de Datos
+----------------------------------------------------------------------------
+
+Una de las nuevas funcionalidades a partir de la versión 3.1 de Q-flow es la posibilidad de incluir datos 
+multivaluados en las búsquedas, y que éstas se realicen sobre todos los valores de los datos. Esta 
+funcionalidad está disponible sólo si su servidor de Base de Datos es SQL Server 2008 o posterior u Oracle 
+11 o posterior.
+
+Consideraciones de migración desde Q-flow 3.03 o anterior
+*********************************************************
+
+A partir de 3.04 se incorpora un nuevo recurso “master page” al sitio de Q-flow llamado 
+CustomFormMaster.master. Éste a su vez hereda de ContentMaster.master que ya existía anteriormente.
+
+Para el correcto funcionamiento de sus formularios personalizados, los mismos deben utilizar la nueva 
+master page (CustomFormMaster.master).
+
+Uso de Ajax
+-----------
+
+Si usted desea migrar de 3.03 o anterior y utiliza los controles de AJAX en sus formularios personalizados 
+debe tener en cuenta este capítulo.
+
+El problema de compatibilidad se genera debido a que se agregó a ContentMaster.master el control 
+ScriptManager de Ajax para que todas las páginas del sitio web de Q-flow puedan utilizarlo. De esta forma, 
+
+si usted tiene formularios personalizados que definen este control, el mismo estará repetido y generará 
+un error de tiempo de ejecución.
+
+Solución: si usa el control ScriptManager o ToolScriptManager para trabajar con controles Ajax (por 
+ejemplo UpdatePanel), simplemente debe borrar de su página dicho control. Si a su vez utiliza otras 
+características Ajax, tales como registrar archivos javascript (*.js) o un web service, reemplace el control 
+ScriptManager por el control ScriptManagerProxy.
+
+Consideraciones de migración desde Q-flow 3.01 o anterior
+*********************************************************
+
+Formularios personalizados
+--------------------------
+
+Si sus procesos utilizan formularios personalizados deberá realizar las siguientes modificaciones para que 
+estos funcionen correctamente.
+
+Un cambio importante es el refactor que se realizó a nivel de proyectos. Esta refactorización permite 
+separar aquellos componentes que antes eran exclusivos de Q-flow a proyectos separados que son 
+reutilizados por diferentes aplicaciones, como por ejemplo Q-expeditive. Estos componentes pertenecen 
+ahora al namespace “Qframework”, lo que implica algunos cambios en las importaciones realizadas en 
+formularios personalizados. Algunos de los cambios detectados son los siguientes:
+
+   -  El namespace Qflow.Common.Exceptions cambió a Qframework.Common.Exceptions, por lo que 
+      si se lo incluye en el code behind es necesario cambiar la sentencia de importación.
+   -  Los controles estándar de Q-flow pasaron de la dll Qflow.Web (namespace Qflow.Web.Controls)
+      a Qframework.Web (namespace Qframework.Web.Controls), por lo que si se hacía uso de estos 
+      controles en el markup, es necesario cambiar las referencias.
+      Un cambio importante es que las referencias en el code behind a la propiedad Interaction se 
+      deben cambiar por referencias a la propiedad FlowInteraction. Donde se utilice esta nueva 
+      propiedad es necesario importar el namespace Qframework.Web.Interaction.
+   -  Los mensajes fueron movidos al namespace Qframework.BusinessLayer.Messages.Interaction. Si 
+      se hace referencia a esos mensajes es necesario agregar la importación de ese namespace.
+   -  La gran mayoría de los enumerados fueron movidos del namespace Qflow.Common a 
+      Qframework.Common, como es el caso de ItemScope.
+
+Esta lista de cambios no está cerrada, puede ser que existan otros cambios de namespace según las clases 
+que fueran utilizadas en formularios personalizados. En caso de utilizar alguna clase que no se encuentra 
+dentro de los namespaces aquí sugeridos se recomienda como pauta general buscar una clase con el 
+mismo nombre en un namespace similar cuyo nombre comience por “Qframework”, pues es el lugar más 
+probable donde encontrarla.
+
+Adicionalmente, debido a una mejora del comportamiento del control “Submit” de Q-flow, surgen algunos 
+cambios en lo que respecta a validaciones client-side en formularios personalizados. En la versión anterior 
+era posible agregar rutinas de validación javascript a eventos como el “onsubmit” del formulario o el 
+“onclick” del botón “Submit” de Q-flow, mediante snippets como los siguientes:
+
+   .. highlight:: javascript
+   .. code-block:: javascript
+   
+      document.forms[0].attachEvent("onsubmit",validarForm)
+      GetSubmitElement().attachEvent("onclick",validarForm)
+
+A partir de la nueva versión estas validaciones, si bien se ejecutarán, no detendrán el postback de la 
+página. Sin embargo, es posible mediante poco esfuerzo lograr que estas validaciones escritas en 
+javascript sean ejecutadas normalmente dentro del ciclo de la página. La clave es utilizar los controles de 
+validación de ASP.NET especificando que se utilizará una rutina de validación client-side. Esto se hace de 
+la siguiente manera:
+
+   -  En el markup de la página se agrega el control de validación ASP.NET con una definición como la 
+      siguiente:
+   .. highlight:: xml
+   .. code-block:: xml
+   
+      <asp:CustomValidator ID="CustomValidator1" runat="server" 
+      ClientValidationFunction="validarForm" EnableClientScript="true" 
+      ValidationGroup="QCommandButtonValidationGroup"></asp:CustomValidator>
+
+   -  La rutina de validación javascript se modifica para recibir argumentos necesarios para el 
+      framework de validación de ASP.NET. En el caso de ejemplo que estamos viendo la firma sería la 
+      siguiente:
+      function validarForm(source, clientside_arguments)
+   -  Dentro de la rutina de validación javascript se utiliza la propiedad booleana 
+      clientside_arguments.IsValid para especificar si la validación fue exitosa o no. Si la validación no 
+      es exitosa no se realiza el postback.
+
+Debe verificar que todos los elementos de los Templates que contienen script compilen debido a los 
+cambios de namespace y algunas propiedades que cambiaron su nombre. En general los cambios de 
+nombres se dan en propiedades terminadas en “ID” por “Id”, por ejemplo: “FlowID” ahora se llama 
+“FlowId”. Los elementos que deben verificar son:
+   -  Pasos de código
+   -  Pasos de evaluación por código
+   -  Integraciones (las operaciones de cada integración, al menos la que se encuentra en producción).
+   -  Manejadores de eventos

@@ -1,0 +1,198 @@
+v5.1.2
+======
+
+**Resumen de características**
+
+La versión 5.1.2 incorpora diversas funcionalidades para mejorar la experiencia de usuario en Q-flow, tales como la posibilidad de "Recordar usuario" 
+y simplificación en los pasos para empezar a diseñar un proceso. Por otra parte, el sistema ahora cuenta con la capacidad de almacenar los adjuntos  
+en Azure Blob Storage.
+
+
+Mejoras generales
+-----------------
+
+Recordar usuario
+****************
+
+En todos los sitios, en la pantalla de inicio de sesión, se agregó un cuadro seleccionable de "Recuérdame". 
+Esta opción permite recordar la sesión en el navegador, para no tener que volver a iniciar sesión luego de cerrarlo. 
+Esta opción está soportada también para el inicio de sesión con Google o Microsoft.
+
+   .. figure:: _static/media/29_2-ReleaseNote/rememberMe.png
+      :width: 9in
+      :align: center
+      :alt: Página de login de Q-flow, con opción de recuérdame
+      
+      Página de login de Q-flow, con opción de recuérdame
+
+Foro de Q-flow
+**************
+
+Ahora está disponible el foro de Q-flow, el lugar ideal para plantear dudas y recibir soporte por parte de la comunidad y especialistas de Q-flow.
+Entre otros usos, se pueden realizar pedidos de funcionalidades, consulta de diseño de formularios y reportes de errores.
+
+   .. figure:: _static/media/29_2-ReleaseNote/homeForum.png
+      :width: 8in
+      :align: center
+      :alt: Home del foro
+      
+      Home del foro
+
+   .. figure:: _static/media/29_2-ReleaseNote/askForum.png
+      :width: 6in
+      :align: center
+      :alt: Crear nueva entrada en el foro
+      
+      Crear nueva entrada en el foro
+
+   .. figure:: _static/media/29_2-ReleaseNote/forumEntry.png
+      :width: 8in
+      :align: center
+      :alt: Publicación en foro de Q-flow
+      
+      Publicación en foro de Q-flow
+
+Acceso al foro desde los sitios
+*******************************
+
+Se puede acceder al foro de Q-flow desde cualquier sitio, desde la opción que se encuentra  en la “|info-icon|” de info del menú superior.
+
+   .. figure:: _static/media/29_2-ReleaseNote/forumLink.png
+      :width: 4in
+      :align: center
+      :alt: Ubicación de foro en menú superior
+      
+      Ubicación de foro en menú superior
+
+
+Sitio Web
+---------
+
+Almacenamiento de adjuntos en Azure
+***********************************
+
+El contenido de los adjuntos del sistema ahora se almacena en la nube, mediante la tecnología de Azure Blob 
+Storage. Gracias a este cambio, se perciben beneficios inherentes a los almacenamientos en la nube. Se puede 
+destacar la velocidad en los accesos a archivos y el manejo de la seguridad de nuestros datos, ya que el  
+servicio garantiza protección contra accesos maliciosos y emplea mecanismos como la redundancia para recuperar 
+datos ante cualquier imprevisto.
+
+
+Errores corregidos
+******************
+
+**Vistas de sistema de cola de trabajo**
+
+Se cambia la acción por defecto a "Editar" al hacer doble click en una vista de cola de trabajo, desde el listado de vistas de sistema.
+
+**Error en datos decimales vacíos con alcance solo lectura editable**
+
+Se corrige el error que no permitía responder una tarea al tener un dato de aplicación de tipo decimal vacío con alcance "Solo lectura editable".
+
+BPM Web
+-------
+
+Dejar grafo desprotegido al crear una plantilla
+***********************************************
+
+Al crear una nueva plantilla, tanto la plantilla como la versión creada se abren y el grafo queda desprotegido por defecto.
+
+   .. figure:: _static/media/29_2-ReleaseNote/checkedoutGraph.png
+      :width: 9in
+      :align: center
+      :alt: Grafo desprotegido luego de creación de plantilla
+      
+      Grafo desprotegido luego de creación de plantilla
+
+Permitir crear paquete padre al crear plantilla
+***********************************************
+
+Al agregar una nueva plantilla desde un paquete, se permite seleccionar la opción "Crear subpaquete 
+contenedor del proceso".
+Si se selecciona esta opción, se crea un subpaquete en el paquete que se encuentra seleccionado 
+(que tomará el mismo nombre que la plantilla) y se creará la plantilla dentro de este subpaquete nuevo.
+
+   .. figure:: _static/media/29_2-ReleaseNote/createContainerSubpackage.png
+      :width: 4in
+      :align: center
+      :alt: Crear plantilla con opción de crear subpaquete contenedor
+      
+      Crear plantilla con opción de crear subpaquete contenedor
+
+Nuevos roles por defecto: Iniciador y Supervisor
+************************************************
+
+Se agregan los roles Iniciador del proceso y Supervisor del iniciador, como roles por defecto en el paquete raíz.
+
+
+SAM Web
+-------
+
+Mejoras de estilos en gráficas de consumo
+*****************************************
+
+Se realizan mejoras generales en los estilos de las gráficas de consumo
+
+   .. figure:: _static/media/29_2-ReleaseNote/chartsStyles.png
+      :width: 9in
+      :align: center
+      :alt: Gráficas de consumo
+      
+      Gráficas de consumo
+
+Errores corregidos
+******************
+
+**Cross-site scripting (XSS) en historial de Parámetros de Sistema** |technical-icon|
+
+Se agregaron controles en el historial de Parámetros de Sistema para evitar la ejecución de código JavaScript que podría ser ingresado por un usuario.
+
+
+OMM Web
+-------
+
+Errores corregidos
+******************
+
+**Acción "Configuración de cola de trabajo guardada" sin descripción**
+
+Se agrega a la auditoría de nodos la descripción de las entradas generadas al configurar una cola de trabajo.
+
+
+.. only:: cloud
+
+   Client Registration
+   -------------------
+
+   Espacio de trabajo
+   ******************
+
+   Se cambia el concepto manejado como "Instancia" a "Espacio de trabajo".
+
+   Cambio de tipo de licencia en uso
+   *********************************
+
+   Ahora se permite cambiar el tipo de licencia que se tiene en uso.
+   Si se realiza un cambio de licencia a una licencia de menor costo que la anterior, se mantiene la licencia anterior hasta que finalice su vigencia.
+   Si el cambio es a una licencia de mayor costo, la nueva licencia entra en vigencia en el momento, cambiando la fecha de facturación en caso que 
+   corresponda. Dependiendo de la diferencia de costo entre las licencias, se realiza un prorrateo para el cálculo de la nueva fecha de facturación.
+
+   Permitir pago manual con transferencia bancaria
+   ***********************************************
+
+   Al crear un espacio de trabajo, se agregó la posibilidad de pago mediante transferencia bancaria.
+   Al seleccionar esta opción, el equipo se pondrá en contacto para finalizar el pago y continuar con la creación del espacio de trabajo.
+
+   Otras mejoras
+   *************
+
+   Se realizan mejoras generales en diferentes aspectos de la usabilidad del sitio, entre ellos: estilos, textos y animaciones de carga.
+
+
+
+.. |technical-icon| image:: _static/media/29_2-ReleaseNote/TechnicalIcon.png
+   :width: 0.65in
+   
+.. |info-icon| raw:: html
+
+   <i class="fa fa-info"></i>

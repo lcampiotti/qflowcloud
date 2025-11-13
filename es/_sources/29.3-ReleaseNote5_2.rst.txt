@@ -1,0 +1,382 @@
+v5.2
+======
+
+**Resumen de características**
+
+La versión 5.2 incorpora diversas funcionalidades para mejorar la experiencia de usuario en Qflow, tales como brindar un nuevo sitio 
+(Qflow Access) que sea el punto de acceso de los usuarios a Qflow, compartir la sesión entre las herramientas, brindar plantillas de proceso 
+predeterminadas, responder múltiples tareas de manera simple, entre otras. Por otra parte, el sistema ahora cuenta con la capacidad de almacenar los adjuntos  
+en una base de datos independiente.
+
+Adicionalmente, el producto continúa su constante evolución, incorporando funcionalidades solicitadas 
+por nuestros clientes y socios de negocios, que facilitan su trabajo para poder hacer más en menos tiempo.
+
+Cuando la característica descrita tenga un alto contenido técnico se lo indicará con el ícono (|technical-icon|).
+Además, si se incluyó como fix para alguna versión anterior, se indicará de la siguiente manera: [x.y]. Si es 
+un analista funcional puede omitir la lectura de esas novedades.
+
+Si cuentas con un espacio de trabajo en la nube, ¡ya estás disfrutando de estas funcionalidades! De lo contrario,
+analiza los planes en https://qflowbpm.com/es/precios/.
+Si ya cuentas con una instalación onpremise, para aprovechar las ventajas de la nueva versión entra en contacto con tu 
+gerente de cuenta, quien podrá asistirte en la instalación o actualización del sistema, para comenzar a usar las 
+nuevas funcionalidades. Si no tienes un gerente de cuenta, puedes contactarnos completando el formulario de la siguiente URL: 
+https://qflowbpm.com/es/contacto/.
+
+Mejoras generales
+-----------------
+
+Renovación de nombres y logos
+******************************
+
+¡Se renueva el producto, se actualiza Q-flow y ahora se presenta como Qflow!
+
+   .. figure:: _static/media/29_3-ReleaseNote/NewQflowLogo.png
+      :width: 80%
+      :align: center
+      :alt: Nuevo logo Qflow
+      
+      Nuevo logo Qflow
+
+Se renuevan los distintos sitios y para que su nombre sea más intuitivo, se deciden hacer los siguientes cambios:
+
+   .. figure:: _static/media/29_3-ReleaseNote/NewToolsLogos.png
+      :width: 80%
+      :align: center
+      :alt: Nuevo logos y nombres de las herramientas de Qflow
+      
+      Nuevo logos y nombres de las herramientas de Qflow
+
+
+Unificación de acceso al producto
+**********************************
+
+Se crea Qflow Access, nuevo portal de acceso al producto, brindando un único punto de acceso y sesión compartida entre los distintos sitios. 
+De esta manera, los usuarios obtienen una experiencia más sencilla y fluida, no debiendo iniciar sesión en cada una de las herramientas individualmente.
+Sólo se inicia sesión en Qflow Access y se tiene acceso inmediato a todas las herramientas disponibles.
+
+   .. figure:: _static/media/29_3-ReleaseNote/QfAccess.png
+      :width: 80%
+      :align: center
+      :alt: Página de login de Qflow
+      
+      Página de login de Qflow
+
+Además, desde cualquiera de las herramientas es posible acceder a los distintos sitios a los cuales tenga permiso de acceder.
+
+   .. figure:: _static/media/29_3-ReleaseNote/SitesLinked.png
+      :width: 50%
+      :align: center
+      :alt: Acceso a las distintas herramientas desde Qflow Task
+      
+      Acceso a las distintas herramientas desde Qflow Task
+
+Continuando con la unificación de acceso al producto, se actualiza la página de login de las distintas herramientas, manteniendo
+un estilo armónico entre sí, cambiando únicamente el color principal.
+
+   .. figure:: _static/media/29_3-ReleaseNote/LoginViews.png
+      :width: 80%
+      :align: center
+      :alt: Páginas de login
+      
+      Páginas de login
+
+Es posible mostrar el logo de la empresa, cargándolo en Qflow Admin, al actualizar el parámetro de sistema *Logo*. 
+
+Se puede ver más detalles sobre cómo configurar un parámetro de sistema en :ref:`Qflow Admin - Parámetros de sistema<parámetros de sistema |cloud-icon| |onpremise-icon|>`.
+
+Integración con gravatar
+*************************
+
+En el menú superior de las distintas herramientas, se podrá visualizar la foto de perfil que el usuario tenga registrada en *gravatar*, asociada a su correo electrónico. 
+
+   .. figure:: _static/media/29_3-ReleaseNote/HeaderWithGravatar.png
+      :width: 50%
+      :align: center
+      :alt: Menú superior de Qflow Task con imagen *gravatar*
+      
+      Menú superior de Qflow Task con imagen *gravatar*
+
+Cada persona puede asociar su mail en https://gravatar.com.
+
+En caso de que el mail no esté registrado o se haya deshabilitado esta opción en Qflow Admin, las iniciales del usuario serán mostradas en su lugar.
+
+   .. figure:: _static/media/29_3-ReleaseNote/HeaderWithInitials.png
+      :width: 50%
+      :align: center
+      :alt: Menú superior de Qflow Task con iniciales del usuario
+
+      Menú superior de Qflow Task con iniciales del usuario
+
+Por defecto, la opción de usar gravatar estará habilitada. Si se desea deshabilitar esta opción, es necesario actualizar el parámetro de sistema
+*Usar gravatar para foto de perfil* en Qflow Admin.
+
+Optimizaciones en navegación |technical-icon|
+**********************************************
+
+Se implementa la utilización de service worker en los distintos sitios (Task, Design, Team y Admin) para almacenar localmente
+archivos estáticos que serán reutilizados en las distintas navegaciones. Esto permite una navegación más fluida a los usuarios.
+
+Qflow Task
+-----------
+
+Responder múltiples tareas de manera simple
+********************************************
+
+Desde la vista de Mis tareas, es posible seleccionar múltiples tareas que permitan Respuesta rápida y responder por todas ellas
+una respuesta que tengan en común. Además, se permite agregar un comentario para todas aquellas que lo admitan o lo requieran.
+
+Para poder acceder a esta funcionalidad, se debe tener configurado en la vista correspondiente, la columna de sistema "Respuesta rápida". 
+De igual forma, si no se desea brindar esta funcionalidad, se puede quitar dicha columna.
+
+   .. figure:: _static/media/29_3-ReleaseNote/QuickRespose_RespondTasks.gif
+      :width: 90%
+      :align: center
+      :alt: Configuración columna Respuesta rápida
+      
+      Configuración columna Respuesta rápida
+
+Dado que es posible seleccionar múltiples tareas, su progreso será visible en la esquina inferior derecha, donde es posible
+visualizar las tareas en proceso, en error y finalizadas. Además, podrá acceder a una vista completa para visualizar la información
+con mayor comodidad.
+
+Además, la tarea debe permitir este tipo de respuestas, para lo cual no debe tener ningun dato, rol o adjunto que sea requerido.
+
+   .. figure:: _static/media/29_3-ReleaseNote/QuickRespose_Configuration.png
+      :width: 40%
+      :align: center
+      :alt: Configuración columna Respuesta rápida
+      
+      Configuración columna Respuesta rápida
+
+Se puede ver más detalles sobre cómo configurar las respuestas rápidas en :ref:`Qflow Task - Respuesta rápida<respuesta rápida>`.
+
+Almacenamiento de adjuntos en base de datos externa |onpremise-icon-2x| |technical-icon|
+****************************************************************************************
+
+El contenido de los adjuntos del sistema ahora se puede almacenar en una base de datos externa. 
+Es posible optar por almacenar los adjuntos de los procesos en: Base de datos de Qflow, Base de datos externa o Azure blob storage.
+
+.. only:: onpremise
+
+   Se puede ver más detalles sobre cómo configurar el almacenamiento de los adjuntos de los procesos 
+   en :ref:`Instalación y configuración - Almacenamiento de adjuntos<almacenamiento de adjuntos>`.
+
+
+.. only:: cloud
+
+   Actualización de formularios por defecto
+   *****************************************
+   
+   Por defecto, los formularios de los eventos de inicio, las tareas, edición del proceso e información del proceso utilizarán la versión de una columna.
+
+Qflow Design
+-------------
+
+Plantillas de proceso pre-creadas
+**********************************
+
+Es posible comenzar a utilizar alguno de nuestros procesos pre-creados en minutos.
+Las plantillas disponibles hasta el momento son:
+
+   * Aprobación en dos etapas
+   * Solicitud de vacaciones
+   * Selección de personal
+   * Rendición de gastos
+   * Aprobación de documentos
+   * Solicitud de compras
+ 
+Por ejemplo, el proceso de solicitud de vacaciones, genera una plantilla como la siguiente:
+
+   .. figure:: _static/media/29_3-ReleaseNote/VacationRequestProcess.png
+      :width: 90%
+      :align: center
+      :alt: Proceso de solicitud de vacaciones
+      
+      Proceso de solicitud de vacaciones
+
+Para utilizarla, simplemente es necesario asignar la versión de la plantilla en producción en Qflow Design
+y comenzar a iniciar procesos en Qflow Task.
+
+Se puede ver más detalles sobre las plantillas pre-creadas en :ref:`Qflow Design - Plantillas pre-creadas<plantillas pre-creadas>`.
+
+¡Nos integramos con Sharepoint 365!
+***********************************
+
+Es posible crear Dominios, Integraciones y Parámetros de aplicación con Sharepoint 365. Por lo tanto, se puede tener un dato que seleccione un elemento
+de una lista de Sharepoint 365 y complete otros datos a partir del seleccionado. Además es posible insertar nuevos elementos mediante las integraciones.
+
+Se puede ver más detalles sobre dominios en :ref:`Qflow Design - Dominios<dominios>`. Sobre las itegraciones en :ref:`Qflow Design - Integraciones<integraciones>`.
+
+Nuevos dominios por defecto
+****************************
+
+Se crean los siguientes dominios por defecto en el paquete raíz:
+
+   * Hipervínculo
+   * Cuadro de texto enriquecido
+   * Contraseña
+   * Correo
+   * Teléfono
+
+Errores corregidos
+******************
+
+**Si el texto de la nota es mayor a 256 caracteres, se corta**
+
+En caso de que se ingresara en una nota del proceso un texto de largo mayor a 256 caracteres, se perdían los caracteres posteriores a 256.
+
+Qflow Team
+-----------
+
+Enviar bienvenida al usuario creado
+************************************
+
+Al momento de crear un nuevo usuario, se le enviará mediante correo electrónico la bienvenida a Qflow con el link de acceso a Qflow Access.
+
+   .. figure:: _static/media/29_3-ReleaseNote/WelcomeQflowEmail.png
+      :width: 50%
+      :align: center
+      :alt: Correo de bienvenida
+      
+      Correo de bienvenida
+
+El correo será enviado siempre que el nuevo usuario creado tenga asignado un correo electrónico y servicio de notificación válidos.
+
+El logo utilizado puede ser personalizado, actualizando el valor del parámetro de sistema *Logo de correos*.
+
+Si se desea, esta funcionalidad se puede deshabilitar, configurando el parámetro de sistema *Notificar al usuario en la creación* como Falso.
+
+Configuración de proveedor de seguridad predeterminado
+*******************************************************
+
+Desde la herramienta, es posible elegir cuál será el proveedor de seguridad predeterminado del espacio de trabajo. Esto permite que se preseleccione en las vistas de login.
+
+   .. figure:: _static/media/29_3-ReleaseNote/DefaultSecurityProvider.png
+      :width: 60%
+      :align: center
+      :alt: Proveedor de predeterminado
+      
+      Proveedor de predeterminado
+
+Se puede ver más detalles sobre proveedores de seguridad en :ref:`Qflow Team - Proveedores de seguridad<proveedores de seguridad>`.
+
+Configuración de propiedades por defecto para nuevos usuarios
+**************************************************************
+
+Desde el menú superior, en la sección de configuración, podrá acceder a configurar propiedades para que todos los usuarios
+creados las obtengan por defecto.
+
+   .. figure:: _static/media/29_3-ReleaseNote/DefaultProperties_SelectUser.png
+      :width: 40%
+      :align: center
+      :alt: Seleccionar Propiedades para nuevos usuarios
+      
+      Seleccionar Propiedades para nuevos usuarios
+
+Actualmente se pueden configurar los roles y servicios de notificación, como lo muestra la siguiente imagen.
+
+   .. figure:: _static/media/29_3-ReleaseNote/DefaultProperties_Configuration.png
+      :width: 40%
+      :align: center
+      :alt: Propiedades para nuevos usuarios
+      
+      Propiedades para nuevos usuarios
+
+Todo usuario nuevo heredará estas propiedades por defecto y podrán ser modificadas en su creación.
+Esto también aplica a la creación de usuarios desde los servicios web.
+
+Mejoras en panel de usuario
+***************************
+
+Se muestra la configuración de roles, incluso cuando el panel no está expandido, permitiendo esta configuración de manera ágil.
+
+Se deja cerrado por defecto el grupo de servicios de configuración, dado que actualmente se heredan de la configuración por defecto
+deja de ser necesario configurarlo para cada usuario.
+
+Backend
+-------
+
+Actualización de estilos de notificaciones de correo según tema del espacio de trabajo
+**************************************************************************************
+
+Se actualizan los estilos y las imágenes utilizadas en los mails, utilizando colores asociados al tema del espacio de trabajo.
+Por ejemplo, a continuación se puede ver un correo electrónico enviado:
+
+   .. figure:: _static/media/29_3-ReleaseNote/ReminderEmail.png
+      :width: 50%
+      :align: center
+      :alt: Correo de qflow
+      
+      Correo de qflow
+
+
+Contemplar zona horaria en AddSubstitution en tarea de código |technical-icon|
+*******************************************************************************
+
+Si se utiiza el método AddSubstitution en una tarea de código, en caso que la fecha especificada sea DateTime con Kind UTC,
+se utiliza la fecha estipulada en UTC, de lo contrario se asume que el valor se encuentra en la zona horaria del calendario del usuario.
+
+Se puede ver más detalle sobre cómo funciona el método en :ref:`Interfaz de scripting<iscripthost>`.
+
+
+.. only:: onpremise
+
+   Parametrizar protocolo de seguridad tls en los servicios de mensajería
+   ***********************************************************************
+
+   Mediante configuración, es posible configurar qué versión de TLS utilizan los Servicios de mensajería.
+
+
+Errores corregidos
+*******************
+
+**No se usa versión en producción en actividad de llamada**
+
+Al cambiar la versión en producción de la plantilla seleccionada, se seguía iniciando la versión que estaba en producción al momento
+de configurar la actividad de llamada.
+
+
+Qflow Admin
+------------
+
+Nuevos parámetros de sistema |technical-icon| 
+*********************************************
+
+Para más y mejores personalizaciones, se agregan los siguientes parámetros de sistema:
+
+   * Logo 
+   * Logo versión clara
+   * Logo de task
+   * Mini logo de task
+   * Logo de correos
+   * Usar gravatar para foto de perfil
+   * Notificar al usuario en la creación
+
+.. only:: onpremise
+
+   Además, desde el espacio de trabajo principal, se podrá configurar:
+
+      * URL para la bienvenida del usuario
+      * Vínculo de Qflow Admin
+      * Vínculo de Qflow Design
+      * Vínculo de Qflow Task
+      * Vínculo de Qflow Team
+      * Tipo de almacenamiento para adjuntos
+
+Se puede ver más información sobre estos parámetros en :ref:`Qflow Admin - Parámetros de sistema<listado de parámetros de sistema>`.
+
+.. |technical-icon| image:: _static/media/29_2-ReleaseNote/TechnicalIcon.png
+   :width: 0.65in
+   :height: 22px
+
+.. |info-icon| raw:: html
+
+   <i class="fa fa-info"></i>
+
+.. |cloud-icon-2x| raw:: html
+
+   <i class="fa fa-cloud fa-2x" style="color: #15aabf;font-size: 20px;"></i>
+
+.. |onpremise-icon-2x| raw:: html
+
+   <i class="fa fa-server fa-2x" style="color: orange;font-size: 20px;"></i>

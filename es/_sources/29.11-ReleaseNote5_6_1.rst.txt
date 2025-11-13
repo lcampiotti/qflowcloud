@@ -1,0 +1,70 @@
+v5.6.1
+======
+
+Resumen de características
+**************************
+
+Con Qflow 5.6.1, automatizar y conectar tus procesos ¡es más fácil que nunca!
+
+La nueva versión incorpora mejoras clave centradas en la experiencia del usuario, 
+nuevas integraciones con Microsoft y opciones que reducen pasos y tiempos en la
+ejecución de tareas. Desde respuestas más intuitivas hasta envíos de correos más 
+seguros, seguimos evolucionando junto a tus procesos. 
+
+¡Descubre el nuevo Qflow!
+
+Nuevas funcionalidades
+**********************
+
+Servicios de correo: ¡más seguros y fáciles de usar!
+----------------------------------------------------
+
+A partir de la llegada de Qflow 5.6.1, es posible conectar Qflow directamente con servicios de
+correo como Outlook. Esta actualización garantiza una mayor seguridad para nuestros usuarios, 
+modernizando la gestión de notificaciones. 
+
+Disfruta de una configuración más sencilla, elimina la necesidad de contraseñas manuales
+y mejora la integración con cuentas corporativas de Microsoft.
+
+Respuesta de tareas directamente desde el correo
+------------------------------------------------
+
+Ahora, cuando una tarea permite la opción de respuesta rápida, el usuario
+recibirá un email con botones para responder directamente desde allí.
+Esta actualización optimiza los tiempos de respuesta, evitando que el
+usuario asignado deba ingresar en Qflow Task para poner el proceso en marcha. 
+
+Deja atrás los cuellos de botella, garantizando que todos los usuarios
+puedan responder de manera inmediata, desde cualquier dispositivo y lugar.
+¡Menos pasos, menos demoras!
+
+.. _EmailResponse:
+
+.. figure:: _static/media/29_11-ReleaseNote/image129.png
+   :width: 50%   
+   :align: center
+   :alt: Email con opciones de respuesta rápida
+
+   Email con opciones de respuesta rápida
+
+.. _ResponseScreen:
+
+.. figure:: _static/media/29_11-ReleaseNote/image130.png
+   :width: 50%   
+   :align: center
+   :alt: Mensaje de confirmación de respuesta
+
+   Mensaje de confirmación de respuesta
+
+Botones con las respuestas para tareas
+--------------------------------------
+
+Hasta ahora, las posibles respuestas de cada tarea se desplegaban mediante menús tipo dropdown.
+Atendiendo al feedback de los usuarios y apuntando a simplificar las interacciones dentro
+de la herramienta, las respuestas se presentan por defecto como botones.
+
+Corrección de errores
+*********************
+
+Como en cada actualización, se presentan correcciones de errores y mejoras varias
+para optimizar la experiencia de los usuarios.

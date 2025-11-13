@@ -1,0 +1,335 @@
+****************************************
+DocuSign
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow
+con DocuSign para permitir la interacción entre ambas plataformas, permitiendo
+enviar documentos a firmar, obtener el estado de los documentos enviados, obtener los documentos una vez se hayan firmado y cancelar el envío de documentos previamente enviados a firmar.
+
+DocuSign cuenta con las siguientes acciones:
+
+- `Enviar documentos a firmar <36.8-DocuSignConnector.html#enviar-documento-a-firmar>`_
+- `Obtener estado de documentos enviados a firmar <36.8-DocuSignConnector.html#id2>`_
+- `Obtener documentos firmados desde DocuSign <36.8-DocuSignConnector.html#id3>`_
+- `Cancelar firma de documentos <36.8-DocuSignConnector.html#id4>`_
+
+Ver `Acciones <36.8-DocuSignConnector.html#id1>`_ para conocer la descripción y contenido de cada una.
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta de desarrollador de DocuSign.
+Puede hacerse una cuenta |docusign_developer_account|.
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_) 
+que permita establecer la comunicación entre Qflow y DocuSign.
+Este campo es utilizado para configurar el conector de una Tarea de Servicio en Qflow. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de DocuSign, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando JSON Web Token
+-------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere de los siguientes parámetros:
+
+- **Servidor de autenticación**: Servidor de autenticación utilizado por DocuSign. Por defecto es 'account-d.docusign.com'.
+- **Clave de integración**: La clave de integración es la que identifica su integración y se vincula a sus valores de configuración.
+- **Identificador del usuario**: Identificador del usuario para acceder a los servicios de DocuSign.
+- **Clave privada RSA**: Clave privada de cifrado RSA.
+
+Para obtenerlos, se deben seguir los siguientes pasos:
+
+#. Acceder a su cuenta de desarrollador de DocuSign |docusign_developer_account|.
+#. Hacer clic en su perfil y luego seleccionar **My Apps & Keys** para dirigirse a la sección de Aplicaciones y claves.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img1.png
+      :width: 400px
+      :align: center
+
+      Sección de perfil
+   
+   |space|
+
+#. Una vez en la sección de Aplicaciones y claves, haga clic en **Añadir aplicación y clave de integración**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img2.png
+      :width: 1000px
+      :align: center
+
+      Sección de vista general de aplicación y claves
+   
+   |space|
+
+#. Ingrese un nombre para identificar su nueva aplicación, en este ejemplo utilizamos el nombre 'DocuSign-Qflow'.
+#. Una vez ingresado el nombre seleccione **Crear aplicación**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img3.png
+      :width: 600px
+      :align: center
+
+      Sección de creación de aplicación
+   
+   |space|
+
+#. Al crear una nueva aplicación se le redirigirá a la sección de configuración de la misma donde encontrará distintas configuraciones disponibles.
+#. En esta sección encontrará el apartado **Integración del servicio**, donde deberá seleccionar **Generar RSA**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img4.png
+      :width: 600px
+      :align: center
+
+      Sección de integración del servicio
+   
+   |space|
+
+#. Al seleccionar **Generar RSA** se le generan dos claves de las cuales debe identificar la que está bajo el nombre **Clave privada**. Esta clave es la que debe colocar en el parámetro **Clave privada RSA**, por lo que deberá copiarla y guardarla para usarla más adelante.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img5.png
+      :width: 600px
+      :align: center
+
+      Sección de claves RSA
+   
+   |space|
+
+#. Dentro de las configuraciones de la aplicación también encontrará el apartado **Configuración adicional**, en este debe seleccionar **Añadir URL** en la parte de **Redireccionar URLs**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img6.png
+      :width: 400px
+      :align: center
+
+      Sección de configuración adicional
+   
+   |space|
+
+#. Debe ingresar la siguiente URL: **https://developers.docusign.com/platform/auth/consent**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img7.png
+      :width: 400px
+      :align: center
+
+      Sección de configuración adicional
+   
+   |space|
+
+#. Una vez realizados los pasos anteriormente mencionados, en la parte inferior de la página debe seleccionar **Guardar**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img8.png
+      :width: 400px
+      :align: center
+
+      Sección de guardar cambios
+   
+   |space|
+
+#. Al guardar los cambios se le mostrará nuevamente la sección de Aplicaciones y claves, donde en **Información de mi cuenta** encontrará el parámetro **Identificador de usuario**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img9.png
+      :width: 1000px
+      :align: center
+
+      Sección aplicaciones y claves
+   
+   |space|
+
+#. En esta misma sección más abajo encontrará **Aplicaciones y claves de integración** donde podrá visualizar las aplicaciones que haya creado identificadas por su nombre. Aquí debe buscar la aplicación creada y configurada previamente y copiar el parámetro **Clave de integración**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img10.png
+      :width: 1000px
+      :align: center
+
+      Sección aplicaciones y claves
+   
+   |space|
+
+Siguiendo los pasos de esta guía habrá podido obtener tres de los cuatro parámetros necesarios para la conexión:
+
+- **Clave de integración**
+- **Identificador del usuario**
+- **Clave privada RSA**
+
+Con lo que respecta al parámetro **Servidor de autenticación**, por defecto el valor que debe usar es **'account-d.docusign.com'**. Este valor solo cambia si usted desea usar otro servidor para la autenticación con DocuSign, en cuyo caso deberá usar el servidor que elija.
+
+Una vez obtenidos todos los parámetros necesarios para la conexión, la primera vez que los utilice deberá otorgar acceso a la aplicación previamente creada para que Qflow pueda comunicarse con la misma.
+Esto lo puede hacer directamente cuando cree el parámetro de conexión desde la tarea de servicio de la siguiente manera: 
+
+#. En la parte inferior del panel de **Conexión** de la integración con DocuSign, una vez ingresados los cuatro parámetros, seleccione **Conceder acceso a DocuSign**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img11.png
+      :width: 600px
+      :align: center
+
+      Sección de Conexión de DocuSign
+   
+   |space|
+
+#. Una vez hecho eso, se le abrirá una ventana donde se le pedirá iniciar sesión en su cuenta de desarrollador de DocuSign si es que no está ingresado ya, y luego se le mostrará la siguiente ventana donde deberá seleccionar **Permitir acceso**.
+
+   .. figure:: _static/media/36_8-DocuSignConnector/img12.png
+      :width: 400px
+      :align: center
+
+      Sección de permitir acceso de DocuSign
+   
+   |space|
+
+Una vez realizados estos pasos, ya podrá usar su parámetro de conexión con DocuSign.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con DocuSign:
+
+Enviar documento a firmar
+-------------------------
+Esta acción permite seleccionar documentos y enviarlos a firmar utilizando DocuSign. Se debe proporcionar los correos electrónicos de los firmantes y el nombre de los mismos obligatoriamente. Opcionalmente se pueden agregar otros campos que se listan debajo.
+Al enviar los documentos a ser firmados, se recibe una clave que identifica el sobre en DocuSign, con la cual más adelante se puede obtener el estado de los documentos, cancelar el envío o obtener los documentos.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Correos electrónicos de los firmantes
+     - **Requerido.** Correos electrónicos de las personas responsables de firmar el o los documentos. Deben estar en el mismo orden que 'Nombres de los firmantes'.
+   * - Nombres de los firmantes
+     - **Requerido.** Nombre de las personas responsables de firmar el o los documentos. Deben estar en el mismo orden que 'Correos electrónicos de los firmantes'.
+   * - Documentos
+     - **Requerido.** Documentos que se quieran enviar para ser firmados.
+   * - Asunto del correo electrónico
+     - **Requerido.** Asunto del correo electrónico que se enviará con los documentos a ser firmados.
+   * - Correos electrónicos en copia (CC)
+     - Correo electrónico de las personas a los que se quiera tener en copia en el correo al enviar a firmar los documentos. Deben estar en el mismo orden que 'Nombres de los destinatarios en copia (CC)'.
+   * - Nombres de los destinatarios en copia (CC)
+     - Nombres de los destinatarios a los que se quiera tener en copia en el correo al enviar a firmar los documentos. Deben estar en el mismo orden que 'Correos electrónicos en copia (CC)'.
+   * - Orden de firmas
+     - Orden en el que se envía el correo a los destinatarios para firmar los documentos. Si se especifica un orden numérico igual o mayor a 1 a los destinatarios, se les enviará los documentos secuencialmente en función de ese orden, del más bajo primero al más alto por último. Si a algunos no se les asigna ningún orden o se les asigna el orden 0, estos los recibirán al mismo tiempo después de que se finalice el envío en orden secuencial. Si no se asigna ningún orden a ningún destinatario, se les enviará a todos al mismo tiempo. Por ejemplo, si quiero enviar el documento primero a 'Persona 1' y luego a 'Persona 2', debo asignarle '1' a 'Persona 1' y a 'Persona 2' podría tanto asignarle el orden '2' o directamente no asignarle ningún orden. El orden se asigna en el mismo orden en que se ponen los destinatarios, es decir, si yo agrego el destinatario 'Persona 1' y luego 'Persona 2', el orden que se agregue primero corresponderá a 'Persona 1' y el segundo a 'Persona 2'. En caso de solo querer asignar un orden a 'Persona 2' el primer orden que agregue debe ser vacío.
+   * - Habilitar expiración
+     - Si esta opción se activa, la posibilidad de firmar el documento expirará después de que transcurran la cantidad de días indicada en 'Validez (días)'. También permite agregar un aviso de expiración.
+   * - Validez
+     - Cantidad de días en los que el documento estará disponible para ser firmado. Este campo solo se tendrá en cuenta si la opción 'Habilitar expiración' está activada.
+   * - Aviso de expiración
+     - Cantidad de días restantes antes de que expire la posibilidad de firmar el documento, momento en el cual se enviará una notificación a los destinatarios. Este campo solo se tendrá en cuenta si la opción 'Habilitar expiración' está activada y el campo 'Validez (días)' está completo.
+   * - Habilitar recordatorio
+     - Si esta opción se activa, los destinatarios recibirán un recordatorio luego de que pase la cantidad de días indicada en "Primer recordatorio (días)", además de volver a enviarse el recordatorio según lo indicado en 'Intervalo entre recordatorios (días)'.
+   * - Primer recordatorio (días)
+     - Cantidad de días entre el envío de los documentos para firmar y el primer recordatorio a los destinatarios de realizar esta acción. Este campo solo será tenido en cuenta si la opción 'Recordatorio' está activada.
+   * - Intervalo entre recordatorios (días)
+     - Cantidad de días que pasan entre envíos de recordatorios a los destinatarios de firmar los documentos. Este campo solo será tenido en cuenta si la opción 'Habilitar recordatorio' está activada y el campo 'Primer recordatorio (días)' está completo.
+
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Identificador del sobre
+     - Identificador del sobre retornado por DocuSign para poder obtener información del estado de los documentos enviados a firmar, obtener los documentos firmados o cancelar el envío de los documentos a firmar. El sobre es generado por DocuSign, es el que contiene el conjunto de documentos enviados a firmar.
+
+Obtener estado de documentos enviados a firmar
+----------------------------------------------
+Esta acción consulta el avance de la solicitud de firma ingresando el identificador del sobre generado al enviar documentos a firmar por DocuSign.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador del sobre
+     - **Requerido.** Identificador del sobre retornado por DocuSign al enviar documentos a firmar.
+
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Fecha de modificación del estado
+     - Última fecha en la cual el archivo cambió de estado.
+   * - Estado
+     - Estado en el cual se encuentran los documentos enviados a firmar. Puede consultar la lista de posibles estados en la documentación de DocuSign |docusign_states|.
+   * - Fecha de envío
+     - Fecha en la que fueron enviados los documentos a firmar.
+
+Obtener documentos firmados desde DocuSign
+------------------------------------------
+Esta acción obtiene los documentos con las firmas realizadas hasta el momento en formato PDF ingresando el identificador del sobre recibido al ser enviados, además de un documento PDF con el estado del proceso de firmas.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador del sobre
+     - **Requerido.** Identificador del sobre retornado por DocuSign al enviar documentos a firmar.
+
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Documentos
+     - Documentos enviados a firmar previamente usando DocuSign.
+   * - Resumen
+     - Documento que contiene el contexto general del proceso de firmas, tales como estado actual, la cantidad de firmas hasta el momento y los eventos que han ocurrido.
+
+Cancelar firma de documentos
+----------------------------
+Esta acción cancela la solicitud de firma, ingresando el identificador del sobre recibido al enviar los documentos y el motivo de la cancelación.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador del sobre
+     - **Requerido.** Identificador del sobre retornado por DocuSign al enviar documentos a firmar.
+   * - Motivo de cancelación
+     - **Requerido.** Motivo por el cual desea cancelar la firma de los documentos.
+
+.. |space| raw:: html
+   
+      <p style="margin-top: 2em;"></p>
+
+
+.. |docusign_developer_account| raw:: html
+ 
+   <a href="https://developers.docusign.com/" target="_blank">desde aquí</a>
+
+.. |docusign_developer_account_eng| raw:: html
+ 
+   <a href="https://developers.docusign.com/" target="_blank">here</a>
+
+.. |docusign_states| raw:: html
+ 
+   <a href="https://developers.docusign.com/docs/esign-rest-api/esign101/concepts/envelopes/status-codes/#envelope-status-code-descriptions" target="_blank">desde aquí</a>
+
+.. |docusign_states_eng| raw:: html
+ 
+   <a href="https://developers.docusign.com/docs/esign-rest-api/esign101/concepts/envelopes/status-codes/#envelope-status-code-descriptions" target="_blank">here</a>

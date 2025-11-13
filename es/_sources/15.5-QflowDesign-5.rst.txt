@@ -1,0 +1,207 @@
+Formularios personalizados
+==========================
+
+Introducción
+------------
+
+Los formularios personalizados permiten definir, de forma visual, la estructura y el diseño de los formularios utilizados en uno o más pasos del proceso.  
+Su función principal es controlar la apariencia, el orden y la organización de los campos que se muestran al usuario al momento de completar una tarea.
+
+Estos formularios se crean desde el **diseñador de formularios**: una herramienta gráfica que facilita la construcción sencilla y visual de las interfaces que se integran a distintas etapas del proceso.  
+Una vez creado, el formulario puede asociarse a uno o más pasos (tareas de usuario o eventos de inicio), determinando así **en qué momento será mostrado** durante la ejecución.
+
+A diferencia de otros mecanismos de entrada de datos, el formulario personalizado **no modifica la lógica del proceso** ni sus reglas de ejecución.  
+Su propósito es exclusivamente definir **cómo se presenta la información**, con qué etiquetas y bajo qué condiciones de visibilidad.
+
+Cada formulario puede adaptarse a distintos contextos mediante reglas específicas, configuradas para cada campo y para cada etapa.  
+Esto permite, por ejemplo, mostrar un conjunto de datos al inicio y ocultarlos o volverlos de solo lectura en fases posteriores.
+
+Creación de un formulario personalizado
+---------------------------------------
+
+Para crear un nuevo formulario personalizado, seleccioná un proceso existente y elegí un **elemento compatible** (como una tarea de usuario o un evento de inicio) para editarlo.
+
+Desde el elemento elegido:
+
+- Dirígete al panel de propiedades.
+- En la sección **Formulario**, selecciona **Crear formulario personalizado**.
+
+Una vez creado, el formulario queda vinculado a la versión actual del proceso.
+
+.. admonition:: Nota
+
+Un mismo formulario puede asignarse a múltiples **elementos** (evento de inicio o tarea de usuario) dentro del mismo proceso, pero no puede reutilizarse en otros procesos.
+
+Agregar y configurar componentes al formulario 
+----------------------------------------------
+
+El diseñador de formularios te permite crear formularios de manera sencilla. 
+Para empezar, solo tienes que arrastrar y soltar los componentes desde el panel izquierdo hacia el área central de la pantalla.
+Estos componentes están organizados en categorías como “Formato y ayuda”, “Datos y roles” u “Otros”.
+Cuando agregas un componente de tipo dato, el sistema te pedirá que indiques un nombre, ya que es obligatorio. 
+Ese dato será creado en Qflow Design y quedará disponible para reutilizarse en otros formularios.
+
+Dependiendo del componente que elijas, se generará automáticamente un campo con el dato 
+(como un texto, una lista o una casilla) o un elemento visual (como un separador o un contenedor). 
+Estos componentes no contienen información en sí mismos, sino que definen cómo se verá el formulario. 
+Una vez agregados, puedes moverlos dentro de la vista para organizar la estructura del formulario según tus necesidades.
+
+Los componentes permiten:
+
+- **Representar visualmente campos del formulario** que luego estarán disponibles durante su ejecución (como texto, números, fechas u opciones).
+- **Organizar la estructura del diseño**, mediante elementos como títulos, mensajes o separadores.
+
+Cada componente incluye un ícono de engranaje que permite acceder a su **panel de propiedades**.  
+Desde allí se configuran aspectos visuales y funcionales como el nombre del dato, el dominio y la visibilidad.
+
+En el diseñador de formularios, los componentes se incorporan desde el panel izquierdo mediante la acción de arrastrar y soltar.  
+Según su tipo, pueden generar un nuevo dato en Design, reutilizar uno ya definido o simplemente añadir elementos visuales sin asociar datos.
+
+- **Componentes por tipo de dato** (Texto, Número, Combo Box, etc.):  
+  Al arrastrar uno de estos componentes al formulario, se crea un **nuevo dato** asociado al dominio correspondiente.  
+  En ese caso, se solicita definir un **nombre** para identificar el dato dentro del proceso.  
+  Para más información sobre los dominios disponibles, consulte la sección `Dominios <15-QflowDesign.html#dominios>`_.
+
+- **Componentes de rol**:  
+  Permiten cargar un rol definido en el proceso y mostrarlo como campo en el formulario.  
+  Este campo puede utilizarse, por ejemplo, para asignar dinámicamente un rol a un usuario.  
+  Su visibilidad se configura desde el mismo panel utilizado para los datos, donde se define si el campo será visible, editable, requerido u ausente.  
+  Para más información, consulte la sección `Roles de plantilla de proceso <15-QflowDesign.html#roles-de-plantilla-de-proceso>`_.
+
+- **Datos y roles existentes**:  
+  A través de las opciones **Seleccionar datos existentes** o **Seleccionar roles existentes**, es posible insertar elementos ya definidos en Design.  
+  Estos elementos heredan sus configuraciones previas.  
+  Dentro del formulario, sus propiedades pueden editarse, y los cambios realizados se reflejan también en el entorno de diseño.
+
+.. admonition:: Nota
+
+   Si se modifica el dominio de un dato desde Design, el cambio se aplicará automáticamente en todos los formularios que utilicen ese dato.  
+   Esto garantiza coherencia entre la definición central y su representación en el formulario.
+
+Componentes visuales y auxiliares
+---------------------------------
+
+- **Título**:  
+  Componente visual que permite separar y nombrar secciones dentro del formulario.  
+
+- **Mensaje**:  
+  Se utiliza para mostrar texto informativo o instrucciones al usuario.  
+
+- **Bitácora de comentarios**:  
+  Los formularios permiten configurar comentarios asociados al proceso, que el usuario puede completar al enviar una tarea.  
+  Estos comentarios no forman parte estructural de los datos, pero permiten registrar observaciones relevantes en la bitácora del proceso.
+  
+.. list-table::
+   :widths: 50 50
+   :align: center
+   :header-rows: 0
+
+   * - .. image:: _static/media/37-QformTutorial/PanelDatos.png
+         :alt: Panel de configuración de datos
+         :width: 350px
+
+     - .. image:: _static/media/37-QformTutorial/DatosyRoles.png
+         :alt: Panel de configuración de roles
+         :width: 350px
+
+.. admonition:: Nota
+
+   Los datos definidos en la **plantilla** o en la **versión** permiten modificar su configuración dentro del formulario: nombre, dominio y visibilidad.  
+   El resto de datos permiten modificar únicamente su visibilidad (editable, requerido, solo lectura u ausente), pero no su nombre ni su dominio.
+
+Visibilidad y asignación del formulario:
+----------------------------------------
+
+Un mismo formulario puede asignarse a uno o más **elementos** del proceso, siempre que se trate de un **Evento de inicio** o una **Tarea de usuario**.  
+Esta asignación se realiza desde **Design**, utilizando el **panel de propiedades** del elemento correspondiente.
+
+La visibilidad de los campos se configura exclusivamente en el **diseñador de formularios**, donde se define cómo aparecerá cada dato en cada uno de los pasos del proceso: editable, requerido, solo lectura o ausente.  
+Para más información sobre estas configuraciones, consulte la sección  
+`Visibilidad de datos, roles, adjuntos y comentarios <15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios>`_.
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Visibilidad
+     - Comportamiento
+   * - Editable
+     - El campo puede ser modificado por el usuario.
+   * - Requerido
+     - El campo debe completarse antes de avanzar.
+   * - Solo lectura
+     - El valor se muestra, pero no puede editarse.
+   * - Ausente
+     - El campo no se muestra en ese paso.
+
+Debajo de la asignación de visibilidad se encuentra un control adicional: la casilla *Permite modificar el valor por código o dependencia*.  
+Esta opción determina si el dato podrá actualizarse automáticamente durante la ejecución del proceso.  
+
+- **Por dependencias**: el valor se calcula a partir de otros datos de aplicación definidos como parámetros del dominio.  
+- **Por código**: el valor puede ser modificado en tareas de tipo *Código*, aplicando la lógica configurada en el proceso.  
+
+Si la casilla no está marcada, el valor del dato no podrá modificarse en tareas de código ni por dependencias, quedando limitado a la interacción del usuario según la visibilidad establecida.  
+
+**Ejemplo**: en un formulario de licencias, el campo *Fecha de fin* puede completarse automáticamente como *Fecha de inicio + cantidad de días solicitados*.  
+Este cálculo puede realizarse tanto por una dependencia configurada en el formulario como por una tarea de tipo *Código*, siempre que la casilla esté seleccionada.
+
+.. image:: _static/media/37-QformTutorial/Visibilidad.png
+   :alt: Ejemplo del flujo con tareas definidas
+   :align: center
+
+Vista previa y prueba en dispositivos
+-------------------------------------
+
+Desde el diseñador, puedes acceder a una **vista previa** del formulario antes de publicar el proceso.
+
+Para abrirla:
+
+- Haz clic en **Vista previa**, ubicada en la parte superior derecha.
+- El formulario se abrirá en una nueva pestaña, mostrando su estructura actual.
+
+La vista previa permite revisar:
+
+- La distribución visual de los componentes.
+- La forma en que se verá el formulario durante la ejecución.
+
+Durante la vista previa es posible interactuar con los componentes (por ejemplo, escribir texto o seleccionar opciones), pero estas acciones no se guardan ni afectan al proceso.  
+
+.. admonition:: Nota
+
+   La vista previa no evalúa validaciones, lógica del proceso, visibilidad por paso ni integraciones externas.  
+   Solo representa la estructura visual general del formulario.
+
+Prueba en dispositivos móviles con código QR
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Dentro del menú de vista previa se encuentra la opción **Escanear QR**.
+
+Esta funcionalidad genera un código QR que puede escanearse desde un dispositivo móvil o tablet para abrir el formulario.  
+Permite validar el diseño y la experiencia en pantallas reducidas.
+
+- El formulario se abre respetando la configuración actual.
+- No registra datos ni ejecuta el proceso.
+- El enlace QR es válido por 30 minutos.
+
+.. admonition:: Nota
+
+   Esta funcionalidad permite validar el diseño en entornos móviles o tablet.  
+   No puede utilizarse como prueba funcional del flujo.
+
+Barra superior del diseñador
+----------------------------
+
+La parte superior del diseñador se incluye accesos y controles globales:
+
+- **Nombre del formulario**: identifica el formulario actual.
+- **Botón “Vista previa”**: abre la simulación visual del formulario.
+- **Menú QR**: permite generar un código para abrir el formulario en un dispositivo móvil.
+- **Navegación (cuadrícula)**: acceso directo a Task, Admin, Design y Team.
+- **Menú de usuario**: configuración de cuenta y sesión.
+
+Todos los cambios realizados se guardan automáticamente.  
+Para que el formulario sea funcional dentro del proceso, es necesario **publicar la versión** en la que fue asignado.
+
+.. admonition:: Nota
+
+   La publicación de la versión del proceso es obligatoria para que el formulario se ejecute en contexto real.

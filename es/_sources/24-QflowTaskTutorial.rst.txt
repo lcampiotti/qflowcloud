@@ -1,0 +1,789 @@
+============================================
+Descubre Qflow Task
+============================================
+
+Introducción
+============
+
+El propósito de este tutorial es explicar brevemente el funcionamiento de Qflow 
+Task. Esta herramienta permite a los usuarios iniciar procesos, interactuar con 
+ellos y ver sus datos. 
+
+Trabajo con procesos
+====================
+
+Los procesos que ya fueron publicados se ven dentro de la sección “Iniciar proceso” en el menú lateral izquierdo.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Menu-StartFlow.png
+   :width: 20%
+   :align: center
+   :alt: Menú lateral izquierdo
+
+   Menú lateral izquierdo
+
+Una vez iniciado un proceso, se generan tareas para las personas que participan de él. 
+Consideremos el proceso de atender quejas planteado en el `tutorial de Qflow Design <23-DesignTutorial.html>`_.
+En este caso a alguna persona o grupo de personas se le asigna la tarea de ingresar la queja (aquellas que inician el proceso) 
+o atenderla (aquellas que les llega la tarea una vez inicializadas).
+Estos usuarios van a usar Qflow Task para responder a esas tareas. 
+
+Iniciar un proceso
+------------------
+
+Dentro de esta sección, aparecen todas las plantillas que el usuario tiene disponible y él 
+mismo debe buscar cuál es la que quiere inicializar, si hay muchas puede buscar por el nombre 
+en el campo “Buscar”.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-TemplateVersions.png
+   :width: 70%
+   :align: center
+   :alt: Plantillas disponibles
+
+   Plantillas disponibles 
+
+Luego, haga clic en el ícono de la plantilla o en el nombre correspondiente, y después en el botón de “iniciar proceso”. 
+Esto lo llevará al formulario de inicio.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-StartFlowButton.png
+   :width: 30%
+   :align: center
+   :alt: Botón de iniciar proceso
+
+   Botón de iniciar proceso 
+
+Después, debe completar el formulario de inicio, incluye ingresar el nombre del proceso, datos, 
+y posiblemente adjuntar archivos y seleccionar quiénes desempeñarían ciertos roles. 
+
+Por último, haga clic en “iniciar” y se iniciará el proceso.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-StartFlowForm.png
+   :width: 60%
+   :align: center
+   :alt: Formulario de inicio de proceso
+
+   Formulario de inicio de proceso 
+
+Tareas
+------
+
+Si el usuario tiene tareas que le corresponden responder le aparecerán como pendientes para ser resueltas. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-MyTaskList.png
+   :width: 30%
+   :align: center
+   :alt: Lista de tareas pendientes
+
+   Lista de tareas pendientes 
+
+Para responder una tarea, el usuario ingresa a la tarea y va a tener que completar ciertos datos 
+para que la tarea pueda continuar por el flujo. 
+
+Una vez que se ingresa a la tarea se pueden visualizar sus datos generales, tales como información del
+proceso, de la plantilla del proceso y de la tarea. En el caso de que en el proceso se haya definido que el 
+alcance de los datos de aplicación sean visibles o editables también se podrán visualizar e interactuar con ellos.
+
+Al final, para que el usuario pueda responder la tarea, aparece la opción que se definió en el proceso.
+
+En este ejemplo, tomando en cuenta que la queja ingresada fue por mala atención y el usuario responsable de atenderla 
+es el encargado de atención, éste debe enviarle un mensaje al cliente que ingresó la queja. 
+El mensaje para enviarle al cliente puede ser editado por el encargado o se puede dejar el que se declaró cuando la 
+queja fue ingresada. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-TaskForm-1.png
+   :width: 60%
+   :align: center
+   :alt: Formulario de tarea, parte 1
+
+   Formulario de tarea, parte 1
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-TaskForm-2.png
+   :width: 60%
+   :align: center
+   :alt: Formulario de tarea, parte 2
+
+   Formulario de tarea, parte 2 
+
+Una vez que se incializan procesos y se responden tareas, se puede acceder a la sección “General” para poder 
+acceder a información general sobre éstas. 
+
+General 
+-------
+
+Dentro de la sección general el usuario podrá ver las siguientes subopciones: 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Menu-General.png
+   :width: 20%
+   :align: center
+   :alt: Subopciones de la sección general
+
+   Subopciones de la sección general
+
+-	**Tablero de control principal:** dentro de esta sección se puede configurar un tablero de control como principal con las vistas, gráficas e indicadores disponibles. En una de las próximas secciones se explicará más en profundidad los tableros de control. 
+
+.. raw:: html
+   <br /> 
+
+-	**Procesos:** dentro de esta sección se muestran todos los procesos que fueron inicializados, en este ejemplo, todas las quejas ingresadas para ser atendidas.
+   Además, dentro de esta opción el usuario puede ver los detalles del proceso, como la información general, en qué paso del flujo se encuentra 
+   la tarea, el seguimiento, hilos, detalles e historial. Para acceder a esta información se selecciona la tarea y se hace clic en el botón 
+   con una “i”. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-FlowsView.png
+   :width: 90%
+   :align: center
+   :alt: Vista de procesos
+
+   Vista de procesos 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-FlowDetails.png
+   :width: 60%
+   :align: center
+   :alt: Detalles de proceso
+
+   Detalles de proceso 
+
+En la sección de diseño se puede visualizar el grafo del proceso a medida que avanza la tarea. Por ejemplo, si la queja es por un 
+producto defectuoso y el usuario es el encargado de atender la queja, el grafo se verá de la siguiente manera:
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-FlowGraph.png
+   :width: 70%
+   :align: center
+   :alt: Grafo de proceso
+
+   Grafo de proceso 
+
+-	**Tareas:** dentro de esta sección se muestran cuáles son las tareas pendientes que tiene el usuario, en este ejemplo las tareas pendientes de atención de quejas.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-TasksView.png
+   :width: 90%
+   :align: center
+   :alt: Vista de tareas
+
+   Vista de tareas 
+
+-	**Notificaciones:** dentro de esta sección se muestran las notificaciones que tiene el usuario. Por ejemplo, podría ser que se rechace una solicitud de un gasto a un usuario y de esta manera le llegaría la notificación de rechazo. 
+
+.. raw:: html
+   <br /> 
+   
+-	**Tareas respondidas por mí:** dentro de esta sección se muestran todas las tareas respondidas por el usuario.
+
+Colas de trabajo 
+----------------
+
+Dentro de esta sección se encuentra una lista de las colas de trabajo a las que el usuario pertenece.
+
+Las tareas asignadas a una cola de trabajo pueden ser respondidas por cualquier usuario que tenga permiso 
+para actuar en esa cola.
+
+Como estas tareas no están asignadas a ninguna persona concreta, no aparecen en la vista “Mis tareas” de 
+ninguno de los usuarios. Se puede acceder a ellas si hace clic en el propio vínculo “Colas de Trabajo” y una vez 
+en esa pantalla se accede seleccionándolo la que quiera. A su vez, también se puede acceder a una cola de trabajo 
+directamente desde el menú lateral, haciendo clic en la flecha aparecen todas las que el usuario tiene 
+disponible. 
+
+En este ejemplo, cuando la queja es otra opción, no es ni por producto defectuoso o mala atención, 
+los usuarios responsables de atender la queja podrían ser muchos. De esta manera, se diseña una cola de trabajo 
+para que cualquiera de los usuarios que tienen acceso puedan responderla. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Menu-WorkQueues.png
+   :width: 20%
+   :align: center
+   :alt: Subopciones de la sección colas de trabajo
+
+   Subopciones de la sección colas de trabajo 
+
+Una vez dentro de la bandeja de tareas de la cola, el usuario puede seleccionar la tarea para responderla. 
+Cuando la toma, otros usuarios no podrán trabajar en ella, evitando que dos usuarios trabajen simultáneamente
+en una misma tarea. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-WorkQueueActiveTasksView.png
+   :width: 75%
+   :align: center
+   :alt: Vista de tareas activas de la cola de trabajo
+
+   Vista de tareas activas de la cola de trabajo 
+
+
+Herramientas de seguimiento y análisis de procesos
+==================================================
+
+Una vez que se han ingresado tareas y se ha interactuado con ellas, se pueden diseñar diferentes opciones para 
+poder ver su comportamiento. 
+
+A continuación, se describen algunos elementos que permiten facilitar el seguimiento de los procesos, así 
+como organizar su información. Estos elementos son: 
+
+   -	Vistas 
+
+   -	Gráficas 
+
+   -	Indicadores 
+
+   -	Tableros de control 
+
+Vistas 
+------
+
+Una vista es la definición de un conjunto de elementos (por ejemplo, un conjunto de procesos o de tareas), 
+incluyendo el orden en que se muestran, qué columnas se muestran, y qué elementos se muestran. Por ejemplo, 
+un criterio para hacer una vista de procesos puede ser que los procesos pertenecientes a esa vista hayan 
+sido iniciados en una determinada fecha.
+
+Crear una vista
+***************
+
+Al crear una vista, se puede definir si ésta se mostrará en el menú lateral o no. Las vistas que se incluyen 
+en el menú lateral se muestran como subopciones de la opción “Vistas” de ese menú. Las demás vistas son 
+accesibles desde la pantalla de vistas, a la cual se accede mediante un clic en la opción “Vistas”.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Menu-Views.png
+   :width: 20%
+   :align: center
+   :alt: Subopciones de la sección vistas
+
+   Subopciones de la sección vistas 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-ViewsList.png
+   :width: 70%
+   :align: center
+   :alt: Lista de vistas
+
+   Lista de vistas 
+
+Una vista se puede crear desde cero, o también se puede copiar una vista ya existente. Si hace clic en el 
+icono de agregar vista, Qflow lo lleva a la siguiente pantalla. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create.png
+   :width: 80%
+   :align: center
+   :alt: Crear vista
+
+   Crear vista 
+
+En este ejemplo se va a crear una vista para ver las quejas ingresadas. Se debe definir: 
+
+**1)	El paquete al que pertenecerá la vista:** una vista pertenece a un determinado paquete, de la misma forma que 
+las plantillas de procesos, en este caso se creará en el paquete de operaciones. 
+
+**2)	El tipo de vista:** este indica qué tipo de ítem contiene la vista. Puede tener ítems públicos o 
+privados/personales. Inicialmente se muestran los ítems públicos, se muestran si el usuario tiene permisos 
+para el paquete seleccionado. Haciendo clic en el ícono de 
+la estrella se muestran los ítems personales, serán vistas a las cuales únicamente podrá acceder 
+el usuario que la creó. En este ejemplo se seleccionó el ítem público “Procesos”.  
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-SelectPackage.png
+   :width: 75%
+   :align: center
+   :alt: Seleccionar paquete
+
+   Seleccionar paquete 
+
+Una vez seleccionados el paquete y el tipo de la vista, haga clic en el botón “Continuar”. Esto lo lleva 
+a la pantalla de definición de la vista.
+
+Dentro de la definición de la vista, se deben completar diferentes secciones: 
+
+- Detalles 
+- Columnas 
+- Filtros 
+- Ordenar
+- Parámetros 
+- Permisos
+
+Detalles
+********
+
+Esta sección muestra el paquete y el tipo de vista y permite definir el nombre, descripción, 
+vista destacada (mostrar la vista en el árbol de navegación), tamaño de página y número de páginas para mostrar.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-Details.png
+   :width: 60%
+   :align: center
+   :alt: Detalles de la vista
+
+   Detalles de la vista 
+
+Columnas
+********
+
+Las vistas se muestran como tablas y esta sección permite definir cuáles van a ser las columnas que se van a ver en la tabla de la vista. 
+Se pueden eliminar o modificar las propiedades de las columnas seleccionándolas. 
+
+Para agregar otra columna a la vista haga clic en el botón “+”, esto hace que aparezca, en la parte superior 
+de la sección de columnas, un recuadro que muestra una lista con las columnas disponibles. Se agrupan en 
+“Columnas de sistema”, “Datos de aplicación” y “Roles de proceso”, para agregar una de ellas haga doble clic 
+o clic y arrástrela a donde dice “Arrastre aquí”. 
+
+En este ejemplo se va a agregar el dato de aplicación “Categoría”, además de las columnas que ya vienen cargadas 
+por defecto. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-Columns.png
+   :width: 60%
+   :align: center
+   :alt: Columnas de la vista, parte 1
+
+   Columnas de la vista, parte 1
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-Columns-2.png
+   :width: 80%
+   :align: center
+   :alt: Columnas de la vista, parte 2
+
+   Columnas de la vista, parte 2
+
+
+Filtros
+*******
+
+Esta sección permite especificar qué propiedades debe cumplir un ítem para ser incluido en la vista. 
+Existen filtros complejos, se permite construir combinaciones de condiciones de filtro. 
+Los filtros de una vista pueden especificar condiciones para varias columnas, y en varias combinaciones.
+
+Al presionar el botón “+” se muestran todas las columnas disponibles para agregar los filtros y se seleccionan arrastrando 
+la columna hacia donde dice “Arrastre aquí”. Cuando la columna fue agregada, se puede seleccionar desde la 
+lista desplegable.
+
+Una vez seleccionada aparecen los operadores que se pueden utilizar en una lista desplegable, “igual”, “distinto”, 
+“menor a”, entre otros. 
+
+Luego al lado del operador se agrega el campo al que se le quiere agregar el filtro. Por ejemplo, “Nombre de la plantilla”, 
+“igual”, “Quejas”. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-Filters.png
+   :width: 70%
+   :align: center
+   :alt: Filtros de la vista
+
+   Filtros de la vista 
+
+Ordenar
+*******
+
+Esta sección permite especificar en qué orden se deben mostrar los elementos de la vista. 
+Cuando se crea una vista se incluye por defecto un criterio de ordenamiento, estos se pueden modificar o 
+eliminar haciendo clic en el criterio. El procedimiento de agregar un criterio es similar al de la 
+agregación de una columna, se hace clic en el criterio y se despliega una ventana con opciones para seleccionar.
+
+En este ejemplo se decide el criterio de ordenación por ID correlativo del proceso de manera descendente. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-Sort.png
+   :width: 80%
+   :align: center
+   :alt: Orden de la vista
+
+   Orden de la vista
+
+Parámetros
+**********
+
+En la sección se pueden definir condiciones de filtro que, en lugar de comparar el valor de una columna con un 
+valor fijo, lo compara con un valor que un usuario ingresa a la hora de ver la vista. 
+
+Se agrega similar a todos los anteriores, se hace clic en el botón “+” y se despliegan las columnas disponibles, 
+se seleccionan arrastrándolas. Una vez agregadas, si se les hace clic se pueden ver sus propiedades y modificarlas. 
+
+Sin embargo, en este ejemplo no se agrega ningún parámetro. 
+
+Permisos
+********
+
+Esta sección permite restringir el conjunto de personas que pueden ver una vista. Solo está disponible para 
+ítems públicos ya que los ítems personales sólo pueden ser vistos por el usuario que los creó. 
+
+Seleccione el botón de “Restringir acceso” y luego donde dice “Acceso permitido a” o “Acceso denegado a” comience a escribir el rol al que 
+le quiere restringir el acceso.  
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-Permissions.png
+   :width: 50%
+   :align: center
+   :alt: Permisos de la vista
+
+   Permisos de la vista
+
+Al terminar de modificar las propiedades de cada una de esas secciones, debe hacer clic en “Listo”. Qflow validará 
+los datos, y si hay errores, le avisará. Si hace clic en el aviso de los errores, Qflow lo lleva a la parte de la pantalla 
+en la que puede corregir el error.
+
+El resultado final de la vista se verá de la siguiente manera: 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-Result.png
+   :width: 65%
+   :align: center
+   :alt: Vista de quejas
+
+   Vista de quejas
+
+
+Gráficas
+--------
+
+Qflow permite crear gráficas de varios tipos para facilitar la visualización de los datos de los procesos. Al igual que 
+con las vistas, para cada gráfica se puede definir si ésta se mostrará en el menú lateral como una subopción de la opción 
+“Gráficas” o no, accediendo a ellas dentro de la sección “Gráficas”. 
+
+El proceso de creación de una gráfica es similar al de las vistas. Se debe hacer clic en el botón “+” y se abre una 
+pantalla donde se debe seleccionar el paquete donde se va a crear la gráfica y el tipo de ítem que se utilizarán como 
+datos de la gráfica. Los ítems son iguales que los de las vistas, se dividen en públicos y personales, sin embargo, se 
+agregan dos más. 
+
+Consulte la creación de una vista (`Crear una vista`_) para más detalles de cómo son los primeros pasos para crear una gráfica. 
+
+La pantalla para la creación de una gráfica tiene las siguientes secciones: (todas las secciones menos “Apariencia”, 
+“Medida” y “Dimensiones” se detallan en la definición de la creación de las `Vistas`_):
+
+-	Detalles 
+-	Apariencia
+-	Medida
+-	Dimensiones
+-	Columnas
+-	Filtros
+-	Ordenar
+-	Parámetros
+-	Permisos
+
+Para este ejemplo se creará una gráfica de Columnas agrupadas para poder visualizar por qué se dieron las quejas, 
+si por mala atención, producto defectuoso u otra razón. 
+
+En la sección de Detalles se nombrará la gráfica “Quejas”. Dentro de la sección Columnas se agrega el dato de aplicación 
+de “Categoría” y luego todo el resto de las secciones se crean de la misma manera que se crearon en la vista.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-View-Create-Details.png
+   :width: 60%
+   :align: center
+   :alt: Detalles de la gráfica
+
+   Detalles de la gráfica 
+
+Apariencia
+**********
+
+En esta sección se permite elegir el tipo de la gráfica, como ser una gráfica lineal, circular, entre otras. 
+
+Los tipos disponibles son: anillo, área superpuesta, barras apiladas, circular, columnas apiladas, línea, área apilada, 
+barras agrupadas, burbujas, columnas agrupadas y dispersión (XY). 
+
+Para este ejemplo se va a seleccionar la opción de columnas agrupadas. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Chart-Create-Appareance.png
+   :width: 60%
+   :align: center
+   :alt: Apariencia de la gráfica
+
+   Apariencia de la gráfica
+
+Medida
+******
+
+La medida define los valores que se muestran gráficamente. Por ejemplo: en una gráfica de columnas, la medida es el valor 
+que se utiliza para calcular la altura de cada una de las barras.
+
+La medida se crea por la definición de una columna y un tipo de agregación. La columna va a ser numérica a menos que se 
+utilice “Cantidad” como tipo de agregación. 
+
+El tipo de agregación define cómo se utilizará la columna indicada en medida para calcular los valores que se utilizarán 
+en la gráfica. Las opciones son: 
+
+-	**Cantidad:** indica que se deben contar los valores no nulos de la columna indicada en “Medida”. Por ejemplo, si se quiere construir una gráfica que muestre cuántos procesos inició cada usuario, se puede utilizar el tipo de agregación “Cantidad” con la medida “Identificador correlativo del proceso”. La dimensión sería la columna “Usuario que inició el proceso”.
+
+-	**Máximo:** de la columna indicada, toma el valor máximo. Por ejemplo, si para la medida se elige un dato de aplicación como columna, la gráfica mostrará el valor máximo de ese dato de aplicación.
+
+-	**Mínimo:** de la columna indicada, toma el valor mínimo.
+
+-	**Promedio:** la gráfica muestra el valor promedio de los valores que tiene la columna elegida como medida.
+
+-	**Suma:** la gráfica muestra la suma de los valores de la columna elegida como medida. 
+
+Para elegir una columna tiene que hacer clic en el botón que aparece a la izquierda en el campo “Columnas” y ahí se va a 
+desplegar una lista con todas las columnas disponibles. Haga doble clic para seleccionar la que desee, para cambiarla haga lo 
+mismo nuevamente. 
+
+Para este ejemplo se va a tomar como tipo de agregación cantidad y como columna el dato de aplicación “Categoría”. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Chart-Create-Measure.png
+   :width: 60%
+   :align: center
+   :alt: Medida de la gráfica
+
+   Medida de la gráfica 
+
+Dimensiones
+***********
+
+Dentro de esta sección se definen las columnas que definen los valores que se relacionan con la medida. 
+Todas las gráficas tienen al menos una dimensión, pero para algunas se pueden definir varias. 
+
+Los pasos para agregar una dimensión son similares a los de agregar una columna que se definió en la sección de `Vistas`_. 
+Haga clic en el botón “+” y se van a desplegar todas las opciones posibles, haga doble clic en la que desea agregar o 
+arrastre la opción a donde dice “Arrastre aquí”. 
+
+Si hay más de una dimensión el orden de las dimensiones que se agregan sí importa. Por ejemplo, en una gráfica de columnas 
+apiladas de dos dimensiones, la primera se usa para determinar los valores que van en el eje horizontal, y la segunda 
+para determinar las categorías en las que se subdivide cada columna.
+
+En este ejemplo se utilizará solo una dimensión que es la categoría de la queja. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Chart-Create-Dimensions.png
+   :width: 60%
+   :align: center
+   :alt: Dimensiones de la gráfica
+
+   Dimensiones de la gráfica 
+
+Una vez definidas todas las propiedades haga clic en el botón “Listo”. 
+
+El resultado final de la gráfica se verá de la siguiente manera: 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Chart-Create-Result.png
+   :width: 60%
+   :align: center
+   :alt: Gráfica de quejas
+
+   Gráfica de quejas 
+
+
+Indicadores 
+-----------
+
+Qflow permite crear indicadores que hacen cálculos con los datos de los procesos y llegan a un resultado 
+que se representa mediante un número y una figura que le agrega significado.
+
+Al igual que con las vistas y las gráficas se puede definir si el indicador aparece como subopción de 
+la opción “Indicadores” o no. 
+
+El proceso para crear un indicador es muy similar al de las vistas y gráficas, se crea uno nuevo haciendo clic 
+en el botón “+”, luego se debe seleccionar el paquete donde se va a crear la gráfica y el tipo de ítem que se 
+utilizará como datos de éste. Los tipos de ítems disponibles son los mismos que están disponibles para las gráficas. 
+
+La pantalla para la creación de un indicador tiene las siguientes secciones: (todas las secciones menos “Detalles”, 
+“Rangos” y “Fórmulas” se detallan en la definición de la creación de las `Vistas`_): 
+
+-	Detalles 
+
+-	Rangos 
+
+-	Fórmulas
+
+-	Filtros 
+
+-	Parámetros 
+
+-	Permisos  
+
+Para este tutorial se creará un indicador que muestre cuántas quejas van siendo ingresadas. 
+
+Las secciones Filtros, Parámetros y Permisos se definen igual que los ejemplos anteriores. Dejando Parámetros y 
+Permisos vacíos y los Filtros con el nombre de la plantilla igual a “Quejas”.
+
+Detalles
+********
+
+Esta sección es similar a la de vistas, pero contiene dos propiedades más: 
+
+**-	Apariencia:** indica la figura que se usará para representar el indicador: 
+
++ **Medidor:** una aguja que marca un valor en una escala dividida por distintos colores
+    
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Gauge-Example.png
+   :width: 30%
+   :align: center
+   :alt: Medidor
+
+   Medidor 
+
++	**Semáforo:** se muestra el valor sobre un fondo del color correspondiente al rango al que pertenece
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Semaphore-Example.png
+   :width: 60%
+   :align: center
+   :alt: Semáforo
+
+   Semáforo 
+
++	**Termómetro:** se muestra el dibujo de un termómetro que marca el valor que se representa 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Thermometer-Example.png
+   :width: 10%
+   :align: center
+   :alt: Termómetro
+
+   Termómetro 
+
+**-	Dígitos decimales:** la cantidad de dígitos decimales que se tendrán en cuenta para el resultado del cálculo del medidor
+
+Para este ejemplo se seleciona como apariencia el Medidor. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Create-Details.png
+   :width: 60%
+   :align: center
+   :alt: Detalles del indicador
+
+   Detalles del indicador 
+
+Rangos
+******
+
+Dentro de esta sección se definen los rangos que permiten categorizar los valores que mostrará el indicador. Cada rango se 
+asocia a un color. En las figuras anteriores, el valor que se muestra en los indicadores está en un rango que se asoció al 
+color amarillo.
+
+Para agregar un rango haga clic en el botón “+”, esto va a ir agregando rangos a la lista de rangos que se van mostrando 
+en una barra. El primer rango que se agrega la barra lo muestra con un nombre por defecto, un color cualquiera y con 
+valores límite de 0 y 50, se pueden modificar estas propiedades haciendo clic en el rango.  
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Create-Ranges.png
+   :width: 60%
+   :align: center
+   :alt: Rangos del indicador
+
+   Rangos del indicador 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Create-Ranges-Colors.png
+   :width: 60%
+   :align: center
+   :alt: Colores de los rangos del indicador
+
+   Colores de los rangos del indicador 
+
+Fórmula
+*******
+
+En esta sección se define cómo calcular el valor que se muestra en el indicador. La fórmula se representa mediante un árbol 
+que tiene un nodo para cada operación y para cada operando. 
+
+En el ejemplo se va a usar como fórmula el identificador correlativo del proceso para ir contabilizando la cantidad de quejas ingresadas. 
+El árbol se define desde la raíz, en el tope, hacia abajo. Por lo tanto se define primero la última operación que se ejecuta
+(raíz), que es la que da como resultado el valor indicado. En este caso la cantidad de 
+procesos inicializados. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Create-Formula.png
+   :width: 60%
+   :align: center
+   :alt: Fórmula del indicador
+
+   Fórmula del indicador 
+
+Los nodos del árbol pueden ser de varios tipos, cada uno de los cuales está asociado a un tipo de operación u operando. En el 
+árbol, el tipo de un nodo se representa mediante un ícono.
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Create-Formula-Types.png
+   :width: 60%
+   :align: center
+   :alt: Tipos de nodos de la fórmula
+
+   Tipos de nodos de la fórmula 
+
+-	**Agregación:** un nodo de agregación es una operación que toma un conjunto de datos y los utiliza para calcular un valor. Puede ser un promedio, cantidad, máximo, mínimo o suma. 
+
+-	**Columna:** una columna de sistema o dato de aplicación. Una columna determina un conjunto de datos que pueden ser utilizados como entrada de una operación de agregación.
+
+-	**Constante:** un valor fijo de algún tipo.
+
+-	**Conversión:** operación que convierte el parámetro de entrada al tipo de dato que espera la operación que utiliza su resultado como entrada.
+
+-	**Función:** una función toma parámetros y les aplica alguna función estándar, como, por ejemplo, las operaciones aritméticas. También hay funciones de manipulación de fechas o de cadenas de texto.
+
+El resultado final del indicador se verá de la siguiente manera:
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Kpi-Create-Result.png
+   :width: 30%
+   :align: center
+   :alt: Indicador de quejas
+
+   Indicador de quejas
+
+Tableros de control 
+-------------------
+
+Un tablero de control es una página que combina `Vistas`_, `Indicadores`_ y `Gráficas`_.
+Al igual que las vistas, gráficas e indicadores se pueden ver como una subopción de la opción “Tablero de Control” o no. 
+Los pasos para crear un tablero de control son similares a las demás secciones, haciendo clic en el botón “+” se despliega 
+la opción de seleccionar dentro de qué paquete se va a crear el tablero y determinar si va a ser uno público o personal. 
+Las diferentes opciones aparecen haciendo clic en el botón de la estrella. 
+
+Para este tutorial se creará un tablero de control que muestre información sobre el proceso de quejas con la vista, gráfica e indicador 
+que se creó anteriormente. 
+
+La pantalla para la creación de un tablero de control tiene las siguientes secciones:
+
+Detalles
+********
+
+Los detalles del tablero son similares a los de las vistas: incluyen su nombre, su descripción, y un 
+campo que permite indicar si el tablero se debe incluir en el menú lateral (“Tablero de control destacado”).
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Dashboard-Create-Details.png
+   :width: 60%
+   :align: center
+   :alt: Detalles del tablero de control
+
+   Detalles del tablero de control 
+
+Permisos
+********
+
+Para un tablero hay más de un permiso, dado que la página en la que se ve un tablero es también la página en la que lo 
+edita para decidir qué elementos lo componen. Los permisos de un tablero indican si se lo puede ver, pero también si se 
+lo puede modificar. Al agregar un miembro a la lista de miembros con permisos, aparece una tabla en la que se debe 
+marcar “Permitido” o “Denegado” en cada permiso.
+
+
+Modificación de lo que se muestra en el tablero de control
+**********************************************************
+
+Para definir qué elementos se muestran en un tablero se utiliza la misma página en la que se ve el tablero. Sólo usuarios 
+que tienen permiso de modificar el tablero pueden cambiar los elementos que se muestran en él.
+
+Si el tablero está vacío se indicará en la pantalla y para agregar elementos haga clic en el vínculo que dice “Agregue 
+nuevos elementos haciendo clic aquí” o en el botón del lápiz arriba a la derecha. Entonces, Qflow mostrará los elementos 
+disponibles, cada tipo en una solapa (vistas, gráficas e indicadores).
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Dashboard-Create-Empty.png
+   :width: 70%
+   :align: center
+   :alt: Tablero de control vacío
+
+   Tablero de control vacío 
+
+Para agregar un elemento haga doble clic en él o selecciónelo y haga clic en el botón “+” que está arriba. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Dashboard-Edit.png
+   :width: 60%
+   :align: center
+   :alt: Tablero de control editado
+
+   Tablero de control editado 
+
+Una vez seleccionado el elemento, puede eliminarlo con la cruz que se encuentra arriba a la derecha o puede modificar cómo 
+va a estar plasmado en la pantalla. Generalmente se tendrá que modificar su tamaño, se puede hacer con cualquiera de las 
+dos flechas que aparecen en las esquinas inferiores del elemento. Mantenga el botón del ratón apretado, y muévalo hasta 
+que el elemento alcance el tamaño deseado. 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Dashboard-Add-View.png
+   :width: 70%
+   :align: center
+   :alt: Agregar vista al tablero de control
+
+   Agregar vista al tablero de control 
+
+Puede agregar cuantos elementos quiera y una vez finalizada la edición, haga clic en el botón de “Guardar” que se ubica arriba 
+a la derecha. 
+
+Finalmente, el tablero de control se verá de la siguiente manera: 
+
+.. figure:: _static/media/24-QflowTaskTutorial/TaskTutorial-Dashboard-Edited.png
+   :width: 75%
+   :align: center
+   :alt: Tablero de control final
+
+   Tablero de control final 
+
+
+Por último, si quiere mas información que no se detalló en el tutorial, puede ver el manual de `Qflow Task <04-QflowTask.html>`_. 
+
+
+
+
+
+
+

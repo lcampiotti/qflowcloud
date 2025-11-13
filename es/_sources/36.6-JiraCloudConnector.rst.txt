@@ -1,0 +1,336 @@
+***********************
+Jira Cloud
+***********************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Jira Cloud para permitir la interacción entre ambas plataformas, permitiendo
+crear, mover, editar, eliminar incidencias, además de agregar comentarios.
+
+Jira Cloud cuenta con las siguientes acciones:
+
+- `Crear incidencia <#id1>`_
+- `Agregar comentario a incidencia <#id2>`_
+- `Actualizar fecha de vencimiento en incidencia <#id3>`_
+- `Actualizar prioridad en incidencia <#id4>`_
+- `Actualizar estado de incidencia <#id5>`_
+- `Actualizar usuario asignado <#id6>`_
+- `Eliminar incidencia <#id7>`_
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta en Jira Cloud y un espacio de trabajo creado en la plataforma.
+Puede hacerse una cuenta |jira_cloud_signup|.
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_) 
+que permita establecer la comunicación entre Qflow y Jira Cloud.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow, donde también se utiliza para establecer la comunicación entre Qflow y Jira Cloud. 
+(ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+ 
+Para crear un parámetro de aplicación de Jira Cloud, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando API Token
+---------------------------------------------
+
+Este tipo de parámetro de aplicación requiere de los siguientes parámetros:
+
+- **API Token**: Es un token que permite a Qflow conectarse a Jira Cloud, simulando ser el usuario que lo generó.
+  Toda acción hecha desde Qflow se va a mostrar como realizada por el usuario que generó el token.
+- **Vínculo del dominio de Jira**: Es el vínculo de la instancia de Jira Cloud a la que se va a conectar Qflow.
+  Por ejemplo, una posible instancia de Jira Cloud podría ser https://miempresa.atlassian.net.
+- **Correo electrónico del usuario**: Es el correo electrónico del usuario que generó el token desde Jira Cloud, las acciones hechas desde
+  el conector de Qflow se van a mostrar como realizadas por este usuario.
+
+Para obtenerlos, se deben seguir los siguientes pasos:
+
+#. Acceder a la sección de |jira_api_tokens| de Jira Cloud.
+#. Seleccionar **Crear token de API**.
+
+   .. figure:: _static/media/36_6-JiraCloudConnector/ApiToken1.png
+      :width: 600px
+      :align: center
+
+      `Crear token de API` marcado en la sección de Tokens de API
+   
+   |space|
+
+#. Escribir una etiqueta para identificar el token, por ejemplo, `Qflow`, y seleccionar `Crear`.
+   
+   .. figure:: _static/media/36_6-JiraCloudConnector/ApiToken2.png
+      :width: 450px
+      :align: center
+
+      Sección de elegir etiqueta y crear Token de API
+   
+   |space|
+
+#. Copiar el token generado, que es el token de API necesario para configurar el parámetro de aplicación en Qflow.
+   Con esto finalizan los pasos necesarios en la página de Jira Cloud.
+
+   .. figure:: _static/media/36_6-JiraCloudConnector/ApiToken3.png
+      :width: 450px
+      :align: center
+
+      Token de API generado
+   
+   |space|
+
+#. En Qflow Design, agregar el Token de Api en `API Token`, el vínculo del equipo en `Vínculo del dominio de Jira`, 
+   y el correo del usuario logueado al pedir el Token de API en `Correo electrónico de usuario`.
+
+   .. figure:: _static/media/36_6-JiraCloudConnector/ApiToken4.png
+      :width: 600px
+      :align: center
+
+      Parámetros necesarios del parámetro de aplicación agregados en Qflow
+   
+   |space|
+
+Una vez completados los pasos, será posible crear, editar, mover, eliminar incidencias y agregar comentarios en Jira Cloud desde Qflow.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con Jira Cloud:
+
+Crear incidencia
+----------------
+Esta acción permite crear una incidencia en Jira Cloud. Se debe proporcionar el nombre del proyecto, el tipo de
+incidencia y el resumen, opcionalmente se pueden agregar otros parámetros que se listan debajo.
+Después de crear la incidencia, se recibe una clave que identifica la incidencia en Jira Cloud, que permite 
+editarla, moverla, eliminarla, y agregarle comentarios más adelante.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Nombre de Proyecto
+     - **Requerido.** Nombre del proyecto de Jira Cloud donde se creará la incidencia.
+   * - Tipo de incidencia 
+     - **Requerido.** Tipo de incidencia que se creará. Por ejemplo, 'Task' (Tarea), 'Story' (Historia), entre otros.
+       
+       Los tipos de incidencia pueden estar traducidos, Jira Cloud ya ofrece una traducción al español, la traducción puede ser editada
+       por el equipo de Jira, también es posible agregar tipos de incidencia personalizados. 
+       
+       Se pueden poner los parámetros en
+       el idioma que utilice el usuario que configuró la conexión con Jira Cloud, y también en inglés. 
+       
+       Es decir, por ejemplo,
+       si el usuario que configuró la conexión con Jira Cloud tiene configurada su cuenta con español, se pueden escribir los 
+       nombres de los tipos de incidencia en español y en inglés. 
+   * - Resumen
+     - **Requerido.** Resumen de la incidencia que se creará.
+   * - Prioridad
+     - Prioridad de la incidencia que se creará. Por ejemplo, 'High', 'Medium', 'Low'. 
+       Se puede usar parámetros de incidencia personalizados o agregados por su equipo de Jira Cloud.
+   * - Fecha de vencimiento
+     - Fecha de vencimiento de la incidencia que se creará.
+   * - Descripción
+     - Descripción de la incidencia que se creará.
+   * - Persona asignada
+     - Usuario designado a realizar la incidencia. Se debe escribir su nombre de usuario.
+   * - Informador
+     - Usuario que informa la incidencia. Se debe escribir su nombre de usuario.
+   * - Etiquetas
+     - Se usan para clasificar y buscar incidencias. Se pueden asignar varias etiquetas a una sola incidencia 
+       y no deben contener espacios.
+   * - Versiones corregidas
+     - Escribir el nombre de la versión corregida. Se pueden asignar varias versiones a una sola incidencia.
+   * - JSON de campos extra
+     - Si se desea agregar parámetros personalizados a la incidencia, se debe escribir un JSON con los parámetros y valores que se desean agregar. 
+       
+       Es útil para agregar parámetros en la incidencia 
+       a crear que no están definidos en la acción. Los parámetros agregados deben estar habilitados en su configuración de Jira Cloud.
+
+       Puede basarse en los ejemplos en la |jira_api_group_issues|
+       para saber cómo estructurar el JSON para agregar solamente los parámetros extras que se desee.
+
+       Considerar que el contenido que escriba será unificado con el JSON que se envía a Jira Cloud. 
+       
+       Por ejemplo, si se desea agregar que la incidencia creada sea hija de otra incidencia, se puede agregar el parámetro `parent` con el JSON ``{"fields":{"parent":{"key": "PROJ-123"}}}``.
+       Donde `PROJ-123` es la clave de la incidencia padre.
+
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Clave de incidencia
+     - Clave que identifica la incidencia creada en Jira Cloud. Se puede usar para editar, mover, eliminar, y agregar comentarios a la incidencia.
+
+
+Agregar comentario a incidencia
+-------------------------------
+Esta acción permite agregar un comentario a una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y el comentario a agregar.
+Después de crear el comentario, se recibe un identificador del comentario.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Clave de incidencia
+     - **Requerido.** Clave de la incidencia a la que se le agrega el comentario.
+   * - Comentario
+     - **Requerido.** Comentario que se agrega a la incidencia.
+
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Identificador de comentario
+     - Identificador del comentario agregado a la incidencia en Jira Cloud.
+
+
+Actualizar fecha de vencimiento en incidencia
+---------------------------------------------
+Esta acción permite actualizar la fecha de vencimiento de una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y la nueva fecha de vencimiento.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Clave de incidencia
+     - **Requerido.** Clave de la incidencia a la que se le actualizará la fecha de vencimiento.
+   * - Fecha de vencimiento
+     - **Requerido.** Nueva fecha de vencimiento de la incidencia. Si se desea eliminar la fecha de vencimiento, se debe dejar el parámetro vacío.
+
+
+Actualizar prioridad en incidencia
+-----------------------------------
+Esta acción permite actualizar la prioridad de una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y la nueva prioridad.
+La prioridad puede ser 'High', 'Medium', 'Low', o cualquier otra prioridad definida en Jira Cloud.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Clave de incidencia
+     - **Requerido.** Clave de la incidencia a la que se le actualizará la prioridad.
+   * - Prioridad
+     - **Requerido.** Nueva prioridad de la incidencia. Puede ser 'High', 'Medium', 'Low', o cualquier otra prioridad definida en Jira Cloud.
+       Si se desea eliminar la prioridad, se debe dejar el parámetro vacío.
+
+
+Actualizar estado de incidencia
+-------------------------------
+Esta acción permite actualizar el estado de una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y el nuevo estado a donde se moverá.
+El estado puede ser 'To do' (Por hacer), 'In Progress' (En progreso), 'Done' (Listo), o cualquier otro estado definido en Jira Cloud. Los estados pueden estar traducidos, 
+Jira Cloud ya ofrece una traducción al español, la traducción puede ser editada por el equipo de Jira. 
+Tambien es posible agregar parámetros personalizados en la incidencia, para ello se debe agregar un JSON con los parámetros y valores que se desean agregar.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Clave de incidencia
+     - **Requerido.** Clave de la incidencia a la que se le actualizará el estado.
+   * - Nombre de columna
+     - **Requerido.** Nuevo estado de la incidencia. Puede estar escrito en inglés o traducido.
+   * - JSON de parámetros extra
+     - Si se desea agregar parámetros personalizados a la incidencia, se debe escribir un JSON con los parámetros y valores que se desean agregar. 
+       
+       Es útil para agregar parámetros en la incidencia 
+       a crear que no están definidos en la acción. Los parámetros agregados deben estar habilitados en su configuración de Jira Cloud.
+
+       Puede basarse en los ejemplos en la |jira_api_group_issues|
+       para saber cómo estructurar el JSON para agregar solamente los parámetros extras que se desee.
+
+       Considerar que el contenido que escriba será unificado con el JSON que se envía a Jira Cloud. 
+       
+       Por ejemplo, si se desea agregar que la incidencia creada sea hija de otra incidencia, se puede agregar el parámetro `parent` con el JSON ``{"fields":{"parent":{"key": "PROJ-123"}}}``.
+       Donde `PROJ-123` es la clave de la incidencia padre. 
+
+
+Actualizar usuario asignado
+---------------------------
+Esta acción permite actualizar el usuario asignado a una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y el nombre de usuario del nuevo asignado.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Clave de incidencia
+     - **Requerido.** Clave de la incidencia a la que se le actualizará el usuario asignado.
+   * - Usuario asignado
+     - **Requerido.** Nombre de usuario del nuevo asignado a la incidencia. Si se desea eliminar el usuario asignado, se debe dejar el parámetro vacío.
+
+
+Eliminar incidencia
+-------------------
+Esta acción permite eliminar una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia a eliminar.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Clave de incidencia
+     - **Requerido.** Clave de la incidencia a eliminar.
+
+.. |space| raw:: html
+   
+      <p style="margin-top: 2em;"></p>
+
+.. |jira_cloud_signup| raw:: html
+
+   <a href="https://www.atlassian.com/es/try/cloud/signup?bundle=jira-software" target="_blank">desde aquí</a>
+
+.. |jira_cloud_signup_eng| raw:: html
+  
+   <a href="https://www.atlassian.com/try/cloud/signup?bundle=jira-software" target="_blank">here</a>
+
+.. |jira_api_tokens| raw:: html
+
+   <a href="https://id.atlassian.com/manage-profile/security/api-tokens" target="_blank">Tokens de API</a>
+
+.. |jira_api_tokens_eng| raw:: html
+
+   <a href="https://id.atlassian.com/manage-profile/security/api-tokens" target="_blank">API Tokens</a>
+
+.. |jira_api_group_issues| raw:: html
+
+   <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-group-issues" target="_blank">documentación de Jira Cloud</a>
+
+.. |jira_api_group_issues_eng| raw:: html
+
+   <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-group-issues" target="_blank">Jira Cloud documentation</a>

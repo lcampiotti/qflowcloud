@@ -1,0 +1,103 @@
+
+v5.1
+============
+
+
+
+**Resumen de características**
+
+La versión 5.1 incorpora Q-flow en la nube soportando el uso de múltiples instancias, distintas zonas horarias y un
+nuevo sitio web “Client Registration” para crear y manejar las instancias, comprar y manejar las licencias de Q-flow cloud 
+y obtener los vínculos de acceso a las instancias creadas.
+
+**Q-flow Cloud**
+
+Se incorpora al producto la tecnología Cloud mediante el servicio de Microsoft azure. Ésto conlleva
+varias mejoras, como la accesibilidad, ya que a diferencia de OnPremise, Cloud permite acceder a Q-flow
+desde cualquier momento y desde cualquier lugar y dispositivo.
+
+Ahora Q-flow Cloud incorpora nuevos conceptos para licencia cloud:
+
+   * Q-points: Puntos que representan el esfuerzo realizado al ejecutar un proceso. 
+     Estos son consumidos al ejecutar pasos de un proceso. Cada paso tiene una cantidad de Q-points asignada. 
+     En algunos casos esta cantidad puede variar en el tiempo.
+
+   * Almacenamiento: Cantidad en GigaBytes de almacenamiento que tiene disponible la instancia. Elementos como los adjuntos
+     son los que afectan a esta cantidad.
+
+
+Client Registration
+-------------------
+
+Sitio para crear nuevas instancias suscribiéndose con el plan que se ajuste mejor a sus necesidades (mensual, por seis meses, anual), también puede editarlos y eliminarlos.
+Además de mostrar de forma unificada todos sus instancias y links a los distintos sitios.
+
+   .. figure:: _static/media/29-ReleaseNote/LoginClientRegistration.png
+      :width: 10.53704in
+      :align: center
+      :alt: Página de inicio de sesión
+      
+      Página de inicio de sesión
+
+   .. figure:: _static/media/29-ReleaseNote/CreateTenant.png
+      :width: 10.53704in
+      :align: center
+      :alt: Página para crear nueva instancia
+      
+      Página para crear nueva instancia
+
+
+
+.. admonition:: Nota
+
+   Cuando un usuario se registra por primera vez se le otorga un mes de licencia gratis.
+
+
+OMM Web
+-------
+
+Actualización de la home
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Se actualizó la vista de la home del sitio de OMM, ahora se muestra una gráfica con el histórico de cantidad de usuarios activos por mes (durante los útlimos 12 meses).
+También muestra un listado de las últimas sesiones creadas por los usuarios y a qué sitio aplican.
+
+   .. figure:: _static/media/29-ReleaseNote/HomeOMM.png
+      :width: 9in
+      :align: center
+      :alt: Página de inicio del sitio OMM
+
+      Página de inicio del sitio OMM
+
+SAM Web
+-------
+
+Actualización de la home
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Para el sitio de SAM se agregaron indicadores sobre el consumo actual de Almacenamiento (cantidad en GigaBytes de almacenamiento que tiene 
+disponible la instancia. Elementos como los adjuntos son los que afectan a esta cantidad), Q-points y cantidad de usuarios que puede 
+tener habilitados la instancia. 
+Cuando alguno de estos valores sobrepasa el límite o el usuario no tiene licencia habilitada el indicador se pone rojo. 
+Además los valores son acumulativos, es decir, si se pone 5 licencias se acumula en las cards.
+
+   .. figure:: _static/media/29-ReleaseNote/HomeSAMCloud.png
+      :width: 10.53704in
+      :align: center
+      :alt: Página de inicio del sitio SAM
+
+      Página de inicio del sitio SAM
+
+Actualización de estadísticas 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Historial de consumo**
+
+Permite ver los valores resultantes de la licencia (hasta 12 meses).
+
+   .. figure:: _static/media/29-ReleaseNote/UsageHistoryQPointsAndUsersChart.png
+      :width: 5.53704in
+      :align: center
+      :alt: Sección “Historial de consumo”
+
+      Sección “Historial de consumo”

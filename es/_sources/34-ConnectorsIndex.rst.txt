@@ -1,0 +1,26 @@
+Conectores
+=========================================
+
+Los conectores permiten integrar de manera sencilla y sin necesidad de programación 
+servicios de terceros con Qflow.
+A continuación, se detallan las aplicaciones disponibles para conectarse, así como los
+pasos necesarios para configurar cada conector en una tarea de servicio en Qflow.
+
+.. toctree::
+   :maxdepth: 4
+
+   35-ConnectorParameterConfig
+   36.1-MicrosoftTeamsConnector
+   36.2-OutlookConnector
+   36.3-SlackConnector
+   36.4-TrelloConnector
+   36.5-OpenAIConnector
+   36.6-JiraCloudConnector
+   36.7-RedmineConnector
+   36.8-DocuSignConnector
+   36.9-GoogleCalendarConnector
+   36.11-DropboxConnector
+   36.12-OneDriveConnector
+   36.13-WhatsAppTwilioConnector
+   36.14-MicrosoftWordConnector
+   36.15-ILovePDFConnector

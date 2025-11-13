@@ -1,0 +1,355 @@
+
+****************************************
+Google Calendar
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Google Calendar para permitir la interacción entre ambas plataformas, permitiendo
+crear, actualizar y eliminar eventos.
+
+Google calendar cuenta con las siguientes acciones:
+
+- `Crear evento <#id2>`_
+- `Actualizar evento <#id3>`_
+- `Eliminar evento <#id4>`_
+
+Ver `Acciones <36.9-GoogleCalendarConnector.html#id1>`_ para conocer la descripción y contenido de cada una.
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta de Google y un espacio de trabajo creado en la plataforma.
+Esto puede hacerse |google_cloud_console_es|.
+
+Además, es necesario contar con una cuenta de Google Workspace y tener habilitada la Delegación en todo el dominio.
+Esto puede habilitarse en su |google_admin_es|.
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_)
+que permita establecer la comunicación entre Qflow y Google Calendar.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de Google Calendar, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando Delegación en todo el Dominio
+-----------------------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere los siguientes parámetros:
+
+- **Email de usuario**
+- **Id de proyecto**
+- **Id de clave privada**
+- **Clave privada**
+- **Email cliente**
+- **Id cliente**
+
+Para obtenerlos, se deben seguir los siguientes pasos:
+
+#. Acceder al |manejador_de_recursos_es|. Aquí crearemos un nuevo proyecto seleccionando `CREAR PROYECTO`.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/CreateProjectButton.png
+      :width: 600px
+      :align: center
+
+      Botón `CREAR PROYECTO` en el manejador de recursos de Google Cloud
+
+   |space|
+
+#. Escribir el nombre del proyecto y seleccionar la `Ubicación` al que pertenecerá,
+   luego seleccionar `CREAR`.
+   En el ejemplo de la imagen a continuación, se muestra que la aplicación se llama `QflowTestWiki`
+   y no pertenece a alguna organización.
+   
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/ProjectName.png
+      :width: 600px
+      :align: center
+     
+      Vista de creación de proyecto en Google Cloud
+
+   |space|
+
+#. Seleccionar en el combobox superior nuestro nuevo proyecto.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/SelectProject.png
+      :width: 850px
+      :align: center
+     
+      Vista de selección de proyecto en Google Cloud
+
+   |space|
+
+#. En la barra superior buscamos `Google Calendar API`, entramos y posteriormente clicamos en `HABILITAR` para habilitar dicha API en nuestro proyecto.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/GoogleCalendarAPI.png
+      :width: 600px
+      :align: center
+     
+      Botón para habilitar Google Calendar API en nuestro proyecto de Google Cloud
+
+   |space|
+
+#. En la barra superior buscamos `Cuentas de servicio` y procederemos a crear una cuenta de servicio, encargada de la ejecución de nuestras interacciones.
+   Para esto seleccionamos `CREAR CUENTA DE SERVICIO`.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/CreateServiceAccount.png
+      :width: 800px
+      :align: center
+     
+      Opción para crear una cuenta de servicio en Google Cloud
+
+   |space|
+
+#. Aquí deberemos completar `ID de la cuenta de servicio`. Recomendamos además completar `Nombre de la cuenta de servicio` y la `Descripción de la cuenta de servicio` como se muestra en la imagen siguiente.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/CreateServiceAccount2.png
+      :width: 600px
+      :align: center
+     
+      Campos de cuenta de servicio en Google Cloud
+
+   |space|
+
+#. Volver a la vista de Service Accounts, seleccionar la cuenta de servicio creada y en la sección de `Acciones` seleccionamos `Adminsitrar claves`.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/ManageKeys.png
+      :width: 600px
+      :align: center
+     
+      Opción de `Manage Keys` para cuenta de servicio en Google Cloud
+
+   |space|
+
+#. En esta nueva ventana vamos a seleccionar la opción `Crear clave nueva` dentro del combobox de `AGREGAR CLAVE`.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/CreateNewKey.png
+      :width: 600px
+      :align: center
+     
+      Opción de creación de nueva clave para cuenta de servicio en Google Cloud
+
+   |space|
+
+#. Aquí seleccionamos la opción de `JSON` y procedemos a crear la clave. Automáticamente se descargará un archivo JSON con la clave privada generada.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/SelectJSONKey.png
+      :width: 600px
+      :align: center
+     
+      Selección de tipo de clave privada
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/GeneratedKey.png
+      :width: 600px
+      :align: center
+     
+      Mensaje de descarga de clave generada en Google Cloud
+
+   |space|
+
+#. Debemos anotarnos el `ID de cliente de OAuth 2` que se encuentra en la vista de service accounts como identifica la siguiente imagen:
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/ClientId.png
+      :width: 1000px
+      :align: center
+     
+      `ID de cliente de OAuth 2` de cuenta de servicio en Google Cloud
+
+   |space|
+
+#. Ahora pasaremos a brindarle a nuestra cuenta de servicio los permisos necesarios para su correcto funcionamiento, dentro de nuestra consola de administrador de Google Workspace.
+   Para esto vamos a `Controles de API` y seleccionamos `ADMINISTRAR LA DELEGACIÓN DE TODO EL DOMINIO`.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/DomainWideDelegationButton.png
+      :width: 800px
+      :align: center
+     
+      Opción para configurar delegación en todo el dominio en Google Workspace
+
+   |space|
+
+#. Aquí seleccionamos `Agregar nuevo` para agregar un nuevo cliente en nuestra configuración de delegación en todo el dominio.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/DomainWideDelegationAddNewButton.png
+      :width: 600px
+      :align: center
+     
+      Botón para agregar nuevo cliente en configuración de delegación en todo el dominio
+
+   |space|
+
+#. Procedemos a rellenar los campos `ID de cliente` y `Permisos de OAuth` con el client ID asociado a la cuenta de servicio que creamos anteriormente y en
+   `Permisos de OAuth` agregamos únicamente `https://www.googleapis.com/auth/calendar.events`.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/AddClientDomainWideDelegationAuth.png
+      :width: 600px
+      :align: center
+     
+      Rellenado de campos de cuenta de servicio para autorizar permisos en dominio
+     
+   |space|
+
+#. Finalmente, en el listado de `Clientes de API` deberemos ver nuestro nuevo cliente agregado con el permiso anterior en su listado.
+
+   .. figure:: _static/media/36_9-GoogleCalendarConnector/AddedApiClient.png
+      :width: 600px
+      :align: center
+     
+      Nueva cuenta de servicio en listado de `Clientes de API`
+
+   |space|
+
+Una vez completados los pasos anteriores, será posible crear, actualizar y eliminar eventos en Google Calendar desde Qflow.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con Google Calendar:
+
+Crear evento
+--------------------------
+Esta acción permite generar un nuevo evento sobre el calendario de Google seleccionado. Se debe proporcionar
+una fecha y hora de inicio y fin y además un email asociado al organizador del evento.
+Opcionalmente, se pueden agregar título, descripción, ubicación, lista de invitados y id de calendario.
+Además permite generar en conjunto del evento un Google Meet asociado al mismo y se permite marcar si
+cualquier usuario se puede autoagregar al evento.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Email del Organizador
+     - **Requerido.** Email que aparecerá como el organizador del evento.
+   * - Fecha de inicio
+     - **Requerido.** Fecha y hora de inicio del evento.
+   * - Fecha de fin
+     - **Requerido.** Fecha y hora de fin del evento.
+   * - Título
+     - Título del evento.
+   * - Descripción
+     - Descripción del evento.
+   * - Ubicación
+     - Ubicación del evento.
+   * - Generar meet con evento
+     - Permite generar una Google Meet asociado al evento.
+   * - Cualquier usuario puede autoagregarse
+     - Permite establecer si cualquier usuario puede autoagregarse al evento.
+   * - Lista de invitados
+     - Lista de mails asociados a los invitados del evento.
+   * - Id de calendario
+     - Id específico del calendario en el cual se creará el evento.
+
+.. list-table:: Salidas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Id del evento
+     - Id generado por Google, asociado al evento.
+
+Actualizar evento
+------------------------
+Esta acción permite actualizar un evento ya existente sobre el calendario de Google seleccionado. Se debe proporcionar
+una fecha y hora de inicio y fin, un email asociado al organizador del evento y el id del evento a actualizar.
+Opcionalmente, se pueden agregar título, descripción, ubicación, lista de invitados y id de calendario.
+Además, permite generar, mantener o eliminar una Google Meet asociada al evento en caso que exista y se permite seleccionar si
+cualquier usuario puede o no autoagregarse al evento.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Email del organizador del evento
+     - **Requerido.** Email que aparecerá como el organizador del evento.
+   * - Fecha de inicio
+     - **Requerido.** Fecha y hora de inicio del evento.
+   * - Fecha de fin
+     - **Requerido.** Fecha y hora de fin del evento.
+   * - Id del evento
+     - **Requerido.** Id del evento a modificar.
+   * - Título
+     - Título del evento.
+   * - Descripción
+     - Descripción del evento.
+   * - Ubicación
+     - Ubicación del evento.
+   * - Generar meet con evento
+     - Permite generar una Google Meet asociado al evento.
+   * - Cualquier usuario puede autoagregarse
+     - Permite establecer si cualquier usuario puede autoagregarse al evento.
+   * - Lista de invitados
+     - Lista de mails asociados a los invitados del evento.
+   * - Id de calendario
+     - Id específico del calendario en el cual se modificará el evento.
+
+.. list-table:: Salidas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Id del evento
+     - Id del evento actualizado.
+
+Eliminar evento
+------------------------
+Esta acción permite eliminar un evento del calendario de Google seleccionado. Se debe proporcionar
+un email asociado al organizador del evento y el id del evento a eliminar.
+Opcionalmente, se pueden especificar el id del calendario al cual pertenece el evento a eliminar.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Email del organizador del evento
+     - **Requerido.** Email del Organizador del evento
+   * - Id del evento
+     - **Requerido.** Id del evento a eliminar.
+   * - Id de calendario
+     - Id específico del calendario en el cual se eliminará el evento.
+
+.. |space| raw:: html
+   
+   <p style="margin-top: 2em;"></p>
+
+.. |google_cloud_console| raw:: html
+
+   <a href="https://cloud.google.com/cloud-console" target="_blank">here</a>
+
+.. |google_cloud_console_es| raw:: html
+
+   <a href="https://cloud.google.com/cloud-console" target="_blank">desde aquí</a>
+
+.. |google_admin| raw:: html
+
+   <a href="https://admin.google.com/" target="_blank">Google Admin Console</a>
+
+.. |google_admin_es| raw:: html
+
+   <a href="https://admin.google.com/" target="_blank">consola de Administración</a>
+
+.. |manejador_de_recursos| raw:: html
+
+   <a href="https://console.cloud.google.com/cloud-resource-manager" target="_blank">Google Resource Manager</a>
+
+.. |manejador_de_recursos_es| raw:: html
+
+   <a href="https://console.cloud.google.com/cloud-resource-manager" target="_blank">Manejador de recursos</a>

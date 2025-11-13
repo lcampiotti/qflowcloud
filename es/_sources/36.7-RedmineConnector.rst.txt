@@ -1,0 +1,173 @@
+****************************************
+Redmine
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow 
+con Redmine para permitir la interacción entre ambas plataformas, permitiendo 
+crear y actualizar peticiones.
+
+Redmine cuenta con las siguientes acciones:
+
+- `Crear petición <#id1>`_
+- `Actualizar petición <#id2>`_
+- `Eliminar petición <#id3>`_
+
+Prerrequisitos
+==============
+Es necesario contar con una instalación de Redmine y un usuario con permisos para crear y actualizar peticiones.
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_) 
+que permita establecer la comunicación entre Qflow y Redmine.
+Este campo es utilizado para configurar el conector de una Tarea de Servicio en Qflow. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de Redmine, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando API Key
+-------------------------------------------
+
+Este tipo de parámetro de aplicación requiere de los siguientes parámetros:
+
+- **Vínculo de Redmine**: Vínculo con el cual se accede al servicio de Redmine
+- **API Key**: Clave para acceder a los servicios de Redmine
+
+Para obtenerlos, se deben seguir los siguientes pasos:
+
+#. Acceder a Redmine y copiar el vínculo de la página principal. Por ejemplo, `https://redmine.mi_organizacion.com/`.
+   |space|
+
+#. Dirigirse a `Mi Cuenta`
+
+   .. figure:: _static/media/36_7-RedmineConnector/ApiKey1.png
+      :width: 600px
+      :align: center
+
+      `Mi Cuenta` marcado en la página de inicio
+   |space|
+
+#. Hacer click en `Mostrar` en la sección de `Clave de acceso de la API` y copiar la API Key.
+
+   .. figure:: _static/media/36_7-RedmineConnector/ApiKey2.png
+      :width: 1200px
+      :align: center
+
+      `Clave de acceso de la API` marcada en la página de `Mi Cuenta`
+   |space|
+
+#. Si no puede ver la sección `Clave de acceso de la API` es posible que la API de Redmine esté deshabilitada. Para habilitarla, se debe acceder a `Administración` -> `Configuración` -> `API` y habilitar la opción `Activar servicio web REST`.
+
+   .. figure:: _static/media/36_7-RedmineConnector/ApiKey3.png
+      :width: 300px
+      :align: center
+
+      `Administración` -> `Configuración` marcados en la página de `Administración`
+   |space|
+   
+   .. figure:: _static/media/36_7-RedmineConnector/ApiKey4.png
+      :width: 600px
+      :align: center
+
+      `API` -> `Activar servicio web REST` marcados en la página de `Configuración`
+   |space|
+
+#. En Qflow Design, ingresar el vínculo a Redmine y la API Key obtenida como parámetros de conexión.
+
+   .. figure:: _static/media/36_7-RedmineConnector/ApiKey5.png
+      :width: 600px
+      :align: center
+
+      Datos agregados en el parámetro de aplicación
+   |space|
+
+Una vez completados los pasos, será posible el uso de Redmine con Qflow.
+
+Acciones
+========
+Se pueden realizar las siguientes acciones con Redmine:
+
+Crear petición
+---------------
+Esta acción permite crear una petición en un proyecto de Redmine. Se deben proporcionar los datos
+necesarios para la creación de la petición. Luego de crearla, se obtiene su ID para poder actualizarla posteriormente.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Proyecto
+     - **Requerido.** Proyecto en el que se creará la petición.
+   * - Tipo de petición
+     - **Requerido.** Tipo de petición a crear.
+   * - Asunto
+     - **Requerido.** Asunto de la petición.
+   * - Estado
+     - **Requerido.** Estado de la petición.
+   * - Prioridad
+     - **Requerido.** Prioridad de la petición.
+   * - Descripción
+     - Descripción de la petición.
+   * - Correo electrónico de usuario asignado
+     - Correo electrónico del usuario asignado a la petición.
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Identificador de petición
+     - Identificador de la petición creada.
+
+Actualizar petición
+-------------------
+Esta acción permite modificar la petición ingresando el identificador recibido al crearla. Los campos que no se completen no serán modificados.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de petición
+     - **Requerido.** Identificador de la petición a modificar.
+   * - Estado
+     - Nuevo estado de la petición.
+   * - Prioridad
+     - Nueva prioridad de la petición.
+   * - Correo electrónico de usuario asignado
+     - Correo electrónico del usuario a asignar a la petición.
+   * - Porcentaje completado
+     - Porcentaje de avance de la petición.
+   * - Notas
+     - Notas aclaratorias sobre la modificación realizada.
+
+Eliminar petición
+-----------------
+Esta acción permite eliminar una petición ingresando el identificador recibido al crearla.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de petición
+     - **Requerido.** Identificador de la petición a eliminar.
+
+.. |space| raw:: html
+   
+      <p style="margin-top: 2em;"></p>

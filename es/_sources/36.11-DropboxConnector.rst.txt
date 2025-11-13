@@ -1,0 +1,184 @@
+
+***********************
+Dropbox
+***********************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow 
+con Dropbox para permitir la interacción entre ambas plataformas, permitiendo 
+así subir, consultar y borrar archivos en Dropbox.
+
+
+Dropbox cuenta con las siguientes acciones:
+
+- `Subir archivo <#id2>`_
+- `Obtener archivo <#id3>`_
+- `Obtener vínculo para visualización web <#id4>`_
+- `Eliminar archivo <#id5>`_
+
+Ver `Acciones <36.11-DropboxConnector.html#id1>`_ para conocer la descripción y contenido de cada una.
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta de Dropbox.
+Esto puede hacerse |dropbox_signup_es|.
+
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_)
+que permita establecer la comunicación entre Qflow y Dropbox.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_).
+
+Para crear un parámetro de aplicación de Dropbox, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando OAuth
+-----------------------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere el inicio de sesion en la cuenta de Dropbox desde Qflow.
+La misma se efectua misma en la configuración del conector siguiendo los pasos del flujo OAuth.
+
+Una vez completados los pasos anteriores, será posible interactuar con Dropbox desde Qflow.
+
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con Dropbox:
+
+Subir archivo
+--------------------------
+Esta acción permite subir un archivo a Dropbox.
+Se debe proporcionar el archivo a subir a la plataforma.
+Opcionalmente, se puede agregar una ruta a donde se va a subir el archivo, si no se brinda una ruta,
+se subirá el archivo en la carpeta raíz de Dropbox, un nombre de archivo, el cual sobrescribirá el nombre actual
+del archivo a subir, y permite marcar si quiere reemplazar el archivo (en caso de que haya un archivo con el mismo nombre).
+
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entradas
+     - Descripción
+   * - Archivo
+     - **Requerido.** Archivo a subir a Dropbox.  El tamaño del archivo no puede superar los 50 MB
+   * - Ruta
+     - Ruta en Dropbox donde se almacenará el archivo, con las carpetas separadas por '/' o '\\'
+   * - Nombre del archivo
+     - Nombre que tendrá el archivo en Dropbox. Se sobrescribirá el nombre base del archivo.
+   * - Sobrescribir
+     - Indica si quiere sobrescribir el archivo (en caso de que haya un archivo con el mismo nombre).
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salidas
+     - Descripción
+   * - Enlace de vista previa del archivo
+     - Brinda un enlace de previsualización del archivo en Dropbox
+   * - Identificador del archivo
+     - Brinda el identificador del archivo en Dropbox
+
+
+Obtener archivo
+--------
+Esta acción permite obtener el contenido de un archivo en Dropbox.
+Se debe proporcionar el nombre del archivo.
+Opcionalmente, se puede indicar la ruta del archivo en Dropbox, si no se brinda una ruta, se buscará el archivo en la carpeta raíz de 
+Dropbox.
+
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entradas
+     - Descripción
+   * - Nombre del archivo
+     - **Requerido.** El nombre del archivo en Dropbox incluyendo su extensión (por ejemplo: miArchivo.txt)
+   * - Ruta
+     - La ruta del archivo en Dropbox, con las carpetas separadas por '/' o '\\'
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salidas
+     - Descripción
+   * - Archivo
+     - El archivo obtenido de Dropbox. El tamaño del archivo no puede superar los 50 MB
+
+
+Obtener vínculo para visualización web
+--------
+Esta acción permite obtener un enlace de visualización de un archivo en Dropbox.
+Se debe proporcionar el nombre del archivo.
+Opcionalmente, se puede indicar la ruta del archivo en Dropbox, si no se brinda una ruta, se buscará el archivo en la carpeta raíz de 
+Dropbox.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entradas
+     - Descripción
+   * - Nombre del archivo
+     - **Requerido.** El nombre del archivo en Dropbox incluyendo su extensión (por ejemplo: miArchivo.txt)
+   * - Ruta
+     - La ruta del archivo en Dropbox, con las carpetas separadas por '/' o '\\' 
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salidas
+     - Descripción
+   * - Enlace de vista previa del archivo
+     - **Requerido.** Enlace que permite la visualización del archivo en Dropbox
+
+
+Eliminar archivo
+--------
+Esta acción permite eliminar un archivo en Dropbox.
+Se debe proporcionar el nombre del archivo.
+Opcionalmente, se puede indicar la ruta del archivo en Dropbox, si no se brinda una ruta, se buscará el archivo en la carpeta raíz de 
+Dropbox.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entradas
+     - Descripción
+   * - Nombre del archivo
+     - **Requerido.** El nombre del archivo en Dropbox incluyendo su extensión (por ejemplo: miArchivo.txt)
+   * - Ruta
+     - La ruta del archivo en Dropbox, con las carpetas separadas por '/' o '\\' 
+
+
+
+.. |dropbox_signup_en| raw:: html
+
+   <a href="https://www.dropbox.com/register" target="_blank">from here</a>
+
+.. |dropbox_signup_es| raw:: html
+
+   <a href="https://www.dropbox.com/register" target="_blank">desde aqui</a>

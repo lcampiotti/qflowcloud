@@ -1,0 +1,221 @@
+======================================================
+Configura el equipo
+======================================================
+
+Introducción
+============
+
+Este tutorial explica brevemente las funcionalidades de Qflow Team. Esta herramienta 
+se usa para representar la estructura de la organización y sus miembros en el sistema. 
+
+Los elementos que componen al modelo organizacional son nodos, grupos y usuarios. A continuación 
+se explicará como se crean cada uno, los permisos que se le pueden dar a los usuarios dentro de cada 
+uno de los elementos y cómo pueden participar los usuarios dentro de colas de trabajo. 
+
+Estructura de nodos
+===================
+
+El menú lateral del sitio muestra tres botones con los cuales se puede mostrar/ocultar el 
+árbol de la solución y operar con los nodos organizacionales de dicho árbol (Mostrar los nodos 
+deshabilitados y Crear un nuevo nodo organizacional). 
+
+.. figure:: _static/media/18-QflowTeam/image7.png
+   :width: 290px
+   :align: center 
+   :alt: Menú lateral
+
+   Menú lateral
+
+Dentro de cada nodo organizacional se puede ver la estructura jerárquica del modelo
+organizacional y seleccionar el elemento sobre el cual se desea operar.
+
+Existe un nodo que es la raíz de la estructura. Éste tiene nodos hijos y se puede mostrar abierto, 
+expandido (mostrando sus hijos), o cerrado. Para expandir un nodo se hace clic en el triángulo que está a la 
+izquierda. 
+
+En este ejemplo, se creó un nodo de “Administración” con dos subnodos (hijos) “Finanzas” y “Recursos Humanos”. 
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-ExampleTree.png
+   :width: 468px
+   :align: center 
+   :alt: Estructura de nodos
+
+   Estructura de nodos
+
+Para poder ver los grupos y usuarios que tienen los nodos, se tiene que hacer doble clic en ellos. 
+
+Grupos: 
+
+- Pueden agrupar usuarios que comparten ciertas propiedades.
+
+- Pueden contener otros grupos. 
+
+Usuarios: 
+
+- Representan usuarios de Qflow. 
+
+- Pueden ser miembros de varios grupos. 
+
+- Sólo pueden estar en un único nodo.
+
+Presionando estos diferentes botones se pueden crear los usuarios o grupos del nodo:
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-CreateUser&Group.png
+   :width: 1058px
+   :align: center 
+   :alt: Creación de usuarios y grupos
+
+   Creación de usuarios y grupos
+
+En este tutorial se crea un usuario “Empleado” y un grupo de “Gerentes”. 
+Una vez creados el usuarios y grupos, la ventana se verá de la siguiente manera:
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-User&Group.png
+   :width: 1058px
+   :align: center 
+   :alt: Usuarios y grupos
+
+   Usuarios y grupos
+
+Colas de trabajo 
+================
+
+Otra propiedad de los nodos es que pueden comportarse como colas de trabajo. Las colas de trabajo 
+pueden ser elegidas como destinatarios de tareas. Cuando una tarea es asignada a un nodo que se comporta como
+cola de trabajo, cualquier usuario que tenga permiso de actuar en esa cola puede
+contestar la tarea. 
+
+Configurar una cola de trabajo 
+------------------------------
+
+Dentro de las propiedades del nodo en la sección “Avanzado” se debe marcar la opción “Comportamiento de 
+cola de trabajo”. 
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-WorkQueue.gif
+   :width: 1048px
+   :align: center 
+   :alt: Cola de trabajo
+
+   Cola de trabajo
+
+Luego de que se habilitó la opción, queda disponible el botón de configuración. Ese botón
+permite configurar los permisos y la vigencia de la cola de trabajo. Cuando se hace clic en ese
+botón, aparecen las propiedades de la cola de trabajo. El ícono del nodo en el árbol cambia una 
+vez que se lo definió como cola de trabajo.
+
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-WorkQueuePropiertiesComboBox.png
+   :width: 378px
+   :align: center
+   :alt: Botón de configuración de propiedades de cola de trabajo
+
+   Botón de configuración de propiedades de cola de trabajo
+
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-WorkQueueProp.png
+   :width: 630px
+   :align: center 
+   :alt: Propiedades de cola de trabajo
+
+   Propiedades de cola de trabajo
+
+La sección “Seguridad” del formulario de propiedades de una cola de trabajo permite definir los
+permisos sobre ella. Haciendo clic en el botón “+” se pueden agregar los grupos y/o usuarios 
+que van a participar en la cola. 
+
+Para agregarlos, comience a escribir el nombre y se va a desplegar una lista con los usuarios y/o 
+grupos disponibles. 
+
+Una vez que se lo selecciona se despliega una tabla para configurar los permisos. 
+
+Debe seleccionar “Permitir” o “Denegar” al lado de cada permiso como se
+muestra en la imagen más abajo. Si marca la opción “Heredable”, el permiso se aplicará recursivamente. 
+
+Esto quiere decir que el usuario, rol o grupo seleccionado tendrá permiso sobre el nodo que se
+está editando y además sobre todos los nodos descendientes de ese nodo. Por ejemplo, para
+que un gerente tenga permisos de “Visualizar” las tareas de las colas de trabajo de toda una
+rama de la organización, se le puede otorgar permisos de “Visualizar” sobre el nodo raíz de esa
+rama y seleccionar la opción “Heredable”. 
+
+Los posibles permisos son:
+
+- Visualizar: permite acceder a la bandeja de entrada de la cola de trabajo.
+
+- Actuar: permite contestar una tarea de la cola de trabajo.
+
+- Firmar: este permiso no tiene utilidad en Qflow, pero se usa en Q-expeditive, que está construido sobre la base de Qflow. Permite firmar. 
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-WorkQueuePermissions.gif
+   :width: 579px
+   :align: center
+   :alt: Permisos de cola de trabajo
+
+   Permisos de cola de trabajo
+
+Dentro de la sección “Permisos” se puede visualizar los permisos efectivos de los usuarios sobre la 
+cola de trabajo: si el usuario puede visualizar, actuar y/o firmar. 
+
+Dentro de la sección “Notificaciones”, se permite especificar el envío de notificaciones cuando 
+ocurre algún evento relacionado con la cola. Para especificar los eventos que deben disparar 
+notificaciones, marque las opciones que desee de entre las siguientes:
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-WorkQueueNotifications.png
+   :width: 431px
+   :align: center
+   :alt: Notificaciones de cola de trabajo
+
+   Notificaciones de cola de trabajo
+
+En la sección “Avanzado” se puede definir la vigencia de la cola. Para definir un período de 
+vigencia, marque la opción “Define período de vigencia” y seleccione la fecha de inicio del 
+período (“Desde”) y la de finalización del período (“Hasta”). El nodo sólo se comportará 
+como cola de trabajo durante ese período.
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-WorkQueueAdvanced.png
+   :width: 422px
+   :align: center
+   :alt: Sección “Avanzado”
+
+   Sección “Avanzado”
+
+
+Administrar permisos de la herramienta
+======================================
+
+Dentro de “Configuración” del menú superior del sitio en la opción “Administrar permisos de la herramienta”
+se pueden configurar distintos permisos.
+
+Para cada uno se muestra para qué rol es el permiso,
+la descripción del rol, una lista de acciones permitidas y una lista de acciones denegadas. La lista
+se puede filtrar de la forma usual y también se puede modificar, agregando, quitando y
+modificando elementos.
+
+Existen tres tipos de permisos definidos:
+
+- Acceder a la herramienta
+
+- Administrar configuración
+
+- Administrar seguridad
+
+Para agregar un permiso al usuario “Empleado” previamente creado: 
+
+1. Haga clic en el botón “Agregar” (+). Eso hace que Qflow muestre un buscador de roles.  
+
+2. Seleccione el destinatario del permiso. Para eso, escriba parte del nombre del usuario, en este caso “Empleado” en el
+   buscador (donde dice “Comience a escribir…”) y cuando lo vea en la lista que aparece, selecciónelo. 
+
+   Cuando se selecciona el destinatario de un permiso, Qflow muestra un formulario para
+   seleccionar las acciones que se incluyen en el nuevo permiso. 
+
+3. Para cada uno de los permisos que se muestran en ese formulario, marque si se permite o se deniega. 
+
+.. figure:: _static/media/27-QflowTeamTutorial/TeamTutorial-Permissions.gif
+   :width: 683px
+   :align: center
+   :alt: Permisos de la herramienta
+
+   Permisos de la herramienta
+
+Por último, si quiere mas información que no se detalló en el tutorial, puede ver el manual de
+`Qflow Team. <18-QflowTeam.html>`_

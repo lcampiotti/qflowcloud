@@ -1,0 +1,77 @@
+*******************************************************
+Configuración de Conectores desde una Tarea de Servicio
+*******************************************************
+
+A continuación, se presenta cómo configurar un conector desde una Tarea de Servicio (ver `Tarea de servicio <15-QflowDesign.html#tarea-de-servicio>`_) para utilizar un
+servicio de terceros. A modo de ejemplo se utiliza Jira Cloud.
+Este procedimiento es aplicable de manera similar para otras aplicaciones y tipos de parámetros de aplicación.
+
+Se deben seguir los pasos indicados a continuación:
+
+#. Al abrir una Tarea de Servicio, se debe seleccionar la aplicación deseada:
+
+   .. figure:: _static/media/35-ConnectorParameterConfig/ServiceTaskConfig1.png
+      :width: 550px
+      :align: center
+      :alt: ServiceTaskConfig1
+
+      Paso para selección de aplicación
+   |space|
+
+#. Se despliegan las acciones disponibles para la aplicación seleccionada, tales como 
+   "Crear incidencia", "Agregar comentario a incidencia", "Eliminar incidencia", entre otras.
+   Se debe seleccionar la acción deseada y presionar en **Siguiente**:
+
+   .. figure:: _static/media/35-ConnectorParameterConfig/ServiceTaskConfig2.png
+      :width: 550px
+      :align: center
+      :alt: ServiceTaskConfig2
+
+      Selección de Acción
+   |space|
+
+#. Es posible utilizar un parámetro de aplicación previamente creado que ya incluya la conexión con terceros, o crear uno nuevo
+   (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_) .
+   Al crear, se solicitan los parámetros necesarios para la conexión, se detalla donde obtener sus valores en la sección correspondiente 
+   de cada aplicación (ver `Conectores <34-ConnectorsIndex.html#conectores>`_):
+
+   .. figure:: _static/media/35-ConnectorParameterConfig/ServiceTaskConfig3.png
+      :width: 550px
+      :align: center
+      :alt: ServiceTaskConfig3
+
+      Crear nuevo parámetro de conexión
+
+   Más adelante, si se quiere conectar con esa aplicación nuevamente, se puede seleccionar el parámetro de 
+   aplicación creado previamente, el cual contiene los datos necesarios para la conexión.
+
+#. Una vez seleccionado el parámetro de aplicación, se deben completar los parámetros necesarios para la acción seleccionada:
+
+   .. figure:: _static/media/35-ConnectorParameterConfig/ServiceTaskConfig4.png
+      :width: 550px
+      :align: center
+      :alt: ServiceTaskConfig4
+
+      Completar parámetros de acción
+   |space|
+
+Se cuenta con parámetros de entrada y de salida. Los parámetros de entrada son información que se envía a la aplicación de terceros por medio del conector, 
+y los de salida son información que se recibe como respuesta de la aplicación de terceros por medio del conector. 
+
+Los parámetros marcados con un asterisco (*) son obligatorios. 
+También es posibe utilizar parámetros adicionales, expandiendo 
+la sección **Parámetros adicionales**. Hay parámetros con mensajes de ayuda que explican su uso con mayor detalle.
+
+
+Cada parámetro cuenta con un tipo, estos pueden ser textos, fechas, documentos, boolean (Verdadero/Falso), números, y GUID.
+Todos estos, se pueden completar con utilizar datos de aplicación (ver `Datos de aplicación <15-QflowDesign.html#datos-de-aplicacion>`_)  y parámetros de aplicación (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_). 
+Además, en los parámetros de tipo texto, número y GUID se permite escribir directamente el contenido como literal.
+
+La opción de **Auto mapear** detecta si hay datos o parámetros con un nombre acorde a la entrada y los asigna automáticamente.
+
+Al completar de llenar los parámetros, se debe seleccionar **Finalizar** para configurar el conector para la acción deseada.
+Con esto se ha configurado el conector para la acción seleccionada en la Tarea de Servicio y queda listo para ser utilizado en el proceso.
+
+.. |space| raw:: html
+   
+      <p style="margin-top: 0.25em;"></p>

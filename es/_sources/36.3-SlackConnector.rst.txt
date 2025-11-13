@@ -1,0 +1,327 @@
+****************************************
+Slack
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow 
+con Slack para permitir la interacción entre ambas plataformas, permitiendo 
+enviar y responder a mensajes de Slack desde Qflow.
+
+Slack cuenta con las siguientes acciones:
+
+- `Enviar mensaje (Slack App) <#id1>`_
+- `Enviar mensaje (Webhook) <#id2>`_
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta de Slack y un espacio de trabajo creado en la plataforma.
+Esto puede hacerse |slack_get_started_create|.
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_) 
+que permita establecer la comunicación entre Qflow y Slack.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow. 
+(ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+ 
+Para crear un parámetro de aplicación de Slack, se requieren los siguientes pasos que se detallan a continuación.
+Para establecer una conexión únicamente va a ser necesario configurar uno de ellos.
+
+Parámetro de aplicación utilizando Token de Autenticación OAuth
+-----------------------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere el siguiente parámetro:
+
+- **Token de Autenticación OAuth**: Es un token de autenticación que permite a Qflow 
+  conectarse a Slack como un Bot, simulando ser un usuario y realizando operaciones 
+  en nombre de la aplicación.
+
+Para obtenerlo, se deben seguir los siguientes pasos:
+
+#. Acceder a la |slack_api_apps|. Aquí  
+   se crea una nueva aplicación al seleccionar `Create New App`.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth1.png
+      :width: 600px
+      :align: center
+
+      Botón `Create New App` en la sección de aplicaciones de Slack
+   
+   |space|
+   
+#. Seleccionar la opción `From scratch` para especificar que se está creando la aplicación desde cero.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth2.png
+      :width: 600px
+      :align: center
+
+      Vista de selección de tipo de creación de aplicación en Slack
+   
+   |space|
+
+#. Escribir el nombre de la aplicación y seleccionar el `workspace` al que pertenecerá,
+   luego seleccionar `Create App`.
+   En el ejemplo de la imagen a continuación, se muestra que la aplicación se llama `Qflow` 
+   y pertenece al `workspace` `Nombre de empresa`.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth3.png
+      :width: 600px
+      :align: center
+      
+      Vista de creación de aplicación en Slack 
+   
+   |space|
+
+#. Seleccionar la opción `OAuth & Permissions` en el menú de la izquierda.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth4.png
+      :width: 600px
+      :align: center
+
+      `OAuth & Permissions` marcado en el menú de la aplicación de Slack
+   
+   |space|
+
+#. Dentro de `OAuth & Permissions`, en la sección `Scopes`, seleccionar la opción `Add an OAuth Scope` para 
+   agregar un permiso a la aplicación.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth5.png
+      :width: 600px
+      :align: center
+
+      `Add an OAuth Scope` marcado en la sección de permisos de la aplicación de Slack
+   
+   |space|
+
+#. Agregar los permisos `channels:read` y `chat:write`, los cuales permiten
+   leer la información básica de los canales y escribir mensajes en ellos, respectivamente.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth6.png
+      :width: 600px
+      :align: center
+
+      Permisos `channels:read` y `chat:write` agregados a la sección de permisos de la aplicación de Slack
+   
+   |space|
+
+#. Dentro de `OAuth & Permissions`, en la sección `OAuth Tokens for Your Workspace`, seleccionar `Install to Workspace`
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth7.png
+      :width: 600px
+      :align: center
+
+      `Install to Workspace` marcado en la sección de tokens de autenticación de la aplicación de Slack
+   
+   
+   |space|
+
+#. Confirmar la instalación de la aplicación en el `workspace`.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth8.png
+      :width: 600px
+      :align: center
+
+      `Permitir` marcado en la confirmación de permisos de acceso de la aplicación de Slack
+   
+   |space|
+
+#. Una vez confirmados los permisos, Slack muestra el `Bot User OAuth Token`, que es  
+   el token de autenticación necesario para configurar el parámetro de aplicación en Qflow.
+   Con esto finalizan los pasos necesarios en la página Slack API.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth9.png
+      :width: 600px
+      :align: center
+
+      `Bot User OAuth Token` marcado en la sección de tokens de autenticación de la aplicación de Slack
+   
+   |space|
+
+#. En Qflow Design, agregar el `Bot User OAuth Token` en el parámetro `Token de autenticación OAuth`
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth10.png
+      :width: 600px
+      :align: center
+
+      `Token de autenticación OAuth` agregado en Qflow
+   
+   |space|
+
+#. Desde el chat de Slack, es necesario agregar la aplicación a cada canal de Slack al que se desea permitir enviar mensajes.
+   Se debe seleccionar la opción `Añadir aplicaciones a este canal` en el canal deseado.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth11.png
+      :width: 600px
+      :align: center
+
+      `Añadir aplicaciones a este canal` seleccionado como acción en el chat de Slack
+   
+   |space|
+
+#. Buscar la aplicación `Qflow` y añadirla al canal seleccionado. Para esto, se debe de seleccionar `Añadir`.
+
+   .. figure:: _static/media/36_3-SlackConnector/OAuth12.png
+      :width: 600px
+      :align: center
+
+      `Añadir` seleccionado en la ventana de añadir aplicaciones a un canal de de Slack
+   
+   |space|
+
+Una vez completados los pasos, será posible enviar mensajes desde Qflow a Slack utilizando `Slack App`.
+  
+Parámetro de aplicación utilizando Webhook
+------------------------------------------
+
+Este tipo de parámetro de aplicación requiere el siguiente parámetro:
+
+- **Vínculo del Webhook**: Es un vínculo que representa un canal de comunicación de Slack, 
+  permitiendo a Qflow enviar mensajes dentro de este canal.
+
+Para obtenerlo, se deben seguir los siguientes pasos:
+
+#. Realizar los pasos del 1 al 3 del apartado anterior. (ver `Parámetro de aplicación utilizando Token de Autenticación OAuth`_)
+#. Seleccionar la opción `Incoming Webhooks`.
+
+   .. figure:: _static/media/36_3-SlackConnector/Webhook1.png
+      :width: 600px
+      :align: center
+
+      `Incoming Webhooks` seleccionado en el menú de agregar características y funcionalidades de la aplicación de Slack
+   
+   |space|
+
+#. Activar los `Incoming Webhooks` para poder utilizarlos.
+
+   .. figure:: _static/media/36_3-SlackConnector/Webhook2.png
+      :width: 600px
+      :align: center
+
+      `Activate Incoming Webhooks` seleccionado para activar la funcionalidad de Webhooks en la aplicación de Slack
+   
+   |space|
+
+#. Una vez activados los `Incoming Webhooks`, seleccionar la opción `Add New Webhook to Workspace`.
+   Cada `webhook` creado estará asociado a un canal específico de Slack.
+
+   .. figure:: _static/media/36_3-SlackConnector/Webhook3.png
+      :width: 600px
+      :align: center
+
+      `Add New Webhook to Workspace` seleccionado en la vista `Incoming Webhooks` de la aplicación de Slack
+   
+   |space|
+
+#. Seleccionar el canal al que se desea asociar el `webhook` y luego seleccionar `Permitir`.
+
+   .. figure:: _static/media/36_3-SlackConnector/Webhook4.png
+      :width: 600px
+      :align: center
+
+      `Permitir` seleccionado en la vista de selección de canal para asociar un `webhook` en la aplicación de Slack
+   
+   |space|
+
+#. Slack mostrará el `Webhook URL` del `webhook` creado para el canal seleccionado, necesario para configurar el 
+   parámetro de aplicación en Qflow. Con esto finalizan los pasos necesarios en la página Slack API.
+
+   .. figure:: _static/media/36_3-SlackConnector/Webhook5.png
+      :width: 600px
+      :align: center
+
+      `Webhook URL` mostrado en la vista de creación de `webhook` en la aplicación de Slack
+   
+   |space|
+
+#. En Qflow Design, agregar el `Webhook URL` en el parámetro `Vínculo del Webhook`
+
+   .. figure:: _static/media/36_3-SlackConnector/Webhook6.png
+       :width: 600px
+       :align: center
+
+       `Vínculo del Webhook` agregado en Qflow
+   
+   |space|
+
+Una vez completados los pasos, será posible enviar mensajes desde Qflow a Slack utilizando `Webhook`.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con Slack:
+
+Enviar mensaje (Slack App)
+--------------------------
+Esta acción permite enviar un mensaje directamente a un canal de Slack. Se debe proporcionar 
+el nombre del canal (sin el '#') y luego el mensaje. Si se desea responder a otro mensaje, también se puede 
+agregar su identificador. Después de enviar el mensaje, se recibe un número que identifica el mensaje, 
+lo que permite responder a él más adelante.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Nombre del canal
+     - **Requerido.** El nombre del canal de Slack al que se desea enviar el mensaje. (Sin '#' al principio)
+   * - Mensaje
+     - **Requerido.** Texto del mensaje que se desea enviar por Slack.
+   * - El identificador del mensaje al que se desea responder.
+     - Se obtiene al crear un mensaje desde Qflow. Si no se desea responder a un mensaje, este parámetro se puede dejar en blanco.
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Identificador del mensaje
+     - El número que identifica el mensaje que se acaba de enviar. 
+       Se puede usar este número para responder a este mensaje.
+
+Enviar mensaje (Webhook)
+------------------------
+Esta opción permite enviar mensajes a un canal de Slack, pero de forma más limitada. 
+El canal al que envías el mensaje está determinado por el `Webhook` que se utiliza, 
+ya que cada `Webhook` está asociado a un canal específico. No es posible responder a mensajes 
+directamente con esta opción, ya que no se puede especificar el identificador del mensaje al 
+que se desea responder.
+
+.. list-table:: Entradas
+    :header-rows: 1
+    :align: center
+    :width: 100%
+    :widths: 25 75    
+
+    * - Entrada
+      - Descripción
+    * - Mensaje
+      - **Requerido.** Texto del mensaje que se desea enviar por Slack.
+
+
+.. |space| raw:: html
+   
+      <p style="margin-top: 2em;"></p>
+
+.. |slack_get_started_create| raw:: html
+
+   <a href="https://slack.com/get-started#/create" target="_blank">desde aquí</a>
+
+.. |slack_get_started_create_eng| raw:: html
+
+   <a href="https://slack.com/get-started#/create" target="_blank">from here</a>
+
+.. |slack_api_apps| raw:: html
+
+   <a href="https://api.slack.com/apps" target="_blank">sección de aplicaciones de Slack</a>
+
+.. |slack_api_apps_eng| raw:: html
+
+   <a href="https://api.slack.com/apps" target="_blank">Slack apps section</a>

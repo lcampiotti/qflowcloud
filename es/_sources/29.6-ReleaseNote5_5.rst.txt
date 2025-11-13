@@ -1,0 +1,264 @@
+v5.5
+====
+
+Resumen de características
+**************************
+
+La versión 5.5 de Qflow introduce una serie de innovaciones que elevan significativamente la integración, 
+personalización, seguridad y rendimiento de la plataforma.
+
+Con la incorporación de Conectores, los usuarios ahora pueden integrar Qflow con las herramientas más 
+utilizadas en el entorno organizacional sin necesidad de programación adicional, facilitando la automatización 
+de procesos. Esta versión también permite personalizar completamente el menú lateral de Qflow Task, 
+adaptándose por completo a las necesidades específicas de cada organización. Además, esta versión presenta 
+mejoras en la exportación de datos, nuevas medidas de seguridad como el Captcha en formularios para usuarios 
+externos y optimizaciones en el rendimiento general, ofreciendo una experiencia de usuario más ágil y eficiente.
+
+.. only:: onpremise
+
+   La liberación de esta versión trae consigo los cambios de las versiones de Qflow exclusivas para Cloud: 5.3 y 
+   5.4. Además de los cambios detallados en este documento, se integran a el producto funcionalidades como: 
+
+   -  *Inicio de procesos y respuesta de tarea por usuarios externos o anónimos*: Se agrega la opción de 
+      configurar procesos y tareas para permitir el inicio y respuesta por usuarios que no estén registrados 
+      en Qflow.
+
+   -  *Nueva vista de "Tareas respondidas por mí"*: Se agrega una vista para que los usuarios puedan ver 
+      fácilmente las tareas a las que le dieron respuesta.
+
+   -  *Respuesta rápida en vistas personalizadas*: La funcionalidad de respuesta rápida, que estaba disponible 
+      en la vista de sistema de "Mis tareas" se extiende a todas las vistas de tipo "Mis tareas", permitiendo 
+      usarse en vistas personalizadas.
+
+   -  *Renovación visual de Qflow Design*: Se renueva el sitio de Qflow Design, mejorando aspectos visuales 
+      y agregando una **galería de plantillas precreadas** para facilitar el diseñado de procesos. 
+
+   -  *Regla de asignación automática Round Robin*: Los roles de proceso se potencian al tener una nueva 
+      regla de distribución equitativa, secuencial y cíclica para los miembros de roles multivaluados.
+
+   -  Y más...
+
+   Para más detalle de estas y otras funcionalidades incorporadas, ver las novedades de las versiones 
+   `5.3 <29.4-ReleaseNote5_3.html>`_ y `5.4 <29.5-ReleaseNote5_4.html>`_ de Qflow.
+
+
+Conectores
+----------
+
+En esta versión, Qflow incorpora una funcionalidad muy importante: `Conectores 
+<34-ConnectorsIndex.html>`_. Estos conectores facilitan la integración con una 
+variedad de herramientas externas de manera simple y sin necesidad de programación 
+adicional. Ahora, los usuarios pueden llevar la automatización de procesos a un siguiente 
+nivel y conectar sus procesos creados en Qflow con algunas de las herramientas más utilizadas 
+en el entorno organizacional.
+
+.. image:: _static/media/29_6-ReleaseNote/connectors.png
+    :width: 50%
+    :align: center
+    :alt: Conectores Qflow
+
+A continuación, se listan los conectores incorporados:
+
+-  *DocuSign*: Envía documentos para su firma electrónica, consulta el estado de las solicitudes de 
+   firma, cancela solicitudes pendientes y obtiene los documentos firmados.
+
+-  *Outlook*: Gestiona reuniones en el calendario de Outlook, incluyendo su creación, modificación y 
+   eliminación.
+
+-  *Google Calendar*: Realiza acciones similares en el calendario de Google, como la creación, 
+   modificación y eliminación de eventos.
+
+-  *Redmine*: Gestiona las peticiones en proyectos de Redmine, con operaciones para crear, 
+   modificar y eliminar peticiones.
+
+-  *Jira*: Incorpora diversas funcionalidades para la gestión de incidencias de Jira. Permite 
+   crear incidencias, eliminarlas, agregar comentarios, actualizar su fecha de vencimiento, 
+   prioridad, estado y usuarios asignados.
+
+-  *Trello*: Administra tarjetas en los tableros de Trello, con opciones para crear, eliminar, 
+   mover, agregar comentarios y modificar asignaciones de usuarios.
+
+-  *Microsoft Teams*: Permite publicar un mensaje de texto en un canal específico de Microsoft 
+   Teams.
+   
+-  *Slack*: Publica un mensaje de texto en el canal ingresado.
+
+-  *OpenAI*: Utiliza la inteligencia artificial de OpenAI para generar respuestas por los 
+   modelos de ChatGPT a partir de mensajes o moderar contenido enviado a través de la plataforma.
+
+.. only:: cloud
+
+   La ejecución de estos conectores tiene un consumo específico de Q-points. Para obtener información sobre 
+   el consumo de Q-points de los conectores, se puede acceder a la sección de `consumo de Q-points 
+   <21-Q-pointsConsumption.html>`_.
+
+
+Personalización completa de menú lateral
+----------------------------------------
+
+Esta característica permite a los usuarios adaptar completamente las opciones del menú lateral de 
+Qflow Task según las necesidades específicas de su organización. Reemplaza la funcionalidad anterior de 
+creación de vínculos en un submenú de "Vínculos", esta nueva característica ofrece un nivel de personalización 
+mucho más completo. Sin embargo, los usuarios aún conservan la capacidad de agregar sus propios vínculos 
+personales utilizando la funcionalidad de "Mis Vínculos". Para más información, dirigase a la sección de 
+:ref:`personalización del menú lateral <SideBarConfiguration>`.
+
+.. figure:: _static/media/29_6-ReleaseNote/task-custom-side-menu.png
+    :width: 50%
+    :align: center
+    :alt: Menú lateral por defecto y menú personalizado
+
+    Menú lateral por defecto y menú personalizado
+
+A continuación, se detallan las características principales:
+
+-  *Personalización completa*: Los usuarios pueden ajustar el menú lateral según las necesidades de su 
+   organización, definiendo qué opciones se muestran y su disposición. Esto incluye la capacidad de 
+   crear niveles de anidamiento y establecer un orden específico.
+
+-  *Definición de opciones por roles*: Es posible especificar que ciertas opciones del menú solo 
+   aparezcan para determinados roles, lo que permite una experiencia personalizada según el rol del usuario.
+
+-  *Vínculos internos y externos*: Los usuarios pueden agregar enlaces a recursos importantes en cualquier 
+   sección del menú. Esto puede incluir enlaces a páginas dentro de Qflow o a sitios externos utilizados 
+   por la organización, proporcionando un acceso rápido a información relevante.
+
+-  *Iconos Personalizados*: Se ofrece la opción de seleccionar iconos personalizados para cada opción del 
+   menú. Esto facilita la identificación visual y mejora la navegación dentro de la plataforma.
+
+
+Exportar a Excel desde vistas
+-----------------------------
+
+La versión 5.5 de Qflow presenta una mejora significativa en las opciones de exportación de datos. 
+Anteriormente, los usuarios solo podían exportar datos desde las vistas de Qflow en formatos *CSV* y *HTML*. 
+Ahora, con la introducción de la función de exportar a Excel, los usuarios pueden exportar los datos de 
+cualquier vista directamente al formato nativo de Excel: *XLSX*. 
+
+.. figure:: _static/media/29_6-ReleaseNote/export-options-list.png
+    :width: 50%
+    :align: center
+    :alt: Formatos de exportación en Qflow Task
+
+    Formatos de exportación en Qflow Task
+
+.. only:: onpremise
+
+   A nivel de instalación, los administradores tienen la capacidad de personalizar la experiencia 
+   de exportación de datos. Pueden configurar el modo de visualización de los botones de exportación, optando por 
+   mostrar botones separados para cada tipo de exportación (*CSV*, *HTML*, *XLSX*) o un único botón que permita al usuario 
+   seleccionar el formato deseado. Además, los administradores pueden definir qué tipos de exportación están 
+   habilitados para los usuarios. Por ejemplo, pueden optar por permitir únicamente la exportación a *XLSX* (Excel), 
+   deshabilitando las opciones de *CSV* y *HTML*.
+
+   .. figure:: _static/media/29_6-ReleaseNote/export-options-icons.png
+      :width: 50%
+      :align: center
+      :alt: Acciones de exportación personalizadas para mostrarse como botones
+
+      Acciones de exportación personalizadas para mostrarse como botones
+
+
+Captcha inicio anónimo
+----------------------
+
+En esta actualización se ha añadido una medida adicional de seguridad al formulario de inicio de proceso para 
+usuarios externos a Qflow: la incorporación de *Captcha*. Esta nueva funcionalidad requiere que los usuarios 
+demuestren su identidad como humanos completando un desafío *Captcha* para iniciar un proceso a través de Qflow.
+Esta medida refuerza la protección contra bots y ataques automatizados, garantizando la autenticidad de los 
+usuarios y la integridad de los procesos iniciados por ellos.
+
+.. figure:: _static/media/29_6-ReleaseNote/external-start-captcha.png
+    :width: 65%
+    :align: center
+    :alt: Captcha en formulario de inicio de proceso anónimo
+
+    Captcha en formulario de inicio de proceso anónimo
+
+
+Manejo de zonas horarias en formularios de usuarios externos/anónimos
+---------------------------------------------------------------------
+
+Ahora se muestra la zona horaria en la que se muestran las fechas en los formularios para invitados. 
+Esto proporciona claridad sobre los plazos y evita confusiones en la interpretación de las fechas. 
+La actualización se implementa automáticamente en todos los espacios de trabajo, sin necesidad de 
+intervención por parte de los usuarios.
+
+.. figure:: _static/media/29_6-ReleaseNote/external-flow-start-timezone.png
+    :width: 65%
+    :align: center
+    :alt: Zona horaria en formulario de inicio/respuesta anónima
+
+    Zona horaria en formulario de inicio/respuesta anónima
+
+
+Mejoras de performance
+----------------------
+
+Esta actualización busca atacar un punto clave para la experiencia de usuario de Qflow: el rendimiento
+del producto. Se ha optimizado de manera importante la lógica interna del cargado y filtrado de vistas en Qflow 
+Task, para brindar a nuestros usuarios una experiencia más ágil y fluida. Además, se mejoran notablemente 
+los tiempos de carga para la obtención de tareas de suplencias.
+
+
+Configuración de columnas consideradas en búsqueda rápida de vistas
+-------------------------------------------------------------------
+
+Se agrega la posibilidad de indicar si una columna es o no buscable en la búsqueda rápida de las vistas 
+en Qflow Task. Esta es una configuración avanzada, que está pensada para tener utilidad en ambientes con 
+grandes volúmenes de información, en las que reducir la complejidad de las búsquedas puede brindar aún más 
+mejoras en el rendimiento del sitio.
+
+
+Corrección de errores y mejoras
+*******************************
+
+Qflow Task
+----------
+
+-  Se brindan mejoras en la experiencia de usuario al mostrar los mensajes de error 
+   cuando se intentan tomar tareas que ya fue tomadas en una cola de trabajo, 
+   permitiendo que los usuarios identifiquen más rápidamente los motivos de no 
+   poder realizar la acción.
+
+-  Se corrige un error de visualización cuando las respuestas tienen caracteres 
+   extraños en la lista desplegable para elegir respuestas al utilizar respuesta rápida.
+
+-  Se corrige un error de cómo se mostraba el destinatario en el seguimiento de 
+   una tarea de usuario cuando la tarea está destinada a una cola de trabajo.
+
+Qflow Team
+----------
+
+-  Se corrige un error que surgía al ingresar a Qflow Team si el equipo del usuario
+   tenía configuraciones regionales de una zona horaria con desplazamiento positivo.
+
+Qflow Admin
+-----------
+
+-  Se corrige un error al editar un espacio de trabajo existente en la sección 
+   de "espacios de trabajo".
+
+
+Generales
+---------
+
+Técnicos:
+^^^^^^^^^
+-  Se agregan las siguientes funciones a la `librería ScriptHost de JavaScript 
+   <32-JavaScriptLibraryReference.html>`_:
+
+   -  *getCurrentUserId()*: Devuelve el identificador del usuario actual de Qflow.
+
+   -  *getCurrentUserGroups()*: Devuelve los grupos a los que pertenece el usuario actual de Qflow.
+
+-  Se agrega la siguiente función a la `interfaz de scripting <10-ScriptingInterface.html>`_:
+
+   -  *IsParameterMappedToApplicationData(string parameterName)*: Dado el nombre del parámetro, 
+      devuelve verdadero si está asociado a un dato de aplicación.
+
+   -  *GetAttachment(string name)*: método de IScriptHost que, dado el nombre de un adjunto, devuelve 
+      un objeto con su información.
+
+-  Se corrige un error de timeout que se podía dar al ejecutar integraciones 
+   que lanzan excepciones no serializables.

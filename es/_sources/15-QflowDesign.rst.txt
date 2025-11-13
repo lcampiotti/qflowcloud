@@ -1,0 +1,45 @@
+***********************************************
+Qflow Design
+***********************************************
+
+Introducción
+============
+
+Este manual explica cómo diseñar un proceso usando Qflow Design.
+
+Organización de este manual
+===========================
+
+Este manual está dividido en las siguientes secciones:
+
+-  **Guía rápida:**  explica cómo diseñar un proceso sencillo, mediante
+   un ejemplo, de forma tal que el lector pueda familiarizarse con los
+   conceptos más básicos y con el funcionamiento de las operaciones más
+   importantes de la herramienta.
+
+-  **Operación de la interfaz de usuario:** explica en detalle cómo
+   funciona la interfaz de usuario. También se muestran algunas de las
+   operaciones más comunes, y contiene una sección con instrucciones
+   para diseñar un proceso (es decir, construir el diagrama del
+   proceso).
+
+-  **Ítems del proceso:** describe detalladamente cada tipo de ítem de
+   proceso (datos de aplicación, roles y otros ítems que se usan para
+   que los procesos manejen datos, asignen tareas, accedan a otros
+   sistemas de software, etc). Incluye descripciones detalladas de las
+   propiedades de cada ítem.
+
+-  **Elementos del diseño de un proceso:** describe detalladamente los
+   elementos que se pueden incluir en el diseño de un proceso: para qué
+   sirve cada uno y qué propiedades tiene.
+- **Formularios personalizados:** explica cómo diseñar formularios dentro de un proceso, detallando los tipos de componentes disponibles, sus propiedades, y cómo configurar su comportamiento y visibilidad según el paso del flujo.
+.. _15.1-QflowDesign-1:
+.. include:: 15.1-QflowDesign-1.rst
+.. _15.2-QflowDesign-2:
+.. include:: 15.2-QflowDesign-2.rst
+.. _15.3-QflowDesign-3:
+.. include:: 15.3-QflowDesign-3.rst
+.. _15.4-QflowDesign-4:
+.. include:: 15.4-QflowDesign-4.rst
+.. _15.5-QflowDesign-5:
+.. include:: 15.5-QflowDesign-5.rst
