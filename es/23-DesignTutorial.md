@@ -5,43 +5,43 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-    *   [Introducción a las herramientas de Qflow](26-QflowToolsTutorial.html)
-    *   [Crea tu primer proceso](06-Tutorial.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+    *   [Introducción a las herramientas de Qflow](26-QflowToolsTutorial.md)
+    *   [Crea tu primer proceso](06-Tutorial.md)
     *   [Diseña un proceso de quejas](#)
         *   [Introducción](#introduccion)
         *   [Proceso de quejas](#proceso-de-quejas)
         *   [Construcción del proceso de Qflow](#construccion-del-proceso-de-qflow)
-    *   [Descubre Qflow Task](24-QflowTaskTutorial.html)
-    *   [Configura el equipo](27-QflowTeamTutorial.html)
-    *   [Administra y monitorea el sistema](28-QflowAdminTutorial.html)
-    *   [Crea tu formulario personalizado](37-QformTutorial.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+    *   [Descubre Qflow Task](24-QflowTaskTutorial.md)
+    *   [Configura el equipo](27-QflowTeamTutorial.md)
+    *   [Administra y monitorea el sistema](28-QflowAdminTutorial.md)
+    *   [Crea tu formulario personalizado](37-QformTutorial.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Tutoriales](TutorialsIndex.html)
+*   [](index.md)
+*   [Tutoriales](TutorialsIndex.md)
 *   Diseña un proceso de quejas
 
 - - -
@@ -99,7 +99,7 @@ Crea una nueva plantilla vacía para el proceso “Quejas”.
     
     Un evento de fin terminal termina la ejecución del proceso aún cuando todavía haya hilos en ejecución. En ese caso, Qflow finaliza esos hilos y el proceso termina su ejecución. Un evento de fin, por el contrario, espera que todos los hilos terminen y una vez terminados finaliza el proceso. Los hilos del proceso se van a explicar más adelante en la sección de compuertas dento de [Configuración de las actividades](#configuracion-de-las-actividades).
     
-    Este tutorial no utiliza eventos intermedios, por lo que si deseas información sobre estos consulta el manual de [Qflow Design.](15-QflowDesign.html)
+    Este tutorial no utiliza eventos intermedios, por lo que si deseas información sobre estos consulta el manual de [Qflow Design.](15-QflowDesign.md)
     
 
 [![Diseño de proceso](_images/imagen3.png)](_images/imagen3.png)
@@ -413,13 +413,13 @@ Las tareas además pueden ser de servicio, código, notificación de usuario, se
 
 Finalmente, se debe publicar el diseño. De esta manera al ingresar a Qflow Task para iniciar el proceso, encontrarás la plantilla que acabas de diseñar. Para publicarla haz clic en el botón “Publicar” en la barra de acciones del proceso, en la parte superior derecha de la pantalla de diseño. Alternativamente se puede publicar haciendo click derecho en la plantilla y seleccionar “Publicar” en el menú.
 
-El diseño final del proceso es el siguiente, por más información sobre ítems y elementos del proceso que no se detalló en el tutorial, puede ver el manual de [Qflow Design.](15-QflowDesign.html)
+El diseño final del proceso es el siguiente, por más información sobre ítems y elementos del proceso que no se detalló en el tutorial, puede ver el manual de [Qflow Design.](15-QflowDesign.md)
 
 [![Diseño final del proceso](_images/imagen36.png)](_images/imagen36.png)
 
 Figura 227 Diseño final del proceso[](#id24 "Link to this image")
 
-[Anterior](06-Tutorial.html "Crea tu primer proceso") [Siguiente](24-QflowTaskTutorial.html "Descubre Qflow Task")
+[Anterior](06-Tutorial.md "Crea tu primer proceso") [Siguiente](24-QflowTaskTutorial.md "Descubre Qflow Task")
 
 - - -
 
