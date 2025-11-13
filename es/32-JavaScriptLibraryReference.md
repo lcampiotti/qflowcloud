@@ -5,41 +5,41 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
-    *   [Interfaz de scripting](10-ScriptingInterface.html)
-    *   [Web services API](20-WebServicesAPI.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
+    *   [Interfaz de scripting](10-ScriptingInterface.md)
+    *   [Web services API](20-WebServicesAPI.md)
     *   [Referencia de la biblioteca JavaScript](#)
         *   [Host](#host)
         *   [Data](#data)
         *   [Line](#line)
         *   [Role](#role)
-    *   [Tutoriales](31-Development.html#tutoriales)
+    *   [Tutoriales](31-Development.md#tutoriales)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Desarrolladores](31-Development.html)
+*   [](index.md)
+*   [Desarrolladores](31-Development.md)
 *   Referencia de la biblioteca JavaScript
 
 - - -
@@ -62,7 +62,7 @@ El objeto _Host_ expone las siguientes funciones. Para acceder a ellas, escriba 
     
 *   **getRole(roleName):** devuelve un objeto _Role_ que representa el rol cuyo nombre es _roleName_.
     
-*   **getDataSourceItemDescription(key, domainId, parameters, onSuccess, onError):** para utilizar con dominios que obtienen sus datos de fuentes externas de datos (o de una lista; ver el [manual de Qflow Design](15-QflowDesign.html)). Obtiene, para el dominio con el identificador _domainId_, la descripción correspondiente a la clave _key_. Si el dominio recibe parámetros, estos se pasan en el parámetro _parameters_. Los parámetros _onSuccess_ y _onError_ son para especificar funciones a invocar en caso de éxito o error. La función especificada en _onSuccess_ puede recibir un parámetro, que Qflow llenará con la descripción obtenida.
+*   **getDataSourceItemDescription(key, domainId, parameters, onSuccess, onError):** para utilizar con dominios que obtienen sus datos de fuentes externas de datos (o de una lista; ver el [manual de Qflow Design](15-QflowDesign.md)). Obtiene, para el dominio con el identificador _domainId_, la descripción correspondiente a la clave _key_. Si el dominio recibe parámetros, estos se pasan en el parámetro _parameters_. Los parámetros _onSuccess_ y _onError_ son para especificar funciones a invocar en caso de éxito o error. La función especificada en _onSuccess_ puede recibir un parámetro, que Qflow llenará con la descripción obtenida.
     
 *   **getSecurityMember(memberId, onSuccess, onError):** obtiene el miembro (usuario, cola de trabajo, nodo, etc) correspondiente al identificador _memberId_. Si lo encuentra con éxito, invoca la función especificada por _onSuccess_, pasando como parámetro el miembro obtenido. Si falla, invoca la función especificada en _onError._
     
@@ -215,7 +215,7 @@ Las siguientes propiedades de los objetos _Role_ pueden resultar útiles:
 *   **removeAllowed:** indica si el alcance definido para el rol en el formulario permite quitar miembros del rol.
     
 
-[Anterior](14-CustomFormDesign.html "<no title>") [Siguiente](25-RESTDomainTutorial.html "Consumir Servicios REST desde dominios de Qflow")
+[Anterior](14-CustomFormDesign.md "<no title>") [Siguiente](25-RESTDomainTutorial.md "Consumir Servicios REST desde dominios de Qflow")
 
 - - -
 
