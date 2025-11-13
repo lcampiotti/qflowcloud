@@ -5,32 +5,32 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
+*   [](index.md)
 *   Administración de procesos de negocio \[Deprecado\]
 
 - - -
@@ -43,7 +43,7 @@ El propósito de este manual es explicar el funcionamiento del administrador de 
 
 ### Advertencia de producto deprecado[](#advertencia-de-producto-deprecado "Link to this heading")
 
-Note que este administrador está deprecado, y sólo puede ser usado con el espacio de trabajo principal. Por más información sobre los espacios de trabajo, consulte el manual de [Qflow Admin](19-QflowAdmin.html).
+Note que este administrador está deprecado, y sólo puede ser usado con el espacio de trabajo principal. Por más información sobre los espacios de trabajo, consulte el manual de [Qflow Admin](19-QflowAdmin.md).
 
 ## Conexión con el servidor y seguridad[](#conexion-con-el-servidor-y-seguridad "Link to this heading")
 
@@ -99,7 +99,7 @@ La segunda solapa (`Security`) permite configurar el acceso a la herramienta:
 
 Seguridad[](#id4 "Link to this image")
 
-En la parte superior de la ventana (donde dice “Nombre del rol o miembro organizacional”) se muestran los roles de seguridad, grupos y usuarios que tienen acceso a la herramienta. El botón “Agregar…” permite agregar roles de seguridad, grupos y usuarios a la lista, y el botón “Eliminar” permite quitar de la lista el elemento seleccionado. Por más información acerca de los roles de seguridad, consulte el manual de [Qflow Team](18-QflowTeam.html).
+En la parte superior de la ventana (donde dice “Nombre del rol o miembro organizacional”) se muestran los roles de seguridad, grupos y usuarios que tienen acceso a la herramienta. El botón “Agregar…” permite agregar roles de seguridad, grupos y usuarios a la lista, y el botón “Eliminar” permite quitar de la lista el elemento seleccionado. Por más información acerca de los roles de seguridad, consulte el manual de [Qflow Team](18-QflowTeam.md).
 
 En la parte inferior de la pantalla se muestran los permisos que tiene el elemento seleccionado. Hay dos tipos de operación:
 
@@ -110,7 +110,7 @@ En la parte inferior de la pantalla se muestran los permisos que tiene el elemen
 
 ## Descripción de la interfaz de usuario[](#descripcion-de-la-interfaz-de-usuario "Link to this heading")
 
-La `Home` muestra la pantalla del administrador de procesos de negocio. A la izquierda de la pantalla se muestra el árbol de paquetes (el concepto de paquete se explica en el manual de [Qflow Design](15-QflowDesign.html)).
+La `Home` muestra la pantalla del administrador de procesos de negocio. A la izquierda de la pantalla se muestra el árbol de paquetes (el concepto de paquete se explica en el manual de [Qflow Design](15-QflowDesign.md)).
 
 En la parte derecha de la pantalla se muestran los procesos del paquete seleccionado.
 
@@ -195,9 +195,9 @@ Arriba de la lista de procesos, hay una barra de herramientas que permite realiz
         
     *   Reintentar hilos en error
         
-*   **Ver detalles del proceso:** muestra en el navegador el formulario de detalles del proceso en Qflow Task. Por más información acerca de ese formulario, consulte el manual de [Qflow Task](04-QflowTask.html).
+*   **Ver detalles del proceso:** muestra en el navegador el formulario de detalles del proceso en Qflow Task. Por más información acerca de ese formulario, consulte el manual de [Qflow Task](04-QflowTask.md).
     
-*   **Ver formulario de edición del proceso:** muestra en el navegador el formulario de edición del proceso en Qflow Task. Por más información acerca de ese formulario, consulte el manual de [Qflow Task](04-QflowTask.html).
+*   **Ver formulario de edición del proceso:** muestra en el navegador el formulario de edición del proceso en Qflow Task. Por más información acerca de ese formulario, consulte el manual de [Qflow Task](04-QflowTask.md).
     
 
 [![_images/image814.png](_images/image814.png)](_images/image814.png)
