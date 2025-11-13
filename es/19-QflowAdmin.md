@@ -5,24 +5,24 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
 *   [Qflow Admin](#)
     *   [Introducción](#introduccion)
     *   [Descripción general de la interfaz de usuario](#descripcion-general-de-la-interfaz-de-usuario)
@@ -48,13 +48,13 @@ Inicio
         *   [Historial de licencias](#historial-de-licencias)
         *   [Historial de propiedades extendidas](#historial-de-propiedades-extendidas)
     *   [Listado de parámetros de sistema](#listado-de-parametros-de-sistema)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
+*   [](index.md)
 *   Qflow Admin
 
 - - -
@@ -242,7 +242,7 @@ Figura 759 Historial de un parámetro de sistema[](#id24 "Link to this image"
 
 ## Propiedades extendidas[](#propiedades-extendidas "Link to this heading")
 
-Las propiedades extendidas son definidas por la organización y son mostradas en el panel de propiedades de cada miembro del modelo organizacional (usuario, grupo y nodo), en el administrador de dicho modelo. Para ver su utilización, consulte el manual de [Qflow Team](18-QflowTeam.html).
+Las propiedades extendidas son definidas por la organización y son mostradas en el panel de propiedades de cada miembro del modelo organizacional (usuario, grupo y nodo), en el administrador de dicho modelo. Para ver su utilización, consulte el manual de [Qflow Team](18-QflowTeam.md).
 
 Una propiedad extendida tiene una clave y un texto. Además, puede tener uno de los siguientes tipos: texto, número, fecha, verdadero/falso (booleano), miembro o lista de ítems. En este último caso, se crea una lista de elementos que tienen una clave y un valor, ambos de tipo texto.
 
@@ -314,7 +314,7 @@ Las operaciones sobre los elementos de este listado son análogas a las que se e
 
 ### Propiedades extendidas de nodo[](#propiedades-extendidas-de-nodo "Link to this heading")
 
-Si desconoce el concepto de nodo, consulte el manual de [Qflow Team](18-QflowTeam.html).
+Si desconoce el concepto de nodo, consulte el manual de [Qflow Team](18-QflowTeam.md).
 
 Puede agregar, editar y eliminar las propiedades extendidas de un nodo desde la opción correspondiente en el menú lateral (ver [Figura 747](#sidebar)). Al seleccionar dicha opción, se desplegará un listado con las propiedades extendidas definidas.
 
@@ -534,7 +534,7 @@ Los posibles permisos son:
 *   **Auditar:** permite acceder a las auditorías de los distintos elementos de Qflow Admin
     
 
-Para una explicación detallada acerca del funcionamiento de los permisos de Qflow, consulte la sección “Manejo de permisos en Qflow” del manual de [Qflow Team](18-QflowTeam.html).
+Para una explicación detallada acerca del funcionamiento de los permisos de Qflow, consulte la sección “Manejo de permisos en Qflow” del manual de [Qflow Team](18-QflowTeam.md).
 
 [![Seleccionar permisos](_images/image495.png)](_images/image495.png)
 
@@ -620,7 +620,7 @@ Figura 787 Historial de propiedades extendidas[](#id52 "Link to this image")
 
 Parámetro disponible solo en la nube.
 
-[Anterior](18-QflowTeam.html "Qflow Team") [Siguiente](21-Q-pointsConsumption.html "Consumo de Q-points")
+[Anterior](18-QflowTeam.md "Qflow Team") [Siguiente](21-Q-pointsConsumption.md "Consumo de Q-points")
 
 - - -
 
