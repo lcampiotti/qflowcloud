@@ -5,43 +5,43 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-    *   [Introducción a las herramientas de Qflow](26-QflowToolsTutorial.html)
-    *   [Crea tu primer proceso](06-Tutorial.html)
-    *   [Diseña un proceso de quejas](23-DesignTutorial.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+    *   [Introducción a las herramientas de Qflow](26-QflowToolsTutorial.md)
+    *   [Crea tu primer proceso](06-Tutorial.md)
+    *   [Diseña un proceso de quejas](23-DesignTutorial.md)
     *   [Descubre Qflow Task](#)
         *   [Introducción](#introduccion)
         *   [Trabajo con procesos](#trabajo-con-procesos)
         *   [Herramientas de seguimiento y análisis de procesos](#herramientas-de-seguimiento-y-analisis-de-procesos)
-    *   [Configura el equipo](27-QflowTeamTutorial.html)
-    *   [Administra y monitorea el sistema](28-QflowAdminTutorial.html)
-    *   [Crea tu formulario personalizado](37-QformTutorial.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+    *   [Configura el equipo](27-QflowTeamTutorial.md)
+    *   [Administra y monitorea el sistema](28-QflowAdminTutorial.md)
+    *   [Crea tu formulario personalizado](37-QformTutorial.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Tutoriales](TutorialsIndex.html)
+*   [](index.md)
+*   [Tutoriales](TutorialsIndex.md)
 *   Descubre Qflow Task
 
 - - -
@@ -60,7 +60,7 @@ Los procesos que ya fueron publicados se ven dentro de la sección “Iniciar pr
 
 Figura 228 Menú lateral izquierdo[](#id4 "Link to this image")
 
-Una vez iniciado un proceso, se generan tareas para las personas que participan de él. Consideremos el proceso de atender quejas planteado en el [tutorial de Qflow Design](23-DesignTutorial.html). En este caso a alguna persona o grupo de personas se le asigna la tarea de ingresar la queja (aquellas que inician el proceso) o atenderla (aquellas que les llega la tarea una vez inicializadas). Estos usuarios van a usar Qflow Task para responder a esas tareas.
+Una vez iniciado un proceso, se generan tareas para las personas que participan de él. Consideremos el proceso de atender quejas planteado en el [tutorial de Qflow Design](23-DesignTutorial.md). En este caso a alguna persona o grupo de personas se le asigna la tarea de ingresar la queja (aquellas que inician el proceso) o atenderla (aquellas que les llega la tarea una vez inicializadas). Estos usuarios van a usar Qflow Task para responder a esas tareas.
 
 ### Iniciar un proceso[](#iniciar-un-proceso "Link to this heading")
 
@@ -568,9 +568,9 @@ Finalmente, el tablero de control se verá de la siguiente manera:
 
 Figura 271 Tablero de control final[](#id47 "Link to this image")
 
-Por último, si quiere mas información que no se detalló en el tutorial, puede ver el manual de [Qflow Task](04-QflowTask.html).
+Por último, si quiere mas información que no se detalló en el tutorial, puede ver el manual de [Qflow Task](04-QflowTask.md).
 
-[Anterior](23-DesignTutorial.html "Diseña un proceso de quejas") [Siguiente](27-QflowTeamTutorial.html "Configura el equipo")
+[Anterior](23-DesignTutorial.md "Diseña un proceso de quejas") [Siguiente](27-QflowTeamTutorial.md "Configura el equipo")
 
 - - -
 
