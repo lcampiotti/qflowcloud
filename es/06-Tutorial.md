@@ -5,44 +5,44 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-    *   [Introducción a las herramientas de Qflow](26-QflowToolsTutorial.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+    *   [Introducción a las herramientas de Qflow](26-QflowToolsTutorial.md)
     *   [Crea tu primer proceso](#)
         *   [Objetivo](#objetivo)
         *   [Descripción del proceso](#descripcion-del-proceso)
         *   [Diseño del proceso](#diseno-del-proceso)
         *   [Ejecución del proceso](#ejecucion-del-proceso)
-    *   [Diseña un proceso de quejas](23-DesignTutorial.html)
-    *   [Descubre Qflow Task](24-QflowTaskTutorial.html)
-    *   [Configura el equipo](27-QflowTeamTutorial.html)
-    *   [Administra y monitorea el sistema](28-QflowAdminTutorial.html)
-    *   [Crea tu formulario personalizado](37-QformTutorial.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+    *   [Diseña un proceso de quejas](23-DesignTutorial.md)
+    *   [Descubre Qflow Task](24-QflowTaskTutorial.md)
+    *   [Configura el equipo](27-QflowTeamTutorial.md)
+    *   [Administra y monitorea el sistema](28-QflowAdminTutorial.md)
+    *   [Crea tu formulario personalizado](37-QformTutorial.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Tutoriales](TutorialsIndex.html)
+*   [](index.md)
+*   [Tutoriales](TutorialsIndex.md)
 *   Crea tu primer proceso
 
 - - -
@@ -296,7 +296,7 @@ Además, si al momento de evaluar el monto, éste no es mayor a 500 dólares, la
 
 Figura 149 Se llega a la notificación de aprobación de compra por 2 caminos diferentes[](#id24 "Link to this image")
 
-Qflow nos permite definir una conexión por defecto en caso de que no se cumpla ninguna condición dentro de la compuerta exclusiva. Para esto, debemos seleccionar la conexión correspondiente a “Monto < 500” y cambiar el tipo de conexión (con la herramienta de Cambiar tipo) y seleccionar conexión por defecto. La [Figura 615](15-QflowDesign.html#defaultconnection) muestra la conexión por defecto, este tipo de conexión se ve por una línea en diagonal que corta la conexión entre la compuerta exclusiva y la tarea de notificar aprobación.
+Qflow nos permite definir una conexión por defecto en caso de que no se cumpla ninguna condición dentro de la compuerta exclusiva. Para esto, debemos seleccionar la conexión correspondiente a “Monto < 500” y cambiar el tipo de conexión (con la herramienta de Cambiar tipo) y seleccionar conexión por defecto. La [Figura 615](15-QflowDesign.md#defaultconnection) muestra la conexión por defecto, este tipo de conexión se ve por una línea en diagonal que corta la conexión entre la compuerta exclusiva y la tarea de notificar aprobación.
 
 [![Conexión por defecto (“Monto < 500”)](_images/image303.png)](_images/image303.png)
 
@@ -487,7 +487,7 @@ Figura 169 Configuración de la instancia de línea[](#id44 "Link to this ima
 
 Figura 170 Estado final de la visibilidad de los datos y del bloque de línea de los productos[](#id45 "Link to this image")
 
-Un cambio adicional que se puede hacer al paso, es cambiar la bandera. Este campo proporciona información adicional del estado del proceso al momento de iniciar el paso. Para cambiar la bandera hay que hacer clic en «Más opciones» en la solapa «General» de configuración del paso e ingresar la palabra “Autorizando” en el campo «Bandera», como se muestra en la [Figura 435](15-QflowDesign.html#starteventproperties). Este cambio no es necesario para el funcionamiento del proceso, pero nos será útil a la hora de utilizar las funcionalidades de estadísticas de Qflow. Haga clic en el tic del paso para confirmar los cambios realizados.
+Un cambio adicional que se puede hacer al paso, es cambiar la bandera. Este campo proporciona información adicional del estado del proceso al momento de iniciar el paso. Para cambiar la bandera hay que hacer clic en «Más opciones» en la solapa «General» de configuración del paso e ingresar la palabra “Autorizando” en el campo «Bandera», como se muestra en la [Figura 435](15-QflowDesign.md#starteventproperties). Este cambio no es necesario para el funcionamiento del proceso, pero nos será útil a la hora de utilizar las funcionalidades de estadísticas de Qflow. Haga clic en el tic del paso para confirmar los cambios realizados.
 
 [![Ventana de propiedades del paso Ingreso solicitud](_images/image523.png)](_images/image523.png)
 
@@ -843,7 +843,7 @@ Figura 203 Modificación del tablero de control principal[](#id78 "Link to th
 
 Figura 204 Tablero de control principal modificado[](#id79 "Link to this image")
 
-[Anterior](26-QflowToolsTutorial.html "Introducción a las herramientas de Qflow") [Siguiente](23-DesignTutorial.html "Diseña un proceso de quejas")
+[Anterior](26-QflowToolsTutorial.md "Introducción a las herramientas de Qflow") [Siguiente](23-DesignTutorial.md "Diseña un proceso de quejas")
 
 - - -
 
