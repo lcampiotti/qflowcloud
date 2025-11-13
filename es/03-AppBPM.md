@@ -5,32 +5,32 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
+*   [](index.md)
 *   Diseño de procesos de negocio \[Deprecado\]
 
 - - -
@@ -43,7 +43,7 @@ Este manual describe el diseñador de procesos del negocio de Qflow. El diseñad
 
 ### Advertencia producto deprecado[](#advertencia-producto-deprecado "Link to this heading")
 
-Este diseñador está deprecado, y sólo puede ser usado con el espacio de trabajo principal. Por más información sobre los espacios de trabajo, consulte el manual de [Qflow Admin](19-QflowAdmin.html).
+Este diseñador está deprecado, y sólo puede ser usado con el espacio de trabajo principal. Por más información sobre los espacios de trabajo, consulte el manual de [Qflow Admin](19-QflowAdmin.md).
 
 ## Organización de este manual[](#organizacion-de-este-manual "Link to this heading")
 
@@ -241,7 +241,7 @@ La segunda solapa (`ConfigurationOfSecurity`) permite configurar el acceso a la 
 
 Configuración de seguridad[](#id21 "Link to this image")
 
-En la parte superior de la ventana (donde dice “Nombre del rol o miembro organizacional”) se muestran los roles de seguridad, grupos y usuarios que tienen acceso a la herramienta. El botón “Agregar…” permite agregar roles de seguridad, grupos y usuarios a la lista, y el botón “Eliminar” permite quitar de la lista el elemento seleccionado. Por más información acerca de los roles de seguridad, consulte el manual que trata el [modelo organizacional](18-QflowTeam.html).
+En la parte superior de la ventana (donde dice “Nombre del rol o miembro organizacional”) se muestran los roles de seguridad, grupos y usuarios que tienen acceso a la herramienta. El botón “Agregar…” permite agregar roles de seguridad, grupos y usuarios a la lista, y el botón “Eliminar” permite quitar de la lista el elemento seleccionado. Por más información acerca de los roles de seguridad, consulte el manual que trata el [modelo organizacional](18-QflowTeam.md).
 
 En la parte inferior de la pantalla se muestran los permisos que tiene el elemento seleccionado. Hay dos tipos de operación:
 
@@ -400,7 +400,7 @@ No se puede agregar a una solución un paquete que contiene algún paquete que y
 
 El explorador de soluciones muestra la solución que está abierta como un árbol en el cual aparecen los paquetes, templates y versiones de template que pertenecen a la solución. Cuando el usuario hace clic con el botón derecho sobre un template, paquete o versión, aparece un menú con varias opciones. La siguiente es la lista de esas opciones, con una breve explicación de cada una de ellas. El manual explica más adelante con mayor detalle las opciones más complejas.
 
-*   **Ver ítems:** esta opción permite ver los ítems del elemento seleccionado. Por medio de ella se puede ver, por ejemplo, los datos de aplicación pertenecientes a determinado paquete. Qflow muestra los ítems en una lista (ver “[Listas de ítems](15-QflowDesign.html#listas-de-items)”).
+*   **Ver ítems:** esta opción permite ver los ítems del elemento seleccionado. Por medio de ella se puede ver, por ejemplo, los datos de aplicación pertenecientes a determinado paquete. Qflow muestra los ítems en una lista (ver “[Listas de ítems](15-QflowDesign.md#listas-de-items)”).
     
     *   Datos de aplicación
         
@@ -450,9 +450,9 @@ El explorador de soluciones muestra la solución que está abierta como un árbo
     
     *   **Alcance:** Permite definir qué datos de aplicación, roles y archivos adjuntos pueden ser vistos o modificados en el formulario del proceso. Hay más información en la sección “[Alcance: acceso a los datos, roles y adjuntos de un proceso](#alcance-acceso-a-los-datos-roles-y-adjuntos-de-un-proceso)”.
         
-    *   **Validaciones:** permite ver la lista de validaciones disponibles en la versión y seleccionar aquellas que se desea que sean ejecutadas en el formulario del proceso. Por más información, ver “[Validaciones](15-QflowDesign.html#validaciones)”.
+    *   **Validaciones:** permite ver la lista de validaciones disponibles en la versión y seleccionar aquellas que se desea que sean ejecutadas en el formulario del proceso. Por más información, ver “[Validaciones](15-QflowDesign.md#validaciones)”.
         
-    *   **Formulario personalizado:** permite seleccionar un formulario personalizado para la versión. El formulario personalizado de la versión se utiliza como formulario del proceso, es decir, el formulario que se muestra en Qflow Task cuando una persona hace clic sobre un proceso. Por más información, consulte la sección “[Formularios personalizados](30.1-UpgradeGuide3_1_To_4_3.html#id6)”.
+    *   **Formulario personalizado:** permite seleccionar un formulario personalizado para la versión. El formulario personalizado de la versión se utiliza como formulario del proceso, es decir, el formulario que se muestra en Qflow Task cuando una persona hace clic sobre un proceso. Por más información, consulte la sección “[Formularios personalizados](30.1-UpgradeGuide3_1_To_4_3.md#id6)”.
         
 *   **Formulario de edición del flow:** las opciones del formulario de edición del flow sólo están disponibles para las versiones. Son las mismas que las del formulario del flow. El formulario de edición del flow muestra datos del flow, pero a diferencia del formulario del flow, puede permitir modificarlos.
     
@@ -953,7 +953,7 @@ Las propiedades de la solapa “General” (`PropertiesDataApplication`) son las
     
 *   **Descripción**
     
-*   **Dominio de dato:** es el dominio del dato, que define el tipo y el control (el elemento de interfaz de usuario) usado para mostrar el dato. El dominio de dato puede ser cualquiera de los dominios básicos provistos por Qflow, pero también puede ser un dominio creado por el usuario (ver “[Dominios de dato](23-DesignTutorial.html#dominios-de-dato)” por instrucciones sobre la creación de dominios). Los dominios básicos son:
+*   **Dominio de dato:** es el dominio del dato, que define el tipo y el control (el elemento de interfaz de usuario) usado para mostrar el dato. El dominio de dato puede ser cualquiera de los dominios básicos provistos por Qflow, pero también puede ser un dominio creado por el usuario (ver “[Dominios de dato](23-DesignTutorial.md#dominios-de-dato)” por instrucciones sobre la creación de dominios). Los dominios básicos son:
     
     *   **Booleano:** los datos de este tipo sólo tienen dos valores posibles: verdadero o falso.
         
@@ -1153,7 +1153,7 @@ Los dominios básicos de Qflow son los siguientes:
 *   **Documento:** está asociado al tipo de datos “Texto” y al control “Documento”.
     
 
-Por más información acerca de los tipos de control de los dominios, consulte la sección “[Tipos de control](15-QflowDesign.html#tipos-de-control)”.
+Por más información acerca de los tipos de control de los dominios, consulte la sección “[Tipos de control](15-QflowDesign.md#tipos-de-control)”.
 
 ##### Propiedades de un dominio[](#propiedades-de-un-dominio "Link to this heading")
 
@@ -1253,9 +1253,9 @@ En la mayoría de los casos, la configuración de un origen de datos implica esp
 
 ###### Aspectos generales de la configuración de un origen de datos: conexiones y parámetros[](#aspectos-generales-de-la-configuracion-de-un-origen-de-datos-conexiones-y-parametros "Link to this heading")
 
-A menos que el origen de datos sea una lista definida en Qflow, lo primero que hay que especificar es dónde Qflow debe obtener los datos. Esto se puede hacer con un parámetro de aplicación (“**Usar un parámetro de aplicación**”) o en la propia configuración del dominio (marcar “**Definir en la configuración del origen de datos**” y hacer clic en “Configurar…”). Se recomienda utilizar un parámetro de aplicación (por información sobre cómo definir parámetros de aplicación, ver “[Parámetros de aplicación](15-QflowDesign.html#parametros-de-aplicacion)”).
+A menos que el origen de datos sea una lista definida en Qflow, lo primero que hay que especificar es dónde Qflow debe obtener los datos. Esto se puede hacer con un parámetro de aplicación (“**Usar un parámetro de aplicación**”) o en la propia configuración del dominio (marcar “**Definir en la configuración del origen de datos**” y hacer clic en “Configurar…”). Se recomienda utilizar un parámetro de aplicación (por información sobre cómo definir parámetros de aplicación, ver “[Parámetros de aplicación](15-QflowDesign.md#parametros-de-aplicacion)”).
 
-Si decide especificar la ubicación de los datos en la configuración del origen de datos, deberá completar los mismos datos de conexión que si estuviese definiendo un parámetro de aplicación. La sección “[Propiedades de un parámetro de aplicación](15-QflowDesign.html#propiedades-de-un-parametro-de-aplicacion)” tiene instrucciones para hacerlo.
+Si decide especificar la ubicación de los datos en la configuración del origen de datos, deberá completar los mismos datos de conexión que si estuviese definiendo un parámetro de aplicación. La sección “[Propiedades de un parámetro de aplicación](15-QflowDesign.md#propiedades-de-un-parametro-de-aplicacion)” tiene instrucciones para hacerlo.
 
 [![_images/image561.png](_images/image561.png)](_images/image561.png)
 
@@ -1265,7 +1265,7 @@ Una vez especificado de dónde salen los datos, hay que especificar qué datos s
 
 El botón “**Parámetros de salida**” permite definir parámetros de salida. Éstos se cargan con valores que se traen del origen de datos, para copiarlos en datos de aplicación. Supongamos, por ejemplo, que un dominio trae los datos de un cliente de la empresa. Como mínimo, la consulta debe traer el identificador y el nombre del cliente. Supongamos que, además, interesa guardar en datos de aplicación el teléfono y la dirección del cliente. En este caso, se incluyen estos datos en la consulta.
 
-Al hacer clic en “Parámetros de salida”, Qflow muestra en una tabla los parámetros de salida, que son los cuatro campos que se obtienen mediante la consulta (`ParametersOfOutput`). Al lado de cada uno de los nombres de los campos se puede escribir el nombre del parámetro que se desea asociar a ese campo. Más tarde, cuando se cree un dato de aplicación de este dominio, se debe indicar en qué datos de aplicación se guardarán los valores de cada parámetro (ver “[Datos de aplicación](23-DesignTutorial.html#datos-de-aplicacion)”, “[Dependencias](15-QflowDesign.html#dependencias)”).
+Al hacer clic en “Parámetros de salida”, Qflow muestra en una tabla los parámetros de salida, que son los cuatro campos que se obtienen mediante la consulta (`ParametersOfOutput`). Al lado de cada uno de los nombres de los campos se puede escribir el nombre del parámetro que se desea asociar a ese campo. Más tarde, cuando se cree un dato de aplicación de este dominio, se debe indicar en qué datos de aplicación se guardarán los valores de cada parámetro (ver “[Datos de aplicación](23-DesignTutorial.md#datos-de-aplicacion)”, “[Dependencias](15-QflowDesign.md#dependencias)”).
 
 [![_images/image571.png](_images/image571.png)](_images/image571.png)
 
@@ -1283,7 +1283,7 @@ La `ConfigurationDatabaseAsADataSource` muestra la ventana de configuración de 
 
 Configuración de una base de datos como origen de datos[](#id74 "Link to this image")
 
-Donde dice “Consulta” se puede escribir la consulta SQL que Qflow debe ejecutar para obtener los datos del dominio. La consulta puede ser escrita manualmente, pero también hay herramientas para ayudar a escribirla. El botón “Crear consulta…” abre el constructor de consulta, que facilita el trabajo de escribir la consulta. El constructor de consulta es el mismo que el del paso de base de datos, y se describe en “[Base de datos](30.1-UpgradeGuide3_1_To_4_3.html#base-de-datos)”, “[Consulta](#consulta)”. Recuerde que la consulta debe devolver al menos dos columnas (ver explicación más arriba). Además, para que la consulta pueda ser usada correctamente por Qflow, se recomienda cumplir los siguientes puntos:
+Donde dice “Consulta” se puede escribir la consulta SQL que Qflow debe ejecutar para obtener los datos del dominio. La consulta puede ser escrita manualmente, pero también hay herramientas para ayudar a escribirla. El botón “Crear consulta…” abre el constructor de consulta, que facilita el trabajo de escribir la consulta. El constructor de consulta es el mismo que el del paso de base de datos, y se describe en “[Base de datos](30.1-UpgradeGuide3_1_To_4_3.md#base-de-datos)”, “[Consulta](#consulta)”. Recuerde que la consulta debe devolver al menos dos columnas (ver explicación más arriba). Además, para que la consulta pueda ser usada correctamente por Qflow, se recomienda cumplir los siguientes puntos:
 
 *   No utilizar alias para las columnas seleccionadas, a menos que sea dentro de una subconsulta.
     
@@ -1294,7 +1294,7 @@ Donde dice “Consulta” se puede escribir la consulta SQL que Qflow debe ejecu
 *   Evitar usar comentarios (usando «–») en la consulta.
     
 
-Si el tipo de control del dominio es Lookup, Selector de Ítems o Combo Box, la consulta puede incluir parámetros de entrada. Para agregar un parámetro de entrada, haga clic en “Insertar parámetro…”. Esto hace que Qflow abra una ventana como la de la `InsertingAParameter`. En esa ventana, escriba el nombre del parámetro y haga clic en “Insertar”. Eso agrega un parámetro, que se representa con un nombre escrito entre llaves. Más tarde, al definir un dato de un dominio cuya consulta tiene un parámetro, se debe indicar qué dato de aplicación se utilizará para proveerle un valor (ver “[Datos de aplicación](23-DesignTutorial.html#datos-de-aplicacion)”).
+Si el tipo de control del dominio es Lookup, Selector de Ítems o Combo Box, la consulta puede incluir parámetros de entrada. Para agregar un parámetro de entrada, haga clic en “Insertar parámetro…”. Esto hace que Qflow abra una ventana como la de la `InsertingAParameter`. En esa ventana, escriba el nombre del parámetro y haga clic en “Insertar”. Eso agrega un parámetro, que se representa con un nombre escrito entre llaves. Más tarde, al definir un dato de un dominio cuya consulta tiene un parámetro, se debe indicar qué dato de aplicación se utilizará para proveerle un valor (ver “[Datos de aplicación](23-DesignTutorial.md#datos-de-aplicacion)”).
 
 De la misma forma, al definir un dato de un dominio que tiene parámetros de salida, se debe indicar en qué datos de aplicación se volcarán los valores de los parámetros de salida (ver arriba).
 
@@ -1318,7 +1318,7 @@ Método de web service con parámetro cargado[](#id77 "Link to this image")
 
 A cada parámetro se le puede asignar un valor fijo. Si el tipo de control es Lookup, Selector de Ítems o Combo Box, también se puede establecer que ese valor sea parametrizable. Para ello, seleccione la fila correspondiente al parámetro y haga clic en “Insertar parámetro”. Esto hace que se abra una ventana de diálogo como la de la `InsertionOfParametersForDomainWebService`. La ventana es similar a la ventana en la que se definen los parámetros de un dominio que obtiene sus datos de una base de datos, pero tiene una propiedad adicional: el tipo de parámetro, que puede ser “Personalizado” o “Sistema”.
 
-Un parámetro personalizado funciona como los parámetros de los dominios que obtienen sus datos de una base de datos: cuando se define un dato de aplicación de ese dominio, se especifica otro dato de aplicación como parámetro (ver “[Propiedades de un dato de aplicación](15-QflowDesign.html#propiedades-de-un-dato-de-aplicacion)”, donde se habla de la solapa “Dependencias” de la ventana de propiedades de un dato de aplicación).
+Un parámetro personalizado funciona como los parámetros de los dominios que obtienen sus datos de una base de datos: cuando se define un dato de aplicación de ese dominio, se especifica otro dato de aplicación como parámetro (ver “[Propiedades de un dato de aplicación](15-QflowDesign.md#propiedades-de-un-dato-de-aplicacion)”, donde se habla de la solapa “Dependencias” de la ventana de propiedades de un dato de aplicación).
 
 Un parámetro de sistema no se asocia a un dato de aplicación, sino que tiene un nombre que se elige de una lista predeterminada y que le indica a Qflow qué valor le tiene que asignar al llamar el método del web service con el cual se utiliza.
 
@@ -1504,7 +1504,7 @@ Un hipervínculo con su ventana de edición[](#id93 "Link to this image")
 
 ###### Lista de Check Box[](#lista-de-check-box "Link to this heading")
 
-Conjunto de check boxes. Es útil cuando se le quiere presentar al usuario una lista de opciones y el usuario puede elegir varias de ellas. Los textos de las opciones son copiados en el valor del dato uno a continuación del otro, separados por saltos de línea (sólo dominios de tipo texto aceptan este tipo de control). En Qflow Task, los valores se ven separados por espacios. Por ejemplo, el dato cuyo valor está siendo editado en la [Figura 546](15-QflowDesign.html#checkboxlist) se vería como “Rojo Verde Negro” en el sitio.
+Conjunto de check boxes. Es útil cuando se le quiere presentar al usuario una lista de opciones y el usuario puede elegir varias de ellas. Los textos de las opciones son copiados en el valor del dato uno a continuación del otro, separados por saltos de línea (sólo dominios de tipo texto aceptan este tipo de control). En Qflow Task, los valores se ven separados por espacios. Por ejemplo, el dato cuyo valor está siendo editado en la [Figura 546](15-QflowDesign.md#checkboxlist) se vería como “Rojo Verde Negro” en el sitio.
 
 [![_images/image781.png](_images/image781.png)](_images/image781.png)
 
@@ -1560,7 +1560,7 @@ Selector de ítems[](#id100 "Link to this image")
 
 #### Formularios personalizados[](#id7 "Link to this heading")
 
-Qflow permite utilizar formularios personalizados para sustituir los formularios que aparecen en Qflow Task. Qflow no posee una herramienta que permita diseñar estos formularios. Usted puede utilizar otra herramienta para diseñarlos (se recomienda Visual Studio o Visual Web Developer Express, que es gratuito), y luego incluirlos en Qflow Task. Según el sitio web utilizado (Qflow Task o Web Forms) los formularios deben consistir de diferentes elementos y utilizan diferentes técnicas para ser desarrollados. Información detallada de cómo desarrollarlos puede ser encontrada en los manuales de [diseño de formularios personalizados](18-QflowTeam.html) de cada sitio, aquí se explica solamente la configuración a realizar en esta herramienta para poder utilizarlos.
+Qflow permite utilizar formularios personalizados para sustituir los formularios que aparecen en Qflow Task. Qflow no posee una herramienta que permita diseñar estos formularios. Usted puede utilizar otra herramienta para diseñarlos (se recomienda Visual Studio o Visual Web Developer Express, que es gratuito), y luego incluirlos en Qflow Task. Según el sitio web utilizado (Qflow Task o Web Forms) los formularios deben consistir de diferentes elementos y utilizan diferentes técnicas para ser desarrollados. Información detallada de cómo desarrollarlos puede ser encontrada en los manuales de [diseño de formularios personalizados](18-QflowTeam.md) de cada sitio, aquí se explica solamente la configuración a realizar en esta herramienta para poder utilizarlos.
 
 Hay tres tipos de formularios en Qflow, y, en consecuencia, tres tipos de formularios personalizados:
 
@@ -1575,7 +1575,7 @@ Hay tres tipos de formularios en Qflow, y, en consecuencia, tres tipos de formul
     *   **Formularios de edición del flow:** muestran datos del proceso, y permiten modificarlos. En un formulario de edición del flow se puede modificar, por ejemplo, el su nombre. También es posible modificar datos, roles y archivos adjuntos, si el alcance definido lo permite.
         
 
-Los formularios estándar muestran agrupados por grupo los datos de aplicación (ver “[Datos de aplicación](23-DesignTutorial.html#datos-de-aplicacion)”). Para el caso del sitio Web Forms, Qflow incluye además tres formularios que funcionan como formularios personalizados y que tienen la misma apariencia que los formularios estándar, salvo porque muestran los datos de aplicación sin agrupar. Lo mismo se puede conseguir en Qflow Task si se definen los datos de aplicación sin un grupo. La `ApplicationDataInStandardForm` y la `ApplicationDataInFormThatDoesNotGroup` muestran la diferencia entre un caso y el otro. En las dos se muestran los mismos cuatro datos. Dos de estos datos pertenecen a un grupo llamado “Datos profesionales” y los otros dos a uno llamado “Persona”. En el primer caso (`ApplicationDataInStandardForm`), los datos aparecen agrupados en cuadros diferentes, y se indica, para cada cuadro, el nombre del grupo al que corresponde. En el otro (`ApplicationDataInFormThatDoesNotGroup`), los datos se muestran todos en un mismo panel titulado “Datos de aplicación”.
+Los formularios estándar muestran agrupados por grupo los datos de aplicación (ver “[Datos de aplicación](23-DesignTutorial.md#datos-de-aplicacion)”). Para el caso del sitio Web Forms, Qflow incluye además tres formularios que funcionan como formularios personalizados y que tienen la misma apariencia que los formularios estándar, salvo porque muestran los datos de aplicación sin agrupar. Lo mismo se puede conseguir en Qflow Task si se definen los datos de aplicación sin un grupo. La `ApplicationDataInStandardForm` y la `ApplicationDataInFormThatDoesNotGroup` muestran la diferencia entre un caso y el otro. En las dos se muestran los mismos cuatro datos. Dos de estos datos pertenecen a un grupo llamado “Datos profesionales” y los otros dos a uno llamado “Persona”. En el primer caso (`ApplicationDataInStandardForm`), los datos aparecen agrupados en cuadros diferentes, y se indica, para cada cuadro, el nombre del grupo al que corresponde. En el otro (`ApplicationDataInFormThatDoesNotGroup`), los datos se muestran todos en un mismo panel titulado “Datos de aplicación”.
 
 [![_images/image851.png](_images/image851.png)](_images/image851.png)
 
@@ -1755,7 +1755,7 @@ Introduzca el nombre y la descripción de la operación[](#id112 "Link to thi
 
 En la pantalla de selección de componentes (`Components`) elija los componentes con los que desea que interactúe la integración. Más tarde, cuando esté definida la operación, Qflow generará un script con el código que implementa la integración. Por ejemplo, en el caso de un componente de software, se generará el código que llama los métodos de ese componente. Para agregar un componente, elija el tipo de componente en la lista y haga clic en “Agregar componente…”. Hay varios tipos de componente posibles:
 
-*   **Ad hoc:** Esta opción permite definir una integración sin elegir ningún componente externo. En este caso, Qflow no generará ningún script, por lo que el código de la integración debe ser definido manualmente. Consulte el manual de [referencia de la interfaz de scripting](10-ScriptingInterface.html) para averiguar cómo hacerlo. Un paso de integración que usa esta opción se comporta prácticamente como un paso de código. La diferencia es que el script es definido en la integración, y no en el propio paso, por lo que puede ser utilizado en varios pasos. Además, al igual que con otras integraciones, se puede asociar parámetros de la integración con datos de aplicación. El script de la integración puede acceder a los parámetros de la integración en lugar de acceder directamente a los datos de aplicación.
+*   **Ad hoc:** Esta opción permite definir una integración sin elegir ningún componente externo. En este caso, Qflow no generará ningún script, por lo que el código de la integración debe ser definido manualmente. Consulte el manual de [referencia de la interfaz de scripting](10-ScriptingInterface.md) para averiguar cómo hacerlo. Un paso de integración que usa esta opción se comporta prácticamente como un paso de código. La diferencia es que el script es definido en la integración, y no en el propio paso, por lo que puede ser utilizado en varios pasos. Además, al igual que con otras integraciones, se puede asociar parámetros de la integración con datos de aplicación. El script de la integración puede acceder a los parámetros de la integración en lugar de acceder directamente a los datos de aplicación.
     
 *   **Assembly:** un componente (DLL) hecho con .NET framework.
     
@@ -1844,7 +1844,7 @@ Una vez terminado el asistente, Qflow habrá creado un script que implementa la 
 
 Script de integración[](#id120 "Link to this image")
 
-Las modificaciones realizadas al script pueden ser compiladas con el botón “Compilar”. Es posible probar el script utilizando el botón “Ejecutar”. Si hace clic con el botón derecho sobre el script, Qflow muestra un menú contextual que permite realizar operaciones de edición (deshacer y rehacer; buscar palabras; copiar y pegar código) e insertar parámetros, funciones y datos comunes en el código. Por más información sobre desarrollo de scripts de Qflow, consulte el manual de [referencia de la interfaz de scripting](10-ScriptingInterface.html) de Qflow.
+Las modificaciones realizadas al script pueden ser compiladas con el botón “Compilar”. Es posible probar el script utilizando el botón “Ejecutar”. Si hace clic con el botón derecho sobre el script, Qflow muestra un menú contextual que permite realizar operaciones de edición (deshacer y rehacer; buscar palabras; copiar y pegar código) e insertar parámetros, funciones y datos comunes en el código. Por más información sobre desarrollo de scripts de Qflow, consulte el manual de [referencia de la interfaz de scripting](10-ScriptingInterface.md) de Qflow.
 
 ###### Clases y métodos disponibles para bases de datos[](#clases-y-metodos-disponibles-para-bases-de-datos "Link to this heading")
 
@@ -2337,7 +2337,7 @@ Configuración de un parámetro de aplicación con una conexión a SharePoint[�
 
 ##### Utilización de un parámetro[](#utilizacion-de-un-parametro "Link to this heading")
 
-Un parámetro se puede utilizar en varios contextos en los cuales es necesario especificar el tipo de información que se guarda en un parámetro de aplicación. En un paso de web service, por ejemplo, es necesario especificar la URL del web service. El usuario puede optar por especificar la URL en las propiedades del propio paso (“Definir en la configuración del paso”) o utilizar un parámetro de aplicación. Los parámetros de aplicación se pueden utilizar también en pasos de datos y en integraciones. Un parámetro de aplicación de tipo “Texto” se puede utilizar como etiqueta (consulte la sección “[Etiquetas](15-QflowDesign.html#etiquetas)”). Un parámetro de aplicación de este tipo también se puede asociar a parámetros de bots y de integraciones en pasos de bot y de integración respectivamente.
+Un parámetro se puede utilizar en varios contextos en los cuales es necesario especificar el tipo de información que se guarda en un parámetro de aplicación. En un paso de web service, por ejemplo, es necesario especificar la URL del web service. El usuario puede optar por especificar la URL en las propiedades del propio paso (“Definir en la configuración del paso”) o utilizar un parámetro de aplicación. Los parámetros de aplicación se pueden utilizar también en pasos de datos y en integraciones. Un parámetro de aplicación de tipo “Texto” se puede utilizar como etiqueta (consulte la sección “[Etiquetas](15-QflowDesign.md#etiquetas)”). Un parámetro de aplicación de este tipo también se puede asociar a parámetros de bots y de integraciones en pasos de bot y de integración respectivamente.
 
 [![_images/image130.png](_images/image130.png)](_images/image130.png)
 
@@ -2764,7 +2764,7 @@ Una vez agregados los usuarios, roles y grupos, es posible definir qué permisos
 
 Cuando hay conflictos entre permisos, Qflow considera que el permiso válido es el que niega el acceso. Suponga, por ejemplo, que un usuario pertenece a dos grupos. Si uno de esos grupos tiene permiso de acceso a un determinado paquete y el otro grupo tiene ese permiso explícitamente denegado, el usuario no podrá acceder al paquete.
 
-Por más detalles acerca del manejo de permisos en Qflow, consulte el manual de [Qflow Team](18-QflowTeam.html).
+Por más detalles acerca del manejo de permisos en Qflow, consulte el manual de [Qflow Team](18-QflowTeam.md).
 
 #### Avanzado[](#avanzado "Link to this heading")
 
@@ -2952,7 +2952,7 @@ Las propiedades son:
 
 *   **Asunto:** es el asunto del mensaje de e-mail que Qflow enviará a
     
-    los destinatarios. Para obtener el asunto de un dato de aplicación o de otro elemento, haga clic en “Insertar etiqueta”. Por más información sobre etiquetas, consulte la sección “[Etiquetas](15-QflowDesign.html#etiquetas)”.
+    los destinatarios. Para obtener el asunto de un dato de aplicación o de otro elemento, haga clic en “Insertar etiqueta”. Por más información sobre etiquetas, consulte la sección “[Etiquetas](15-QflowDesign.md#etiquetas)”.
     
 *   **Destinatarios:** es el conjunto de roles a quienes estará dirigido el paso. Para agregar un destinatario, haga clic en “Seleccionar destinatario”. Qflow mostrará una lista de roles (`SelectorOfRoles`). Seleccione el rol que desea agregar como destinatario y haga clic en “Aceptar”. Para quitar un destinatario de la lista, selecciónelo y haga clic en “Quitar destinatario”.
     
@@ -2994,7 +2994,7 @@ Para agregar una acción, haga clic en “Nueva acción…”. Qflow mostrará u
         
     *   **Vencimiento:** Qflow interrumpe la espera, abandonando la ejecución del paso y continuando con la ejecución del proceso por medio del conector de vencimiento. El conector de vencimiento es el que está a la izquierda del paso (`TaskThatUseOfConnectorOfExpiration`).
         
-*   **Información de tiempo:** estas propiedades permiten indicar cuándo Qflow debe ejecutar la acción. Qflow puede manejar varios calendarios, y diferentes usuarios pueden utilizar distintos calendarios (esto se explica en el manual que trata del [modelo organizacional](18-QflowTeam.html)). Cuando el momento de ejecutar una acción está especificado con un período de tiempo, los días y horas no laborables no cuentan, y Qflow utiliza el calendario asociado al usuario al que está dirigida la tarea cuyos plazos se desea controlar para determinar qué días y horarios son laborables. Si la tarea tiene varios destinatarios, Qflow utiliza el calendario del primero de los destinatarios.
+*   **Información de tiempo:** estas propiedades permiten indicar cuándo Qflow debe ejecutar la acción. Qflow puede manejar varios calendarios, y diferentes usuarios pueden utilizar distintos calendarios (esto se explica en el manual que trata del [modelo organizacional](18-QflowTeam.md)). Cuando el momento de ejecutar una acción está especificado con un período de tiempo, los días y horas no laborables no cuentan, y Qflow utiliza el calendario asociado al usuario al que está dirigida la tarea cuyos plazos se desea controlar para determinar qué días y horarios son laborables. Si la tarea tiene varios destinatarios, Qflow utiliza el calendario del primero de los destinatarios.
     
     *   **Fecha fija:** permite especificar una fecha.
         
@@ -3328,7 +3328,7 @@ Evaluación por código[](#id212 "Link to this image")
 
 La `ScriptEvaulationByCodeStep` muestra la ventana de edición de un paso de evaluación por código. El script del paso contiene una función llamada “Evaluate” que devuelve un valor de tipo “bool”. Ésa es la función que debe ser implementada para realizar la evaluación por código.
 
-Para compilar el código escrito, haga clic en el botón “Compilar”. Los errores de compilación aparecerán en la parte inferior de la pantalla, donde dice “Error”. También puede ejecutar el script, haciendo clic en el botón “Ejecutar”. La solapa “Resultados” indica el resultado de la ejecución (verdadero o falso). Mediante el botón derecho del ratón se puede acceder a un menú que permite insertar porciones de código comúnmente utilizadas y acceder a opciones de edición, como copiar, deshacer y buscar palabras. Por más información acerca de cómo desarrolla un script para pasos de este tipo, consulte el manual de [referencia de la interfaz de scripting de Qflow](10-ScriptingInterface.html).
+Para compilar el código escrito, haga clic en el botón “Compilar”. Los errores de compilación aparecerán en la parte inferior de la pantalla, donde dice “Error”. También puede ejecutar el script, haciendo clic en el botón “Ejecutar”. La solapa “Resultados” indica el resultado de la ejecución (verdadero o falso). Mediante el botón derecho del ratón se puede acceder a un menú que permite insertar porciones de código comúnmente utilizadas y acceder a opciones de edición, como copiar, deshacer y buscar palabras. Por más información acerca de cómo desarrolla un script para pasos de este tipo, consulte el manual de [referencia de la interfaz de scripting de Qflow](10-ScriptingInterface.md).
 
 **Importante:** no intente modificar datos del proceso en un paso de evaluación por código. Aunque el código se ejecutará correctamente, los cambios no serán guardados. Para modificar datos del proceso, utilice el paso de código.
 
@@ -3501,7 +3501,7 @@ Para compilar el código escrito, haga clic en el botón “Compilar”. Los err
 
 Mediante el botón derecho del ratón se puede acceder a un menú que permite insertar porciones de código comúnmente utilizadas y acceder a opciones de edición, como copiar, deshacer y buscar palabras.
 
-Por más información acerca de cómo desarrollar el script de un paso de código, consulte el manual de [referencia de la interfaz de scripting de Qflow](10-ScriptingInterface.html).
+Por más información acerca de cómo desarrollar el script de un paso de código, consulte el manual de [referencia de la interfaz de scripting de Qflow](10-ScriptingInterface.md).
 
 [![_images/image211.png](_images/image211.png)](_images/image211.png)
 
@@ -3536,14 +3536,14 @@ Estas son las propiedades que permiten definir la cadena de conexión a la base 
 
 *   **Usar un parámetro de aplicación:** si marca esta opción, debe seleccionar un parámetro de aplicación. El paso de datos utilizará los datos de conexión que están almacenados en el parámetro de aplicación seleccionado.
     
-*   **Definir la configuración del paso:** si marca esta opción, debe especificar los datos de la conexión. Para ello, haga clic en “Configurar”. Eso hace que Qflow muestre una ventana en la que puede ingresar los datos de la conexión (nombre del servidor, credenciales y otros parámetros). También podrá verificar que los datos ingresados son correctos. La ventana es igual a la que se usa para especificar las propiedades de un parámetro de aplicación de tipo “Conexión a base de datos” (ver “[Propiedades de un parámetro de aplicación](15-QflowDesign.html#propiedades-de-un-parametro-de-aplicacion)”).
+*   **Definir la configuración del paso:** si marca esta opción, debe especificar los datos de la conexión. Para ello, haga clic en “Configurar”. Eso hace que Qflow muestre una ventana en la que puede ingresar los datos de la conexión (nombre del servidor, credenciales y otros parámetros). También podrá verificar que los datos ingresados son correctos. La ventana es igual a la que se usa para especificar las propiedades de un parámetro de aplicación de tipo “Conexión a base de datos” (ver “[Propiedades de un parámetro de aplicación](15-QflowDesign.md#propiedades-de-un-parametro-de-aplicacion)”).
     
 
 Una vez definidas las propiedades de la conexión, Qflow habilitará las propiedades que permiten definir la consulta y establecer una correspondencia entre los datos de la base de datos y los datos de aplicación.
 
 ##### Consulta[](#consulta "Link to this heading")
 
-*   **Consulta:** consulta SQL para obtener los datos. La consulta puede ser escrita manualmente, pero también hay herramientas para ayudar a escribirla. El botón “Insertar etiqueta…” permite utilizar valores de datos de aplicación, roles y otros elementos como parámetros de la consulta. Se podría, por ejemplo, guardar la consulta en un dato de aplicación de tipo texto y utilizar el texto de ese dato de aplicación como consulta. Por más detalles al respecto, consulte la sección “[Etiquetas](15-QflowDesign.html#etiquetas)”. El botón “Crear consulta…” abre el constructor de consulta, que facilita el trabajo de escribir la consulta (`ConstructorOfQuery`). Una vez escrita la consulta, haga clic en “Probar consulta” para comprobar que funciona correctamente y que no hay errores de sintaxis. Si la prueba es exitosa, Qflow mostrará una pequeña ventana con el resultado de la consulta (`ResultOfQuery`).
+*   **Consulta:** consulta SQL para obtener los datos. La consulta puede ser escrita manualmente, pero también hay herramientas para ayudar a escribirla. El botón “Insertar etiqueta…” permite utilizar valores de datos de aplicación, roles y otros elementos como parámetros de la consulta. Se podría, por ejemplo, guardar la consulta en un dato de aplicación de tipo texto y utilizar el texto de ese dato de aplicación como consulta. Por más detalles al respecto, consulte la sección “[Etiquetas](15-QflowDesign.md#etiquetas)”. El botón “Crear consulta…” abre el constructor de consulta, que facilita el trabajo de escribir la consulta (`ConstructorOfQuery`). Una vez escrita la consulta, haga clic en “Probar consulta” para comprobar que funciona correctamente y que no hay errores de sintaxis. Si la prueba es exitosa, Qflow mostrará una pequeña ventana con el resultado de la consulta (`ResultOfQuery`).
     
 
 [![_images/image214.png](_images/image214.png)](_images/image214.png)
@@ -3736,9 +3736,9 @@ Las propiedades agrupadas bajo el título “Template” son las siguientes:
     
 *   **Versión de template:** se puede indicar de utilizar siempre la versión en producción o elegir una versión particular que no sea borrador.
     
-*   **Nombre del flow:** es el nombre del proceso a iniciar. Se puede utilizar una etiqueta para que el nombre sea, por ejemplo, el valor de un dato de aplicación. Por más detalles, consulte la sección “[Etiquetas](15-QflowDesign.html#etiquetas)”.
+*   **Nombre del flow:** es el nombre del proceso a iniciar. Se puede utilizar una etiqueta para que el nombre sea, por ejemplo, el valor de un dato de aplicación. Por más detalles, consulte la sección “[Etiquetas](15-QflowDesign.md#etiquetas)”.
     
-*   **Descripción del flow:** descripción del proceso a iniciar. Se puede utilizar una etiqueta para que la descripción tome el valor, por ejemplo, de un dato de aplicación. Por más detalles, consulte la sección “[Etiquetas](15-QflowDesign.html#etiquetas)”.
+*   **Descripción del flow:** descripción del proceso a iniciar. Se puede utilizar una etiqueta para que la descripción tome el valor, por ejemplo, de un dato de aplicación. Por más detalles, consulte la sección “[Etiquetas](15-QflowDesign.md#etiquetas)”.
     
 *   **Esperar al fin del sub flow para continuar:** si esta opción está marcada, una vez iniciado el sub flow, el proceso que lo creó no continúa su ejecución hasta que el sub flow no haya terminado. Sólo si esta opción queda marcada se puede actualizar los datos del proceso padre desde el sub flow.
     
@@ -3830,7 +3830,7 @@ Integración[](#id241 "Link to this image")
 
 La `WindowOfEditOfAIntegrationStep` muestra la ventana de edición de un paso de integración. Además del nombre y de la descripción del paso, un paso de integración tiene las siguientes propiedades:
 
-*   **Integración:** permite elegir una de las integraciones definidas. Por información acerca de cómo definir una integración, consulte la sección “[Integraciones](15-QflowDesign.html#integraciones)”.
+*   **Integración:** permite elegir una de las integraciones definidas. Por información acerca de cómo definir una integración, consulte la sección “[Integraciones](15-QflowDesign.md#integraciones)”.
     
 *   **Mapeo de parámetros:** es una grilla que muestra los parámetros de la integración. A cada parámetro requerido de la integración se debe asociar un parámetro o dato de aplicación del mismo tipo. Para elegir un dato de aplicación, seleccione “Datos” en la columna “Tipo de ítem”. Para elegir un parámetro de aplicación, seleccione “Parámetros”. Si un parámetro es de entrada, éste recibirá el valor del dato o parámetro de aplicación antes de la ejecución de la integración. Si el parámetro es de salida, sólo tiene sentido asociarlo a un dato de aplicación. Una vez ejecutada la operación de la integración, el valor del parámetro será copiado en el dato de aplicación asociado. Esta es la forma de que una operación devuelva resultados que puedan ser utilizados por el proceso. Si el parámetro es de entrada y salida, tampoco tiene sentido asociarlo a un parámetro de aplicación. El valor del dato de aplicación asociado es copiado al parámetro antes de la ejecución de la integración, y una vez ejecutada ésta, el valor del parámetro, que puede haber cambiado, es copiado al dato de aplicación.
     
@@ -3880,7 +3880,7 @@ La solapa “Origen” (`OrigenOfAMailStep`) permite especificar los datos del r
     
     *   **Origen**
         
-        *   **Nombre:** nombre del remitente. Se puede utilizar una etiqueta para, por ejemplo, sacar este nombre de un dato de aplicación (ver “[Etiquetas](15-QflowDesign.html#etiquetas)”).
+        *   **Nombre:** nombre del remitente. Se puede utilizar una etiqueta para, por ejemplo, sacar este nombre de un dato de aplicación (ver “[Etiquetas](15-QflowDesign.md#etiquetas)”).
             
         *   **Dirección:** dirección de correo electrónico del remitente.
             
@@ -3897,7 +3897,7 @@ Origen de los mensajes[](#id245 "Link to this image")
 
 ##### Destinatarios[](#destinatarios "Link to this heading")
 
-La `DestinatariosOfAMailStep` muestra la solapa “Destinatarios”. A la izquierda se muestra la lista de los destinatarios a los que Qflow enviará el mensaje. Para agregar un destinatario a la lista, haga clic en “Agregar”. Al hacerlo se abrirá una ventana donde podrá ingresar la dirección de correo electrónico del destinatario, o utilizar una etiqueta haciendo clic en “Insertar etiqueta” (ver “[Etiquetas](15-QflowDesign.html#etiquetas)”). Luego de ingresar el destinatario haga clic en “Aceptar”. El destinatario será agregado a la lista.
+La `DestinatariosOfAMailStep` muestra la solapa “Destinatarios”. A la izquierda se muestra la lista de los destinatarios a los que Qflow enviará el mensaje. Para agregar un destinatario a la lista, haga clic en “Agregar”. Al hacerlo se abrirá una ventana donde podrá ingresar la dirección de correo electrónico del destinatario, o utilizar una etiqueta haciendo clic en “Insertar etiqueta” (ver “[Etiquetas](15-QflowDesign.md#etiquetas)”). Luego de ingresar el destinatario haga clic en “Aceptar”. El destinatario será agregado a la lista.
 
 Para quitar un destinatario de la lista, selecciónelo y haga clic en “Eliminar”.
 
@@ -3907,7 +3907,7 @@ Destinatarios[](#id246 "Link to this image")
 
 ##### Contenido[](#contenido "Link to this heading")
 
-La solapa “Contenido” (`ContentOfAMailStep`) permite especificar el asunto del mensaje y el texto (“Cuerpo”). En los dos casos se puede utilizar una etiqueta, haciendo clic en el botón “Insertar” (ver “[Etiquetas](15-QflowDesign.html#etiquetas)”). Si desea utilizar HTML para especificar el contenido, marque la opción “Cuerpo HTML”.
+La solapa “Contenido” (`ContentOfAMailStep`) permite especificar el asunto del mensaje y el texto (“Cuerpo”). En los dos casos se puede utilizar una etiqueta, haciendo clic en el botón “Insertar” (ver “[Etiquetas](15-QflowDesign.md#etiquetas)”). Si desea utilizar HTML para especificar el contenido, marque la opción “Cuerpo HTML”.
 
 [![_images/image232.png](_images/image232.png)](_images/image232.png)
 
@@ -3972,7 +3972,7 @@ A cada campo se le debe asignar un dato de aplicación o un parámetro de aplica
 
 El botón **Auto mapear** permite intentar hacer automáticamente la correspondencia entre campos de la lista de SharePoint y datos o parámetros de aplicación. Al hacer clic en él, Qflow buscará, para cada campo de la lista, un dato (o parámetro, según el valor elegido en “Tipo de ítem”) de aplicación con el mismo nombre y tipo que éste, y si encuentra uno, lo asociará al campo. De este modo, el mapeo de campos se puede hacer automáticamente, siempre y cuando exista un dato de aplicación igual a cada campo en nombre y tipo.
 
-En la solapa “Documento” se especifica, cuando la operación es “Subir documento”, el archivo que se debe subir. Haga clic en “Examinar…” para seleccionar un archivo específico o en “Insertar etiqueta…” para elegir un dato de aplicación o parámetro del cual Qflow deberá obtener la ruta del archivo (por más información sobre etiquetas, ver “[Etiquetas](15-QflowDesign.html#etiquetas)”). Naturalmente, la ruta debe ser una a la cual los servicios de Qflow puedan acceder. Si en lugar de una ruta a un archivo se desea utilizar un adjunto del flow, simplemente se debe ingresar su nombre, ya sea directamente o a través de una etiqueta. En la propiedad “Carpeta de destino”, indique en qué carpeta de la lista desea subir el documento. Aquí también puede insertar una etiqueta.
+En la solapa “Documento” se especifica, cuando la operación es “Subir documento”, el archivo que se debe subir. Haga clic en “Examinar…” para seleccionar un archivo específico o en “Insertar etiqueta…” para elegir un dato de aplicación o parámetro del cual Qflow deberá obtener la ruta del archivo (por más información sobre etiquetas, ver “[Etiquetas](15-QflowDesign.md#etiquetas)”). Naturalmente, la ruta debe ser una a la cual los servicios de Qflow puedan acceder. Si en lugar de una ruta a un archivo se desea utilizar un adjunto del flow, simplemente se debe ingresar su nombre, ya sea directamente o a través de una etiqueta. En la propiedad “Carpeta de destino”, indique en qué carpeta de la lista desea subir el documento. Aquí también puede insertar una etiqueta.
 
 [![_images/image237.png](_images/image237.png)](_images/image237.png)
 
@@ -4005,7 +4005,7 @@ La `PropertiesOfSincronization` muestra la solapa de las propiedades de sincroni
 
 *   **Espera por archivo:** si esta opción está seleccionada, el proceso esperará la creación de un archivo en el sistema de archivos o que se agregue un archivo adjunto al proceso, según si está marcada la opción “Sistema de archivos” o la opción “Adjunto”.
     
-    *   **Archivo:** nombre del archivo que se espera. Si es un archivo del sistema de archivos, es todo el camino que indica la ubicación del archivo, y si hace clic en el botón “Explorar…”, Qflow abrirá una ventana para que usted elija el archivo. Si es un archivo adjunto, es simplemente el nombre del archivo, y el botón “Explorar…” no estará habilitado. También puede utilizar como nombre del archivo el valor de un dato de aplicación de tipo texto o alguna otra etiqueta. Para ello, haga clic en “Insertar” para elegir una etiqueta. Por más información acerca de las etiquetas, consulte la sección “[Etiquetas](15-QflowDesign.html#etiquetas)”.
+    *   **Archivo:** nombre del archivo que se espera. Si es un archivo del sistema de archivos, es todo el camino que indica la ubicación del archivo, y si hace clic en el botón “Explorar…”, Qflow abrirá una ventana para que usted elija el archivo. Si es un archivo adjunto, es simplemente el nombre del archivo, y el botón “Explorar…” no estará habilitado. También puede utilizar como nombre del archivo el valor de un dato de aplicación de tipo texto o alguna otra etiqueta. Para ello, haga clic en “Insertar” para elegir una etiqueta. Por más información acerca de las etiquetas, consulte la sección “[Etiquetas](15-QflowDesign.md#etiquetas)”.
         
     *   **Sistema de archivos:** seleccione esta opción para que el proceso espere que un archivo con el nombre especificado sea creado en el sistema de archivos.
         
@@ -4029,7 +4029,7 @@ La `PropertiesOfSincronization` muestra la solapa de las propiedades de sincroni
         
     *   **Esperar por un paso iniciado luego de ese paso:** si esta opción está activada, el proceso esperará el paso indicado, bajo la condición de que éste haya sido iniciado después del paso de sincronización.
         
-*   **Esperar por acción externa:** esta opción hace que el hilo del paso se detenga hasta que ocurra una acción externa. Hay dos formas de indicarle a Qflow que esa acción ocurrió: mediante un paso de código que llame una función que hace eso (ver el manual de la [interfaz de scripting](10-ScriptingInterface.html)) o mediante la invocación de alguno de los métodos del web service WebOperations, que es uno de los web services de Qflow. De este modo, es posible especificar que un paso de sincronización espere que una aplicación externa a Qflow ejecute una operación. Una vez ejecutada esa operación, la aplicación que lo hizo puede informar a Qflow mediante el web service.
+*   **Esperar por acción externa:** esta opción hace que el hilo del paso se detenga hasta que ocurra una acción externa. Hay dos formas de indicarle a Qflow que esa acción ocurrió: mediante un paso de código que llame una función que hace eso (ver el manual de la [interfaz de scripting](10-ScriptingInterface.md)) o mediante la invocación de alguno de los métodos del web service WebOperations, que es uno de los web services de Qflow. De este modo, es posible especificar que un paso de sincronización espere que una aplicación externa a Qflow ejecute una operación. Una vez ejecutada esa operación, la aplicación que lo hizo puede informar a Qflow mediante el web service.
     
 
 [![_images/image239.png](_images/image239.png)](_images/image239.png)
@@ -4067,7 +4067,7 @@ La `PropertiesOfAStepOfWebService` muestra la ventana de edición de un paso de 
     
     *   **Usar un parámetro de aplicación:** si marca esta opción, debe seleccionar un parámetro de aplicación. El paso de web service utilizará entonces los datos de conexión que están guardados en el parámetro de aplicación indicado.
         
-    *   **Definir en la configuración del paso:** si marca esta opción, debe especificar los datos de la conexión. Para ello, haga clic en “Configurar”. Eso hace que Qflow muestre una ventana en la que puede ingresar la Url del web service y las credenciales que utilizará para invocarlo. También podrá verificar que los datos ingresados son correctos. La ventana es igual a la que se usa para especificar las propiedades de un parámetro de aplicación de tipo “Conexión a web service” (ver “[Propiedades de un parámetro de aplicación](15-QflowDesign.html#propiedades-de-un-parametro-de-aplicacion)”).
+    *   **Definir en la configuración del paso:** si marca esta opción, debe especificar los datos de la conexión. Para ello, haga clic en “Configurar”. Eso hace que Qflow muestre una ventana en la que puede ingresar la Url del web service y las credenciales que utilizará para invocarlo. También podrá verificar que los datos ingresados son correctos. La ventana es igual a la que se usa para especificar las propiedades de un parámetro de aplicación de tipo “Conexión a web service” (ver “[Propiedades de un parámetro de aplicación](15-QflowDesign.md#propiedades-de-un-parametro-de-aplicacion)”).
         
 *   **Métodos disponibles:** muestra los métodos del web service seleccionado. Para que Qflow cargue la lista de métodos disponibles, haga clic en el botón “Cargar métodos”.
     
@@ -4107,7 +4107,7 @@ La `PropertiesOfAStepOfXml` muestra la ventana de propiedades de un paso de Xml.
     
     *   **Dato de aplicación:** si esta opción está marcada, el paso obtendrá el Xml del valor de un dato de aplicación.
         
-    *   **Archivo de entrada:** si esta opción está marcada, el paso obtendrá el Xml de un archivo. Haga clic en “Examinar…” para seleccionar el archivo. También se puede obtener el nombre del archivo de un dato de aplicación u otra etiqueta. Para ello, haga clic en “Insertar” y seleccione la etiqueta apropiada. Por más detalles sobre las etiquetas, consulte la sección “[Etiquetas](15-QflowDesign.html#etiquetas)”.
+    *   **Archivo de entrada:** si esta opción está marcada, el paso obtendrá el Xml de un archivo. Haga clic en “Examinar…” para seleccionar el archivo. También se puede obtener el nombre del archivo de un dato de aplicación u otra etiqueta. Para ello, haga clic en “Insertar” y seleccione la etiqueta apropiada. Por más detalles sobre las etiquetas, consulte la sección “[Etiquetas](15-QflowDesign.md#etiquetas)”.
         
 *   **Validación:** estas propiedades permiten utilizar un esquema Xml para validar el Xml obtenido. Si el Xml no valida contra el esquema la ejecución continúa por el conector izquierdo.
     
@@ -4310,7 +4310,7 @@ Tarea de e-mail[](#id282 "Link to this image")
 
 ### Tarea de fórmula[](#tarea-de-formula "Link to this heading")
 
-Una tarea de fórmula de un template BPMN es equivalente a un paso “Fórmula” de un template Qflow (ver “[Fórmula](24-QflowTaskTutorial.html#formula)”).
+Una tarea de fórmula de un template BPMN es equivalente a un paso “Fórmula” de un template Qflow (ver “[Fórmula](24-QflowTaskTutorial.md#formula)”).
 
 [![_images/image268.png](_images/image268.png)](_images/image268.png)
 
