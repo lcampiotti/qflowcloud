@@ -1,0 +1,143 @@
+***************************************
+Uso de API de servicios web con Swagger
+***************************************
+
+Introducción
+============
+
+En este tutorial mostraremos un ejemplo breve del uso de los servicios web
+mediante el uso de Swagger. En este ejemplo, mostraremos como un usuario puede 
+obtener su información y crear un grupo en su nodo organizacional.
+
+API de servicios
+================
+
+.. only:: cloud
+   
+   Para invocar los servicios expuestos en instalaciones **Cloud**, se debe
+   usar la URL *https://{espacioDeTrabajo}.api.qflowbpm.com*, donde *{espacioDeTrabajo}* 
+   debe ser reemplazado por el nombre de su espacio de trabajo sin espacios.
+   Podemos acceder a la interfaz de swagger mediante el enlace
+   *https://{espacioDeTrabajo}.api.qflowbpm.com/swagger/ui/index*.
+
+   Es importante marcar el protocolo de seguridad como "HTTPS" para poder usar estos servicios
+   correctamente. Esto se hace en el campo "Schemes" en la parte superior izquierda de la 
+   interfaz.
+
+   .. figure:: _static/media/33-WebServicesSwaggerTutorial/WSTutorial-https.png
+      :width: 20%
+      :align: center
+      :alt: Protocolo HTTPS
+
+      Protocolo HTTPS
+
+.. only:: onpremise
+
+   Para invocar los servicios expuestos en instalaciones **OnPremise** se debe usar la URL
+   <nombreServidor>/<nombreDirectorioVirtual>/api/<Servicio/<Método>. El
+   nombre del servidor y del directorio son los configurados durante la
+   instalación. Podemos acceder a la interfaz de Swagger mediante el enlace 
+   *<nombreServidor>/<nombreDirectorioVirtual>/swagger/ui/index*.
+
+1- Autenticación
+================
+
+Antes de poder invocar cualquier método de los servicios web, es necesario autenticarnos.
+Podemos autenticarnos mediante un token que se puede conseguir con el método "Token" 
+del grupo "Auth":
+
+.. figure:: _static/media/33-WebServicesSwaggerTutorial/WSTutorial-token.png
+   :width: 60%
+   :align: center
+   :alt: Método "Token"
+
+   Método "Token"
+
+Este método devuelve un token de autenticación al pasarle las
+credenciales de un usuario: logon (de la forma {proveedorDeSeguridad}\\{nombreDeUsuario}, 
+reemplazando {proveedorDeSeguridad} por el nombre del proveedor y {nombreDeUsuario} por 
+el login del usuario que va a usar los servicios), contraseña y el identificador del
+espacio de trabajo en el que se encuentra. Puede obtener este identificador contactandose 
+con nosotros en "info@qflowbpm.com".
+
+Una vez que llenemos los datos, podemos correr el método con el botón de "Try it out", ubicado
+en la zona superior derecha del área del método.
+
+Si el método se ejecuta correctamente y las credenciales son válidas, obtendremos una respuesta
+la cual veremos debajo de los campos donde ingresamos las credenciales.
+
+.. figure:: _static/media/33-WebServicesSwaggerTutorial/WSTutorial-tokenResponse.png
+   :width: 70%
+   :align: center
+   :alt: Respuesta de Método "Token"
+
+   Respuesta de Método "Token"
+
+Para autenticarnos debemos copiar el código que viene en el campo "access_token" sin comillas y
+dirigirnos a la opción "Authorize" localizada en la parte superior derecha de la interfaz de Swagger.
+
+.. figure:: _static/media/33-WebServicesSwaggerTutorial/WSTutorial-authorize.png
+   :width: 30%
+   :align: center
+   :alt: Opción de "Authorize"
+
+   Opción de "Authorize"
+
+Finalmente, para completar la autorización debemos ingresar a la opción de Autorizar, y en el 
+campo de texto debemos ingresar "bearer {token}", reemplazando {token} por el código que copiamos 
+y prestando atención al espacio entre la palabra "bearer" y el código.
+
+.. figure:: _static/media/33-WebServicesSwaggerTutorial/WSTutorial-authorizeExample.png
+   :width: 60%
+   :align: center
+   :alt: Ejemplo de código de autorización
+
+   Ejemplo de código de autorización
+
+Una vez ingresado el código, seleccionamos "Authorize" para autenticarnos. Ahora podremos usar
+los servicios.
+
+2- Uso de métodos
+=================
+
+Para este ejemplo comenzaremos obteniendo la información del usuario. Hacemos esto para obtener
+datos como el identificador del usuario y el identificador del nodo al que pertenece, que serán 
+necesarios para crear el grupo.
+
+Comenzamos invocando el método **GetUserByLogon** del controlador WebOrganization, para obtener
+la información del usuario en base a su logon (el mismo utilizado para obtener el token).
+
+Como resultado de este método, obtendremos un objeto JSON de información del usuario, donde la propiedad
+que nos interesa es "NodeId", siendo el identificador del nodo al que pertenece el usuario, en donde 
+queremos crear nuestro grupo.
+
+.. figure:: _static/media/33-WebServicesSwaggerTutorial/WSTutorial-userInfoExampleResponse.png
+   :width: 60%
+   :align: center
+   :alt: Ejemplo de respuesta de método GetUserByLogon
+
+   Ejemplo de respuesta de método GetUserByLogon
+
+Teniendo este dato, podemos pasar a usar el método **CreateGroup** del controlador WebOrganization
+para crear el grupo.
+
+.. figure:: _static/media/33-WebServicesSwaggerTutorial/WSTutorial-createGroup.png
+   :width: 60%
+   :align: center
+   :alt: Método CreateGroup
+
+   Método CreateGroup
+
+Este método recibe un objeto JSON con las propiedades "Name", "Description" y "GroupNodeId".
+Podemos editar estos datos usando la opción "Try it out" dentro de la ventana del método, lo que 
+nos permite editar el objeto que se envía. Podemos asignar un nombre y descripción para nuestro 
+nuevo grupo, y debemos dar el identificador del nodo en el cual queremos crear el grupo, que en
+nuestro caso obtuvimos en el paso anterior.
+
+Una vez que modificamos el objeto de entrada, damos "Execute" para correr el método. Si todo 
+sale bien, veremos un código de respuesta 200, y una respuesta de identificador, que es el 
+identificador del grupo creado. Este dato es útil ya que podemos verificar que se haya 
+creado exitosamente usando el método **GetGroup** del controlador WebOrganization, pasando 
+como parámetro el identificador que obtuvimos como resultado del método **CreateGroup**. 
+Si el método nos devuelve los datos del grupo que creamos, entonces podemos verificar que 
+el grupo se creó correctamente.

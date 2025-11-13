@@ -1,0 +1,356 @@
+=========================================
+Introducción a las herramientas de Qflow
+=========================================
+
+Introducción
+============
+
+El objetivo de este tutorial es dar una breve introducción a Qflow y cada una de sus herramientas. 
+
+Qflow es una plataforma para definir, automatizar y gestionar procesos de 
+negocio o workflows empresariales. 
+
+La misma se compone de 4 herramientas: 
+
+-	**Qflow Design**
+
+-	**Qflow Task** 
+
+-	**Qflow Team**
+
+-	**Qflow Admin** 
+
+A través del portal de acceso común **Qflow Access** es posible ingresar
+a cada una de ellas, así como a sus respectivos manuales y tutoriales.
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QflowAccess.png
+   :figwidth: image
+   :align: center 
+   :alt: Qflow Access
+
+   Qflow Access
+
+A continuación se describen brevemente las particularidades de cada herramienta:
+
+Qflow Design: diseñador web de procesos de negocio 
+===================================================
+
+Esta herramienta permite diseñar procesos para luego poder utilizarlos según las necesidades de cada cliente.
+
+.. only:: cloud
+
+   .. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QflowDesign.png
+      :figwidth: image
+      :align: center 
+      :alt: Qflow Design
+
+      Qflow Design 
+
+   Qflow Design nos permite diseñar en base a procesos creados manualmente, o creados a partir de una descripción 
+   textual usando nuestro :ref:`asistente de inteligencia artificial<AIAssistant>`, que es capaz de generar el flujo 
+   del proceso, así como también los datos y roles necesarios para su funcionamiento.
+
+.. only:: onpremise
+
+   .. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QflowDesign-OnPremises.png
+      :figwidth: image
+      :align: center 
+      :alt: Qflow Design
+
+      Qflow Design
+
+Para comenzar a crear procesos es necesario acceder al árbol de paquetes en el panel izquierdo de la herramienta. 
+Allí se encuentra el paquete “Raíz”, donde pueden crearse sub-paquetes por cada una de las áreas de la organización.
+Por último, desde la ruta donde se desea ubicar el proceso es necesario crear la plantilla de proceso. 
+
+Dentro de cada plantilla de proceso es posible definir diferentes propiedades (ítems) para el 
+proceso, tales como “Datos de aplicación”, “Roles de proceso”, “Dominios de dato”, “Integraciones”, 
+“Manejadores de eventos”, “Validaciones”, “Bots” y “Parámetros de aplicación”. 
+
+Detalles sobre algunos de los ítems: 
+
+-	En los **Datos de aplicación** se definen diferentes datos que proveen información estructurada del proceso. Cada uno de ellos debe asociarse a un dominio. Para esto, es posible utilizar tanto aquellos que ya están definidos (número, texto), como los nuevos que deseen crearse dentro de **Dominios de dato**. 
+
+Datos de aplicación: 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-ApplicationDataList.png
+   :width: 713px
+   :align: center 
+   :alt: Listado de datos de aplicación
+
+   Listado de datos de aplicación
+
+Dominios de dato: 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-DataDomainList.png
+   :width: 708px
+   :align: center 
+   :alt: Listado de dominios de dato
+
+   Listado de dominios de dato
+
+-	Los **roles de proceso** se utilizan como destinatarios para los pasos interactivos. De esta forma, al asociar un rol de proceso a un determinado usuario, Qflow se encargará de asignarle una tarea cuando el proceso llegue a un paso interactivo. En el caso de los roles multivaluados, será posible asignarlos a más de un usuario. 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-RoleDataList.png
+   :width: 702px
+   :align: center 
+   :alt: Listado de roles de proceso
+
+   Listado de roles de proceso
+
+-	Dentro de las **integraciones** es posible invocar otros sistemas. 
+
+-	Por más detalles sobre los ítems restantes puede consultar el manual del `Qflow Design. <15-QflowDesign.html>`_ 
+
+
+Los procesos pueden ser definidos mediante diferentes elementos, como pueden ser los **eventos, tareas, 
+compuertas** conectadas entre sí, entre otros. A su vez, cada elemento puede tener diferentes **tipos**. 
+A modo de ejemplo, las tareas pueden ser tareas de usuario, fórmulas, etc. 
+ 
+.. only:: cloud
+
+   .. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-Template.png
+      :align: center 
+      :alt: Ejemplo de plantilla de proceso de rendición de gastos
+      :figwidth: image
+
+      Ejemplo de plantilla de proceso de rendición de gastos
+
+.. only:: onpremise
+
+   .. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-Template-OnPremises.png
+      :align: center 
+      :alt: Ejemplo de plantilla de proceso de rendición de gastos
+      :figwidth: image
+
+      Ejemplo de plantilla de proceso de rendición de gastos
+
+Cada **paso** del proceso, dependiendo del tipo que se le asignó, tiene diferentes configuraciones. Por ejemplo, 
+la tarea de usuario permite la interacción entre usuarios mediante el envío de una pregunta que 
+debe ser respondida. Tanto la pregunta como sus posibles respuestas son definidas en las propiedades 
+de la tarea.  
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-PurchasingManagerApprovesTask.png
+   :width: 700px
+   :align: center 
+   :alt: Ejemplo de paso del tipo tarea de usuario
+
+   Ejemplo de paso del tipo tarea de usuario
+
+En el paso anterior se le pregunta al Encargado de Compras si aprueba el gasto del solicitante. 
+
+Qflow Task: herramienta de tareas y procesos
+============================================
+
+Esta herramienta permite iniciar procesos y hacer un seguimiento de los mismos. 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QflowTask.png
+   :figwidth: image
+   :align: center 
+   :alt: Qflow Task
+
+   Qflow Task
+
+Es posible realizar diferentes operaciones tales como iniciar un proceso, responder preguntas o tareas 
+pendientes y ver notificaciones recibidas. Los **procesos** se inician dentro de la sección “Iniciar proceso”. En esta se encuentran disponibles 
+todas las plantillas que tienen una versión publicada. 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-FlowForm.gif
+   :align: center 
+   :figwidth: image
+   :alt: Ejemplo de formulario de un proceso
+
+   Ejemplo de formulario de un proceso
+ 
+La información de los procesos se puede ver mediante **vistas, gráficas, indicadores y tableros de control**. 
+ 
+Dentro de la sección **Vistas** se pueden crear vistas personalizadas que muestren sólo los datos de 
+los procesos que desean visualizarse.
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-AmountsView.png
+   :align: center 
+   :figwidth: image
+   :alt: Ejemplo de vista personalizada
+
+   Ejemplo de vista personalizada
+
+A su vez, es posible crear diferentes **gráficas personalizadas** para realizar un seguimiento visual de los procesos. 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-AmountsChart.png
+   :width: 800px
+   :align: center 
+   :alt: Ejemplo de gráfica
+
+   Ejemplo de gráfica
+
+En el **Tablero de control** la información se despliega en forma ordenada tanto en vistas, como en graficas e indicadores, para que
+el usuario pueda visualizarlo todo a la vez. 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-AmountsDashboard.png
+   :align: center 
+   :figwidth: image
+   :alt: Ejemplo de tablero de control
+
+   Ejemplo de tablero de control
+ 
+
+Qflow Team: administrador del equipo de trabajo y su estructura organizacional
+==============================================================================
+
+Esta herramienta se utiliza para representar en el sistema a la estructura de la organización y sus miembros. A su vez, es posible 
+configurar diferentes propiedades de los usuarios y administrar aspectos de su configuración. 
+
+.. only:: onpremise
+
+   .. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QflowTeamOnPremise.png
+      :align: center 
+      :figwidth: image
+      :alt: Qflow Team
+
+      Qflow Team
+
+.. only:: cloud
+
+   .. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QflowTeamCloud.png
+      :align: center 
+      :figwidth: image
+      :alt: Qflow Team
+
+      Qflow Team
+
+El modelo organizacional maneja tres tipos de miembros: **nodos, grupos y usuarios.**
+
+Los **nodos** sirven para organizar de forma jerárquica la estructura del modelo organizacional. Existe un 
+nodo que oficia de raíz de la estructura. Asimismo, un nodo puede contener grupos y usuarios. Es posible organizar los 
+usuarios de forma análoga a la estructura real de la empresa. 
+
+Los **grupos** permiten agrupar usuarios que comparten ciertas propiedades. A modo de ejemplo, es posible utilizarlos para agrupar usuarios que cumplen una 
+misma función. Además de contener usuarios, un grupo puede contener otros grupos. 
+
+Los **usuarios** representan a todos los usuarios de Qflow. Un usuario puede ser miembro de varios grupos, pero no 
+puede estar en más de un nodo.
+
+Dentro de cada nodo se pueden crear usuarios y grupos.
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-UserCreation.png
+      :width: 600px
+      :align: center 
+      :alt: Paneles de creación de usuario y grupo
+
+      Paneles de creación de usuario y grupo
+
+Dentro de Qflow Team se pueden determinar diferentes **configuraciones**, tales como la administración de permisos de la 
+herramienta, calendarios, roles de seguridad, proveedores de seguridad, reportes de ingresos y auditoría de permisos. 
+
+La opción **Calendarios** permite personalizarlos para que distintos usuarios puedan ser regidos por distintos 
+calendarios. A modo de ejemplo, esto puede resultar útil cuando una organización tiene filiales en varios países y, por lo 
+tanto, esas filiales se rigen por calendarios diferentes (feriados, régimen de trabajo, etc.). 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-CalendarConfig.gif
+   :width: 600px
+   :align: center 
+   :alt: Configuración de calendario
+
+   Configuración de calendario
+
+La opción **Reporte de ingresos** muestra qué usuarios han iniciado sesión en alguna herramienta de Qflow en 
+determinado período de tiempo. También se muestran cierres de sesión e intentos fallidos de iniciar sesión.
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-LoginReport.png
+   :width: 700px
+   :align: center  
+   :alt: Panel de reporte de ingresos
+
+   Panel de reporte de ingresos
+
+Qflow Admin: administración y monitoreo del sistema 
+===================================================
+
+.. only:: onpremise
+
+   Esta herramienta permite configurar aspectos que contemplan a todo el sistema y diferentes elementos que afectan al 
+   funcionamiento en general, tales como servicios y herramientas, propiedades extendidas, licencias, servicios de 
+   notificación, espacios de trabajo y parámetros de sistema. 
+
+.. only:: cloud
+
+   Esta herramienta permite configurar aspectos que contemplan a todo el sistema y diferentes elementos que afectan al 
+   funcionamiento en general, tales como propiedades extendidas, licencias, servicios de 
+   notificación y parámetros de sistema.
+
+.. only:: cloud
+
+   .. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QflowAdminCloud.png
+      :align: center 
+      :figwidth: image
+      :alt: Qflow Admin
+
+      Qflow Admin
+
+.. only:: onpremise
+
+   .. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QflowAdminOnPremise.png
+      :align: center 
+      :figwidth: image
+      :alt: Qflow Admin
+
+      Qflow Admin
+
+.. only:: onpremise
+
+   Desde los estados de servicios se puede **monitorear todos los servicios y herramientas de Qflow**, 
+   para evaluar si se encuentran funcionando normalmente.
+
+   Desde Qflow Admin también es posible modificar los **parámetros de sistema**. Estos controlan varios aspectos del funcionamiento del producto. 
+   Por ejemplo, es posible configurar la duración de las sesiones, así como también permitir el login con Microsoft o Google, 
+   entre otras cosas.
+
+.. only:: cloud
+
+   Desde Qflow Admin es posible modificar los **parámetros de sistema**. Estos controlan varios aspectos del funcionamiento del producto. 
+   Por ejemplo, es posible configurar la duración de las sesiones, así como también permitir el login con Microsoft o Google, 
+   entre otras cosas.
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-SystemParameters.gif
+   :width: 800px
+   :align: center 
+   :alt: Parámetros de sistema
+
+   Parámetros de sistema
+
+Las **propiedades extendidas** son definidas por la organización y pueden verse en el panel de propiedades de 
+cada miembro del modelo organizacional (usuario, grupo y nodo) en Qflow Team. 
+
+También es posible administrar **licencias** de Qflow, visualizar cuáles son las que se encuentran vigentes, cuáles vencidas, 
+agregar nuevas y consultar su consumo, entre otras. 
+
+.. figure:: _static/media/26-QflowToolsTutorial/QflowToolsTutorial-QFlowLicences.png
+   :width: 800px
+   :align: center 
+   :alt: Licencias de Qflow
+
+   Licencias de Qflow
+
+.. only:: onpremise
+
+   Los **espacios de trabajo** dan soporte a instalaciones con múltiples espacios de trabajo o multi-tenancy. Esto agrega 
+   un nuevo nivel de organización en el sistema, por el cual un mismo servidor y una misma base de datos pueden 
+   albergar distintos ambientes con datos propios, que sólo compartirán configuraciones globales. En este sistema 
+   existe un espacio de trabajo (tenant) principal y un número de espacios de trabajo secundarios, los cuales pueden ser 
+   administrdos desde esta sección. 
+
+   La sección de **servicios de notificación** permite visualizar y administrar los servicios, ya sea agregando, editando o eliminando a los mismos. 
+
+.. only:: cloud
+
+   La sección de **servicios de notificación** permite visualizar y administrar los servicios, ya sea personalizándolos, habilitando o deshabilitando a los mismos. 
+
+Por más información sobre cada una de las herramientas puede referirse a sus respectivos manuales. Allí encontrará tanto sus funcionalidades como sus posibles usos, detallados con mayor profundidad: 
+
+-  Manual de `Qflow Task <04-QflowTask.html>`_
+
+-  Manual de `Qflow Design <15-QflowDesign.html>`_ 
+  
+-  Manual de `Qflow Team <18-QflowTeam.html>`_
+
+-  Manual de `Qflow Admin <19-QflowAdmin.html>`_

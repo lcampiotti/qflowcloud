@@ -1,0 +1,194 @@
+v5.4
+====
+
+Resumen de características
+**************************
+
+La versión 5.4 de Qflow trae consigo una serie de mejoras significativas para potenciar la asignación de tareas y flexibilizar 
+el diseño de procesos. Con la incorporación de la posibilidad de que usuarios externos a tu organización respondan a tareas y 
+la optimización de las reglas de asignación automática, esta versión consolida la plataforma como una herramienta versátil y 
+adaptable a distintos contextos. 
+
+Respuesta de tarea por usuarios externos  
+----------------------------------------
+
+En esta versión, Qflow permite la respuesta de tareas por parte de usuarios externos, es decir, aquellos que no son usuarios 
+del sistema. Estos destinatarios recibirán acceso a la tarea a través de correo electrónico. Esta funcionalidad resulta 
+útil en diversos escenarios, como solicitar información adicional en procesos iniciados por usuarios externos o incorporar 
+actores ajenos al sistema en flujos de trabajo. 
+
+.. figure:: _static/media/29_5-ReleaseNote/54News_ExternalResponseConfig.png
+   :width: 70%
+   :align: center
+   :alt: Configuración de respuesta externa en tarea de usuario
+   
+   Configuración de respuesta externa en tarea de usuario
+
+Las tareas pueden asignarse simultáneamente a usuarios del sistema y a usuarios externos. Tras la respuesta de la tarea 
+por un usuario externo, la auditoría identificará claramente que la tarea fue respondida por un invitado, mostrando como 
+identificación el correo electrónico del participante. 
+El correo electrónico de los usuarios externos se puede obtener de datos del proceso, parámetros de aplicación o 
+de un texto definido.
+
+.. figure:: _static/media/29_5-ReleaseNote/54News_ExternalAddressees.png
+   :width: 70%
+   :align: center
+   :alt: Parámetros, datos y direcciones de correo como destinatarios externos
+   
+   Parámetros, datos y direcciones de correo como destinatarios externos
+
+.. figure:: _static/media/29_5-ReleaseNote/54News_ExternalResponseAudit.png
+   :width: 70%
+   :align: center
+   :alt: Auditoría de tarea con destinatarios externos
+   
+   Auditoría de tarea con destinatarios externos
+
+Para contemplar esta nueva funcionalidad se hizo un ajuste al cálculo de los Q-points, cuyo detalle puedes consultar en 
+`nuestra documentación <21-Q-pointsConsumption.html>`_. Para obtener más información sobre la respuesta de tarea por usuarios externos, accede a la sección 
+de `configuración de tarea de usuario <15-QflowDesign.html#tarea-de-usuario>`_. 
+
+Mensaje de confirmación en tareas
+---------------------------------
+
+Ahora es posible configurar mensajes de confirmación personalizados para cada tarea. Estos mensajes, que pueden ser 
+formados dinámicamente utilizando datos del proceso, se mostrarán al usuario una vez que complete exitosamente el 
+formulario de la tarea. Esta función ofrece una oportunidad para personalizar aún más la experiencia del usuario durante 
+la interacción con las tareas. Este mensaje se muestra para la respuesta de tareas por usuarios de sistema y usuarios 
+externos.
+
+.. figure:: _static/media/29_5-ReleaseNote/54News_ConfirmationMessage.png
+   :width: 70%
+   :align: center
+   :alt: Mensaje de confirmación de respuesta
+   
+   Mensaje de confirmación de respuesta
+
+Junto con este cambio, los mensajes de confirmación de inicio de proceso, incluidos en la versión anterior, ahora se
+muestran también para los usuarios de sistema, y no solo para los usuarios iniciadores anónimos.
+
+Nueva regla de asignación automática: Distribución equitativa (Round Robin)
+---------------------------------------------------------------------------
+
+La nueva regla de asignación automática, denominada 'Distribución equitativa (Round Robin)', introduce un método 
+para asignar cada tarea asociada a un rol a usuarios distintos dentro de ese rol. Esto fomenta una distribución 
+equitativa de las responsabilidades, llevada a cabo de manera secuencial y cíclica. 
+
+.. figure:: _static/media/29_5-ReleaseNote/54News_SupportTeamRole.png
+   :width: 50%
+   :align: center
+   :alt: Rol de equipo de soporte con distribución secuencial
+   
+   Rol de equipo de soporte con distribución secuencial
+
+Para ilustrar su funcionamiento, consideremos el siguiente escenario: supongamos un rol llamado 'Equipo de 
+soporte', compuesto por tres miembros: Fernando Acuña, Matías Correa y María Rosado. Este rol está designado 
+como destinatario de la tarea 'Resolver Incidente' dentro del proceso de 'Gestión de Incidentes'. Cuando se crea 
+una tarea de 'Resolver Incidente', se asigna a uno de los miembros, por ejemplo, a Fernando Acuña. Al crearse 
+otra tarea de ‘Resolver incidente’, y dado que Fernando Acuña ya ha sido asignado previamente, esta se asignará 
+a otro usuario del rol, como, por ejemplo, Matías Correa. Este ciclo continúa asignando las tareas 
+secuencialmente a cada miembro del equipo, garantizando una distribución equitativa de las responsabilidades. Una 
+vez que todos los miembros del rol han sido asignados, comienza un nuevo ciclo, asignando nuevamente a cada 
+miembro en el mismo orden.
+
+.. figure:: _static/media/29_5-ReleaseNote/54News_RoundRobin.png
+   :width: 70%
+   :align: center
+   :alt: Diagrama de Round Robin del equipo de soporte
+   
+   Diagrama de Round Robin del equipo de soporte
+
+Nueva plantilla: Votación de junta directiva
+--------------------------------------------
+
+Esta nueva plantilla, lista para utilizar y completamente personalizable, ofrece un enfoque ágil y eficiente para 
+la toma de decisiones en entornos colaborativos de juntas directivas. Diseñada para evaluar y votar propuestas de 
+forma remota, permite la aprobación automática en caso de consenso unánime. En situaciones donde sea necesario, 
+brinda la opción de solicitar modificaciones a la propuesta o de continuar la discusión en una reunión presencial. 
+Además, garantiza informar al solicitante sobre el resultado final de la propuesta. Puedes acceder a nuestra 
+sección de plantillas precreadas en `nuestra documentación <15-QflowDesign.html#plantillas-pre-creadas>`_.
+
+.. figure:: _static/media/29_5-ReleaseNote/54News_BoardOfDirectorsVoting.png
+   :width: 70%
+   :align: center
+   :alt: Fragmento de plantilla de votación de directivos
+   
+   Fragmento de plantilla de votación de directivos
+
+Parámetros de aplicación de tipo texto en condiciones de compuertas
+-------------------------------------------------------------------
+
+Se potencian las condiciones de las compuertas al permitir la utilización de parámetros de aplicación 
+de tipo texto en sus condiciones. Esto posibilita dirigir el flujo del proceso basándose en el valor 
+de un parámetro específico. Por ejemplo, se puede comparar el valor del parámetro 'Ambiente' para omitir
+la ejecución de ciertas integraciones si su valor es 'Testing'.
+
+.. figure:: _static/media/29_5-ReleaseNote/54News_ParameterGatewayCondition.png
+   :width: 70%
+   :align: center
+   :alt: Parámetro de aplicación usado como elemento de condición
+   
+   Parámetro de aplicación usado como elemento de condición
+
+Corrección de errores y mejoras
+********************************
+
+Qflow Task
+----------
+
+-  Se añade una opción para ocultar el mensaje que indica que se responderán las tareas en segundo plano al responder una tarea utilizando la función 
+   de `"Respuesta rápida" <04-QflowTask.html#respuesta-rapida>`_.
+
+-	Se corrige el formato en que se muestra la fecha de lectura de una alerta o notificación en la pestaña de seguimiento de procesos en la auditoría de acciones. Ahora, se puede visualizar con la zona horaria del usuario en lugar de UTC.
+
+-	Se implementan mejoras de estilo para manejar etiquetas extensas en los datos de aplicaciones y roles.
+
+-	Se corrige el estilo de visualización del mensaje de error cuando no es posible retroceder un paso, mejorando su apariencia.
+
+-	Se resuelve un error que impedía la ejecución de vistas que tenían un filtro personalizado basado en el estado de una etapa del proceso.
+
+-	Se soluciona el error que, al delegar una tarea, no permitía delegar los roles de todos los destinatarios al nuevo usuario al que se le está delegando la tarea.
+
+Qflow Design
+------------
+
+-	Ahora es posible incluir información del proceso (ID del proceso, ID correlativo, nombre, descripción, fecha de inicio, entre otros), en el mensaje de confirmación de inicio de proceso.
+
+-	Se soluciona un error que impedía eliminar una plantilla de proceso en ciertas condiciones.
+
+-	Se corrige un error que no permitía visualizar correctamente las condiciones de una compuerta en ciertas resoluciones, cuando había una gran cantidad de opciones definidas.
+
+-	Se corrige un error al crear una clave de respuesta de tarea en base al nombre si este contiene únicamente caracteres especiales.  
+
+-	Se corrige que la búsqueda avanzada siempre devolvía, además de los resultados correspondientes, el paquete que estaba seleccionado actualmente.
+
+Web Services |technical-icon|
+----------------------
+
+-	Se corrigen los métodos CompleteJob y UpdateJob para permitir la adición de comentarios al proceso mediante bots.
+
+Cambio en interfaz de scripting |technical-icon|
+-----------------------------------------
+
+Se agregaron dos nuevas operaciones a la interfaz de scripting:
+
+-	ResolveAddresseesWithInfo(templateStepId): Dado el identificador de una tarea de la plantilla de proceso, devuelve un arreglo con la información básica de los usuarios a quienes está dirigido ese paso, incluyendo tanto usuarios externos como usuarios que pertenecen a un rol.
+
+-	ResolveAddresseesWithInfo(templateStepName): Dado el nombre de una tarea de la plantilla de proceso, devuelve un arreglo con la información básica de los usuarios a quienes está dirigido ese paso, incluyendo tanto usuarios externos como usuarios que pertenecen a un rol.
+
+
+.. |technical-icon| image:: _static/media/29_2-ReleaseNote/TechnicalIcon.png
+   :width: 0.65in
+   :height: 28px
+
+.. |info-icon| raw:: html
+
+   <i class="fa fa-info"></i>
+
+.. |cloud-icon-2x| raw:: html
+
+   <i class="fa fa-cloud fa-2x" style="color: #15aabf;font-size: 20px;"></i>
+
+.. |onpremise-icon-2x| raw:: html
+
+   <i class="fa fa-server fa-2x" style="color: orange;font-size: 20px;"></i>

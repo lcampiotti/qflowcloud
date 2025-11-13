@@ -1,0 +1,1826 @@
+****************************************************
+Qflow Admin
+****************************************************
+
+Introducción
+============
+
+Este manual describe la herramienta web que permite administrar y
+monitorear distintos aspectos del sistema, tales como servicios y
+sitios, propiedades extendidas, licencias, servicios de notificación,
+espacios de trabajo y parámetros de sistema. 
+
+Descripción general de la interfaz de usuario
+=============================================
+
+La :numref:`SamHome` muestra la pantalla principal del administrador de sistema.
+Los principales elementos de la interfaz son:
+
+-  **Pantalla principal:** aquí se encuentran los accesos directos y una
+   vista rápida de las licencias.
+
+-  **Menú superior:** desde aquí es posible acceder a la pantalla de
+   configuración, auditar los elementos de la herramienta, cambiar la zona horaria 
+   de preferencia y cerrar la sesión.
+
+-  **Menú lateral:** permite ir a la página de inicio y contiene las
+   opciones de elementos con los que se puede interactuar en el sitio, a
+   saber: uso de licencia, servicios, parámetros de sistema, propiedades extendidas de
+   usuario, grupo y nodo, licencias, servicios de notificación y
+   espacios de trabajo. Cada una de estas opciones se describe en detalle en su
+   sección correspondiente.
+
+
+.. only:: onpremise
+
+   .. _SamHome:
+
+   .. figure:: _static/media/19-QflowAdmin/image2onpremise.png
+      :width: 80 %
+      :align: center
+      :alt: Pantalla principal de Qflow Admin
+      
+      Pantalla principal de Qflow Admin
+
+.. only:: cloud
+
+   .. _SamHome:
+
+   .. figure:: _static/media/19-QflowAdmin/image2cloud.png
+      :width: 80 %
+      :align: center
+      :alt: Pantalla principal de Qflow Admin
+      
+      Pantalla principal de Qflow Admin
+
+Visor de licencias
+==================
+
+.. only:: cloud
+      
+   El visor de licencias puede visualizarse siempre en la pantalla 
+   principal y muestra el uso de la licencia actual. Este visor se divide en 3 
+   indicadores
+
+   - **Almacenamiento utilizado:** indica cantidad en Gigabytes de almacenamiento utilizado de la licencia actual. Para más información sobre el almacenamiento de licencias ir a la sección :ref:`Licencias`.
+
+   - **Q-points utilizados:** indica la cantidad de Q-points consumidos por los procesos de la licencia actual. Para más información sobre Q-points ir a la sección :ref:`Licencias`.
+
+   - **Usuarios habilitados:** indica la cantidad de usuarios que se encuentran habilitados actualmente en la organización.
+
+   .. figure:: _static/media/19-QflowAdmin/image3.png
+      :width: 100 %
+      :align: center
+      :alt: Visor de licencias
+
+      Visor de licencias
+
+.. only:: onpremise
+         
+   El visor de licencias puede visualizarse siempre en la pantalla 
+   principal y muestra el uso de la licencia actual e indica la cantidad 
+   de usuarios que se encuentran habilitados actualmente en la organización.
+
+   .. figure:: _static/media/19-QflowAdmin/image4.png
+      :width: 30 %
+      :align: center
+      :alt: Visor de licencias
+
+      Visor de licencias
+
+Menú superior
+-------------
+
+La :numref:`HeaderSAM` muestra el menú superior. A continuación, se explica cada
+una de las funciones disponibles a través de él.
+
+.. _HeaderSAM:
+
+.. figure:: _static/media/19-QflowAdmin/image5.png
+   :width: 45%
+   :align: center
+   :alt: Menú superior
+
+   Menú superior
+
+Al abrir la opción de auditorías, el sistema despliega un menú de
+opciones como muestra la :numref:`AuditOptions`. Más detalles en la sección de
+:ref:`Auditoría`.
+
+.. _AuditOptions:
+
+.. figure:: _static/media/19-QflowAdmin/image8.png
+   :width: 30%
+   :align: center
+   :alt: Opciones de auditoría
+
+   Opciones de auditoría
+
+Al abrir la opción de configuración, el sistema despliega un menú de
+opciones como muestra la :numref:`ConfigurationOptions`. Más detalles en :ref:`Administrar permisos`.
+
+.. _ConfigurationOptions:
+
+.. figure:: _static/media/19-QflowAdmin/image7.png
+   :width: 30%
+   :align: center
+   :alt: Opciones de configuración
+
+   Opciones de configuración
+
+Al presionar el botón de información se muestra la versión actual del
+producto, así como un link hacia las novedades de la versión y un manual del producto. 
+Se pueden ver estas opciones en la :numref:`Info`.
+
+.. _Info:
+
+.. figure:: _static/media/19-QflowAdmin/image6.png
+   :width: 30%
+   :align: center
+   :alt: Información
+
+   Información
+
+Al presionar el botón de herramientas, el sistema despliega
+los enlaces a todas las herramientas a las que el usuario tiene permisos.
+Al hacer clic en una de ellas se abrirá en una nueva pestaña.
+
+.. figure:: _static/media/19-QflowAdmin/image71.png
+   :width: 30%
+   :align: center
+   :alt: Herramientas
+
+   Herramientas
+
+.. |toggle-chat-button| image:: _static/media/19-QflowAdmin/toggleChatButton.png 
+   :class: align-center
+   :alt: Chat de ayuda
+
+
+.. include:: TawkToChatDescription.rst
+
+.. |current-user-options| image:: _static/media/19-QflowAdmin/image58.png
+   :width: 30%
+   :class: align-center
+   :alt: Opciones de usuario actual
+
+.. |time-zone-panel| image:: _static/media/19-QflowAdmin/image67.png
+   :width: 40 %
+   :class: align-center
+   :alt: Panel de zona horaria de preferencia
+
+
+.. include:: TimeZoneDescription.rst
+
+
+Menú lateral
+------------
+
+La :numref:`Sidebar` muestra el menú lateral, y cuáles son las opciones que 
+contiene. Con la excepción de la página de inicio, cada opción
+corresponde a una funcionalidad de la herramienta, y éstas se
+explican en las siguientes secciones.
+
+.. only:: cloud
+
+   .. _Sidebar:
+
+   .. figure:: _static/media/19-QflowAdmin/image9cloud.png
+      :width: 40%
+      :align: center
+      :alt: Menú lateral
+
+      Menú lateral
+
+.. only:: onpremise
+
+   .. _Sidebar:
+
+   .. figure:: _static/media/19-QflowAdmin/image9onpremise.png
+      :width: 40%
+      :align: center
+      :alt: Menú lateral
+
+      Menú lateral
+
+
+Estadísticas 
+============
+
+.. only:: cloud
+
+   Qflow cuenta con una funcionalidad que indica el uso de la licencia del espacio de trabajo actual.
+   Consta de dos reportes, uno para el uso de la licencia en el mes actual (ver :ref:`Uso de licencia`) y otro para el histórico
+   de consumo de licencias anteriores (ver :ref:`Historial de uso de licencia`). Cada reporte contiene distintas 
+   gráficas para el análisis de los distintos elementos de la licencia. Para poder acceder a las estadísticas,
+   seleccione la opción correspondiente en el menú lateral (ver :numref:`Sidebar`).
+
+   .. figure:: _static/media/19-QflowAdmin/image60cloud.png
+      :width: 80 %
+      :align: center
+      :alt: Estadísticas
+
+      Estadísticas
+
+   Uso de licencia
+   ---------------
+
+   En este reporte se encuentran dos gráficas, las dos relacionadas con el consumo
+   de Q-points en el mes actual. En la primera gráfica se muestra el uso de Q-points
+   a lo largo del mes actual. Por otro lado, la segunda gráfica indica lo mismo
+   que la anterior pero agrupando los Q-points por plantilla de proceso. En esta última
+   gráfica si el sistema no logra obtener el nombre de la plantilla (debido a que fue eliminada),
+   se mostrará el identificador de ésta.
+
+   .. figure:: _static/media/19-QflowAdmin/image61.png
+      :width: 70 %
+      :align: center
+      :alt: Estadística de uso total de Q-points
+
+      Estadística de uso total de Q-points
+
+   .. figure:: _static/media/19-QflowAdmin/image62.png
+      :width: 100 %
+      :align: center
+      :alt: Estadística de uso de Q-points por plantilla
+
+      Estadística de uso de Q-points por plantilla
+
+   En la esquina superior izquierda se encuentran dos botones para cambiar la agrupación
+   de los datos de las gráficas (ver :numref:`AgregationButtons`). Con estos botones se puede indicar si se desea ver los datos
+   sólo para el día actual o para todo el mes.
+
+   .. _AgregationButtons:
+
+   .. figure:: _static/media/19-QflowAdmin/image63.png
+      :width: 40%
+      :align: center
+      :alt: Botones de agrupación de datos de gráficas
+
+      Botones de agrupación de datos de gráficas
+
+   En la esquina superior derecha de la ventana se encuentra un botón para poder acceder al reporte
+   de historial de uso de licencia, el cual se detalla en la siguiente sección.
+
+   Historial de uso de licencia
+   ----------------------------
+
+   Al seleccionar dicha opción, se desplegarán cinco gráficas. Las dos primeras
+   indican la cantidad de tareas respondidas y procesos iniciados en un periodo de tiempo.
+   Las gráficas restantes muestran el historial de consumo de Q-points, usuarios habilitados 
+   y uso de almacenamiento en el último año agrupadas por mes.
+
+   .. figure:: _static/media/19-QflowAdmin/image56.png
+      :width: 100 %
+      :align: center
+      :alt: Estadísticas de tareas respondidas y procesos iniciados
+
+      Estadísticas de tareas respondidas y procesos iniciados
+
+   .. figure:: _static/media/19-QflowAdmin/image64.png
+      :width: 100 %
+      :align: center
+      :alt: Estadísticas de Q-points utilizados y usuarios habilitados
+
+      Estadísticas de Q-points utilizados y usuarios habilitados
+
+   .. figure:: _static/media/19-QflowAdmin/image65.png
+      :width: 50 %
+      :align: center
+      :alt: Estadística de almacenamiento utilizado
+
+      Estadística de almacenamiento utilizado
+
+   Las dos primeras gráficas cuentan con filtros, entre ellos está la opción de agrupar por mes o por día 
+   (por defecto se agrupan por día), y también se puede establecer un período personalizado 
+   (por defecto el mes actual).
+
+   .. figure:: _static/media/19-QflowAdmin/image57.png
+      :width: 60 %
+      :align: center
+      :alt: Filtros
+
+      Filtros
+
+.. only:: onpremise
+
+   Qflow cuenta con una funcionalidad que indica el uso de la licencia del espacio de trabajo actual.
+   Consta de un reporte histórico de las tareas respondidas y procesos iniciados. 
+   Estando en el espacio de trabajo principal se tiene la opción de ver todos los reportes de los espacios de trabajo 
+   secundaros. Esto se logra eligiendo el espacio de trabajo en el selector de la parte superior derecha.
+
+   .. figure:: _static/media/19-QflowAdmin/image56.png
+      :width: 100 %
+      :align: center
+      :alt: Estadísticas de tareas respondidas y procesos iniciados
+
+      Estadísticas de tareas respondidas y procesos iniciados
+
+   Estas gráficas cuentan con filtros, entre ellos está la opción de agrupar por mes o por día 
+   (por defecto se agrupan por día), y también se puede establecer un período personalizado 
+   (por defecto el mes actual).
+
+   .. figure:: _static/media/19-QflowAdmin/image57.png
+      :width: 60 %
+      :align: center
+      :alt: Filtros
+
+      Filtros
+
+.. only:: onpremise
+
+   Estado de servicios
+   ===================
+
+   El sistema está compuesto de varios servicios y sitios que interactúan
+   entre sí. Como tal, resulta de interés saber si están
+   funcionando normalmente. Para esto se brinda un listado que envía una
+   consulta a cada uno de los servicios que componen al sistema.
+
+   Para acceder a dicho listado, seleccione la opción correspondiente en el
+   menú lateral (ver :numref:`Sidebar`). Se desplegará un listado mostrando todos
+   los servicios y sitios que estén configurados en Qflow. Se puede ver el
+   nombre del servicio y la URI donde está ubicado (es decir, a dónde se
+   enviará la solicitud). Para obtener el estado de uno o varios servicios,
+   selecciónelos haciendo clic en el ícono que se encuentra a la izquierda
+   del nombre del servicio (|image1|), y luego haga clic en el botón de
+   “Refrescar” indicado en la :numref:`ServiceList`. Tenga en cuenta que la respuesta
+   del servicio demorará unos segundos; durante ese tiempo, la columna
+   “Estado” mostrará el ícono correspondiente (|image2|).
+
+   .. _ServiceList:
+
+   .. figure:: _static/media/19-QflowAdmin/image12.png
+      :width: 75 %
+      :align: center
+      :alt: Listado de estado de servicios
+
+      Listado de estado de servicios
+
+   Una vez obtenida la respuesta, el estado se actualizará y mostrará un
+   círculo cuyo color indica si el resultado fue correcto (verde) o hubo un
+   error (rojo). Las posibles respuestas son:
+
+   -  **Ok:** el servicio respondió a la solicitud correctamente, lo cual
+      significa que está funcionando con normalidad.
+
+   -  **Error:** el servicio no respondió correctamente. Puede que no haya
+      respondido, o que se haya enviado un mensaje de error. Para
+      obtener más información, en la columna a la derecha de la
+      respuesta aparecerá el ícono |image3|. Pase el cursor por encima
+      del icono y se mostrará un cartel con el mensaje de error
+      específico que retorna el servidor.
+
+   -  **No encontrado:** el servicio no se encontró en la ubicación
+      especificada (la misma se puede ver en la columna “Ubicación”).
+
+   -  **No autorizado:** el servicio fue encontrado, pero el usuario actual
+      (con el cual ingresó al sitio) no tiene permiso para realizar la
+      solicitud.
+
+   -  **Tiempo de espera agotado:** el servicio no contestó dentro del
+      período de tiempo esperado. Este límite de tiempo puede
+      configurarse en esta herramienta (ver la sección 
+      `Parámetros de sistema`_).
+
+   -  **Servicio no disponible:** el servicio existe, pero no está
+      disponible para contestar la solicitud.
+
+   En todos los casos, a continuación de la respuesta verá un número que
+   indica el tiempo en milisegundos que se demoró en obtener esa respuesta.
+
+   Si en cualquier momento desea volver a consultar el estado de algún
+   servicio, vuelva a refrescarlo de la manera ya indicada.
+
+Parámetros de sistema
+=====================
+
+Los parámetros del sistema son parámetros predefinidos que controlan
+varios aspectos del funcionamiento del producto. Pueden ser de tipo
+numérico, verdadero/falso (booleano), texto o imagen. Tienen un valor, y
+también un valor por defecto, que es el que se usa cuando no tienen un
+valor definido. Para ver el listado completo, ir a la sección 
+:ref:`Listado de parámetros de sistema`.
+
+.. only:: onpremise
+
+   Los parámetros pueden estar definidos en un archivo (“System.config”) o
+   en una base de datos. La herramienta revisará primero los parámetros en
+   la base de datos, y tomará de allí los parámetros con los valores que
+   encuentre. Luego, en el archivo mencionado anteriormente, buscará más
+   parámetros que no estén definidos en la base de datos. En caso de que
+   exista un parámetro tanto en base datos como en el archivo de
+   configuración con el mismo nombre y distinto valor, se tomará el valor
+   de la base de datos.
+
+Para acceder al listado de parámetros de sistema, seleccione la opción
+correspondiente en el menú lateral (ver :numref:`Sidebar`). Al seleccionar dicha
+opción, se desplegará un listado con todos los parámetros de sistema.
+
+.. figure:: _static/media/19-QflowAdmin/image14.png
+   :width: 100 %
+   :align: center
+   :alt: Listado de parámetros de sistema
+
+   Listado de parámetros de sistema
+
+Mediante los botones que se encuentran arriba de la tabla, se puede
+editar o ver el historial de un parámetro de sistema.
+
+.. figure:: _static/media/19-QflowAdmin/image15.png
+   :width: 30%
+   :align: center
+   :alt: Botones de parámetros de sistema
+
+   Botones de parámetros de sistema
+
+Algunas aclaraciones sobre el listado:
+
+-  La columna “Fuente” hace referencia a si el parámetro fue tomado de
+   una base de datos (|image4|) o de un archivo (|image5|).
+
+-  Si la fila con la información del parámetro está en color gris, eso
+   significa que el parámetro es de sólo lectura y no puede ser
+   editado.
+
+-  Si el valor aparece en negrita y color gris, es el valor por defecto.
+
+-  Al hacer clic sobre el ícono de información (|image6|), se mostrará
+   una descripción del objetivo del parámetro. Haga clic sobre
+   cualquier parte del listado para cerrarla.
+
+Para editar cualquier parámetro que lo permita, haga clic sobre este
+y luego en el botón de editar. Se abrirá un panel como muestra la :numref:`SystemParameterUpdatePanel`. 
+En caso de hacer clic en el botón de Ver, se abrirá el mismo panel
+de edición, pero en modo solo lectura.
+
+.. _SystemParameterUpdatePanel:
+
+.. figure:: _static/media/19-QflowAdmin/image19.png
+   :width: 40%
+   :align: center
+   :alt: Panel de edición de parámetro de sistema
+
+   Panel de edición de parámetro de sistema
+
+.. only:: onpremise
+
+Puede seleccionar usar el valor por defecto, o ingresar un valor
+personalizado. Este valor puede ser vacío. Al modificar un parámetro, es
+necesario reiniciar el servicio para ver el cambio.
+
+.. only:: cloud
+
+   Puede seleccionar usar el valor por defecto, o ingresar un valor
+   personalizado. Este valor puede ser vacío.
+
+Al hacer clic en el botón de “Ver historial” se abrirá un panel derecho
+con el historial de cambios del parámetro de sistema seleccionado. En
+este panel se puede ver el nombre de la acción realizada, el nuevo valor
+seleccionado para el parámetro de sistema, el usuario que ejecutó la
+acción y la hora de esta.
+
+.. figure:: _static/media/19-QflowAdmin/image20.png
+   :width: 100 %
+   :align: center
+   :alt: Historial de un parámetro de sistema
+
+   Historial de un parámetro de sistema
+
+Propiedades extendidas
+======================
+
+Las propiedades extendidas son definidas por la organización y son
+mostradas en el panel de propiedades de cada miembro del modelo
+organizacional (usuario, grupo y nodo), en el administrador de dicho
+modelo. Para ver su utilización, consulte el manual de
+`Qflow Team <18-QflowTeam.html>`_.
+
+Una propiedad extendida tiene una clave y un texto. Además, puede tener
+uno de los siguientes tipos: texto, número, fecha, verdadero/falso
+(booleano), miembro o lista de ítems. En este último caso, se crea una
+lista de elementos que tienen una clave y un valor, ambos de tipo texto.
+
+Propiedades extendidas de usuario
+---------------------------------
+
+Puede agregar, ver, editar y eliminar las propiedades extendidas del
+usuario desde la opción correspondiente en el menú lateral (ver :numref:`Sidebar`).
+Al seleccionar dicha opción, se desplegará un listado con las
+propiedades extendidas definidas.
+
+.. figure:: _static/media/19-QflowAdmin/image21.png
+   :width: 100 %
+   :align: center
+   :alt: Listado de propiedades extendidas de usuario
+
+   Listado de propiedades extendidas de usuario
+
+Mediante los botones que se encuentran arriba de la tabla, se puede
+agregar, editar o eliminar una propiedad.
+
+.. figure:: _static/media/19-QflowAdmin/image22.png
+   :width: 30%
+   :align: center
+   :alt: Botones de propiedades extendidas
+
+   Botones de propiedades extendidas
+
+Si hace clic sobre el botón de agregar, se abrirá un panel para crear la
+nueva propiedad.
+
+.. figure:: _static/media/19-QflowAdmin/image23.png
+   :width: 40%
+   :align: center
+   :alt: Agregar propiedad extendida de usuario
+
+   Agregar propiedad extendida de usuario
+
+Deberá ingresar una clave y un texto. Tenga en cuenta que, una vez
+creada una propiedad extendida, su clave no podrá ser cambiada. Si desea
+que la propiedad tenga un tipo diferente de Texto, haciendo clic en el
+botón con la flecha en el campo Tipo, se desplegará un listado con los
+tipos mencionados en la sección :ref:`Propiedades extendidas`. En caso de que
+seleccione Lista de ítems, se abrirá una tabla como muestra la :numref:`ItemList`. 
+Puede agregar o quitar ítems, moverlos de lugar y editar el valor
+del texto o la clave.
+
+.. _ItemList:
+
+.. figure:: _static/media/19-QflowAdmin/image24.png
+   :width: 60%
+   :align: center
+   :alt: Lista de ítems
+
+   Lista de ítems
+
+Es obligatorio que exista al menos un ítem en la lista. Además, no puede
+haber claves repetidas, ni ningún valor (clave o texto) vacío.
+
+Cuando haga clic en el botón de guardar (ícono de tic en la esquina
+superior derecha), se cerrará el panel y aparecerá la nueva propiedad en
+el listado.
+
+.. figure:: _static/media/19-QflowAdmin/image25.png
+   :width: 100%
+   :align: center
+   :alt: Nueva propiedad en el listado
+
+   Nueva propiedad en el listado
+
+Si selecciona la propiedad y hace clic en el botón de Editar, se abrirá
+el panel de edición.
+
+.. figure:: _static/media/19-QflowAdmin/image26.png
+   :width: 40%
+   :align: center
+   :alt: Panel de edición de propiedad extendida de usuario
+
+   Panel de edición de propiedad extendida de usuario
+
+Note que la clave está deshabilitada para edición, y sólo puede cambiar
+los otros campos.
+
+En el listado, también puede seleccionar tantas propiedades como desee
+para eliminarlas. Si hace clic en el botón de Eliminar, se mostrará un
+cartel de advertencia.
+
+.. figure:: _static/media/19-QflowAdmin/image27.png
+   :width: 50%
+   :align: center
+   :alt: Confirmar eliminación de propiedades extendidas
+
+   Confirmar eliminación de propiedades extendidas
+
+Seleccione Sí para confirmar.
+
+Al hacer clic en el botón de “Ver historial” se abrirá un panel derecho
+con el historial de cambios de la propiedad extendida seleccionada. En
+este panel se puede ver el nombre de la acción realizada, el usuario que
+ejecutó la acción y la hora de esta. Si se hace clic en el botón de “+”
+se despliegan detalles sobre la propiedad extendida tales como tipo y
+etiqueta. También se muestran datos sobre el IP y el MAC del usuario que
+realizó los cambios.
+
+.. figure:: _static/media/19-QflowAdmin/image28.png
+   :width: 100 %
+   :align: center
+   :alt: Historial de una propiedad extendida
+
+   Historial de una propiedad extendida
+
+Propiedades extendidas de grupo
+-------------------------------
+
+Puede agregar, editar y eliminar las propiedades extendidas del grupo
+desde la opción correspondiente en el menú lateral (ver :numref:`Sidebar`). Al
+seleccionar dicha opción, se desplegará un listado con las propiedades
+extendidas definidas.
+
+.. figure:: _static/media/19-QflowAdmin/image29.png
+   :width: 100 %
+   :align: center
+   :alt: Listado de propiedades extendidas de grupo
+
+   Listado de propiedades extendidas de grupo
+
+Las operaciones sobre los elementos de este listado son análogas a las
+que se explican en la sección :ref:`Propiedades extendidas de usuario`.
+
+Propiedades extendidas de nodo
+------------------------------
+
+Si desconoce el concepto de nodo, consulte el manual de
+`Qflow Team <18-QflowTeam.html>`_.
+
+Puede agregar, editar y eliminar las propiedades extendidas de un nodo
+desde la opción correspondiente en el menú lateral (ver :numref:`Sidebar`). Al
+seleccionar dicha opción, se desplegará un listado con las propiedades
+extendidas definidas.
+
+.. figure:: _static/media/19-QflowAdmin/image30.png
+   :width: 100 %
+   :align: center
+   :alt: Listado de propiedades extendidas de nodo
+
+   Listado de propiedades extendidas de nodo
+
+Las operaciones sobre los elementos de este listado son análogas a las
+que se explican en la sección :ref:`Propiedades extendidas de usuario`.
+
+Licencias
+=========
+
+En esta sección podremos ver todas las licencias que existen en el sistema.
+Para acceder al listado, seleccione la opción correspondiente en
+el menú lateral (ver :numref:`Sidebar`).
+
+Se desplegará un listado mostrando todas
+las licencias que se encuentran cargadas en el sistema. Además, se
+muestra, encima del listado, el producto para el cual se están
+visualizando las licencias, así como la organización actual.
+
+El listado de licencia contendrá distintos campos dependiendo de si se
+está utilizando la versión OnPremise o Cloud. A continuación, se detallan
+los campos comunes entre las dos versiones: 
+
+-  **Tipo:** indica el tipo de licencia.
+
+-  **Nombre de la organización:** indica la organización para la cual
+   esa licencia fue expedida. Si no coincide con el nombre de
+   organización configurado, la licencia no será considerada válida.
+
+-  **Cantidad de usuarios:** indica la cantidad de usuarios que se
+   habilitan con esa licencia.
+
+-  **Fecha de expiración**
+
+-  **Estado:** muestra un ícono que indica si la licencia es válida o si
+   hay algún problema. Los posibles estados son:
+
+   -  |image9|\ La licencia es válida
+
+   -  |image7|\ La licencia ha expirado
+
+   -  |image8|\ La licencia no aplica a la organización
+
+   En cualquier caso, al pasar el cursor sobre el ícono, se mostrará un
+   cartel con la descripción del estado.
+
+También se puede cargar una nueva licencia, haciendo clic en el botón “+”
+sobre el listado. Se abrirá un cuadro de diálogo para que usted seleccione 
+el archivo de licencia almacenado en su equipo. Los tipos de archivo 
+soportados son xml y qlic. Una vez cargada, la licencia se mostrará 
+en el listado.
+
+.. only:: cloud
+
+   Modelo de licencias
+   -------------------
+
+   Para ver nuestras licencias disponibles acceda a la siguiente pagina: |qflow_pricing_es|
+
+   .. figure:: _static/media/19-QflowAdmin/image66.png
+      :width: 100 %
+      :align: center
+      :alt: Listado de licencias Cloud
+
+      Listado de licencias Cloud
+
+   La información que se puede ver en el listado es la siguiente:
+
+   -  **Almacenamiento máximo disponible**: indica la cantidad máxima de almacenamiento en Gigabytes
+      que tiene disponible la licencia.
+
+   -  **Cantidad máxima de puntos de ejecución**: indica la cantidad máxima de Q-points
+      que tiene disponible la licencia.
+
+.. only:: onpremise
+
+   Modelo de licencias
+   -------------------
+
+   Una licencia habilita a un cierto número de usuarios a usar distintos
+   componentes de Qflow. Cada licencia es expedida para una cierta
+   organización, tiempo de validez, un espacio de trabajo específico y un servidor específico
+   o grupo de servidores.
+
+   .. figure:: _static/media/19-QflowAdmin/image31.png
+      :width: 100 %
+      :align: center
+      :alt: Listado de licencias OnPremise
+
+      Listado de licencias OnPremise
+
+   La información que se puede ver es la siguiente:
+
+   -  **Nombre del servidor:** indica los servidores que tienen permitido
+      ejecutar los servicios de Qflow.
+
+   -  **Nombre del espacio de trabajo:** indica el nombre del espacio de trabajo al que
+      corresponde la licencia
+
+   -  **Puerto:** indica el puerto del backend correspondiente a la
+      licencia
+
+   -  **Directorio virtual:** indica el nombre del directorio virtual en el
+      que se encuentra el backend correspondiente a la licencia
+
+   -  **Cantidad máxima de puntos de ejecución como invitado:** indica la cantidad máxima de puntos 
+      de ejecución que pueden usarse en procesos o tareas destinadas a usuarios externos al sistema.
+
+
+.. only:: onpremise
+
+   Espacios de trabajo
+   ===================
+
+   A partir de la versión 5.0 de Qflow se agrega soporte a instalaciones con
+   múltiples espacios de trabajo o *multi-tenancy*. Esto agrega un nuevo nivel de
+   organización en el sistema, por el cual un mismo servidor y una misma
+   base de datos pueden albergar distintos ambientes con datos propios,
+   solo compartiendo configuraciones globales.
+
+   En este nuevo sistema, existe un espacio de trabajo 
+   principal y un número de espacios de trabajo secundarios. La mayor
+   diferencia entre el espacio de trabajo principal y el resto es que el principal es
+   el único que puede crear espacios de trabajo secundarios y es el que administra las
+   configuraciones globales.
+
+   Las configuraciones que administra el espacio de trabajo principal son:
+
+   -  **Parámetros de sistema globales:** Algunos parámetros de sistema
+      solo son editables por el espacio de trabajo principal, por lo que no serán
+      visibles desde los espacios de trabajo secundarios. Por más detalles sobre cuales
+      son estos parámetros de sistema ir a la sección :ref:`Listado de parámetros
+      de sistema`.
+
+   -  **Estado de los servicios:** El estado de los servicios solo será
+      visible desde el espacio de trabajo principal
+
+   -  **Servicios de notificación por defecto:** Las particularidades de
+      los servicios de notificación serán explicadas en la sección
+      :ref:`Servicios de notificación en múltiples espacios de trabajo`.
+
+   También es posible agregar, ver, editar y eliminar los espacios de trabajo desde la
+   opción correspondiente en el menú lateral (ver :numref:`Sidebar`). Al seleccionar
+   dicha opción, se desplegará un listado con los espacios de trabajo definidas.
+
+   .. figure:: _static/media/19-QflowAdmin/image34.png
+      :width: 100 %
+      :align: center
+      :alt: Listado de espacios de trabajo
+
+      Listado de espacios de trabajo
+
+   Mediante los botones que se encuentran arriba de la tabla, se puede
+   agregar, ver, editar, eliminar, habilitar y deshabilitar un espacio de trabajo.
+
+   .. figure:: _static/media/19-QflowAdmin/image35.png
+      :width: 50%
+      :align: center
+      :alt: Botones del listado de espacios de trabajo
+
+      Botones del listado de espacios de trabajo
+
+   Al presionar el botón de agregar se despliega un panel derecho como
+   muestra la :numref:`AddNewTenant` en el cual se deben ingresar los siguientes datos:
+
+   .. _AddNewTenant:
+
+   .. figure:: _static/media/19-QflowAdmin/image36.png
+      :width: 60 %
+      :align: center
+      :alt: Crear un nuevo espacio de trabajo
+
+      Crear un nuevo espacio de trabajo
+
+   -  **Nombre:** nombre del nuevo espacio de trabajo
+
+   -  **Dominio URL:** URL por el cual se puede acceder al nuevo espacio de trabajo
+
+   -  **Nombre de la organización**
+
+   -  **Idioma:** idioma en el que se crearán los paquetes roles, vistas,
+      etc.
+
+   -  **Zona horaria:** zona horaria del calendario por defecto.
+
+   -  **Nombre de usuario administrador:** nombre del usuario administrador
+      que se crea por defecto.
+
+   -  **Login de usuario administrador:** login del usuario administrador
+      que se crea por defecto.
+
+   -  **Proveedor de seguridad:** proveedor por defecto por el cual se
+      autenticará el usuario administrador, puede ser un Dominio NT, Google/Microsoft
+      o Qflow, en caso de dominio NT se requerirá un nombre de
+      NetBios.
+
+   -  **Servidor web:** nombre del servidor web en el que se encuentran
+      alojados los sitios
+
+   -  **Directorio virtual:** directorio virtual en el que se encuentra
+      alojado el sitio web de Qflow Task.
+
+   Si se aceptan los cambios se procede a crear el nuevo espacio de trabajo en la base
+   de datos, puede tardar unos segundos. Una vez terminada la creación
+   queda disponible el nuevo espacio de trabajo para ser utilizado.
+
+   Una vez creado un nuevo espacio de trabajo se lo puede eliminar o editar, en este último caso solo se
+   puede cambiar el nombre, URL y si está o no activo (:numref:`UpdateTenant`). Un espacio 
+   de trabajo no activo, es decir uno deshabilitado no permitirá a sus usuarios
+   autenticarse ni ejecutará sus procesos activos.
+
+   .. _UpdateTenant:
+
+   .. figure:: _static/media/19-QflowAdmin/image37.png
+      :width: 30%
+      :align: center
+      :alt: Edición de espacio de trabajo
+
+      Edición de espacio de trabajo
+
+Servicios de notificación
+=========================
+
+Los servicios de notificación son los servicios de correo y
+notificaciones push de Qflow. Para visualizarlos, seleccione la opción
+correspondiente en el menú lateral (ver :numref:`Sidebar`). Al seleccionar dicha
+opción, se desplegará el listado de servicios de notificación.
+
+.. only:: onpremise
+
+   .. figure:: _static/media/19-QflowAdmin/image38onpremise.png
+      :width: 100 %
+      :align: center
+      :alt: Listado de servicios de notificación
+
+      Listado de servicios de notificación
+      
+.. only:: cloud
+
+   .. figure:: _static/media/19-QflowAdmin/image38cloud.png
+      :width: 100 %
+      :align: center
+      :alt: Listado de servicios de notificación
+
+      Listado de servicios de notificación
+
+.. only:: onpremise
+
+   Mediante los botones que se encuentran arriba de la tabla, se puede
+   agregar, editar, ver, eliminar, habilitar y deshabilitar un servicio.
+
+   .. figure:: _static/media/19-QflowAdmin/image39onpremise.png
+      :width: 50%
+      :align: center
+      :alt: Opciones del listado de servicios de notificación
+
+      Opciones del listado de servicios de notificación
+
+.. only:: cloud
+
+   Mediante los botones que se encuentran arriba de la tabla, se puede 
+   ver, configurar, habilitar y deshabilitar un servicio.
+
+   .. figure:: _static/media/19-QflowAdmin/image39cloud.png
+      :width: 30%
+      :align: center
+      :alt: Opciones del listado de servicios de notificación
+
+      Opciones del listado de servicios de notificación
+
+.. only:: onpremise
+
+   Creación de servicio de notificación
+   ------------------------------------
+
+   Si hace clic sobre el botón de agregar, se abrirá un panel para crear un
+   nuevo servicio de notificación. Se podrá ingresar información como el nombre, tipo 
+   y formatos de correo, además de especificar si puede ser utilizado para notificar 
+   a personas externas a la organización. También tendrá la posibilidad de configurar 
+   la ubicación del servidor, el protocolo que va a utilizar, su puerto y un 
+   vencimiento en segundos para conectarse.
+
+   .. figure:: _static/media/19-QflowAdmin/image40.png
+      :width: 40%
+      :align: center
+      :alt: Creación de servicio de notificación
+
+      Creación de servicio de notificación
+
+.. only:: onpremise
+
+   Servicios de notificación en múltiples espacios de trabajo
+   ----------------------------------------------------------
+
+   La creación de nuevos servicios de notificación está limitada únicamente
+   al espacio de trabajo principal. Los servicios creados y activos en este aparecerán
+   en los listados de los espacios de trabajo secundarios. Desde estos listados se
+   podrán deshabilitar, habilitar y configurar, estas opciones aplican para
+   el espacio de trabajo actual únicamente.
+
+.. only:: cloud
+
+   Configurar servicios de notificación
+   ------------------------------------
+
+La opción “Configurar” abre un nuevo panel en el cual se puede decidir si
+usar la configuración predeterminada o personalizarla. 
+
+.. only:: onpremise
+
+   Si se elige usar una configuración personalizada, los cambios impactarán únicamente
+   en el espacio de trabajo actual, los distintos espacios de trabajo secundarios seguirán
+   utilizando sus propias configuraciones.
+
+.. _NotificationSenderConfigurationInSecondaryTenant:
+
+.. figure:: _static/media/19-QflowAdmin/image47.png
+   :width: 40%
+   :align: center
+   :alt: Configuración de un servicio de notificación predeterminada
+
+   Configuración de un servicio de notificación predeterminada
+
+.. figure:: _static/media/19-QflowAdmin/image68.png
+   :width: 40%
+   :align: center
+   :alt: Configuración de un servicio de notificación personalizada
+
+   Configuración de un servicio de notificación personalizada
+
+Configuración de servicios de notificación
+------------------------------------------
+
+Existen 4 tipos de servicios de notificación: SMTP, Extended MAPI,
+Servicio web Exchange y Firebase cloud messaging. A continuación, se
+detalla la configuración necesaria para el correcto funcionamiento de
+los servicios.
+
+SMTP
+^^^^
+
+Los servicios del tipo SMTP tienen dos posibles configuraciones, conectarse con una cuenta de Microsoft o configurar el servicio manualmente.
+
+**Configurar el servicio con Microsoft**
+
+Para configurarlo solo se debera conectarse con una cuenta de Microsoft dandole click al boton Microsoft.
+
+.. figure:: _static/media/19-QflowAdmin/image69.png
+   :width: 40%
+   :align: center
+   :alt: Servicio a configurar con Microsoft
+
+   Servicio a configurar con Microsoft
+
+Una vez conectado a su cuenta ya se podra usar el servicio de notificación SMTP con Microsoft.
+
+.. figure:: _static/media/19-QflowAdmin/image70.png
+   :width: 40%
+   :align: center
+   :alt: Servicio configurado con Microsoft
+
+   Servicio configurado con Microsoft
+
+**Configurar el servicio manualmente**
+
+Los servicios del tipo SMTP las siguientes propiedades:
+
+-  **Host:** nombre del servidor SMTP
+
+-  **Puerto (Opcional):** si el servidor no utiliza el puerto por
+   defecto, esta propiedad permite especificar otro puerto.
+
+-  **Vencimiento (Opcional):** permite especificar un valor de
+   *vencimiento* en segundos.
+
+-  **SSL:** permite activar o desactivar SSL (conexión segura). Si la
+   opción no se encuentra marcada, el SSL queda desactivado.
+
+-  **Usuario SMTP:** permite especificar un usuario para el servicio.
+
+-  **Usuario Remitente:** nombre de usuario del sistema. Es el nombre
+   que aparecerá como remitente de los mensajes enviados por Qflow.
+
+-  **Correo de sistema:** dirección de correo electrónico del sistema.
+   Es la dirección desde la cual se enviarán los mensajes de Qflow.
+
+.. figure:: _static/media/19-QflowAdmin/image41.png
+   :width: 40%
+   :align: center
+   :alt: Servicio de notificación SMTP
+
+   Servicio de notificación SMTP
+
+Extended MAPI
+^^^^^^^^^^^^^
+
+Los servicios del tipo Extended MAPI tienen las siguientes propiedades:
+
+-  **Servidor:** nombre del servidor de Exchange.
+
+-  **Mailbox:** casilla de correo a ser utilizada por Qflow.
+
+-  **Clase de mensaje:** clase de los mensajes. Por defecto,
+   *IPM.Note.Qflow*.
+
+-  **Perfil (Opcional):** nombre del perfil a ser utilizado por Qflow.
+
+-  **Contraseña (Opcional):** contraseña del perfil.
+
+
+.. figure:: _static/media/19-QflowAdmin/image42.png
+      :width: 40%
+      :align: center
+      :alt: Servicio de notificación Extended MAPI
+
+      Servicio de notificación Extended MAPI
+
+Servicio web Exchange
+^^^^^^^^^^^^^^^^^^^^^
+
+Los servicios del tipo Exchange tienen las siguientes propiedades:
+
+-  **Url:** Url de los *web services* de Exchange.
+
+-  **Versión de Exchange:** versión de Exchange instalada en el servidor
+   que se va a utilizar.
+
+-  **Clase de mensaje:** clase de los mensajes. Por defecto,
+   *IPM.Note.Qflow*.
+
+-  **Usuario (Opcional):** cuenta de usuario que se debe utilizar.
+
+-  **Contraseña (Opcional):** contraseña de la cuenta de usuario
+   indicada en la propiedad Usuario.
+
+-  **Correo de sistema:** casilla de correo electrónico del sistema.
+
+.. figure:: _static/media/19-QflowAdmin/image43.png
+   :width: 30%
+   :align: center
+   :alt: Configuración de servicio web Exchange
+
+   Configuración de servicio web Exchange
+
+Firebase Cloud Messaging
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Los servicios de tipo Firebase, a diferencia de los descritos
+previamente, se trata de servicios de notificaciones push. Por lo tanto,
+no es necesario configurar los formatos de correo. Para poder configurar
+el servicio de Firebase se deberá acceder a la siguiente consola y crear un
+proyecto:
+https://console.firebase.google.com/
+
+Dentro de la configuración del proyecto de Firebase se pueden tomar
+todos los datos necesarios para configurar el servicio de notificación
+en Qflow Admin.
+
+La :numref:`FirebaseConfiguration` muestra la configuración general del proyecto desde donde
+se puede tomar la Id del proyecto y la clave de API de la web. En el caso que no vea la
+clave de API de la web debe habilitar el servicio de autenticación de Firebase desde 
+la consola del proyecto.
+
+.. _FirebaseConfiguration:
+
+.. figure:: _static/media/19-QflowAdmin/image44.png
+   :width: 50 %
+   :align: center
+   :alt: Configuración general de Firebase
+
+   Configuración general de Firebase
+
+Los datos restantes corresponden a la aplicación web que se quiere
+utilizar, los datos pueden ser extraídos de la sección “Tus
+aplicaciones” seleccionando la opción configuración como muestra la
+:numref:`FirebaseAppConfiguration`. Para más información sobre cómo crear una aplicación ir a la
+siguiente guía: https://firebase.google.com/docs/web/setup#register-app.
+
+.. _FirebaseAppConfiguration:
+
+.. figure:: _static/media/19-QflowAdmin/image45.png
+   :width: 60 %
+   :align: center
+   :alt: Configuración de aplicación de Firebase
+
+   Configuración de aplicación de Firebase
+
+Finalmente, el campo “Configuración de servidor” debe tener un json
+correspondiente al SDK de Firebase Admin, el cual puede ser obtenido
+siguiendo la siguiente guía:
+https://firebase.google.com/docs/admin/setup#initialize-sdk.
+
+En la :numref:`FirebaseNotificationService` se puede ver el panel de configuración de Firebase, por
+más detalles sobre la configuración de un servidor Firebase dirigirse al
+siguiente manual: https://firebase.google.com/docs/web/setup
+
+.. _FirebaseNotificationService:
+
+.. figure:: _static/media/19-QflowAdmin/image46.png
+   :width: 40%
+   :align: center
+   :alt: Servicio de notificación Firebase
+
+   Servicio de notificación Firebase
+
+Administrar permisos
+====================
+
+Al seleccionar la opción “Administrar permisos de la herramienta” en el
+menú de configuración, se abrirá un panel como muestra la
+:numref:`ManageSAMPermissions`.
+
+.. _ManageSAMPermissions:
+
+.. figure:: _static/media/19-QflowAdmin/image48.png
+   :width: 100 %
+   :align: center
+   :alt: Administrar permisos de Qflow Admin
+
+   Administrar permisos de Qflow Admin
+
+Para agregar un usuario, grupo o rol de seguridad al conjunto de
+entidades que tienen permisos sobre el nodo:
+
+1. Haga clic en el botón “Agregar”. Eso hace que aparezca en la parte
+   superior de dicho botón un texto que dice “Comience a escribir…”.
+   Escriba parte del nombre del usuario, grupo o rol deseado.
+
+2. Cuando se muestre en la lista desplegable, selecciónelo.
+
+Una vez agregados los usuarios, roles y grupos, es posible definir qué
+permisos tienen cada uno de ellos. Esto se hace marcando los casilleros
+“Permitir” o “Denegar” al lado de cada permiso como se muestra en la
+:numref:`SelectPermissions`.
+
+Los posibles permisos son:
+
+-  **Administrar seguridad**: permite agregar y modificar los permisos
+   de la herramienta.
+
+-  **Acceder a la herramienta:** permite acceder a Qflow Admin.
+
+-  **Administrar configuración:** permite editar aquellos elementos de
+   la herramienta que son editables (parámetros de sistema y
+   propiedades extendidas).
+
+-  **Auditar:** permite acceder a las auditorías de los distintos
+   elementos de Qflow Admin
+
+Para una explicación detallada acerca del funcionamiento de los permisos
+de Qflow, consulte la sección “Manejo de permisos en Qflow” del manual
+de `Qflow Team <18-QflowTeam.html>`_.
+
+.. _SelectPermissions:
+
+.. figure:: _static/media/19-QflowAdmin/image49.png
+   :width: 70 %
+   :align: center
+   :alt: Seleccionar permisos
+
+   Seleccionar permisos
+
+Para editar permisos de un usuario, grupo o rol:
+
+1. Seleccione el elemento al que quiera editarle los permisos y haga
+   clic en el botón “Editar”, o haga clic en el símbolo “+” que se
+   encuentra al lado del elemento.
+
+2. Se volverá a mostrar el formulario “Configuración de permisos”.
+   Seleccione las acciones que quiera permitir o denegar en el nuevo
+   permiso.
+
+Para eliminar permisos a un usuario, grupo o rol:
+
+1. Seleccione el elemento al que quiera eliminarle los permisos y
+   posteriormente haga clic en el botón “Eliminar”.
+
+2. Se mostrará un mensaje de advertencia. Haga clic en el botón “Sí” y
+   se eliminarán todos los permisos para el elemento seleccionado.
+
+Auditoría
+=========
+
+Si se disponen los permisos de auditar en Qflow Admin, se puede ver en el menú
+superior derecho la opción de auditorías, si se hace clic se despliega
+un panel de opciones. Esta funcionalidad brinda
+la capacidad de verificar los cambios realizados en propiedades
+extendidas, licencias y parámetros de sistema, indicando sus nuevos
+valores, el usuario que realizó el cambio además de su fecha y hora.
+
+Historial de parámetros de sistema
+----------------------------------
+
+Esta auditoría indica los cambios realizados sobre todos los parámetros
+de sistema. Si se desea saber los cambios sobre un parámetro en
+particular se debe utilizar la barra de búsqueda, o en su defecto
+acceder a la opción de “Ver historial” en el listado de parámetros de
+sistema.
+
+.. figure:: _static/media/19-QflowAdmin/image50.png
+   :width: 100 %
+   :align: center
+   :alt: Historial de parámetros de sistema
+
+   Historial de parámetros de sistema
+
+Historial de licencias
+----------------------
+
+Esta auditoría mantiene un registro de todas las licencias agregadas. En
+el listado se muestra el identificador de la licencia, junto con el
+usuario que la agregó y su correspondiente fecha y hora.
+
+.. figure:: _static/media/19-QflowAdmin/image51.png
+   :width: 100 %
+   :align: center
+   :alt: Historial de licencias
+
+   Historial de licencias
+
+Historial de propiedades extendidas
+-----------------------------------
+
+Esta auditoría lista todos los cambios realizados en todas las
+propiedades extendidas, sin importar el tipo de propiedad. Cada entrada
+en la tabla contiene un logo correspondiente al tipo de propiedad y se
+puede ampliar mostrando más detalles sobre los cambios. Si se quiere
+filtrar por una propiedad en particular se puede utilizar el buscador o
+ir al listado de propiedades extendidas y acceder al historial
+particular de una propiedad.
+
+.. figure:: _static/media/19-QflowAdmin/image52.png
+   :width: 100 %
+   :align: center
+   :alt: Historial de propiedades extendidas
+
+   Historial de propiedades extendidas
+
+Listado de parámetros de sistema
+================================
+
+.. only:: onpremise
+
+   Parámetros del espacio de trabajo principal
+   -------------------------------------------
+
+   A continuación, se listan los parámetros de sistema que solo pueden ser
+   configurados por el espacio de trabajo principal y que afecta a todos 
+   los espacios de trabajo existentes.
+
+   +------------------------+----------------------+--------------------------+
+   | Nombre técnico         | Nombre               | Descripción              |
+   +========================+======================+==========================+
+   | AttachmentStorageType  | Tipo de              | El valor de este         |
+   |                        | almacenamiento para  | parámetro define si los  |
+   |                        | adjuntos             | archivos adjuntos de     |
+   |                        |                      | Qflow se almacenarán en  |
+   |                        |                      | la base de datos         |
+   |                        |                      | predeterminada, en Azure |
+   |                        |                      | Blob Storage o en una    |
+   |                        |                      | base de datos externa.   |
+   +------------------------+----------------------+--------------------------+
+   | CodeExecutionTimeout   | Tiempo límite de     | Especifica el tiempo     |
+   |                        | ejecución de código  | máximo en segundos       |
+   |                        |                      | que se espera por la     |
+   |                        |                      | ejecución de código      |
+   |                        |                      | de manejadores de        |
+   |                        |                      | eventos, pasos de        |
+   |                        |                      | código, de               |
+   |                        |                      | evaluación por           |
+   |                        |                      | código y de              |
+   |                        |                      | integración. El          |
+   |                        |                      | valor por defecto es     |
+   |                        |                      | 600.                     |
+   +------------------------+----------------------+--------------------------+
+   | CompileCodeInDebug     | Compilar código en   | Si el valor de este      |
+   |                        | modo depuración      | parámetro es             |
+   |                        |                      | "verdadero", el          |
+   |                        |                      | código generado por      |
+   |                        |                      | el usuario para ser      |
+   |                        |                      | compilado por la         |
+   |                        |                      | aplicación, se           |
+   |                        |                      | compilará en modo        |
+   |                        |                      | debug.                   |
+   +------------------------+----------------------+--------------------------+
+   | EngineNewsDBPeekPeriod | Período de espera    | Indica el período de     |
+   |                        | del motor para       | espera en segundos       |
+   |                        | procesar nuevos      | del motor para           |
+   |                        | eventos              | procesar nuevos          |
+   |                        |                      | eventos.                 |
+   +------------------------+----------------------+--------------------------+
+   | | IdentifyTenants      | Identificar los      | Si es verdadero,         |
+   | | ByBasePathUrl        | espacios de trabajo  | Qflow identificará       |
+   |                        | por la URL base      | los espacios de trabajo  |
+   |                        |                      | a partir de la URL       |
+   |                        |                      | base. En caso de ser     |
+   |                        |                      | falso, en el login       |
+   |                        |                      | de los sitios se         |
+   |                        |                      | verá una opción que      |
+   |                        |                      | permite cambiar          |
+   |                        |                      | entre los espacios de    |
+   |                        |                      | trabajo existentes.      |
+   +------------------------+----------------------+--------------------------+
+   | LicenseCacheExpiration | Expiración del caché | Indica durante           |
+   |                        | de licencias         | cuántos segundos las     |
+   |                        |                      | licencias son            |
+   |                        |                      | guardadas en caché.      |
+   +------------------------+----------------------+--------------------------+
+   | MaxConcurrentRequests  | Cantidad máxima de   | Indica la cantidad       |
+   |                        | solicitudes          | máxima de                |
+   |                        | concurrentes         | solicitudes              |
+   |                        |                      | concurrentes que         |
+   |                        |                      | puede procesar el        |
+   |                        |                      | motor.                   |
+   +------------------------+----------------------+--------------------------+
+   | MaxDataSource          | Cantidad máxima de   | Permite limitar la       |
+   | ItemsPerQuery          | elementos por        | cantidad de              |
+   |                        | consulta a orígenes  | elementos que se         |
+   |                        | de datos             | despliegan en un         |
+   |                        |                      | dominio de tipo          |
+   |                        |                      | selector de ítems.       |
+   +------------------------+----------------------+--------------------------+
+   | MaxLoopCount           | Cantidad máxima de   | Si un proceso pasa       |
+   |                        | bucles en procesos   | por un paso una          |
+   |                        |                      | cantidad de veces        |
+   |                        |                      | superior a ese           |
+   |                        |                      | número, queda en         |
+   |                        |                      | estado de error.         |
+   +------------------------+----------------------+--------------------------+
+   | PendingNotifications   | Período de espera    | Indica el período de     |
+   | DBPeekPeriod           | del motor para el    | espera en segundos       |
+   |                        | envío de             | para procesar el         |
+   |                        | notificaciones       | envío de                 |
+   |                        |                      | notificaciones           |
+   +------------------------+----------------------+--------------------------+
+   | ProductName            | Nombre de producto   | Nombre de producto       |
+   +------------------------+----------------------+--------------------------+
+   | QflowBPMWebLink        | Vínculo de Qflow     | Es la url para acceder a |
+   |                        | Design               | Qflow Design. Si se      |
+   |                        |                      | identifican los espacios |
+   |                        |                      | de trabajo por la URL    |
+   |                        |                      | base, '{tenantName}' es  |
+   |                        |                      | reemplazado por la URL   |
+   |                        |                      | base del espacio de      |
+   |                        |                      | trabajo, si no           |
+   |                        |                      | '{tenantId}' es          |
+   |                        |                      | reemplazado por el       |
+   |                        |                      | identificador del        |
+   |                        |                      | espacio de trabajo       |
+   +------------------------+----------------------+--------------------------+
+   | QflowOMMLink           | Vínculo de Qflow     | Es la url para acceder a |
+   |                        | Team                 | Qflow Team. Si se        |
+   |                        |                      | identifican los espacios |
+   |                        |                      | de trabajo por la URL    |
+   |                        |                      | base, '{tenantName}' es  |
+   |                        |                      | reemplazado por la URL   |
+   |                        |                      | base del espacio de      |
+   |                        |                      | trabajo, si no           |
+   |                        |                      | '{tenantId}' es          |
+   |                        |                      | reemplazado por el       |
+   |                        |                      | identificador del        |
+   |                        |                      | espacio de trabajo       |
+   +------------------------+----------------------+--------------------------+
+   | QflowSAMWebLink        | Vínculo de Qflow     | Es la url para acceder a |
+   |                        | Admin                | Qflow Admin. Si se       |
+   |                        |                      | identifican los espacios |
+   |                        |                      | de trabajo por la URL    |
+   |                        |                      | base, '{tenantName}' es  |
+   |                        |                      | reemplazado por la URL   |
+   |                        |                      | base del espacio de      |
+   |                        |                      | trabajo, si no           |
+   |                        |                      | '{tenantId}' es          |
+   |                        |                      | reemplazado por el       |
+   |                        |                      | identificador del        |
+   |                        |                      | espacio de trabajo       |
+   +------------------------+----------------------+--------------------------+
+   | QflowWebSiteLink       | Vínculo de Qflow     | Es la url para acceder a |
+   |                        | Task                 | Qflow Task. Si se        |
+   |                        |                      | identifican los espacios |
+   |                        |                      | de trabajo por la URL    |
+   |                        |                      | base, '{tenantName}' es  |
+   |                        |                      | reemplazado por la URL   |
+   |                        |                      | base del espacio de      |
+   |                        |                      | trabajo, si no           |
+   |                        |                      | '{tenantId}' es          |
+   |                        |                      | reemplazado por el       |
+   |                        |                      | identificador del        |
+   |                        |                      | espacio de trabajo       |
+   +------------------------+----------------------+------------------------------+
+   | StartFlowAsGuestLink   | Vínculo para iniciar | Es la URL para iniciar   |
+   |                        | un proceso como      | un flujo como invitado.  |
+   |                        | invitado             | Si los espacios          |
+   |                        |                      | de trabajo               |
+   |                        |                      | se identifican           |
+   |                        |                      | por la URL               |
+   |                        |                      | base, '{tenantName}' es  |
+   |                        |                      | reemplazado por la URL   |
+   |                        |                      | base del espacio de      |
+   |                        |                      | trabajo                  |
+   |                        |                      | En el caso contrario,    |
+   |                        |                      | '{tenantId}' es          |
+   |                        |                      | reemplazado              |
+   |                        |                      | por el identificador del |
+   |                        |                      | espacio de trabajo.      |
+   +------------------------+----------------------+--------------------------+
+   | TenantBasePathTemplate | Plantilla para URL   | Esta es la plantilla     |
+   |                        | base del espacio de  | de la URL base al        |
+   |                        | trabajo              | indicar el nombre de     |
+   |                        |                      | un espacio de trabajo.   |
+   |                        |                      | Se reemplazará el "{0}"  |
+   |                        |                      | por el nombre del        |
+   |                        |                      | espacio de trabajo.      |
+   +------------------------+----------------------+--------------------------+
+   | UserWelcomeLink        | URL para la          | Es la URL que reciben por|
+   |                        | bienvenida del       | correo los nuevos        |
+   |                        | usuario              | usuarios, la cual acepta |
+   |                        |                      | los parámetros {tenantId}|
+   |                        |                      | y {tenantName} para      |
+   |                        |                      | especificar la           |
+   |                        |                      | identificación y el      |
+   |                        |                      | nombre del espacio de    |
+   |                        |                      | trabajo correspondiente. |
+   +------------------------+----------------------+--------------------------+
+   | WebStatusRequestTimeout| Tiempo límite de     | Indica el tiempo en      |
+   |                        | espera en la         | segundos que el          |
+   |                        | solicitud de estado  | servidor espera que      |
+   |                        | de los sitios        | los distintos            |
+   |                        |                      | servicios y sitios       |
+   |                        |                      | respondan al pedido      |
+   |                        |                      | de estado.               |
+   +------------------------+----------------------+--------------------------+
+
+   Parámetros de los espacios de trabajo secundarios
+   -------------------------------------------------
+
+   A continuación, se listan los parámetros de sistemas editables también
+   por los espacios de trabajo secundarios:
+
++----------------------------+----------------------+------------------------------+
+| Nombre técnico             | Nombre               | Descripción                  |
++============================+======================+==============================+
+| ActionLink                 | Vínculo de acción    | Es la URL que                |
+|                            |                      | utilizan los                 |
+|                            |                      | vínculos a acciones          |
+|                            |                      | en los mensajes              |
+|                            |                      | enviados por correo          |
+|                            |                      | electrónico.                 |
++----------------------------+----------------------+------------------------------+
+| DefaultDomainNetbiosName   | Nombre de dominio    | Especifica un nombre         |
+|                            | predeterminado       | de dominio por               |
+|                            |                      | defecto al hacer             |
+|                            |                      | login en las                 |
+|                            |                      | aplicaciones o en los        |
+|                            |                      | sitios web.                  |
++----------------------------+----------------------+------------------------------+
+| EnableAIAssistant [*]_     | Habilitar asistente  | Si el valor de este parámetro|
+|                            | de IA                | es “verdadero”, el acceso al |
+|                            |                      | asistente de IA estará       |
+|                            |                      | habilitado.                  |
+|                            |                      | Los administradores podrán   |
+|                            |                      | restringir el acceso en el   |
+|                            |                      | caso de ser detectado un uso |
+|                            |                      | malicioso. Si cree que ha    |
+|                            |                      | habido un error, por favor   |
+|                            |                      | contáctese con soporte       |
+|                            |                      | técnico.                     |
++----------------------------+----------------------+------------------------------+
+| EncryptAttachments         | Encriptar archivos   | Si el valor de este          |
+|                            | adjuntos             | parámetro es                 |
+|                            |                      | “verdadero”, Qflow           |
+|                            |                      | cifrará el contenido         |
+|                            |                      | de los archivos              |
+|                            |                      | adjuntos, de modo            |
+|                            |                      | que la única forma           |
+|                            |                      | de acceder a dicho           |
+|                            |                      | contenido sea por            |
+|                            |                      | medio de los                 |
+|                            |                      | permisos de Qflow.           |
+|                            |                      | Si este parámetro            |
+|                            |                      | está activado, no es         |
+|                            |                      | posible hacer                |
+|                            |                      | búsquedas full-text          |
+|                            |                      | utilizando el                |
+|                            |                      | contenido de los             |
+|                            |                      | archivos adjuntos.           |
++----------------------------+----------------------+------------------------------+
+| EnforceIntegratedLogon     | Forzar autenticación | Si el valor de este          |
+|                            | integrada            | parámetro es                 |
+|                            |                      | "verdadero", los             |
+|                            |                      | usuarios solo podrán         |
+|                            |                      | ingresar a la                |
+|                            |                      | aplicación mediante          |
+|                            |                      | autenticación                |
+|                            |                      | integrada.                   |
++----------------------------+----------------------+------------------------------+
+| FlowDetailsLink            | Vínculo a detalles   | Es la url enviada            |
+|                            | del proceso          | por correo, la cual          |
+|                            |                      | redirige hacia los           |
+|                            |                      | detalles de un               |
+|                            |                      | proceso.                     |
++----------------------------+----------------------+------------------------------+
+| FlowEditFormLink           | Vínculo al           | Es la url enviada            |
+|                            | formulario de        | por correo, la cual          |
+|                            | edición del proceso  | redirige hacia el            |
+|                            |                      | panel de edición de          |
+|                            |                      | un proceso.                  |
++----------------------------+----------------------+------------------------------+
+| GuestResponseLink          | Vínculo de respuesta | Esta URL se utiliza en los   |
+|                            | como invitado        | mensajes de notificación     |
+|                            |                      | enviados por correo          |
+|                            |                      | electrónico, permitiendo el  |
+|                            |                      | acceso a los formularios de  |
+|                            |                      | respuesta como invitado.     |
+|                            |                      |                              |
++----------------------------+----------------------+------------------------------+
+| HtmlLinkTemplate           | Plantilla de mails   | Indica la ruta del           |
+|                            | de tipo HTML Link    | archivo                      |
+|                            |                      | correspondiente a la         |
+|                            |                      | plantilla de envío           |
+|                            |                      | de correos html.             |
++----------------------------+----------------------+------------------------------+
+| | IsGoogleAndMicrosoft     | Habilitar recordar   | Si el valor de este          |
+| | RememberSessionEnabled   | sesión de usuario al | parámetro es                 |
+|                            | loguearse con Google | “verdadero”, las sesiones    |
+|                            | y Microsoft          | iniciadas mediante Google o  |
+|                            |                      | Microsoft permanecerán       |
+|                            |                      | abiertas entre sesiones del  |
+|                            |                      | navegador. Si es “falso”, al |
+|                            |                      | cerrar el navegador se       |
+|                            |                      | cerrará la sesión.           |
+|                            |                      | Asegúrese de tener su        |
+|                            |                      | navegador configurado para   |
+|                            |                      | recordar cookies o esto no   |
+|                            |                      | funcionará.                  |
++----------------------------+----------------------+------------------------------+
+| IsGoogleSignInEnabled      | Habilitar el inicio  | Si el valor de este          |
+|                            | de sesión con Google | parámetro es                 |
+|                            |                      | “verdadero”, Qflow           |
+|                            |                      | permitirá que los            |
+|                            |                      | usuarios se                  |
+|                            |                      | autentiquen con su           |
+|                            |                      | cuenta de Google en          |
+|                            |                      | los distintos                |
+|                            |                      | sitios. De lo                |
+|                            |                      | contrario, esta              |
+|                            |                      | opción no se                 |
+|                            |                      | mostrará.                    |
++----------------------------+----------------------+------------------------------+
+| IsMicrosoftSignInEnabled   | Habilitar el inicio  | Si el valor de este          |
+|                            | de sesión con        | parámetro es                 |
+|                            | Microsoft            | “verdadero”, Qflow           |
+|                            |                      | permitirá que los            |
+|                            |                      | usuarios se                  |
+|                            |                      | autentiquen con su           |
+|                            |                      | cuenta de Microsoft          |
+|                            |                      | en los distintos             |
+|                            |                      | sitios. De lo                |
+|                            |                      | contrario, esta              |
+|                            |                      | opción no se                 |
+|                            |                      | mostrará.                    |
++----------------------------+----------------------+------------------------------+
+| | LicenseExpiration        | Alerta de            | Es un número entero          |
+| | AlertThreshold           | vencimiento de       | que indica cuántos           |
+|                            | licencia             | días antes del               |
+|                            |                      | vencimiento de las           |
+|                            |                      | licencias se                 |
+|                            |                      | notificará a los             |
+|                            |                      | usuarios que las             |
+|                            |                      | licencias están a            |
+|                            |                      | punto de vencer. Por         |
+|                            |                      | defecto, tiene un            |
+|                            |                      | valor de 7, es               |
+|                            |                      | decir, avisa una             |
+|                            |                      | semana antes.                |
++----------------------------+----------------------+------------------------------+
+| Logo                       | Logo                 | Es la imagen del logo que    |
+|                            |                      | será utilizada en las        |
+|                            |                      | distintas vistas de inicio   |
+|                            |                      | de sesión. La relación       |
+|                            |                      | debe ser 4:1 para que la     |
+|                            |                      | imagen se muestre            |
+|                            |                      | correctamente.               |
++----------------------------+----------------------+------------------------------+
+| LogoLightVersion           | Logo en versión clara| Versión clara del logo de    |
+|                            |                      | Qflow. La relación           |
+|                            |                      | debe ser 4:1 para que la     |
+|                            |                      | imagen se muestre            |
+|                            |                      | correctamente.               |
+|                            |                      |                              |
++----------------------------+----------------------+------------------------------+
+| MailLogo                   | Logo de correos      | Es la url que se utilizará   |
+|                            |                      | para acceder al logo que se  |
+|                            |                      | mostrará en los distintos    |
+|                            |                      | correos enviados por Qflow.  |
+|                            |                      | La imagen debe               |
+|                            |                      | estar en formato png, jpg o  |
+|                            |                      | jpeg para que se muestre     |
+|                            |                      | correctamente.               |
++----------------------------+----------------------+------------------------------+
+| MiniLogo                   | Mini logo            | Imagen para el logo          |
+|                            |                      | de la barra lateral          |
+|                            |                      | colapsada del sitio          |
+|                            |                      | web. La relación             |
+|                            |                      | debe ser 1:1 para            |
+|                            |                      | que la imagen se             |
+|                            |                      | muestre                      |
+|                            |                      | correctamente.               |
++----------------------------+----------------------+------------------------------+
+| NotifyUserOnCreation       | Notificar usuario en | Si el valor de este parámetro|
+|                            | la creación          | es “verdadero”, se le enviará|
+|                            |                      | una notificación a cada      |
+|                            |                      | usuario que sea agregado al  |
+|                            |                      | espacio de trabajo.          |
++----------------------------+----------------------+------------------------------+
+| OrganizationName           | Nombre de la         | Indica el nombre de          |
+|                            | organización         | la organización.             |
+|                            |                      | Este nombre es               |
+|                            |                      | utilizado por Qflow          |
+|                            |                      | para controlar las           |
+|                            |                      | licencias del                |
+|                            |                      | producto.                    |
++----------------------------+----------------------+------------------------------+
+| RenewSessionAutomatically  | Renovar la sesión    | Indica si las                |
+|                            | automáticamente      | herramientas de              |
+|                            |                      | Qflow, tanto de              |
+|                            |                      | escritorio como las          |
+|                            |                      | web, deben renovar           |
+|                            |                      | automáticamente la           |
+|                            |                      | sesión del usuario           |
+|                            |                      | cuando ésta se               |
+|                            |                      | vence.                       |
++----------------------------+----------------------+------------------------------+
+| ResponseLink               | Vínculo de respuesta | Es la URL que                |
+|                            |                      | utilizarán los               |
+|                            |                      | vínculos a los               |
+|                            |                      | formularios de               |
+|                            |                      | respuesta de los             |
+|                            |                      | mensajes enviados            |
+|                            |                      | por correo                   |
+|                            |                      | electrónico.                 |
++----------------------------+----------------------+------------------------------+
+| SessionLeaseTime           | Duración de la       | Duración en minutos          |
+|                            | sesión               | de la sesión de un           |
+|                            |                      | usuario de Qflow.            |
+|                            |                      | Si no hay actividad          |
+|                            |                      | durante ese tiempo,          |
+|                            |                      | la sesión del                |
+|                            |                      | usuario vence y éste         |
+|                            |                      | debe volver a                |
+|                            |                      | autenticarse.                |
++----------------------------+----------------------+------------------------------+
+| StageLink                  | Vínculo de           | Es la url usada en           |
+|                            | seguimiento de       | los vínculos al              |
+|                            | etapas               | seguimiento de               |
+|                            |                      | etapas en los                |
+|                            |                      | mensajes enviados            |
+|                            |                      | por correo                   |
+|                            |                      | electrónico.                 |
++----------------------------+----------------------+------------------------------+
+|StrongWindowsSinchronization| Sincronización de    | Si el valor de este          |
+|                            | usuarios Windows     | parámetro es                 |
+|                            | estricta             | “verdadero”, al              |
+|                            |                      | eliminar un usuario          |
+|                            |                      | del Active Directory         |
+|                            |                      | se cambiará el login         |
+|                            |                      | de Qflow para así            |
+|                            |                      | permitir a otro              |
+|                            |                      | usuario utilizar el          |
+|                            |                      | login original.              |
++----------------------------+----------------------+------------------------------+
+| TaskLogo                   | Logo de Task         | Imagen para el logo          |
+|                            |                      | del sitio web de Task. La    |
+|                            |                      | La relación                  |
+|                            |                      | debe ser 4:1 para            |
+|                            |                      | que la imagen se             |
+|                            |                      | muestre                      |
+|                            |                      | correctamente.               |
++----------------------------+----------------------+------------------------------+
+| TaskMiniLogo               | Mini logo de Task    | Imagen para el logo          |
+|                            |                      | del sitio web de Task usado  |
+|                            |                      | en la barra lateral          |
+|                            |                      | colapsada del sitio web.     |
+|                            |                      | La relación                  |
+|                            |                      | debe ser 1:1 para            |
+|                            |                      | que la imagen se             |
+|                            |                      | muestre                      |
+|                            |                      | correctamente.               |
++----------------------------+----------------------+------------------------------+
+| Theme                      | Tema                 | Indica qué tema              |
+|                            |                      | utilizar en                  |
+|                            |                      | Qflow Task.                  |
++----------------------------+----------------------+------------------------------+
+| UndoChangesOnStepBack      | Revertir cambios al  | Indica si, al hacer          |
+|                            | retroceder           | retroceder un hilo           |
+|                            |                      | de un proceso, se            |
+|                            |                      | deshacen los cambios         |
+|                            |                      | hechos a los datos           |
+|                            |                      | de aplicación, roles         |
+|                            |                      | y archivos adjuntos          |
+|                            |                      | en los pasos cuya            |
+|                            |                      | ejecución se está            |
+|                            |                      | deshaciendo.                 |
++----------------------------+----------------------+------------------------------+
+|UseGravatarForProfilePicture| Usar gravatar para   | Si el valor de este parámetro|
+|                            | foto de perfil       | es “verdadero”, se usará el  |
+|                            |                      | servicio de gravatar para    |
+|                            |                      | obtener la foto de perfil de |
+|                            |                      | los usuarios. De lo contrario|
+|                            |                      | se mostrará como foto de     |
+|                            |                      | perfil una imagen con las    |
+|                            |                      | iniciales del usuario.       |
++----------------------------+----------------------+------------------------------+
+
+.. [*] Parámetro disponible solo en la nube.
+
+.. only:: onpremise
+
+   Parámetros del archivo de configuración
+   ---------------------------------------
+
+   Finalmente se listan los parámetros de sistema que se encuentran en el
+   archivo de configuración (System.config):
+
+   +------------------------+------------------------------------------------+
+   | Nombre técnico         | Descripción                                    |
+   +========================+================================================+
+   | NonQueryCommandTimeout | Indica el tiempo en segundos en que se         |
+   |                        | considera que una consulta a la base de        |
+   |                        | datos, que no retorna valores, no              |
+   |                        | responde. El valor es 60 por defecto.          |
+   +------------------------+------------------------------------------------+
+   | QueryCommandTimeout    | Indica el tiempo en segundos en que se         |
+   |                        | considera que una consulta a la base de        |
+   |                        | datos, que retorna valores, no responde.       |
+   |                        | El valor es 60 por defecto.                    |
+   +------------------------+------------------------------------------------+
+   | MaxDBConnectionRetries | Intentos de conexión máximos a la base         |
+   |                        | de datos antes de retornar un error            |
+   +------------------------+------------------------------------------------+
+   | CacheType              | Tipo de caché para almacenar parámetros de     |
+   |                        | sistema, puede ser Redis o Default             |
+   +------------------------+------------------------------------------------+
+   | FilterMultivalued      | Si el valor de este parámetro es “true”,       |
+   |                        | las búsquedas por datos de aplicación en       |
+   |                        | Qflow Task tienen en cuenta todos los          |
+   |                        | valores de los datos multivaluados. Si el      |
+   |                        | valor de este parámetro es “false” o no        |
+   |                        | está definido, las búsquedas por datos de      |
+   |                        | aplicación sólo tendrán en cuenta el           |
+   |                        | primer valor de cada uno de los múltiples      |
+   |                        | valores de cada dato.                          |
+   +------------------------+------------------------------------------------+
+
+.. |image1| image:: _static/media/19-QflowAdmin/image10.png
+   :width: 0.1875in
+.. |image2| image:: _static/media/19-QflowAdmin/image11.png
+   :width: 0.15625in
+.. |image3| image:: _static/media/19-QflowAdmin/image13.png
+   :width: 0.15625in
+.. |image4| image:: _static/media/19-QflowAdmin/image16.png
+   :width: 0.22917in
+.. |image5| image:: _static/media/19-QflowAdmin/image17.png
+   :width: 0.17708in
+.. |image6| image:: _static/media/19-QflowAdmin/image18.png
+   :width: 0.14583in
+.. |image7| image:: _static/media/19-QflowAdmin/image53.png
+   :width: 0.29167in
+.. |image8| image:: _static/media/19-QflowAdmin/image54.png
+   :width: 0.29167in
+.. |image9| image:: _static/media/19-QflowAdmin/image55.png
+   :width: 0.29097in
+
+.. |cloud-icon| raw:: html
+   
+   <i class="fa fa-cloud" style="color: #15aabf;font-size: 20px;"></i>
+
+.. |qflow_pricing| raw:: html
+
+   <a href="https://qflowbpm.com/pricing/" target="_blank">Qflow Pricing</a>
+
+.. |qflow_pricing_es| raw:: html
+
+   <a href="https://qflowbpm.com/es/precios/" target="_blank">Precios Qflow</a>

@@ -1,0 +1,85 @@
+*******************
+Consumo de Q-points
+*******************
+
+Los Q-points son puntos que se consumen al ejecutar procesos, estos puntos son luego 
+utilizados para llevar un control del consumo de las licencias de Qflow Cloud. Todos 
+los pasos de un proceso tienen asignado una cantidad de Q-points los cuales son consumidos 
+al ejecutarse. Qflow cuenta con dos tipos de licenciamiento: uno basado en consumo y otro 
+basado en usuarios, lo que varía la cantidad de puntos que cada paso consume.
+
+Existen pasos (tarea de servicio y tarea de código) que requieren un 
+esfuerzo extra para que la herramienta los ejecute. Estos pasos tienen asignado, además 
+del consumo inicial, una cantidad de Q-points por segundo que van a ser consumidos mientras 
+el paso se este ejecutando.
+
+Licenciamiento basado en usuarios
+=================================
+
+En este tipo de licenciamiento, solo las interacciones anónimas 
+y aquellos pasos que impliquen ejecución de código consumen puntos. 
+El resto de los pasos tienen una cantidad de Q-points asignados de 0.
+
++----------------------------------+---------------------------------+-------------------------------------------+
+| Paso                             | Q-points al iniciar             | Q-points por segundo durante la ejecución |
++==================================+=================================+===========================================+
+| Evento de inicio (por un usuario | 20                              | 0                                         |
+| externo o anónimo)               |                                 |                                           |
++----------------------------------+---------------------------------+-------------------------------------------+
+| Tarea de usuario (por un usuario | 20 *                            | 0                                         |
+| externo)                         |                                 |                                           |
++----------------------------------+---------------------------------+-------------------------------------------+
+| Tarea de servicio (Integración)  | 1                               | 0.1                                       |
++----------------------------------+---------------------------------+-------------------------------------------+
+| Tarea de servicio (Conector)     | 10                              | 0                                         |
++----------------------------------+---------------------------------+-------------------------------------------+
+| Tarea de código                  | 1                               | 0.1                                       |
++----------------------------------+---------------------------------+-------------------------------------------+
+
+\* **Consumo de puntos de tarea de usuario:** cada respuesta de tarea realizada por un usuario externo tiene un consumo de 20 puntos.
+
+Licenciamiento basado en consumo
+=================================
+
++----------------------------------+-----------------------+-------------------------------------------+
+| Paso                             | Q-points al iniciar   | Q-points por segundo durante la ejecución |
++==================================+=======================+===========================================+
+| Evento de inicio                 | 10                    | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Evento de inicio (por un usuario | 20                    | 0                                         |
+| externo o anónimo)               |                       |                                           |
++----------------------------------+-----------------------+-------------------------------------------+
+| Tarea de usuario                 | 3 + 2 \*\*            | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Tarea de usuario (por un usuario | 3 + 20 \*\*           | 0                                         |
+| externo)                         |                       |                                           |
++----------------------------------+-----------------------+-------------------------------------------+
+| Tarea de notificación de usuario | 4                     | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Tarea de servicio asincrónico    | 2                     | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Tarea de fórmula                 | 2                     | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Actividad de llamada             | 5                     | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Compuertas                       | 2                     | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Sub proceso                      | 2                     | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Evento temporización             | 2                     | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Tarea de servicio (Integración)  | 1                     | 0.1                                       |
++----------------------------------+-----------------------+-------------------------------------------+
+| Tarea de servicio (Conector)     | 10                    | 0                                         |
++----------------------------------+-----------------------+-------------------------------------------+
+| Tarea de código                  | 1                     | 0.1                                       |
++----------------------------------+-----------------------+-------------------------------------------+
+
+\*\* **Consumo de puntos de tarea de usuario**
+    La ejecución de tareas de usuario tiene los siguientes consumos:
+
+    -  **Instanciado de tarea:** 3 puntos.
+    -  **Respuesta de tarea por usuario del sistema:** 2 puntos.
+    -  **Respuesta de tarea por usuario externo:** 20 puntos.
+
+Los pasos que no se encuentren en este listado tienen una cantidad de Q-points asignados de 0.

@@ -1,0 +1,33 @@
+
+Actualización
+=============
+
+1. En el Panel de control de Windows, abra la ventana Agregar y quitar programas. Desinstale todos los componentes de Qflow. Estos son:
+
+      1. Qflow Backend services
+      2. Qflow BPA
+      3. Qflow BPM
+      4. Qflow Design
+      5. Qflow Team
+      6. Qflow Web Services API
+      7. Qflow Task
+      8. Qflow Admin
+      9. Qflow Access
+
+2. Acceder al instalador de la nueva versión y ejecutar Setup.exe con permisos de administrador.
+
+   a. Ejecutar el instalador de la base de datos
+      
+      i. Seleccionar Update Qflow database
+      ii. Asegúrese de indicar correctamente los parámetros solicitados
+
+   b. Instalar la WebAPI del backend
+   c. Instalar Qflow Task (sitio de usuarios finales)
+   d. Instalar web services REST (opcional)
+   e. Instalar Qflow Design (diseñador de procesos)
+   f. Instalar Qflow Team (administrador del modelo del organigrama)
+   g. Instalar Qflow Admin (administrador y monitor del sistema)
+   h. Instalar Qflow Access (sitio de acceso al sistema)
+   i. Por último, opcionalmente instale las herramientas de diseño de procesos (BPM) y el 
+      administrador de procesos (BPA), para esto, deberá abrir una consola en modo 
+      administrador y ejecutar los .msi correspondientes.

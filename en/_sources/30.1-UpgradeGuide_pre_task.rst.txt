@@ -1,0 +1,23 @@
+Tareas previas
+==============
+
+1. Leer atentamente la sección Actualización de Qflow del manual de `Instalación y Configuración de 
+   Qflow <02-InstallationAndConfiguration.html>`_. Allí encontrará indicaciones precisas de cómo actualizar Qflow.
+   Este documento es complementario.
+
+2. Detener todos los servicios de Qflow.
+
+3. Realizar un respaldo de la base de datos.
+
+4. Realizar un respaldo de las carpetas de servicios y de los sitios de Qflow:
+      
+      a. <%ProgramFiles%>\\Urudata, donde <%ProgramFiles%> debe sustituirse por la carpeta donde se instalan los programas en la computadora que tiene instalado Qflow.
+      b. <%wwwroot%>\\QflowTask,
+         <%wwwroot%>\\QflowDesign,
+         <%wwwroot%>\\QflowTeam,
+         <%wwwroot%>\\QflowAdmin,
+         donde <%wwwroot%> es la carpeta donde se instalan por defecto las aplicaciones web. 
+         Esta carpeta se encuentra normalmente en: “c:\\inetpub\\wwwroot”. Si el sitio WebForms 
+         fue instalado, también deberá respaldar la carpeta <%wwwroot%>\\QflowWebSite.
+         Cabe destacar que los nombres de las carpetas pueden variar si así se hizo en su 
+         correspondiente instalación.

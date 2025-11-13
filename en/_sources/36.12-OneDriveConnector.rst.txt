@@ -1,0 +1,183 @@
+
+****************************************
+OneDrive
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow
+con OneDrive para permitir la interacción entre ambas plataformas, permitiendo
+así realizar operaciones con archivos alojados en la plataforma.
+
+OneDrive cuenta con las siguientes acciones:
+
+- `Subir archivo <#id2>`_
+- `Obtener archivo <#id3>`_
+- `Eliminar archivo <#id4>`_
+- `Obtener vínculo para visualización web <#id5>`_
+
+Ver `Acciones <36.12-OneDriveConnector.html#id1>`_ para conocer la descripción y contenido de cada una.
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta de OneDrive ya creada en la plataforma o crear una cuenta al momento de configurar el conector. 
+Esto puede hacerse desde el sitio de Microsoft |onedrive_es|.
+
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_)
+que permita establecer la comunicación entre Qflow y OneDrive.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de OneDrive, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando OAuth
+-----------------------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere el inicio de sesion en la cuenta de OneDrive desde Qflow.
+La misma se efectua misma en la configuración del conector siguiendo los pasos del flujo OAuth.
+
+Una vez completados los pasos anteriores, será posible interactuar con OneDrive desde Qflow.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con OneDrive:
+
+Subir archivo
+--------------------------
+Esta acción permite subir un archivo a OneDrive. 
+Se debe proporcionar el archivo a subir.
+Además es posible especificar la ruta en la que se desea almacenar el archivo, un nuevo nombre para el mismo y si se desea sobreescribir el archivo en caso de que ya exista uno con el mismo nombre en la ruta especificada.
+En caso de que no se especifique una ruta, el archivo se subirá en la raíz de la cuenta OneDrive.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Archivo
+     - **Requerido.** El archivo a subir, el tamaño del mismo no puede superar los 50MB.
+   * - Ruta
+     - Ruta donde se almacenará el archivo. El valor ingresado debe corresponder al nombre y la ubicación de la carpeta de destino. Por ejemplo, si desea almacenar el archivo en la carpeta "Aprobados", que se encuentra dentro de "Solicitudes", puede ingresar "/Solicitudes/Aprobados". Si la ubicación no existe, se creará.
+   * - Nombre
+     - El nuevo nombre del archivo a subir.
+   * - Reemplazar
+     - Opción para especificar si se desea reemplazar el archivo en caso de que ya exista uno con el mismo nombre en la ruta especificada.
+
+.. list-table:: Salidas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Enlace
+     - Enlace de previsualización del archivo subido.
+   * - Identificador
+     - Identificador generado por OneDrive para el archivo subido.
+
+
+Obtener archivo
+------------------------
+Esta acción permite obtener un archivo de OneDrive.
+Se debe proporcionar el nombre del archivo a obtener, el tamaño del mismo no puede superar los 50MB.
+Opcionalmente se admite proporcionar la ruta en la que se encuentra el archivo en OneDrive.
+En caso de que no se especifique una ruta, el archivo se buscará en la raíz de la cuenta OneDrive.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Nombre
+     - **Requerido.** Nombre del archivo a obtener.
+   * - Ruta
+     - Ruta donde se buscará el archivo.
+
+.. list-table:: Salidas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Archivo
+     - **Requerido.** Archivo obtenido.
+
+
+Eliminar archivo
+------------------------
+Esta acción permite eliminar un archivo de OneDrive.
+Se debe proporcionar el nombre del archivo a obtener.
+Opcionalmente se admite proporcionar la ruta en la que se encuentra el archivo en OneDrive.
+En caso de que no se especifique una ruta, el archivo se buscará en la raíz de la cuenta OneDrive.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Nombre
+     - **Requerido.** Nombre del archivo a obtener.
+   * - Ruta
+     - Ruta donde se buscará el archivo.
+
+
+Obtener vínculo para visualización web
+----------------------------------
+Esta acción permite obtener el enlace de visualización de un archivo de OneDrive.
+Se debe proporcionar el nombre del archivo para el cual obtener el enlace de visualización.
+Opcionalmente se admite proporcionar la ruta en la que se encuentra el archivo en OneDrive.
+En caso de que no se especifique una ruta, el archivo se buscará en la raíz de la cuenta OneDrive.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Nombre
+     - **Requerido.** Nombre del archivo para el cual se obtiene el enlace.
+   * - Ruta
+     - Ruta donde se buscará el archivo.
+
+.. list-table:: Salidas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Enlace
+     - **Requerido.** Enlace de previsualización del archivo subido.
+
+
+.. |space| raw:: html
+   
+   <p style="margin-top: 2em;"></p>
+
+.. |onedrive| raw:: html
+
+   <a href="https://www.microsoft.com/es/microsoft-365/onedrive/online-cloud-storage" target="_blank">here</a>
+
+.. |onedrive_es| raw:: html
+
+   <a href="https://www.microsoft.com/es/microsoft-365/onedrive/online-cloud-storage" target="_blank">aquí</a>
+

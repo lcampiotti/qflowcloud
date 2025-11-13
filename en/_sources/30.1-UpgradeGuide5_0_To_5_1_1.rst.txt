@@ -1,0 +1,38 @@
+v5.0-v5.1.1
+===========
+
+Consideraciones de migración desde Q-flow 5.0
+---------------------------------------------
+
+
+Versión de Servidor de Base de datos SQL
+****************************************
+
+A partir de esta versión, es necesario SQL Server 2012 o superior para instalar y trabajar 
+con bases de datos de Qflow.
+
+Tarea de código que usan fechas
+*******************************
+
+Ahora al tener zona horaria por instancia tener en cuenta usar los nuevos método de "GetCalendarDateUTC" 
+(devuelve la hora en UTC) en los casos que se utilicen datos de tipo fecha, para que se pueda
+ejecutar correctamente la tarea. Sin embargo, los métodos preexistentes devolverán las fechas en la zona
+horaria del servidor. Para más información, ver manual de `interfaz de scripting <10-ScriptingInterface.html>`_.
+
+Datos de tipo fecha cambiados
+*****************************
+
+Se actualiza el formato con el que se almacenan (ahora se almacena en DateTimeOffset), por lo tanto, si se tienen elementos custom que accedan
+a ellos (acceso a base de datos o componentes que accedan al valor de manera no estándar) deberían
+actualizarse.
+
+Zona horaria por defecto
+************************
+
+Para aquellas fechas, que provengan de versiones anteriores, se asumirá que la zona horaria es la actual del servidor.
+Si la base de datos utilizada es Oracle, las fechas siempre se almacenarán en la zona horaria del servidor.
+
+
+.. admonition:: Nota
+
+   La versión actual, es la última en la cual se dará soporte a Oracle.

@@ -1,0 +1,180 @@
+
+****************************************
+WhatsApp
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Twilio para permitir la interacción entre ambas plataformas, permitiendo
+así enviar mensajes a través de WhatsApp.
+
+WhatsApp cuenta con las siguientes acciones:
+
+- `Enviar mensaje con plantilla <#id2>`_
+- `Obtener estado de mensajes <#id3>`_
+
+Ver `Acciones <36.13-WhatsAppTwilioConnector.html#id1>`_ para conocer la descripción y contenido de cada una.
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta de Twilio y un número de WhatsApp configurado en la plataforma.
+Esto puede hacerse desde su |twilio_console_es|. Específicamente para la configuración de su número puede seguir los pasos
+detallados en la |twilio_phone_number_guide_es|.
+
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_)
+que permita establecer la comunicación entre Qflow y WhatsApp.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de WhatsApp, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando sid de cuenta, token de autenticación y número de teléfono
+-----------------------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere los siguientes parámetros:
+
+- **Id de cuenta**
+- **Token de autenticación**
+- **Número de teléfono**
+
+Para obtenerlos, se debe configurar un |whatsapp_sender_es| y posteriormente seguir los siguientes pasos:
+
+#. Acceder a su |twilio_console_es|. Aquí obtendremos nuestro identificador de cuenta y nuestro token de autenticación.
+
+   .. figure:: _static/media/36_13-WhatsAppTwilioConnector/AccountInfo.png
+      :width: 600px
+      :align: center
+
+      `Account Info` en nuestra consola de Twilio
+
+   |space|
+
+#. Seleccionar nuestro número habilitado asociado a WhatsApp en la consola de Twilio.
+
+   .. figure:: _static/media/36_13-WhatsAppTwilioConnector/ActiveNumber.png
+      :width: 850px
+      :align: center
+     
+      Vista de selección de número telefónico en Twilio
+
+   |space|
+
+Una vez completados los pasos anteriores, será posible enviar mensajes a través de WhatsApp y consultar el estado de estos desde Qflow.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con WhatsApp:
+
+Enviar mensaje con plantilla
+--------------------------
+Esta acción permite generar un nuevo mensaje a ser enviado en la plataforma de Twilio.
+Se debe proporcionar el cuerpo del mensaje que será enviado y los destinatarios del mismo.
+El cuerpo del mensaje admite formato de texto de WhatsApp y además admite la utilización de 
+emoticones mediante formato unicode.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Destinatarios
+     - **Requerido.** Números de teléfono para las cuales se desea enviar el mensaje. 
+   * - Identificador de la plantilla
+     - **Requerido.** Identifcador de la plantilla de Twilio.
+   * - Variables de la plantilla
+     - Diccionario que mapea las variables asociadas a la plantilla seleccionada. Estos valores pueden ser texto, área de texto, número o booleano. Ejemplo Teléfono = Número de teléfono.
+
+.. list-table:: Salidas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Resultado
+     - Resultado de la operación ejecutada.
+   * - Identificadores de mensajes enviados con éxito
+     - Lista de identificadores correspondientes a los mensajes enviados correctamente.
+   * - Destinatarios de los mensajes enviados con éxito
+     - Destinatarios para los cuales Twilio envió el mensaje correctamente.
+   * - Destinatarios de mensajes en error
+     - Números destinatarios del mensaje enviado con error.
+
+Los resultados posibles devuelto por esta acción son:
+
+- Sent
+- PartiallySent
+- Error
+
+Obtener estado de mensajes
+------------------------
+Esta acción permite obtener el estado de los mensajes enviados a través de Twilio. 
+Se debe proporcionar una lista de identificadores de los mensajes para los cuales 
+se desea consultar el estado.
+
+.. list-table:: Entradas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificadores
+     - **Requerido.** Identificadores de los mensajes enviados para los cuales se desea obtener el estado.
+
+.. list-table:: Salidas
+   :header-rows: 0
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Estado
+     - **Requerido.** Lista de estados correspondientes a los mensajes consultados. Si se proporcionan múltiples identificadores, los estados aparecerán en el mismo orden.
+   * - Resultado
+     - Resultado de la operación ejecutada.
+
+Los posibles resultados de esta acción son:
+
+- Ok
+- PartiallyOk
+- Error
+
+.. |space| raw:: html
+   
+   <p style="margin-top: 2em;"></p>
+
+.. |twilio_console| raw:: html
+
+   <a href="https://www.twilio.com/console" target="_blank">Twilio console</a>
+
+.. |twilio_console_es| raw:: html
+
+   <a href="https://www.twilio.com/console" target="_blank">consola de Twilio</a>
+
+.. |whatsapp_sender| raw:: html
+
+   <a href="https://www.twilio.com/docs/whatsapp/self-sign-up" target="_blank">WhatsApp sender</a>
+
+.. |whatsapp_sender_es| raw:: html
+
+   <a href="https://www.twilio.com/docs/whatsapp/self-sign-up" target="_blank">remitente de WhatsApp</a>
+
+.. |twilio_phone_number_guide| raw:: html
+
+   <a href="https://www.twilio.com/docs/whatsapp/self-sign-up" target="_blank">Twilio documentation</a>
+   
+.. |twilio_phone_number_guide_es| raw:: html
+
+   <a href="https://www.twilio.com/docs/whatsapp/self-sign-up" target="_blank">documentación de Twilio</a>

@@ -1,0 +1,68 @@
+****************************************
+Microsoft Teams
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow 
+con Microsoft Teams para permitir la interacción entre ambas plataformas,
+permitiendo publicar mensajes en canales de Microsoft Teams desde Qflow.
+
+Microsoft Teams cuenta con las siguientes acciones:
+
+- `Publicar en canal <#id2>`_
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_) 
+que permita establecer la comunicación entre Qflow y Microsoft Teams.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow, donde también se utiliza para establecer 
+la comunicación entre Qflow y Microsoft Teams. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de Microsoft Teams, se deben seguir los pasos
+que se detallan a continuación.
+
+Parámetro de aplicación utilizando un Webhook
+-----------------------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere lo siguiente:
+
+- **Vínculo del Webhook**: Es el vínculo con el cual Qflow se debe comunicar
+  para enviar mensajes a Microsoft Teams. Para obtenerlo se debe seguir 
+  la siguiente |teams_webhook_creation_guide_es|.
+
+El Webhook es un enlace que permite a una aplicación enviar mensajes a un canal específico de Microsoft Teams.
+En caso de querer enviar mensajes a diferentes canales, se deben crear Webhooks distintos para cada uno.
+
+Una vez completados los pasos, será posible el uso de Microsoft Teams con Qflow utilizando 
+el parámetro de aplicación creado.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con Microsoft Teams:
+
+Publicar en canal
+------------------------
+Esta opción permite enviar mensajes a un canal de Microsoft Teams. 
+El canal al que se enviará el mensaje está determinado por el `Webhook` utilizado.
+
+.. list-table:: Entradas
+    :header-rows: 1
+    :align: center
+    :width: 100%
+    :widths: 25 75    
+
+    * - Entrada
+      - Descripción
+    * - Mensaje
+      - **Requerido.** Texto del mensaje que se desea enviar al canal de Microsoft Teams.
+
+.. |teams_webhook_creation_guide_es| raw:: html
+
+   <a href="https://learn.microsoft.com/es-mx/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#create-an-incoming-webhook" target="_blank">guía</a>
+
+.. |teams_webhook_creation_guide_en| raw:: html
+
+   <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#create-an-incoming-webhook" target="_blank">guide</a>

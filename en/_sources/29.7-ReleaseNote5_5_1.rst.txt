@@ -1,0 +1,93 @@
+v5.5.1
+======
+
+Resumen de características
+**************************
+
+Después de la gran liberación de la `versión 5.5 <29.6-ReleaseNote5_5.html>`_, que introdujo la funcionalidad de `Conectores 
+<34-ConnectorsIndex.html>`_, llega la actualización 5.5.1 con correcciones y mejoras pensadas 
+para optimizar la experiencia del usuario. 
+
+Esta actualización incluye cambios en conceptos, mejoras en usabilidad del producto y un chat 
+de ayuda potenciado por inteligencia artificial.
+
+Nuevas funcionalidades
+**********************
+ 
+Cambio de concepto: "Asignar como versión en producción" pasa a ser "Publicar"
+------------------------------------------------------------------------------
+
+A partir de ahora, para poner un proceso a disposición de los usuarios, se debe "Publicar", 
+que reemplaza al concepto de "Asignar como versión en producción". De la misma manera, si 
+se desea que el proceso ya no se encuentre disponible, se debe "Despublicar" en lugar de 
+"Desasignar como versión en producción".
+
+Este cambio de terminología busca simplificar y clarificar el proceso para los usuarios.
+
+.. figure:: _static/media/29_7-ReleaseNote/new-concept-publish.png
+    :width: 30%
+    :align: center
+    :alt: Publicar proceso desde árbol de paquetes
+
+    Publicar proceso desde árbol de paquetes
+
+ 
+Botón para publicar en vista de diseño del proceso
+---------------------------------------------------
+
+Se agrega un botón en la parte superior derecha de la pantalla de diseño del proceso que permite 
+publicar el proceso directamente desde allí, haciendo el proceso más fácil y directo.
+
+.. figure:: _static/media/29_7-ReleaseNote/new-publish-button.png
+    :width: 60%
+    :align: center
+    :alt: Nuevo botón "Publicar" en vista de diseño del proceso
+
+    Nuevo botón "Publicar" en vista de diseño del proceso
+
+ 
+Acceso directo para iniciar proceso al publicar
+-----------------------------------------------
+
+Al publicar un proceso por primera vez, se muestra una ventana emergente con el acceso directo para 
+ir a su formulario de inicio, permitiendo ejecutar el proceso de manera inmediata.
+
+.. figure:: _static/media/29_7-ReleaseNote/start-process-qflow-design.png
+    :width: 50%
+    :align: center
+    :alt: Acceso a formulario de inicio de proceso desde Qflow Design
+
+    Acceso a formulario de inicio de proceso desde Qflow Design
+ 
+Chat de asistencia con inteligencia artificial
+----------------------------------------------
+
+A partir de esta versión, se incorpora un chat de asistencia que responde en base a la documentación 
+oficial de Qflow con inteligencia artificial. Si la respuesta no es suficiente, se puede solicitar 
+ayuda en directo al equipo de soporte de Qflow o dejar una consulta en caso que sea en horas en las 
+que no se tiene contratado soporte.
+ 
+Para acceder a este chat, se debe presionar en la opción de "Chat de ayuda" que se encuentra en el 
+menú superior de Qflow Task, Team, Design y Admin.
+
+.. figure:: _static/media/29_7-ReleaseNote/help-chat-header.png
+    :width: 30%
+    :align: center
+    :alt: Acceso a Chat de ayuda desde menú superior
+
+    Acceso a Chat de ayuda desde menú superior
+ 
+Corrección de errores y mejoras
+*******************************
+
+-  Corrección de estilos del home de Qflow Design en Safari: Mejora la compatibilidad y visualización 
+   en este navegador.
+
+-  Corrección del clic derecho del árbol de paquetes de Qflow Design en Mac y Linux: Soluciona 
+   problemas específicos de interacción en estos sistemas operativos.
+
+-  Eliminación del mensaje requerido al proteger: Simplifica el flujo de trabajo eliminando la 
+   necesidad de ingresar un mensaje cada vez que se protege un paquete, plantilla o versión de proceso.
+
+-  Corrección en el asistente de Inteligencia Artificial: Ahora, el asistente siempre viene con un valor 
+   preingresado en el campo "Asunto" de las tareas de usuario y de notificación.

@@ -1,0 +1,283 @@
+****************************************
+Trello
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Trello para permitir la interacción entre ambas plataformas, permitiendo 
+crear, mover, eliminar tarjetas, añadir comentarios, añadir y eliminar miembros.
+
+Trello cuenta con las siguientes acciones:
+
+- `Crear tarjeta <#id1>`_
+- `Agregar comentario a tarjeta <#id2>`_
+- `Mover tarjeta <#id3>`_
+- `Agregar miembro a tarjeta <#id4>`_
+- `Eliminar miembro de la tarjeta <#id5>`_
+- `Eliminar tarjeta <#id6>`_
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta de Trello y un espacio de trabajo creado en la plataforma.
+Puede hacerse una cuenta |trello_signup|.
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_) 
+que permita establecer la comunicación entre Qflow y Trello.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow.
+(ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de Trello, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando API Key y Token
+--------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere de los siguientes parámetros:
+
+- **API Key**: Es una clave que permite a Qflow conectarse con el Espacio de trabajo 
+  de Trello para el cual ha sido creada la clave.
+- **Token**: Es un token de acceso que permite a Qflow acceder al Espacio de trabajo 
+  como el usuario que ha generado el token.
+
+Para obtenerlos, se deben seguir los siguientes pasos:
+
+#. Acceder a la sección de |trello_power_ups| de Trello, leer y aceptar las Condiciones
+   del Desarrollador de Trello.
+
+   .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors1.png
+      :width: 600px
+      :align: center
+
+      `Condiciones del Desarrollador de Trello` seleccionado en Privacidad y cumplimiento
+   |space|
+
+#. Seleccionar `Nuevo` para crear una nueva integración.
+
+   .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors2.png
+      :width: 600px
+      :align: center
+
+      `Nuevo` seleccionado en Power-Ups e integraciones
+   |space|
+
+#. Llenar los campos requeridos para la creación de la integración.
+
+   .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors3.png
+      :width: 600px
+      :align: center
+
+      `Crear` seleccionado en Nuevo Power-Up o integración
+   |space|
+
+#. Una vez creada la integración, generar una nueva clave de API.
+
+   .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors4.png
+      :width: 600px
+      :align: center
+
+      `Generar una nueva clave de API` seleccionado en Power-Ups e integraciones
+   |space|
+
+#. Seleccionar que se desea generar la clave de API.
+
+    .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors5.png
+        :width: 600px
+        :align: center
+    
+        `Generar clave de API` seleccionado en Generar clave de API
+    |space|
+
+#. Trello muestra la `Clave de API`, que es la API Key a copiar necesaria para configurar el 
+   parámetro de aplicación de Qflow. Hecho esto, se debe generar un token de acceso seleccionando
+   `Token`.
+
+    .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors6.png
+        :width: 600px
+        :align: center
+    
+        Donde copiar `Clave de API` y `Token` seleccionados en Power-Ups e integraciones
+    |space|
+
+#. Se listan los permisos que le daremos a la integración al utilizar el token que crearemos.
+   Seleccionar `Permitir`
+
+    .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors7.png
+        :width: 600px
+        :align: center
+    
+        `Permitir` seleccionado en sección de permisos
+    |space|
+
+#. Copiar el token generado, que es el token de acceso necesario para configurar el parámetro de aplicación de Qflow.
+   Con esto finalizan los pasos necesarios en la página de Trello.
+
+    .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors8.png
+        :width: 600px
+        :align: center
+    
+        Copiar `Token` seleccionado
+    |space|
+
+#. En Qflow Design, agregar `API Key` y `Token` en la creación del parámetro de aplicación.
+
+    .. figure:: _static/media/36_4-TrelloConnector/TrelloConnectors9.png
+        :width: 600px
+        :align: center
+
+        Parámetros necesarios del parámetro de aplicación agregados en Qflow
+    |space|
+
+Una vez completados los pasos, será posible crear, mover, eliminar tarjetas, añadir comentarios, 
+añadir y eliminar miembros en Trello desde Qflow.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con Trello:
+
+Crear tarjeta
+-------------
+Esta acción permite crear una tarjeta en una lista específica de un tablero de Trello.
+Se debe proporcionar el nombre del tablero, el nombre de la tarjeta y el nombre de la lista 
+en la que se creará la tarjeta.
+Opcionalmente se pueden agregar otros parámetros que se listan debajo.
+Después de crear la tarjeta, se recibe un identificador único de la tarjeta creada, que permite 
+eliminarla, moverla a otra lista, añadirle comentarios, añadirle y eliminarle miembros.
+
+.. list-table:: Entradas
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Nombre del tablero
+     - **Requerido.** Nombre del tablero de Trello en el que se creará la tarjeta.
+   * - Nombre
+     - **Requerido.** Nombre de la tarjeta que se creará.
+   * - Descripción
+     - Descripción de la tarjeta que se creará.
+   * - Nombre de usuario de miembros
+     - Nombre de usuario de los miembros que se añadirán a la tarjeta.
+   * - Nombre de la lista
+     - **Requerido.** Nombre de la lista en la que se creará la tarjeta.
+   * - Fecha de vencimiento
+     - Fecha de vencimiento de la tarjeta que se creará.
+   * - Etiquetas
+     - Etiquetas de la tarjeta que se creará. Esta debe existir ya en el tablero, de lo contrario no se asignará.
+   * - Vínculo del adjunto
+     - Vínculo adjunto de la tarjeta que se creará.
+   * - Crear tarjeta como archivada
+     - Especifica si la tarjeta se creará como archivada o no.
+
+.. list-table:: Salidas
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Identificador de la tarjeta
+     - Identificador único de la tarjeta creada.
+
+Agregar comentario a tarjeta
+----------------------------
+Esta acción permite agregar un comentario a una tarjeta específica de Trello. Se debe proporcionar el identificador de la tarjeta y el comentario a agregar.
+
+.. list-table:: Entradas
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de la tarjeta
+     - **Requerido.** Identificador único de la tarjeta a la que se agregará el comentario.
+   * - Texto
+     - **Requerido.** Comentario que se agregará a la tarjeta.
+
+Mover tarjeta
+-------------
+Esta acción permite mover una tarjeta a una lista específica de un tablero de Trello. Se debe proporcionar el identificador de la tarjeta y el nombre de la lista a la que se moverá la tarjeta.
+
+.. list-table:: Entradas
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de la tarjeta
+     - **Requerido.** Identificador único de la tarjeta que se moverá.
+   * - Nombre de lista
+     - **Requerido.** Nombre de la lista a la que se moverá la tarjeta.
+
+Agregar miembro a tarjeta
+-------------------------
+Esta acción permite agregar un miembro a una tarjeta específica de Trello. Se debe proporcionar el identificador de la tarjeta y el nombre de usuario del miembro que se añadirá a la tarjeta.
+
+.. list-table:: Entradas
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de la tarjeta
+     - **Requerido.** Identificador único de la tarjeta a la que se añadirá el miembro.
+   * - Nombre de usuario
+     - **Requerido.** Nombre de usuario del miembro que se añadirá a la tarjeta.
+
+Eliminar miembro de la tarjeta
+-------------------------------
+Esta acción permite eliminar un miembro de una tarjeta específica de Trello. Se debe proporcionar el identificador de la tarjeta y el nombre de usuario del miembro que se eliminará de la tarjeta.
+
+.. list-table:: Entradas
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de la tarjeta
+     - **Requerido.** Identificador único de la tarjeta de la que se eliminará el miembro.
+   * - Nombre de usuario
+     - **Requerido.** Nombre de usuario del miembro que se eliminará de la tarjeta.
+
+Eliminar tarjeta
+----------------
+Esta acción permite eliminar una tarjeta específica de Trello. Se debe proporcionar el identificador de la tarjeta que se eliminará.
+
+.. list-table:: Entradas
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de la tarjeta
+     - **Requerido.** Identificador único de la tarjeta que se eliminará.
+
+
+.. |space| raw:: html
+   
+      <p style="margin-top: 2em;"></p>
+
+.. |trello_signup| raw:: html
+
+   <a href="https://trello.com/signup" target="_blank">desde aquí</a>
+
+.. |trello_signup_eng| raw:: html
+
+   <a href="https://trello.com/signup" target="_blank">here</a>
+
+.. |trello_power_ups| raw:: html
+
+    <a href="https://trello.com/power-ups/admin" target="_blank">Power-Ups e integraciones</a>
+
+.. |trello_power_ups_eng| raw:: html
+
+    <a href="https://trello.com/power-ups/admin" target="_blank">Power-Ups and integrations</a>

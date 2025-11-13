@@ -1,0 +1,152 @@
+****************************************
+Outlook
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Outlook para permitir la interacción entre ambas plataformas, permitiendo
+crear, actualizar y cancelar reuniones en el calendario.
+
+Outlook cuenta con las siguientes acciones:
+
+- `Agendar reunión <#id1>`_
+- `Actualizar reunión <#id2>`_
+- `Cancelar reunión <#id3>`_
+
+Ver `Acciones <36.2-OutlookConnector.html#id1>`_ para conocer la descripción y contenido de cada una.
+
+Prerrequisitos
+==============
+Es necesario contar con una cuenta de Microsoft.
+
+Parámetro de aplicación
+=======================
+Para entablar la conexión es necesario contar con al menos un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_) 
+que permita establecer la comunicación entre Qflow y Outlook.
+Este campo es utilizado para configurar el conector de una Tarea de Servicio en Qflow. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de Outlook, se requieren los siguientes pasos que se detallan a continuación.
+
+Parámetro de aplicación utilizando OAuth
+----------------------------------------
+
+Este tipo de parámetro de aplicación requiere el inicio de sesion en la cuenta de Outlook desde Qflow.
+La misma se efectua en la configuración del conector siguiendo los pasos del flujo OAuth.
+
+Una vez completados los pasos anteriores, será posible interactuar con Outlook desde Qflow.
+
+Acciones
+========
+
+Se pueden realizar las siguientes acciones con Outlook:
+
+Agendar reunión
+---------------
+Esta acción permite agendar una reunión en el calendario de Outlook. Se debe proporcionar la fecha y hora tanto de inicio como de fin de la reunión obligatoriamente. 
+Opcionalmente se pueden agregar otros campos que se listan debajo. Después de agendar la reunión, se recibe una clave que identifica la reunión en 
+Outlook, que permite editarla o cancelarla más adelante.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Hora de inicio
+     - **Requerido.** Hora de inicio de la reunión.
+   * - Hora de finalización
+     - **Requerido.** Hora de finalización de la reunión.
+   * - Asunto
+     - Asunto del correo que se enviará a los asistentes incluidos en la reunión.
+   * - Correo electrónico de los asistentes
+     - Correo electrónico de los asistentes de la reunión.
+   * - Lugar
+     - Descripción del lugar donde se realizara la reunión.
+   * - Crear y agregar una reunión de Microsoft Teams
+     - En caso de ser deseado, marcando este parámetro como verdadero se envía con la cita una reunión de Microsoft Teams.
+   * - Contenido
+     - Contenido del correo electrónico enviado a los asistentes con información sobre la reunión.
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Identificador de reunión
+     - Identificador de la reunión en Outlook que permite editarla o cancelarla más adelante.
+
+
+Actualizar reunión
+------------------
+Esta acción permite actualizar una reunión previamente creada en el calendario de Outlook. Se debe proporcionar el identificador de la reunión. Opcionalmente se pueden agregar otros campos que se listan debajo.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de reunión
+     - **Requerido.** Identificador de reunión que se obtiene al crearla.
+   * - Hora de inicio
+     - Hora de inicio de la reunión.
+   * - Hora de finalización
+     - Hora de finalización de la reunión.
+   * - Asunto
+     - Asunto del correo que se enviará a los asistentes incluidos en la reunión.
+   * - Correo electrónico de los asistentes
+     - Correo electrónico de los asistentes de la reunión.
+   * - Lugar
+     - Descripción del lugar donde se realizará la reunión.
+   * - Crear y agregar una reunión de Microsoft Teams
+     - En caso de ser deseado, marcando este parámetro como verdadero se envía con la cita una reunión de Microsoft Teams.
+   * - Contenido
+     - Contenido del correo electrónico enviado a los asistentes con información sobre la reunión.
+
+En caso de no modificar los parametros no requeridos los mismos mantendran la información original con la que se creo la reunión. 
+
+Cancelar reunión
+----------------
+Esta acción permite cancelar una reunión previamente creada en el calendario de Outlook. Se debe proporcionar el identificador de la reunión. Opcionalmente se pueden agregar otros campos que se listan debajo.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Identificador de reunión
+     - **Requerido.** Correo electrónico del organizador de la reunión que se quiere cancelar.
+   * - Comentario
+     - Comentario informando la razón por la que se cancela la reunión.
+
+.. |space| raw:: html
+   
+      <p style="margin-top: 2em;"></p>
+
+.. |outlook_microsoft_entra_es| raw:: html
+
+   <a href="https://entra.microsoft.com/" target="_blank">desde aquí</a>
+
+.. |outlook_microsoft_entra_en| raw:: html
+
+   <a href="https://entra.microsoft.com/" target="_blank">here</a>
+
+.. |outlook_registered_apps_es| raw:: html
+
+    <a href="https://entra.microsoft.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/Microsoft_AAD_IAM" target="_blank">Registros de aplicaciones</a>
+
+.. |outlook_registered_apps_en| raw:: html
+
+    <a href="https://entra.microsoft.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/Microsoft_AAD_IAM" target="_blank">Registered applications</a>

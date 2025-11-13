@@ -1,0 +1,184 @@
+****************************************
+ILovePDF 
+****************************************
+
+.. raw:: html
+
+   <style>
+     .offset-anchor {
+       display: block;
+       position: relative;
+       top: -2em;     
+       visibility: hidden;
+     }
+   </style>
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow con el conector ILovePDF, 
+describiendo cada una de las acciones que ofrece para el manejo de documentos o archivos PDF y cómo incorporarlas en los procesos de la plataforma.
+
+El conector cuenta con la siguiente acción:
+
+- `Convertir archivo Office <#id1>`_
+- `Unir archivos PDF <#id2>`_
+- `Convertir imagen a PDF <#id3>`_
+
+Prerrequisitos
+==============
+
+Es necesario disponer de una cuenta en **ILovePDF** y una **API Key pública** con 
+permisos de conversión.
+
+Parámetro de aplicación
+=======================
+
+Para entablar la conexión es necesario contar un **parámetro de aplicación** (ver `Parámetros de aplicación <15-QflowDesign.html#parametros-de-aplicacion>`_)
+que permita establecer la comunicación entre Qflow e ILovePDF.
+Este parámetro se utiliza para configurar el conector dentro de una Tarea de Servicio en Qflow. (ver `Configuración de Conectores desde una Tarea de Servicio <35-ConnectorParameterConfig.html>`_)
+
+Para crear un parámetro de aplicación de ILovePDF, se requieren los siguientes pasos, que se detallan a continuación.
+
+Parámetro de aplicación utilizando **API Key pública**
+------------------------------------------------------
+
+Este tipo de parámetro de aplicación requiere lo siguiente:
+
+- **API Key**: Clave pública generada en el panel de ILovePDF.
+
+Para obtenerla, siga estos pasos:
+
+#. Ingrese al sitio web de ILovePDF (https://www.iloveapi.com/) y cree una cuenta, en caso de tener una creada puede utilizar la misma.
+
+#. Diríjase a **Projects → API Keys** y copie la clave pública.  
+
+   .. figure:: _static/media/36_15-ILovePDF/ApiKeyDashboard.png
+      :width: 400px
+      :align: center
+
+      Panel de ILovePDF con sección de **API Key pública**.
+
+   No es obligatorio utilizar una API Key diferente por proceso. Sin embargo, se recomienda generar una clave por cada proceso para facilitar la gestión, el monitoreo del uso y la seguridad. Puede generar nuevas claves desde el siguiente panel:
+
+   .. figure:: _static/media/36_15-ILovePDF/ApiKeyPanel.png
+      :width: 600px
+      :align: center
+
+      **API Key pública** disponible para copiar y enlace para crear nuevos proyectos.
+
+   En caso de querer crear una nueva clave, simplemente asígnele un nombre y guárdela. Esta se generará en el panel mostrado anteriormente.
+
+   .. figure:: _static/media/36_15-ILovePDF/NewApiKEY.png
+      :width: 500px
+      :align: center
+
+      Panel para crear nuevas API Keys 
+
+#. En **Qflow Design**, seleccione el conector y configure como parámetro de conexión la **API Key pública** obtenida.
+
+   .. figure:: _static/media/36_15-ILovePDF/DesignParametro.png
+      :width: 600px
+      :align: center
+
+      Datos agregados en el parámetro de aplicación
+
+Acciones
+========
+
+Con ILovePDF se puede realizar la siguiente acción:
+
+.. raw:: html
+   <span id="id1" class="offset-anchor"></span>
+
+Convertir archivo Office
+------------------------
+
+Esta acción permite convertir documentos de Office a un único archivo PDF.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Archivo a convertir
+     - **Requerido.** Ingrese el nombre del dato de tipo documento que contendrá el archivo de Office que quiere convertir a PDF. El tamaño del archivo no puede superar los 50 MB.
+   * -  Nombre del archivo PDF convertido
+     -   Ingrese el nombre que tendrá el archivo PDF convertido. No se pueden usar caracteres no permitidos por Windows, como por ejemplo: ? " |  * / \ < >.
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Archivo PDF convertido
+     - Ingrese un dato de tipo documento que contendrá el archivo PDF final que resulta de convertir el archivo elegido.
+
+.. raw:: html
+   <span id="id2" class="offset-anchor"></span>
+
+Unir archivos PDF
+--------------------------
+Esta acción permite unir una serie de documentos PDF en un unico resultante.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Archivos a unir
+     - **Requerido.** Ingrese el nombre o los nombres de los datos de tipo documento que contendrán los archivos PDF que quiere unir. El tamaño total de los archivos no debe exceder los 50 MB.
+   * -  Nombre del archivo resultante
+     -   Ingrese el nombre que tendrá el archivo PDF resultante de la union. No se pueden usar caracteres no permitidos por Windows, como por ejemplo: ? " |  * / \ < >. Si se omite, se usará `resultado.pdf`.
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Archivo PDF resultante
+     - Ingrese un dato de tipo documento que contendrá el archivo PDF final que resulta de unir los archivos elegidos.
+
+.. raw:: html
+   <span id="id3" class="offset-anchor"></span>
+
+Convertir imagen a PDF
+-----------------------
+
+Esta acción permite convertir una imágen en un único archivo PDF.
+
+.. list-table:: Entradas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Entrada
+     - Descripción
+   * - Imagen a convertir
+     - **Requerido.** Ingrese el nombre del dato de tipo documento que contendrá la imágen a convertir. El tamaño total no debe superar los 50 MB. Extensiones soportadas: JPG, JPEG, PNG, TIF, TIFF.
+   * - Nombre del archivo PDF convertido
+     - Ingrese el nombre que tendrá el archivo PDF generado. No se pueden usar caracteres no permitidos por Windows, como por ejemplo: ? " | * / \ < >.
+
+.. list-table:: Salidas
+   :header-rows: 1
+   :align: center
+   :width: 100%
+   :widths: 25 75
+
+   * - Salida
+     - Descripción
+   * - Imagen convertida
+     - Ingrese un dato de tipo documento que contendrá el archivo PDF final generado al convertir la imágen seleccionada.

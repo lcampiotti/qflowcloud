@@ -1,0 +1,607 @@
+
+=========================================================
+Diseña un proceso de quejas
+=========================================================
+
+Introducción
+============
+
+Este tutorial explica brevemente las principales funcionalidades de 
+Qflow Design a partir del diseño de un proceso de atención de quejas. 
+
+Esta herramienta permite al usuario diseñar procesos, definir datos de
+aplicación, roles y otros elementos que forman la base de los procesos
+que se ejecutan.
+
+Proceso de quejas
+=================
+
+Una empresa quiere mejorar su sistema de atención de quejas de clientes
+mediante un proceso de Qflow.
+
+El proceso de quejas que implementarán se desarrolla de la siguiente
+manera:
+
+1) Un cliente llama a la empresa para expresar una queja
+
+2) El receptor de la llamada inicia un proceso de Qflow con los
+   siguientes datos:
+
+   -  Nombre del cliente
+
+   -  Dirección de correo electrónico: se usará para enviarle un mensaje una vez atendida la queja
+
+   -  Texto de queja: descripción de la queja del cliente
+
+   -  Texto para enviar al cliente: el texto que se le enviará al cliente vía correo electrónico una vez atendida la queja
+
+   -  Elegir la opción de si la queja es por mala atención, producto defectuoso u otra.
+
+3) Se dirige la queja a un departamento dependiendo de la opción de
+   queja que se asignó: encargado de producto, encargado de atención o
+   al gerente comercial que elige a un empleado como encargado de
+   atender la queja.
+
+4) Cualquiera de los encargados de atender la queja la atiende y redacta un texto para
+   enviarle por correo electrónico al cliente.
+
+5) Se envía automáticamente un mensaje de correo electrónico al cliente,
+   utilizando el texto ingresado en el paso anterior.
+
+6) Termina la ejecución del proceso.
+
+Construcción del proceso de Qflow 
+==================================
+
+Crea una nueva plantilla vacía para el proceso “Quejas”. 
+
+
+Agregar los elementos al diseño del proceso:
+--------------------------------------------
+
+1) Al crear la plantilla se abre el “Diseño de proceso”, este viene con un evento de
+   inicio y fin y es donde se van a agregar todos los pasos que sucedan
+   entre estos dos.
+
+   Un evento representa algo que ocurre en el proceso. Estos se pueden clasificar como Eventos de inicio, 
+   Eventos intermedios y Eventos de fin.
+
+   El evento de inicio marca el inicio de un proceso. También representa el
+   punto en el que un usuario inicia un proceso.
+
+   Los eventos de fin de Qflow pueden ser de fin y de fin terminal, ambos 
+   finalizan la ejecución de los procesos.
+   
+   Un evento de fin terminal termina la ejecución del proceso aún cuando
+   todavía haya hilos en ejecución. En ese caso, Qflow finaliza esos hilos
+   y el proceso termina su ejecución. Un evento de fin, por el contrario,
+   espera que todos los hilos terminen y una vez terminados finaliza el
+   proceso. Los hilos del proceso se van a explicar más adelante en la sección 
+   de compuertas dento de `Configuración de las actividades`_. 
+
+   Este tutorial no utiliza eventos intermedios, por lo que si deseas información 
+   sobre estos consulta el manual de `Qflow Design. <15-QflowDesign.html>`_
+
+.. figure:: _static/media/23-DesignTutorial/imagen3.png
+   :width: 50%
+   :align: center
+   :alt: Diseño de proceso
+
+   Diseño de proceso
+
+2) Para agregar actividades, selecciona el ícono que representa una
+   actividad en la barra de herramientas |imagen38|. Hágale clic y después haga clic en el diseño.
+
+   Una actividad representa una unidad de trabajo a realizar en el proceso.
+   Esta puede ser una tarea, un proceso automático o un subproceso.
+
+.. figure:: _static/media/23-DesignTutorial/imagen4.png
+   :width:  15%
+   :align: center
+   :alt: Agregar actividad
+
+   Agregar actividad
+
+3) Agrega las tareas y la compuerta exclusiva para determinar a dónde
+   se dirige la queja.
+
+4) Para conectar las actividades selecciona la herramienta de conexión
+   (ícono violeta) en la barra de herramientas y luego haz clic en la
+   actividad que quieras conectar.
+
+.. figure:: _static/media/23-DesignTutorial/imagen5.png
+   :width: 80%
+   :align: center
+   :alt: Conectar actividades
+
+   Conectar actividades 
+
+5) Asigna los tipos a las actividades. Para especificar el
+   tipo selecciona la tarea y luego haz clic en el botón |imagen39|. Ahí aparece un menú para elegir el
+   tipo de la actividad. Siendo “Elegir encargado de atender la queja”,
+   “Atender mala atención”, “Atender producto defectuoso” y “Atender
+   queja” tareas de usuario y “Enviar respuesta al cliente” tarea de
+   email.
+
+.. figure:: _static/media/23-DesignTutorial/imagen6.png
+   :width: 90%
+   :align: center
+   :alt: Asignar tipo a la actividad
+
+   Asignar tipo a la actividad 
+
+Roles
+-----
+
+Los roles representan uno o más usuarios que desempeñarán una
+determinada función durante la ejecución de un proceso. Cuando una
+plantilla de proceso especifica que Qflow debe enviar una tarea a un
+usuario, no especifica un usuario concreto, especifica un rol.
+
+Se permite la opción de asignar solo a un miembro, a varios o miembros
+que tienen muchos usuarios (por ejemplo, grupos).
+
+Además, se permite aplicar reglas que determinan quiénes son los miembros
+del rol, como ser, “supervisado por” otro miembro, “supervisor de”,
+entre otros.
+
+El proceso necesita cuatro roles:
+
+-  **Gerente comercial:** es el que recibe la tarea cuando se determinó
+   que la queja es otra y es el que elige al encargado de atender la
+   queja. A este rol se le puede asignar un usuario durante la
+   definición del proceso (se sabe quién es el gerente comercial). Este
+   rol es el destinatario de la tarea “Elegir encargado de atender la
+   queja”.
+
+-  **Encargado de atender la queja:** es el que recibe la tarea “Atender
+   la queja”. A este rol se le asigna un usuario durante la ejecución
+   del proceso: es lo que hace el gerente comercial. Este rol es el
+   destinatario de la tarea “Atender la queja”.
+
+-  **Encargado de atención:** es el que recibe la tarea cuando se
+   determina que la queja es por mala atención. Asigna tu cuenta de
+   usuario como miembro (esto es sólo para probar: naturalmente, en un
+   caso real, cada uno tendría un miembro distinto). Este rol es el
+   destinatario de la tarea “Atender mala atención”.
+
+-  **Encargado de productos:** es el que recibe la tarea
+   cuando se determina que la queja es por un producto defectuoso.
+   Asigna tu cuenta de usuario como miembro (esto es sólo para probar:
+   naturalmente, en un caso real, cada uno tendría un miembro distinto).
+   Este rol es el destinatario de la tarea “Atender producto
+   defectuoso”.
+
+Creación del rol de “Encargado de productos”:
+
+.. figure:: _static/media/23-DesignTutorial/gifCreacionRol.gif
+   :width: 60%
+   :align: center
+   :alt: Creación de un rol
+
+   Creación de un rol 
+
+Resultado de la creación de todos los roles: 
+
+.. figure:: _static/media/23-DesignTutorial/imagen7.png
+   :width: 60%
+   :align: center
+   :alt: Roles
+
+   Roles
+
+Dominios de dato 
+---------------
+
+El dominio de un dato especifica el conjunto de valores que el dato
+puede tomar y está asociado a un tipo de dato. En Qflow, cada dato
+de aplicación está asociado a un dominio y este está asociado a un tipo
+de dato.
+
+Qflow ofrece un conjunto de dominios básicos, pero es posible definir
+dominios adicionales.
+
+Los dominios básicos de Qflow son:
+
+- Área de texto
+- Área de texto enriquecido
+- Contraseña
+- Dinero
+- Documento
+- Email
+- Fecha
+- Fecha y hora
+- Hora
+- Hipervínculo
+- Número
+- Teléfono
+- Texto
+- Verdadero/Falso
+
+Crea un nuevo dominio para poder clasificar la queja:
+“Categoría de queja” y se le asigna el tipo de control “Combo Box”, tipo
+de dato “texto” y origen de dato “lista”.
+
+.. figure:: _static/media/23-DesignTutorial/imagen8.png
+   :width: 40%
+   :align: center
+   :alt: Creación de un dominio
+
+   Creación de un dominio 
+
+Luego, ve a la configuración de la lista, haciendo clic en
+el botón. Dentro de la ventana se pueden agregar las distintas opciones
+que aparecerán en la lista con el botón “+”.
+
+.. figure:: _static/media/23-DesignTutorial/imagen9.png
+   :width: 50%
+   :align: center
+   :alt: Configuración de la lista
+
+   Configuración de la lista
+
+Datos de aplicación 
+-------------------
+
+Los datos de aplicación son datos que maneja Qflow en los procesos.
+Cada dato está asociado a un dominio, y este está asociado a un tipo de
+dato y a un tipo de control que determina cómo el dato será mostrado en
+los formularios de los procesos.
+
+El formulario de propiedades de un dato de aplicación tiene las
+siguientes secciones.
+
+-  **General:** contiene el nombre, la descripción, el dominio y otras
+   opciones que definen el comportamiento del dato.
+
+-  **Avanzado:** permite definir valores por defecto para el dato.
+
+-  **Presentación:** contiene propiedades que definen aspectos de cómo el
+   dato se verá en Qflow Task.
+
+Los datos de aplicación que se necesitan para este tutorial son:
+
+- Nombre del cliente
+
+- Dirección de correo electrónico
+
+-  Texto de la queja
+
+-  Texto para enviar al cliente
+
+-  Categoría
+
+Cada dato de aplicación se crea presionando el botón “+”, ahí
+se abre una ventana para crearlo. Para cada uno ingresar sus respectivos
+dominios.
+
+Creación del dato de aplicación “Nombre del cliente”:
+
+.. figure:: _static/media/23-DesignTutorial/gifCreacionDatoAplicacion.gif
+   :width: 60%
+   :align: center
+   :alt: Creación de un dato de aplicación
+
+   Creación de un dato de aplicación
+
+Resultado de la creación de todos los datos de aplicación:
+
+.. figure:: _static/media/23-DesignTutorial/imagen10.png
+   :width: 60%
+   :align: center
+   :alt: Datos de aplicación
+
+   Datos de aplicación
+
+Configuración de paso de inicio 
+-------------------------------
+
+El paso de inicio desencadena el inicio de un proceso, y por lo tanto, es en este paso donde se definen los datos de aplicación que se solicitarán en el formulario de inicio.
+
+Para definir estos datos de aplicación, debes acceder a la ventana de configuración correspondiente al paso de inicio y allí seleccionar la pestaña "Formulario" y 
+en la sección de “Visibilidad” podrás encontrar los datos de aplicación. 
+A continuación, deberá marcarse como “Requerido” a cada uno de los campos que desees incluir en el formulario de inicio del proceso.
+
+La siguiente imagen presenta un ejemplo de configuración de Visibilidad de datos.
+
+.. figure:: _static/media/23-DesignTutorial/imagen37.png
+   :width: 50%
+   :align: center
+   :alt: Configuración de la visibilidad de datos
+
+   Configuración de la visibilidad de datos
+
+Configuración de las actividades 
+--------------------------------
+
+Para definir cada actividad debes hacer clic en cada una de ellas y luego clic en el botón de 
+azul del engranaje (“Editar”) o doble clic sobre estas y una ventana se abrirá para poder especificar 
+las propiedades.
+
+**Compuerta exclusiva**
+
+Las compuertas permiten modificar el flujo de un proceso, ya sea creando
+varios caminos paralelos en el proceso o seleccionando un camino de
+varios posibles posteriores a la compuerta.
+
+Todas las compuertas se conectan con varios elementos a través de sus
+conectores. Lo que cambia según el tipo de compuerta es si, una vez que
+un proceso pasa por ella, continúa utilizando todos los caminos, algunos
+de ellos o solamente uno.
+
+Pueden ser de los siguientes tipos:
+
+-  **Compuerta exclusiva:** selecciona uno de varios posibles caminos para
+   que el proceso continúe su ejecución.
+
+-  **Compuerta inclusiva:** selecciona uno o más de varios posibles caminos
+   para que el proceso continúe su ejecución, de modo que puede generar
+   varios hilos paralelos.
+
+-  **Compuerta paralela:** genera tantos caminos paralelos como conexiones
+   salientes tenga.
+
+En este tutorial se creó una compuerta de tipo exclusiva. Para asignarle sus propiedades 
+se accede a la ventana de configuración de esta. 
+
+.. figure:: _static/media/23-DesignTutorial/gifConfigPaso.gif
+   :width: 60%
+   :align: center
+   :alt: Configuración de compuerta exclusiva
+
+   Configuración de compuerta exclusiva
+
+Al abrir el panel de configuracion de la compuerta podemos visualizar 3 sub-secciones, cada una
+haciendo referencia a las tareas a las cuales la compuerta está
+conectada.
+
+En la subsección correspondiente a la tarea “Atender Producto
+Defectuoso”, haz clic en “+ Condición”. Esto agrega una condición vacía
+y donde dice “Comience a escribir”, escribe “Categoría”. Cuando aparezca
+una lista con el dato de aplicación “Categoría”, selecciónalo.
+
+En la caja de texto que aparece debajo de “Categoría”, escribe “Producto
+defectuoso”.
+
+Haz lo mismo en la subsección correspondiente a “Atender mala
+atención”, pero escribiendo “Mala atención” en lugar de “Producto
+defectuoso” en la condición.
+
+.. figure:: _static/media/23-DesignTutorial/imagen11.png
+   :width: 40%
+   :align: center
+   :alt: Condiciones de la compuerta exclusiva
+
+   Condiciones de la compuerta exclusiva
+
+Finalmente, existe la posibilidad de una conexión por defecto que es la que usa una
+compuerta exclusiva cuando ninguna de las condiciones que contiene es
+evaluada como verdadera.
+
+Para definir una conexión por defecto, en la plantilla del proceso haz clic en la conexión que
+une a la compuerta a la tarea “Elegir encargado de atender queja”. Haz
+clic en el ícono verde que muestra dos flechitas blancas y seleccione
+“Conexión por defecto”. De este modo, si ninguna de las otras
+expresiones se evalúa como verdadera, se utilizará esta conexión.
+
+La flecha que conecta las actividades quedará así:
+
+.. figure:: _static/media/23-DesignTutorial/imagen12.png
+   :width: 40%
+   :align: center
+   :alt: Conexión por defecto
+
+   Conexión por defecto
+
+**Tarea “Elegir encargado de atender la queja”**
+
+Al ser una tarea de usuario hay que definir el mensaje, destinatarios,
+las respuestas y la visibilidad de los datos.
+
+En el mensaje agregar, “Elegir encargado de queja de ” y (seguido de un
+espacio) incluye el nombre del cliente en el asunto. Este se agrega con
+una etiqueta, la cual se define con un “#” y luego agregando el dato de
+aplicación “Nombre de cliente”.
+
+Luego, hay que seleccionar el destinatario de la tarea. El destinatario
+es el rol al que se asignará la tarea (mediante el rol, la tarea se
+asigna a usuarios: los miembros del rol). En este caso, el destinatario
+es el rol “Gerente comercial”.
+
+Debajo del asunto de la tarea se deben ingresar las respuestas posibles
+para la tarea. Cuando a un usuario se le asigna una tarea, debe ingresar
+a Qflow Task para contestarla. Algunas tareas brindan varias
+respuestas posibles. En este caso, sólo se necesita una respuesta que
+indique que se seleccionó al encargado de atender la queja y el proceso
+puede continuar. La respuesta se agrega con el botón “+”.
+
+.. figure:: _static/media/23-DesignTutorial/imagen13.png
+   :width: 40%
+   :align: center
+   :alt: Tarea de usuario
+
+   Tarea de usuario
+
+Por último, se debe determinar la visibilidad. Qflow permite definir qué datos de aplicación, roles del proceso y
+archivos adjuntos los usuarios pueden ver o modificar durante la
+ejecución de un proceso y dónde pueden hacerlo. Lo mismo ocurre con los
+comentarios, pero en este caso se pueden agregar o ver los existentes.
+
+La visibilidad de datos y de roles se comportan de la misma manera que en el paso de inicio.
+
+La visibilidad de los datos de aplicación se modifica mediante una
+tabla que muestra la lista de datos de aplicación. Se visualizarán todos
+los datos de aplicación si todos ellos tienen la visibilidad “Ausente”,
+quedando marcada automáticamente la opción “Mostrar datos con visibilidad
+ausente”, de lo contrario se mostrarán los datos que tengan una visibilidad
+distinta a “Ausente”.
+
+En este caso hay que
+modificar la visibilidad para que el rol “Encargado de atender la queja” sea
+modificable y requerido. Además, el usuario que desempeña esta tarea
+debería ver los datos de la queja, por lo que en la visibilidad de datos se
+debe especificar que los datos de aplicación sean visibles pero no
+modificables (visibilidad de “Sólo lectura”).
+
+La visibilidad de datos queda así:
+
+.. figure:: _static/media/23-DesignTutorial/imagen14.png
+   :width: 60%
+   :align: center
+   :alt: Visibilidad de datos
+
+   Visibilidad de datos
+
+La visibilidad de roles queda así:
+
+.. figure:: _static/media/23-DesignTutorial/imagen15.png
+   :width: 60%
+   :align: center
+   :alt: Visibilidad de roles
+
+   Visibilidad de roles
+
+Para cambiarlo selecciona los datos que quieres modificar y la visibilidad que desees configurar.
+
+.. figure:: _static/media/23-DesignTutorial/imagen26.png
+   :width: 60%
+   :align: center
+   :alt: Visibilidad de datos
+
+   Visibilidad de datos
+
+**Tarea “Atender mala atención” y “Atender producto defectuoso”**
+
+Al ser ambas tareas de usuario se configuran sus propiedades de manera
+similar a la anterior. Asignando su correcto destinatario y en este caso
+los datos de aplicación no requieren ser visibles, excepto el “Texto para enviarle al cliente” 
+que debe ser editable para que el encargado de atender la queja pueda editar el comentario.
+
+.. figure:: _static/media/23-DesignTutorial/imagen16.png
+   :width: 70%
+   :align: center
+   :alt: Tarea de usuario “Atender mala atención” y “Atender producto defectuoso”
+
+   Tarea de usuario “Atender mala atención” y “Atender producto defectuoso”
+
+**Tarea “Atender queja”**
+
+En el asunto escribe “Atender la queja y escribir el texto para enviarle
+al cliente” y a continuación usa el dato de aplicación “Nombre del
+cliente” como etiqueta, al igual que se hizo con la otra tarea de
+usuario.
+
+El destinatario es el rol “Encargado de atender la queja”, que hasta el
+momento no tiene ningún miembro, pero cuando se esté ejecutando el
+proceso, tendrá como miembro el usuario que seleccione el gerente
+comercial en la tarea anterior.
+
+Luego, agrega una respuesta como final, para que el usuario pueda
+responder el formulario. Por ejemplo, con clave y texto “Resuelto”.
+
+En esta tarea, ningún rol debe ser visible ni modificable pero los datos
+de aplicación deben estar habilitados como “solo lectura” menos el
+“Texto para enviarle al cliente” que debe ser editable para que el
+encargado de atender la queja pueda editar el comentario.
+
+La tarea queda así:
+
+.. figure:: _static/media/23-DesignTutorial/imagen17.png
+   :width: 40%
+   :align: center
+   :alt: Tarea de usuario “Atender la queja”
+
+   Tarea de usuario “Atender la queja”
+
+La visibilidad de la tarea queda así:
+
+.. figure:: _static/media/23-DesignTutorial/imagen18.png
+   :width: 60%
+   :align: center
+   :alt: Visibilidad de la tarea
+
+   Visibilidad de la tarea
+
+**Tarea “Enviar respuesta al cliente”**
+
+Esta tarea es de e-mail por lo que su configuración no va a ser igual
+que las anteriores.
+
+Se debe especificar que el destinatario se tome del dato de aplicación
+“Dirección de correo electrónico”. Esto se hace con una etiqueta al
+igual que las tareas de usuario. Luego deberás escribir un asunto para el
+mensaje que recibirá el cliente, escribe “Resolución de su queja”.
+
+Luego, hay que especificar que el cuerpo del mensaje debe ser lo
+ingresado en el dato “Texto para enviar al cliente” por el encargado de
+resolver la queja. Se especifica mediante una etiqueta, pero en este
+caso, para abrir la lista de ítems que se pueden usar como etiquetas,
+debes hacer clic en el área de texto y pulsar Control + Espacio. Así
+funcionan las propiedades que usan un área de texto (por ejemplo, el
+código de una tarea de código).
+
+.. figure:: _static/media/23-DesignTutorial/imagen19.png
+   :width: 40%
+   :align: center
+   :alt: Tarea de e-mail
+
+   Tarea de e-mail
+
+Las tareas además pueden ser de servicio, código, notificación
+de usuario, servicio asíncrono, fórmula o de llamada dependiendo de qué 
+se desea hacer en ese paso.
+
+-  **Tarea de código:** permite escribir un programa para que un proceso lo
+   ejecute. El código puede ser escrito en los lenguajes C# o Visual
+   Basic .NET y debe implementar una interfaz definida en Qflow.
+
+-  **Tarea de email:** envía un mensaje de correo electrónico a las casillas
+   especificadas en sus propiedades.
+
+-  **Tarea de fórmula:** toma datos de aplicación o roles del proceso, hace
+   operaciones con ellos y genera un resultado que se almacena también
+   en algún dato de aplicación o rol, según corresponda.
+
+-  **Tarea de notificación de usuario:** envía una notificación a usuarios
+   de Qflow.
+
+-  **Tarea de servicio:** ejecuta una integración.
+
+-  **Tarea de servicio asíncrono:** permite asignarle un trabajo a un bot.
+   Un bot puede tener parámetros, al igual que una integración. Una
+   tarea de servicio asíncrono es muy similar a una tarea de servicio,
+   con la única diferencia de que, en lugar de seleccionar una
+   integración para ejecutar, se selecciona un bot al cual se le asigna
+   un trabajo.
+
+-  **Tarea de usuario:** asigna una tarea a un usuario o conjunto de
+   usuarios. Los destinatarios de la tarea se especifican mediante roles
+   de plantilla de proceso.
+
+Ejecución de proceso
+---------------------------------
+
+Finalmente, se debe publicar el diseño.
+De esta manera al ingresar a Qflow Task para iniciar el proceso, 
+encontrarás la plantilla que acabas de diseñar. Para publicarla
+haz clic en el botón “Publicar” en la barra de acciones del proceso,
+en la parte superior derecha de la pantalla de diseño. Alternativamente
+se puede publicar haciendo click derecho en la plantilla y seleccionar 
+“Publicar” en el menú.
+
+El diseño final del proceso es el siguiente, por más información sobre ítems y elementos del proceso 
+que no se detalló en el tutorial, puede ver el 
+manual de `Qflow Design. <15-QflowDesign.html>`_
+
+.. figure:: _static/media/23-DesignTutorial/imagen36.png
+   :width: 60%
+   :align: center
+   :alt: Diseño final del proceso
+
+   Diseño final del proceso
+
+
+.. |imagen38| image:: _static/media/23-DesignTutorial/imagen38.png
+   :width: 0.22917in
+.. |imagen39| image:: _static/media/23-DesignTutorial/imagen39.png
+   :width: 0.22917in

@@ -1,0 +1,79 @@
+v6.0
+======
+
+La versión 6.0 de Qflow incorpora nuevas funcionalidades que mejoran la experiencia del usuario, amplían las capacidades de diseño y facilitan la integración con herramientas externas. 
+
+Diseñador de formularios 
+***************************
+
+Se incorpora una nueva herramienta de diseño de formularios dentro del módulo **Design**, que permite construir formularios personalizados de manera visual e intuitiva. 
+
+- Nuevo editor drag & drop para la creación de formularios. 
+
+- Posibilidad de reordenar datos y roles libremente dentro del formulario. 
+
+- Los roles ya no necesitan estar agrupados, ahora pueden ubicarse en cualquier parte del formulario. Lo mismo aplica para la bitácora de comentarios.
+
+- Estética moderna y adaptable.
+
+- Soporte para agregar títulos y mensajes informativos.
+
+- Formularios completamente integrables en los procesos de Qflow.
+
+.. figure:: _static/media/29_13-ReleaseNote/qform.png
+    :width: 60%
+    :align: center
+    :alt: Diseñador de formularios
+
+    Diseñador de formularios   
+
+
+Nueva acción: agregar adjuntos a incidencia en JIRA
+************************************************
+
+Se incorpora una nueva acción para el conector con JIRA. Este permite enviar archivos adjuntos directamente desde Qflow a un issue específico de JIRA, mejorando la integración con flujos de trabajo en herramientas externas. 
+
+Más información en la `documentación del conector de JIRA <36.6-JiraCloudConnector.html>`_.
+
+
+.. figure:: _static/media/29_13-ReleaseNote/JIRA.png
+    :width: 60%
+    :align: center
+    :alt: JIRA
+
+    JIRA
+
+Eliminar proceso finalizado 
+***********************************************
+
+Ahora es posible eliminar procesos que ya se encuentren finalizados, lo que facilita la gestión y limpieza de instancias innecesarias o creadas por error. A su vez, se libera espacio de almacenamiento.
+
+.. figure:: _static/media/29_13-ReleaseNote/DeleteFlows.png
+    :width: 60%
+    :align: center
+    :alt: Eliminar procesos finalizados
+
+    Eliminar procesos finalizados
+
+Nuevo modelo de visibilidad de datos
+**************************************************
+
+Se redefine el concepto de visibilidad de los datos dentro de los formularios, con un enfoque más claro y estructurado.
+
+- Los nuevos estados posibles son: **Ausente**, **Solo lectura**, **Editable** y **Requerido**. 
+
+- Para mantener compatibilidad con configuraciones anteriores (por ejemplo, "solo lectura editable"), se agrega una opción adicional: "**Permite modificar el valor por código o dependencia**", que flexibiliza el comportamiento según lógica de negocio.
+
+.. figure:: _static/media/29_13-ReleaseNote/Scope.png
+    :width: 60%
+    :align: center
+    :alt: Nuevo modelo de visibilidad de datos
+
+    Nuevo modelo de visibilidad de datos
+
+.. figure:: _static/media/29_13-ReleaseNote/CodeDep.png
+    :width: 60%
+    :align: center
+    :alt: Modificar el valor por código o dependencia
+
+    Modificar el valor por código o dependencia

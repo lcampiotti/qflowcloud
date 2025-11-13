@@ -1,0 +1,892 @@
+.. only:: onpremise
+   
+   ****************************************
+   Diseño de formularios personalizados
+   ****************************************
+
+   Introducción
+   ============
+
+   El propósito de este manual es explicar cómo diseñar formularios
+   personalizados para sustituir los formularios estándar que provee
+   Qflow Task. El concepto de formulario personalizado se explica en
+   el `manual de Qflow Design <15-QflowDesign.html>`_. Allí también se
+   explica cómo, una vez pronto un formulario, se debe proceder para
+   asociarlo a una plantilla o a un paso de una plantilla. Este manual se
+   ocupa solamente de explicar cómo construir un formulario personalizado.
+
+   Lectores de este manual deberían estar familiarizados con los aspectos
+   más importantes de Qflow y con el diseño de procesos en ese producto.
+   Además, deberían tener conocimientos de programación en ASP.NET MVC, que
+   es la tecnología con la cual está construido Qflow Task.
+
+   Hay dos formas de construir formularios personalizados para Qflow:
+
+   -  **Vista personalizada:** es la forma más sencilla, y consiste en
+      diseñar una página HTML para que sustituya el formulario estándar, de
+      modo que éste tenga una apariencia distinta.
+
+   -  **Área personalizada:** se definen un área que contendrá el
+      controlador y las vistas de un proceso o de un conjunto de procesos
+      relacionados. El área contiene vistas para todos los formularios de
+      estos procesos. Como en este caso se programa el controlador, esta
+      opción implica más trabajo, pero también más personalización y
+      flexibilidad.
+
+   Vista personalizada
+   ===================
+
+   Construir una vista personalizada consiste en definir una vista que
+   utiliza un modelo que es provisto por componentes de Qflow. Qué modelo
+   se utiliza depende del tipo de formulario que se está construyendo. Para
+   formularios de proceso, de edición de proceso y de inicio de proceso se
+   utiliza el modelo *Qflow.Web.Mvc.Models.FlowModel*, que representa un
+   proceso. Para formularios de respuesta (tareas, preguntas) se utiliza el
+   modelo *Qflow.Web.Mvc.Models.TaskModel*, que representa una tarea.
+
+   Estos modelos contienen los datos de aplicación, roles, adjuntos, comentarios 
+   y datos del proceso (nombre, descripción, plantilla, etc).
+
+   +----------------------------------+----------------------------------+
+   | **Tipo de formulario**           | **Modelo**                       |
+   +==================================+==================================+
+   | Formulario de Inicio             | *Qflow.Web.Mvc.Models.FlowModel* |
+   +----------------------------------+----------------------------------+
+   | Formulario de Respuesta (tarea,  | *Qflow.Web.Mvc.Models.TaskModel* |
+   | pregunta)                        |                                  |
+   +----------------------------------+----------------------------------+
+   | Formulario del Proceso           | *Qflow.Web.Mvc.Models.FlowModel* |
+   +----------------------------------+----------------------------------+
+   | Formulario de Edición del        | *Qflow.Web.Mvc.ModelsFlowModel*  |
+   | Proceso                          |                                  |
+   +----------------------------------+----------------------------------+
+
+   Qflow también provee tres *layouts* para utilizar en las vistas
+   personalizadas. Estos *layouts* incluyen el código JavaScript necesario
+   para que los formularios funcionen correctamente. Se recomienda no
+   modificarlos. Los *layouts* disponibles, que se pueden encontrar en 
+   Qflow Task, son:
+
+   -  **~/Views/Shared/_CustomFormsLayout.cshtml:** incluye el menú lateral
+      y el cabezal de Qflow Task.
+
+   -  **~/Views/Shared/_CustomFormsEmptyLayout.cshtml:** no incluye el menú
+      lateral ni el cabezal de Qflow Task.
+
+   -  **~/Views/Shared/_CustomFormsGuestLayout.cshtml:** layout requerido 
+      para el funcionamiento de formularios externos/anónimos.
+
+   Diseño del formulario personalizado
+   -----------------------------------
+
+   El formulario personalizado es un archivo cshtml, como es usual para
+   vistas de ASP.NET MVC. Para incluir en el formulario datos de
+   aplicación, roles, y datos del sistema como el nombre del proceso, se
+   utiliza un conjunto de *helpers* disponibles a través de Qflow. Estos
+   *helpers* extienden la funcionalidad de la biblioteca de ASP.NET MVC. El
+   formulario debe contener un elemento de tipo *form* con el id
+   “submitForm”. Dentro de este elemento se debe definir el formulario,
+   utilizando los *helpers*. Una referencia de estos *helpers* se puede
+   encontrar en este mismo manual, en :ref:`Referencia de *helpers*`. Fuera de
+   ese elemento se deben colocar los *helpers* que permiten incluir en el
+   formulario los archivos adjuntos del proceso.
+
+
+   Acceso a elementos del proceso del lado del cliente
+   ---------------------------------------------------
+
+   Qflow también provee un conjunto de funciones en JavaScript para
+   acceder a los datos del proceso del lado del cliente. Estas funciones
+   están disponibles a través del objeto *Host*, que es accesible desde
+   código JavaScript. Consulte la :ref:`Referencia de la biblioteca JavaScript`
+   por detalles sobre las funciones disponibles.
+
+   Publicación del formulario personalizado
+   ----------------------------------------
+
+   Una vez listo el formulario, se debe copiar en el servidor web que
+   alberga a Qflow Task. Dentro de la carpeta que contiene el sitio,
+   hay una carpeta Areas\\CustomForm\\Views\\Flow.
+
+   Por ejemplo, si el sitio está en C:\\inetpub\\wwwroot\\Qflow\\, el archivo
+   del formulario se debe copiar en
+   C:\\inetpub\\wwwroot\\Qflow\\Areas\\CustomForms\\Views\\Flow.
+
+   No olvide, si el formulario utiliza otros archivos, copiarlos también donde corresponda.
+
+   También debe especificar el formulario en Qflow Design,
+   y asociarlo al elemento al que corresponda (al paso al que
+   corresponde, si es un formulario de respuesta, por ejemplo). Esto se
+   describe en :ref:`Asociar los formularios a la plantilla`.
+
+   Área personalizada
+   ==================
+
+   En el caso de un área personalizada, además de las vistas hay que
+   programar el controlador. Para ello se recomienda crear un proyecto
+   ASP.NET MVC en Visual Studio.
+
+   Los pasos para crear un área son los siguientes (detalles más abajo):
+
+   1. Crear un proyecto ASP.NET MVC en Visual Studio. El nombre del
+      proyecto debe contener el texto “Custom”, por ejemplo
+      Sample\ **Custom**\ Forms.
+
+   2. Agregar referencias a los componentes de Qflow necesarios para
+      construir los formularios (ver :ref:`Referencias`).
+
+   3. Registrar el área (ver :ref:`Registrar el área`).
+
+   4. Programar uno o más controladores, con las acciones necesarias (ver
+      :ref:`Controladores`).
+
+   5. Crear una vista por formulario personalizado. Las vistas se
+      construyen de la misma forma que una vista personalizada común (ver
+      :ref:`Diseño del formulario personalizado`).
+
+   6. Modificar \_ViewStart.cshtml para contemplar los dos tipos de
+      *layout* (ver :ref:`Modificación de \\_ViewStart.cshtml`).
+
+   7. Compilar el proyecto y publicar los archivos en Qflow Task 
+      (ver :ref:`Compilar los archivos y publicarlos en Qflow Task`).
+
+   8. Asociar el área a la versión de la plantilla para la cual fue
+      construida.
+
+   Referencias
+   -----------
+
+   Una vez creado el proyecto, agregue las siguientes referencias:
+
+   -  Qflow.Web.Mvc.Site.dll
+
+   -  Qflow.Web.Mvc.dll
+
+   -  Qframework.Web.Mvc.dll
+
+   -  Qframework.Common.dll
+
+   Estos archivos se pueden encontrar en Qflow Task. En
+   general, es recomendable tener instalado Qflow Task en el
+   equipo en el que se desarrollan los formularios, para facilitar las
+   pruebas.
+
+   Registrar el área
+   -----------------
+
+   Para registrar el área se debe construir una clase. Por ejemplo, si está
+   haciendo los formularios para la plantilla “Solicitud de cliente”, puede
+   crear la clase “SolicitudClienteAreaRegistration”. Ésta debe ser una
+   clase derivada de la clase CustomFormsAreaRegistration. Cuando
+   especifique los formularios personalizados en Qflow Design, 
+   deberá especificar el nombre del área, que es el
+   que se define en esta clase, en la propiedad AreaName.
+
+   .. highlight:: c#
+   .. code-block:: c#
+
+      using System.Web.Mvc;
+      using Qflow.Web.Mvc.Site.Areas.CustomForms;
+
+      namespace SampleCustomForm
+      {
+         public class SampleCustomFormAreaRegistration : CustomFormsAreaRegistration
+         {
+            public override string AreaName
+            {
+                  get { return "SampleCustomForm"; }
+            }
+            public override void RegisterArea(AreaRegistrationContext context)
+            {
+                  RegisterRoutes(context);
+            }
+            private void RegisterRoutes(AreaRegistrationContext context)
+            {
+                  context.MapRoute(
+                     "SampleCustomForm",
+                     "SampleCustomForm/{controller}/{action}/{id}",
+                     new { action = "Index", id = UrlParameter.Optional }
+                  );            
+            }
+         }
+      }
+
+   .. _CustomFormsDesignControllers:
+
+   Controladores
+   -------------
+
+   Las acciones que deben estar presentes en los controladores dependen de
+   qué formularios se deseen personalizar. Todos los formularios deben
+   heredar de FlowBaseController, el cual se encuentra en
+   Qflow.Web.Mvc.Site. Hay cuatro tipos de formularios posibles:
+
+   -  Formulario de inicio de proceso
+
+   -  Formulario del proceso
+
+   -  Formulario de edición del proceso
+
+   -  Formulario de respuesta (tarea, pregunta)
+
+   En general, cada formulario que se desea personalizar requiere que se
+   implemente al menos una acción: la que devuelve la vista que representa
+   el formulario. Los formularios desde los cuales se puede modificar datos
+   en Qflow requieren, además, una acción adicional, que es la que se
+   ejecuta cuando el usuario hace clic en el botón que dispara la
+   modificación de los datos (por ejemplo, cuando hace clic en el botón que
+   inicia un proceso o cuando hace clic en el botón que responde una
+   tarea). El formulario de inicio tiene, además, una acción adicional para
+   la vista que se muestra al hacer clic en el paso de inicio de un proceso
+   que ya fue iniciado. Todas las acciones correspondientes a un mismo
+   formulario tienen el mismo nombre: sus firmas sólo deben diferir en sus
+   parámetros.
+
+   .. note::
+
+      Se debe usar el mismo controlador para contemplar acciones de usuarios 
+      registrados así como también para acciones anónimas/externas, usadas 
+      en los formularios de inicio y respuesta de este tipo. Para ello, 
+      debemos tener definidos los métodos con los mismos nombres, con la diferencia
+      de que aquellos usados en formularios anónimos/externos llevarán el sufijo
+      "AsGuest", como se ve en los ejemplos más abajo.
+
+   A continuación se explica, para cada tipo de formulario, qué acciones se
+   deben agregar a los controladores, y se da un ejemplo de cada acción.
+
+   Formulario de inicio de proceso
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Un formulario de inicio personalizado requiere tres acciones. Note que
+   todas tienen el mismo nombre, pero distintos parámetros.
+
+   -  **Mostrar el formulario de inicio:** se ejecuta cuando un usuario
+      hace clic en una plantilla para iniciar un proceso.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpGet]
+         [RequireRequestValue("templateId")]
+         public async Task<ActionResult> StartTutorial(Guid templateId, Guid? versionId)
+         {
+            FlowModel model = await GetNewFlow(templateId, versionId);
+            return View(model);
+         }
+
+   -  **Iniciar proceso:** se ejecuta cuando un usuario hace clic en el
+      botón que inicia el proceso.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpPost]
+         [ValidateInput(false)] // Needed for rich text box
+         public async Task<ActionResult> StartTutorial(Guid templateId, [ModelBinder(typeof(FlowModelBinder))] FlowModel flow)
+         {
+            try
+            {
+               var simpleFlowModel = await StartFlowAndGetSimpleData(flow);
+               TempData["TypeMsg"] = "success";
+               TempData["Msg"] = "Flow iniciado correctamente";
+               return Redirect(Url.Action("Display", new { area = "", flowId = simpleFlowModel.FlowId }));
+            }
+            catch (Exception ex)
+            {
+               TempData["TypeMsg"] = "error";
+               TempData["Msg"] = ex.Message; //TODO: correct message and view
+               return View(flow);
+            }
+         }
+
+   -  **Mostrar el formulario del paso de inicio:** se ejecuta cuando, con
+      el proceso ya iniciado, un usuario hace clic en el paso de inicio
+      para ver los datos de éste.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpGet]
+         [RequireRequestValue("flowId")]
+         public async Task<ActionResult> StartTutorial(Guid flowId)
+         {
+            FlowModel model = await GetStartedFlow(flowId);
+
+            return View(model);
+         }
+
+   Para que el controlador del formulario contemple el **inicio de procesos externos/anónimos**, 
+   su configuración es similar al caso anterior, pero con algunas diferencias. Para este 
+   caso tendremos que defnir dos acciones. Note que también tienen el mismo nombre (con el 
+   sufijo "AsGuest"), pero distintos parámetros. Notese el uso del atributo *GuestPolicy*, 
+   que es requerido para su funcionamiento.
+
+   -  **Mostrar el formulario de inicio externo/anónimo:** se ejecuta cuando se accede 
+      al formulario anónimo/externo mediante un enlace.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpGet]
+         [GuestPolicy(GuestUserPolicy.Require)]
+         public async Task<ActionResult> StartTutorialAsGuest(Guid templateId, Guid? versionId)
+         {
+            GuestFlowModel model = await GetNewGuestFlow(templateId, versionId);
+            return View("StartTutorial", model);
+         }
+
+   -  **Iniciar proceso como externo/anónimo:** se ejecuta cuando un usuario hace clic en el
+      botón que inicia el proceso de un formulario de inicio externo/anónimo.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpPost]
+         [GuestPolicy(GuestUserPolicy.Require)]
+         public virtual async Task<ActionResult> StartTutorialAsGuest([ModelBinder(typeof(GuestFlowModelBinder))] GuestFlowModel flow, bool useEmptyLayout = false)
+         {
+            var simpleFlowModel = await StartFlowAndGetSimpleData(flow);
+            return RedirectToAction(nameof(GuestResult), new { area = "CustomForms", view = "GuestResult", tenantId = SessionManager.ResolveTenantId(), useEmptyLayout });
+         }
+      
+   Formulario del proceso
+   ~~~~~~~~~~~~~~~~~~~~~~
+
+   Un formulario del proceso requiere solamente una acción, que devuelve la
+   vista que contiene el formulario con un modelo que contiene los datos
+   del proceso.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpGet]
+         public async Task<ActionResult> DisplayTutorialInfo(Guid flowId)
+         {
+            FlowModel model = await GetFlow(flowId); /*Get only details*/
+            return View(model);
+         }
+      
+
+   Formulario de edición del proceso
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Un formulario de edición del proceso requiere dos acciones:
+
+   -  **Mostrar el formulario de edición del proceso:** se ejecuta cuando un usuario
+      hace clic en Qflow Task para ver el formulario de edición del proceso. Devuelve la
+      vista correspondiente a ese formulario.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpGet]
+         public async Task<ActionResult> EditTutorialInfo(Guid flowId)
+         {
+            FlowModel model = await GetEditFlow(flowId);
+            return View(model);
+         }
+      
+
+   -  **Guardar cambios:** se ejecuta cuando el usuario hace clic en el
+      botón que permite guardar los cambios hechos en el formulario de
+      edición del proceso.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpPost]
+         [ValidateInput(false)] //Needed for rich text box
+         public async Task<ActionResult> EditTutorialInfo([ModelBinder(typeof(FlowModelBinder))] FlowModel flow)
+         {
+            try
+            {
+               await EditFlow(flow);
+               TempData["TypeMsg"] = "success";
+               TempData["Msg"] = "Flow editado correctamente";
+               return Redirect(Url.Action("Display", new { area = "", flowId = flow.FlowId }));
+            }
+            catch (Exception ex)
+            {
+               TempData["TypeMsg"] = "error";
+               TempData["Msg"] = ex.Message; //TODO: correct message and view
+               return View(flow);
+            }
+         }
+
+   Formulario de respuesta (tarea, pregunta)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Un formulario de respuesta requiere dos acciones:
+
+   -  **Mostrar el formulario de respuesta:** se ejecuta cuando el usuario
+      ingresa a la tarea para responderla. Devuelve la vista
+      correspondiente a ese formulario.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpGet]
+         public async Task<ActionResult> DisplayTutorialTask(Guid flowId, Guid taskId, Guid taskToId)
+         {
+            TaskModel model = await GetTask(flowId, taskId, taskToId);
+            return View(model);
+         }
+      
+
+   -  **Responder:** se ejecuta cuando el usuario hace clic en el botón que
+      responde la tarea.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpPost]
+         [ValidateInput(false)] //Needed for rich text box
+         public async Task<ActionResult> DisplayTutorialTask([ModelBinder(typeof(TaskModelBinder))] TaskModel task)
+         {
+            try
+            {
+               await RespondTask(task);
+               TempData["TypeMsg"] = "success";
+               TempData["Msg"] = "Task answered successfully";
+               return Redirect(Url.Action("Display", new { area = "", flowId = task.FlowId }));
+            }
+            catch (Exception ex)
+            {
+               TempData["TypeMsg"] = "error";
+               TempData["Msg"] = ex.Message; //TODO: correct message and view
+               return View(task);
+            }
+         }
+
+   Para que el controlador del formulario contemple la **respuesta de tareas por externos**, 
+   la configuración es similar al caso anterior, pero con algunas diferencias. Para este 
+   caso tendremos que defnir dos acciones. Note que también tienen el mismo nombre (con el 
+   sufijo "AsGuest"), pero distintos parámetros. Notese el uso del atributo *GuestPolicy*, 
+   que es requerido para su funcionamiento.
+
+   -  **Mostrar el formulario de respuesta por externos:** se ejecuta cuando se accede 
+      al formulario de respuesta por externos mediante un enlace.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpGet]
+         [GuestPolicy(GuestUserPolicy.Require)]
+         [RequireRequestValue("token")]
+         public virtual async Task<ActionResult> DisplayTutorialTaskAsGuest(string token)
+         {
+            try
+            {
+               var model = await FlowActions.GetGuestTaskRenderInfoAsync(token);
+               return View("DisplayTutorialTask", model);
+            }
+            catch (Exception ex)
+            {
+               TempData["ErrorMessage"] = ex.Message;
+               return RedirectToAction(nameof(GuestErrorResult), new { area = "CustomForms", view = "GuestErrorResult", tenantId = SessionManager.ResolveTenantId() });
+            }
+         }
+
+   -  **Responder tarea por externos:** se ejecuta cuando el usuario hace clic en el botón que
+      responde la tarea en un formulario de respuesta por externos.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         [HttpPost]
+         [GuestPolicy(GuestUserPolicy.Require)]
+         public virtual async Task<ActionResult> DisplayTutorialTaskAsGuest(GuestTaskModel task)
+         {
+            try
+            {
+               var respondedTaskModel = await RespondTask(task);
+               TempData["ConfirmationMessage"] = "Tarea respondida correctamente";
+               return RedirectToAction(nameof(GuestResult), new { area = "CustomForms", view = "GuestResult", tenantId = SessionManager.ResolveTenantId() });
+            }
+            catch (Exception ex)
+            {
+               TempData["TypeMsg"] = "error";
+               TempData["Msg"] = ex.Message;
+               return View("DisplayTutorialTask", task);
+            }
+         }
+      
+
+   .. _ViewStartModification:
+
+   Modificación de \_ViewStart.cshtml
+   ----------------------------------
+
+   Como ya se mencionó, Qflow provee tres *layouts* para utilizar en los
+   formularios. El primero, *CustomFormsLayout*, muestra el menú y el
+   cabezal de Qflow Task. El segundo, *CustomFormsEmptyLayout*, no los muestra.
+   Éste es particularmente útil cuando los usuarios acceden a Qflow Task desde
+   los mensajes de correo electrónico que reciben de Qflow (por ejemplo,
+   cuando Qflow les notifica que se espera que respondan una tarea). El tercero, 
+   *CustomFormsGuestLayout*, se debe usar si queremos utilizar formularios personalizados 
+   para inicio/respuesta externa, posibles a partir de la versión `versión 5.5 
+   <29.6-ReleaseNote5_5.html>`_ de Qflow.
+
+   .. highlight:: c#
+   .. code-block:: c#
+
+         {
+            if (Qframework.Web.Mvc.SessionManagement.SessionManagerHelper.GetSessionManager<Qflow.Web.Mvc.SessionManagement.QflowSessionManager>().IsGuest)
+            {
+               Layout = "~/Views/Shared/_CustomFormsGuestLayout.cshtml";
+            } 
+            else if (Request.QueryString["useEmptyLayout"] == null || Request.QueryString["useEmptyLayout"] !="True")
+            {
+               Layout = "~/Views/Shared/_CustomFormsLayout.cshtml";
+            }
+            else
+            {
+               Layout = "~/Views/Shared/_CustomFormsEmptyLayout.cshtml";
+            }
+         }
+
+   Compilar los archivos y publicarlos en Qflow Task
+   ---------------------------------------------------
+
+   Una vez que esté listo el código de los formularios personalizados,
+   compile el proyecto. Después, copie el componente generado (por ejemplo,
+   *SampleCustomForm.dll*) en la carpeta *Areas*, dentro de Qflow Task.
+   Copie las vistas y otros archivos cuyo contenido sea compilado
+   en una subcarpeta de *Areas* que tenga el mismo nombre que el componente
+   y que el área (*SampleCustomForm*, por ejemplo).
+
+   Para que el área sea considerada en Qflow Task, es necesario
+   reiniciar el sitio en el IIS.
+
+   Asociar los formularios a la plantilla
+   ======================================
+
+   Finalmente, debe asociar los formularios a la plantilla en
+   Qflow Design. En esta herramienta, los formularios
+   personalizados son un elemento que se puede agregar en un paquete,
+   plantilla o versión, de la misma forma que se pueden agregar datos de
+   aplicación, roles, integraciones, etc (consulte el `manual de
+   Qflow Design <15-QflowDesign.html>`_).
+
+   Agregar los formularios personalizados
+   --------------------------------------
+
+   Para agregar un formulario personalizado:
+
+   1. Abra Qflow Design.
+
+   2. Busque, en el explorador de soluciones, la plantilla del proceso al
+      que quiere asociar los formularios. Haga clic con el botón derecho en
+      el paquete, plantilla o versión al que desee agregarlo, y seleccione
+      en el menú contextual la opción “Ítems”, y la subopción “Formularios
+      personalizados”. Recuerde que los elementos de un paquete están
+      disponibles para todos los descendientes de ese paquete, es decir,
+      para todas las plantillas de ese paquete y todas las versiones de esa
+      plantilla. Lo mismo pasa con los elementos de una plantilla con
+      respecto a sus versiones. Por lo tanto, si desea que el formulario
+      esté disponible para varias plantillas de un paquete, agréguelo al
+      paquete. Si el formulario es específico de una plantilla, pero es el
+      mismo para todas las versiones, agréguelo a la plantilla. El único
+      caso en el que debe agregarlo a una versión es si es específico de
+      esa versión.
+
+   3. Qflow muestra el listado de formularios personalizados definidos.
+      Para agregar uno nuevo, haga clic en el botón +. Esto abrirá un
+      formulario que le permitirá configurar el formulario personalizado
+      (:numref:`CustomFormListAccess`). Para detalles de la configuración, vea la sección
+      :ref:`Configuración de los formularios personalizados`.
+
+   Repita el procedimiento para todos los formularios que desee.
+
+   .. _CustomFormListAccess:
+
+   .. figure:: _static/media/14-CustomFormDesign/image1.png
+      :align: center
+
+      Acceso a listado de Formularios Personalizados
+
+   .. _CustomFormList:
+
+   .. figure:: _static/media/14-CustomFormDesign/image2.png
+      :align: center
+
+      Listado de Formularios personalizados
+
+   .. _CustomFormConfigPanel:
+
+   .. figure:: _static/media/14-CustomFormDesign/image3.png
+      :align: center
+
+      Panel de configuración de Formulario personalizado
+
+   Configuración de los formularios personalizados
+   -----------------------------------------------
+
+   El panel de configuración de un formulario personalizado se muestra en
+   la :numref:`CustomFormConfigPanel`. En el panel se debe indicar el archivo *cshtml* que
+   contiene al formulario (si es una vista personalizada) o el área,
+   controlador y acción que le corresponden (si los formularios fueron
+   construidos mediante un área personalizada).
+
+   Para configurar un formulario personalizado:
+
+   1. Deje marcada la opción “Usar MVC”. La opción “Usar WebForms”, sólo se
+      visualizará cuando la opción del Web.config “ShowWebFormsProperties”
+      tenga el valor “true” y será accesible al expandir el formulario
+      mediante el botón |button1|. Esta opción es para formularios hechos
+      para el sitio alternativo de Qflow, que se mantiene por
+      compatibilidad con formularios hechos en versiones anteriores y que
+      son diferentes a los que se describen en este manual.
+
+   2. Llene los datos del formulario.
+
+      a. Si el formulario es una vista personalizada, deje desmarcada la
+         opción “Es área”, e introduzca, en el campo “Vista”, el nombre de
+         la vista en la que se encuentra el formulario.
+
+      b. Si el formulario pertenece a un área, marque la opción “Es área”.
+         La pantalla cambiará para mostrar otras propiedades, que debe
+         llenar como se describe a continuación:
+
+         i. **Área:** escriba el nombre del área. Éste es el nombre que
+            devuelve la propiedad AreaName de la clase que registra el
+            área. En el ejemplo que aparece en la sección :ref:`Registrar el área` 
+            de este manual, el nombre del área es
+            “SampleCustomForm”.
+
+         ii.   **Controlador:** escriba el nombre de la clase que contiene
+               el controlador, pero sin el sufijo “Controller”. Por ejemplo,
+               si la clase es “FlowController”, escriba “Flow”.
+
+         iii.  **Acción:** escriba el nombre de la acción correspondiente al
+               formulario. En el ejemplo que aparece en la sección
+               :ref:`Formulario de inicio de proceso` de este manual, todas las
+               acciones del formulario de inicio se llaman “StartTutorial”.
+               Tenga en cuenta que, aunque para un formulario de inicio haya
+               tres acciones, todas ellas tienen el mismo nombre y sólo debe
+               definir un formulario personalizado en Qflow Design.
+
+      c. En la sección “Es aplicable a”, se deben marcar los tipos de pasos
+         en los que se quiera utilizar el formulario. Esto permite que en
+         dichos pasos al asociar el formulario personalizado (ver sección
+         :ref:`Asociar los formularios a los elementos correspondientes`) sólo
+         aparezcan los aplicables al paso.
+
+      d. Haga clic en “Aceptar” (|button2|) para guardar los cambios.
+
+   .. _CustomFormaExtendedProperties:
+
+   .. figure:: _static/media/14-CustomFormDesign/image4.png
+      :align: center
+
+      Propiedades expandidas de un formulario personalizado
+
+   .. _CustomFormWithAreaConfiguration:
+
+   .. figure:: _static/media/14-CustomFormDesign/image5.png
+      :align: center
+
+      Configuración de un formulario personalizado que está en un área
+
+   Asociar los formularios a los elementos correspondientes
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Finalmente, hay que asociar los formularios a los elementos a los que
+   corresponden. Por ejemplo, un formulario de respuesta se asocia a un
+   paso interactivo, como un paso de tarea o de pregunta. A qué elemento se
+   asocia el formulario depende del tipo del formulario:
+
+   -  Formulario de inicio: se asocia al paso de inicio de la versión.
+
+   -  Formulario del proceso: se asocia a la versión.
+
+   -  Formulario de edición del proceso: se asocia a la versión.
+
+   -  Formulario de respuesta: se asocia al paso de tarea o pregunta
+      correspondiente.
+
+   Formulario personalizado de inicio y de respuesta
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   El formulario personalizado de inicio va a asociado al paso de inicio de
+   la versión en la que se lo desea utilizar. Un formulario de respuesta va
+   asociado al paso de tarea o pregunta para el cual se lo diseñó.
+
+   Para asociar uno de estos formularios:
+
+   1. Si la versión en la que desea utilizar el formulario no está
+      desprotegida, desprotéjala (haga clic con el botón derecho en la
+      versión y en el menú contextual, seleccione “Desproteger”).
+
+   2. Haga doble clic sobre la versión en el explorador de soluciones
+      de Qflow Design, para abrir el diseño del proceso.
+
+   3. Una vez abierto el diseño, haga doble clic en el paso al cual desee
+      asociar el formulario. Expanda el formulario y luego expanda la
+      sección “Formulario personalizado”.
+
+   4. Seleccione el formulario que desee asociar al paso (:numref:`CustomFormSelector`).
+
+   5. Proteja la versión. Recuerde que para que el formulario aparezca en
+      Qflow Task al iniciar un proceso, la versión debe ser la versión en
+      producción y tiene que haber sido protegida después de hacer el
+      cambio.
+
+   .. _CustomFormSelector:
+
+   .. figure:: _static/media/14-CustomFormDesign/image6.png
+      :align: center
+
+      Selección de formulario personalizado
+
+
+   Formulario del proceso y Formulario de edición del proceso
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   Tanto el formulario del proceso como el formulario de edición del
+   proceso van asociados a una versión. Para asociar uno de estos
+   formularios:
+
+   1. Si la versión en la que desea utilizar el formulario no está
+      desprotegida, desprotéjala (haga clic derecho en la versión y en el
+      menú contextual, seleccione “Desproteger”).
+
+   2. Haga clic con el botón derecho en la versión en la cual desea
+      utilizar el formulario, y seleccione en el menú contextual
+      “Formularios del proceso” y la opción “Formulario del proceso” o la
+      opción “Formulario de edición del proceso”, según cuál sea el
+      formulario que desea asociar. Qflow abre un formulario que le
+      permite configurar sus propiedades, expanda la sección
+      “Formulario personalizado” y luego seleccione el formulario (:numref:`CustomFormPanel`).
+
+   3. Seleccione el formulario y haga clic en “Aceptar”.
+
+   .. _CustomFormPanel:
+
+   .. figure:: _static/media/14-CustomFormDesign/image7.png
+      :align: center
+
+      Panel de formulario personalizado
+
+   Recuerde proteger la versión para poder visualizar los cambios en 
+   Qflow Task.
+
+   Referencia de *helpers*
+   =======================
+
+   A continuación se describe cada uno de los *helpers* que Qflow pone a
+   disposición de los desarrolladores para generar el código HTML de varios
+   elementos que pueden aparecer en formularios personalizados.
+
+   -  **QAttachmentTable:** permite agregar al formulario la tabla que
+      muestra los archivos adjuntos del proceso.
+
+   -  **QAttachmentUpload:** permite agregar al formulario las opciones de
+      adjuntar archivos. Tener en cuenta que estas opciones no funcionarán
+      correctamente si no hay permisos de adjuntar archivos en el
+      formulario. Un formulario genérico debería verificar que estos
+      permisos están disponibles antes de agregar estos controles. El código de este *helper* debe estar fuera del
+      elemento “form”, a diferencia de QAttachmentTable, que debe estar
+      dentro.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+         if (Model.AttachmentsModel.Scope.AddAllowed)
+         {
+            @Html.QAttachmentUpload(Model.AttachmentsModel, new QSimplePanelOptions())
+         }
+
+   -  **QControl:** permite agregar al formulario el control que se usa
+      para mostrar un dato de aplicación y para modificar su valor (una
+      caja de texto, una lista desplegable, etc). La etiqueta del dato de
+      aplicación (la que le indica al usuario de qué dato se trata) se
+      agrega por separado, mediante el *helper* QLabel.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+            @Html.QControl(Model.Data["Client name"]);
+
+   -  **QComments:** permite ver la bitácora de los comentarios en el
+      formulario. En la bitácora se puede ver los comentarios anteriores y
+      agregar comentarios según el alcance definido en el parámetro
+      FlowCommentsModel.
+
+   -  **QCustomValidations:** permite agregar al formulario las
+      validaciones que se definieron para el proceso en Qflow Design.
+
+   -  **QEditFlowButton:** se usa en formularios de edición del proceso.
+      Permite agregar fácilmente el botón que guarda los cambios
+      introducidos en el formulario.
+
+   -  **QFlowInfo:** permite agregar al formulario una sección con los
+      datos del proceso.
+
+   -  **QGroup:** permite agregar al formulario los datos de aplicación de
+      un determinado grupo. Si se omite el nombre del grupo,
+      agrega los datos de aplicación que no están en ningún grupo.
+
+      .. highlight:: c#
+      .. code-block:: c#
+
+            @Html.QGroup("", new QGroupPanelOptions() { GroupOptions = new QSimplePanelOptions() { StyleClass = "box box-danger", AddParentDiv = true, ParentDivClass = "col-lg-12" } })
+
+   -  **QGroups:** permite listar todos los grupos disponibles en el
+      formulario. Puede listarlos de manera ordenada o no, dependiendo de
+      los parámetros que se le indiquen. Por defecto los lista ordenados.
+
+   -  **QLabel:** permite agregar al formulario la etiqueta de un dato de
+      aplicación (o, en caso que no tenga etiqueta, su nombre).
+      Es necesaria siempre que se quiera mostrar el nombre del dato. Se
+      utiliza de la misma forma que QControl.
+
+   -  **QLine:** permite agregar al formulario un bloque de líneas. Los
+      bloques de líneas se muestran como tablas y se adaptan a pantallas
+      pequeñas.
+
+   -  **QPageScrollMenu:** permite agregar el formulario un control para
+      navegar entre las distintas secciones del formulario.
+
+      .. _El control para navegar entre las secciones del formulario, que se puede agregar mediante el *helper* QPageScrollMenu:
+
+      .. figure:: _static/media/14-CustomFormDesign/image8.png
+         :align: center
+
+         El control para navegar entre las secciones del formulario, que se puede agregar mediante el *helper* QPageScrollMenu
+
+
+   -  **QRespondTaskButton:** se usa en formularios de respuesta. Permite
+      agregar fácilmente el botón que responde la tarea.
+
+   -  **QRole:** funciona de forma análoga a QControl, pero para un rol.
+
+   -  **QRoles:** permite agregar al formulario los roles disponibles. Si
+      el alcance de un rol para ese formulario determina que es editable,
+      el rol se muestra como editable.
+
+   -  **QStartFlowButton:** se usa en formularios de inicio. Permite
+      agregar fácilmente el botón que inicia el proceso.
+
+   -  **QTaskInfo:** permite agregar al formulario una sección con los
+      datos de la tarea.
+
+   -  **QTemplateInfo:** permite agregar al formulario una sección con los
+      datos de la plantilla.
+
+   -  **QValue:** permite agregar al formulario una etiqueta que muestra el
+      valor de un dato de aplicación (no permite modificar el dato de
+      aplicación).
+
+   -  **QGuest:** es necesario que se incluya en usa en formularios de respuesta 
+      de tarea externa. Internamente agrega un token en el formulario 
+      que es requerido para el funcionamiento de la respuesta de tarea externa.
+   
+   Para ver la referencia de la librería de JavaScript, vea `este documento <32-JavaScriptLibraryReference.html>`_.
+
+.. |button1| image:: _static/media/14-CustomFormDesign/button1.png
+   :width: 0.125in
+   :height: 0.1875in
+.. |button2| image:: _static/media/14-CustomFormDesign/button2.png
+   :width: 0.22917in
+   :height: 0.19792in

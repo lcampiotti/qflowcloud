@@ -1,0 +1,178 @@
+=================================
+Administra y monitorea el sistema
+=================================
+
+Introducción
+============
+
+Este tutorial explica brevemente las funcionalidades de Qflow Admin, la herramienta que se utiliza para administrar y 
+monitorear distintos aspectos del sistema como servicios y sitios, propiedades extendidas, licencias, 
+servicios de notificación, espacios de trabajo y parámetros de sistema. 
+
+Cada una de las opciones corresponde a una funcionalidad de la herramienta. A continuación se ejemplificará cómo 
+se utilizan algunas de ellas. 
+
+.. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-sideMenu.png
+   :width: 287px
+   :align: center 
+   :alt: Menú lateral
+
+   Menú lateral
+
+Parámetros de sistema
+===================================================
+
+Los parámetros del sistema son parámetros predefinidos que controlan varios aspectos del
+funcionamiento del producto. Pueden ser de tipo numérico, verdadero/falso (booleano), texto
+o imagen.
+
+Algunas aclaraciones sobre el listado:
+
+- Si la fila con la información del parámetro está en color gris, eso significa que el parámetro es de sólo lectura y no puede ser editado.
+
+- Al hacer clic sobre el ícono de información “i”, se mostrará una descripción del objetivo del parámetro. Haga clic sobre cualquier parte del listado para cerrarla.
+
+Para editar cualquier parámetro que lo permita, haga clic sobre él y luego en el botón de
+editar. Se abrirá un panel para editar su valor. 
+
+Por ejemplo, se puede cambiar el tema de Qflow Task. 
+
+.. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-siteTheme.gif
+   :width: 1080px
+   :align: center 
+   :alt: Cambio de tema de Qflow Task
+
+   Cambio de tema de Qflow Task
+
+Luego, Qflow Task quedará personalizado con el color negro: 
+
+.. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-blackTheme.png
+   :width: 616px
+   :align: center 
+   :alt: Tema negro
+
+   Tema negro
+
+Otro parámetro que se puede editar es el logo de Qflow Task
+
+Se puede utilizar el valor por defecto o ingresar un logo personalizado.
+
+.. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-Logo.png
+   :width: 348px
+   :align: center 
+   :alt: Cambiar logo
+
+   Cambiar logo
+
+Estadísticas
+==========================================
+
+Dentro de la sección de “Estadísticas” el sitio muestra el uso de Qflow. Hay dos solapas dentro de la 
+sección, una muestra el “Uso de los Q-points” y la otra un “Historial de consumo”. 
+
+Si estamos trabajando desde el espacio de trabajo por defecto, veremos una lista desplegable en 
+la esquina superior derecha de la sección. Esto nos permitirá seleccionar entre todos los espacios de 
+trabajo existentes y ver estadísticas para cada uno de ellos. Para espacios de trabajo que no 
+sean el espacio por defecto, se verán solamente sus propias estadísticas de consumo. 
+
+.. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-WorkspaceSelector.png
+   :width: 350px
+   :align: center 
+   :alt: Selección de espacio de trabajo
+
+   Selección de espacio de trabajo
+
+Uso de Q-points
+---------------------------------------------
+
+En este reporte se encuentran dos gráficas, las dos relacionadas con el consumo de 
+Q-points en el mes actual. En la primera gráfica se muestra el uso de Q-points a lo 
+largo del mes actual. Por otro lado, la segunda gráfica indica lo mismo que la anterior 
+pero agrupando los Q-points por plantilla de proceso. 
+
+En las distintas gráficas se pueden ver los datos agrupados de diferentes maneras, se puede ver por 
+día actual o por mes. 
+
+La gráfica del uso total de Q-points se verá de la siguiente manera: 
+
+.. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-TotalQpoints.png
+   :width: 800px
+   :align: center 
+   :alt: Uso total de Q-points
+
+   Uso total de Q-points
+
+La gráfica del uso de Q-points por plantilla se verá de la siguiente manera: 
+
+.. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-QpointsByTemplate.png
+   :width: 813px
+   :align: center 
+   :alt: Uso de Q-points por plantilla
+
+   Uso de Q-points por plantilla
+
+.. only:: onpremise
+
+   En la versión OnPremise del producto este reporte no está disponible por defecto (sí lo está en la versión Cloud).
+   Si desea habilitar esta función, consulte el manual de `Qflow Admin <19-QflowAdmin.html>`_. 
+
+   Por último, si quiere más información sobre el resto de las opciones del sitio
+   que no se detallaron en el tutorial, puede ver el manual de `Qflow Admin <19-QflowAdmin.html>`_. 
+
+
+.. only:: cloud
+
+   Historial de consumo
+   --------------------
+
+   Esta sección esta disponible únicamente para la versión Cloud. En la versión OnPremise no se genera 
+   un historial. 
+
+   Dentro de ésta, se desplegarán cinco gráficas. Las dos primeras indican la cantidad de tareas 
+   respondidas y procesos iniciados en un período de tiempo. Las gráficas restantes muestran el historial de 
+   consumo de Q-points, usuarios habilitados y uso de almacenamiento en el último año agrupadas por mes.
+
+   En este tutorial se van a poder ver dentro del historial de consumo 
+   a los procesos iniciados y tareas respondidas en el mes de septiembre y octubre.
+
+   Las gráficas se pueden generar con filtros. Existe la opción de agrupar por mes o por día (por defecto se 
+   agrupan por día), y también se puede establecer un período personalizado (por defecto este período es el mes actual).
+   En este caso, el filtro aplicado agrupa las fechas por mes, del 1ero de septiembre al 31 de octubre de 2021. 
+
+   .. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-StatisticsDateFilter.png
+      :width: 629px
+      :align: center 
+      :alt: Filtros
+
+      Filtros
+
+   La gráfica de procesos iniciados se verá de la siguiente manera: 
+
+   .. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-StartedFlow.png
+      :width: 610px
+      :align: center  
+      :alt: Gráfica de procesos iniciados
+
+      Gráfica de procesos iniciados
+
+   La gráfica de tareas respondidas se verá de la siguiente manera: 
+
+   .. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-AnsweredTasks.png
+      :width: 610px
+      :align: center 
+      :alt: Gráfica de tareas respondidas
+
+      Gráfica de tareas respondidas
+
+   Las gráficas de estadísticas de Q-points utilizados, usuarios habilitados y estadísticas
+   de almacenamiento se verán de la siguiente manera:
+
+   .. figure:: _static/media/28-QflowAdminTutorial/AdminTutorial-ConsumptionHistory.png
+      :width: 882px
+      :align: center  
+      :alt: Gráficas de estadísticas de Q-points utilizados, usuarios habilitados y estadísticas de almacenamiento
+
+      Gráficas de estadísticas de Q-points utilizados, usuarios habilitados y estadísticas de almacenamiento
+
+   Por último, si quiere más información sobre el resto de las opciones del sitio
+   que no se detallaron en el tutorial, puede ver el manual de `Qflow Admin <19-QflowAdmin.html>`_. 

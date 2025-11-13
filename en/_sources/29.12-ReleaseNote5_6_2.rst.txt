@@ -1,0 +1,99 @@
+v5.6.2
+======
+
+Resumen de características
+**************************
+
+Seguimos mejorando **Qflow** para que tus procesos sean más sencillos de gestionar, potenciando el alcance de tu negocio. En esta versión, rediseñamos componentes clave, mejoramos conectores y sumamos funcionalidades que te van a ahorrar tiempo y clics.
+
+¡Explora las novedades!
+
+
+Nuevo conector con ILovePDF
+***************************
+
+Se incorporaron tres nuevas funcionalidades mediante conectores con la herramienta ILovePDF:
+
+- Convertir archivo Office: selecciona un archivo de Microsoft Office (Word, Excel, PowerPoint, etc.) que forme parte del proceso y conviértelo automáticamente a PDF.
+
+- Convertir imagen a PDF: permite seleccionar una imagen que sea parte del proceso y convertirla a PDF.
+
+- Unir archivos PDF: selecciona múltiples archivos PDF dentro del proceso para unirlos en un único documento.
+
+Estas funciones amplían las posibilidades de automatización de documentos en los procesos sin necesidad de herramientas externas adicionales. 
+
+.. figure:: _static/media/29_12-ReleaseNote/iLovePdf.png
+    :width: 60%
+    :align: center
+    :alt: Conector con ILovePDF
+
+    Conector con ILovePDF   
+
+
+Mejoras en el conector con Microsoft Word
+************************************************
+
+El conector con Microsoft Word incorpora un nuevo formato de etiquetas que Qflow reconoce y reemplaza automáticamente con datos o roles del proceso.
+Gracias a esta mejora:
+
+- Ya no es necesario completar manualmente la sección “Valores para reemplazar las etiquetas” en el panel de configuración del conector. 
+
+- Se puede controlar cómo se muestran los datos con estructura compleja, como fechas y fechas con hora. Así, puedes incluir fechas formateadas directamente en la plantilla.
+
+Más información en la `documentación del conector con Microsoft Word <36.14-MicrosoftWordConnector.html>`_.
+
+
+Rediseño del componente de datos tipo documento
+***********************************************
+
+Renovamos el componente de datos tipo documento en los formularios de **Qflow Task** para que sea más práctico y fácil de usar.
+
+- Ahora, desde el mismo componente, es posible ver el valor actual, subir un nuevo archivo o abrir el documento seleccionado en una nueva pestaña (siempre que el navegador lo permita, como PDF e imágenes). 
+
+- Se simplificó el uso de los datos de tipo documento. Ya no es necesario configurar la visibilidad del dato y ni de los adjuntos por separado: si el dato está visible en el formulario, puede abrirse, y si su valor es editable, también puede subirse un nuevo documento. 
+
+- Esto también permite simplificar formularios, prescindiendo de la tabla de adjuntos en formularios que solo utilizan documentos como datos.
+
+.. figure:: _static/media/29_12-ReleaseNote/filePicker.png
+    :width: 100%
+    :align: center
+    :alt: Componente de datos de tipo documento
+
+    Componente de datos de tipo documento
+
+
+Nuevo tipo de conexión para conectores de Outlook
+**************************************************
+
+¡Ahora puedes usar tu cuenta de Microsoft para agendar tus citas en Outlook desde Qflow!
+
+A partir de esta versión, puedes usar tu cuenta de Microsoft para conectar tus procesos de Qflow con Outlook, para una integración más simple y segura, sin necesidad de configuraciones adicionales complejas.
+
+
+Rediseño de mensajes de confirmación en Qflow Task 
+********************************************************
+
+Se actualizaron los estilos de los mensajes de confirmación que se muestran al iniciar un proceso o responder una tarea en Qflow Task.
+
+Además, es posible configurar el mensaje que se muestra, utilizando datos e información del proceso para brindar una mejor experiencia de usuario.
+
+.. figure:: _static/media/29_12-ReleaseNote/start.png
+    :width: 50%
+    :align: center
+    :alt: Confirmación al iniciar un proceso
+
+    Confirmación al iniciar un proceso       
+
+.. figure:: _static/media/29_12-ReleaseNote/respond.png
+    :width: 50%
+    :align: center
+    :alt: Confirmación al responder una tarea
+
+    Confirmación al responder una tarea
+
+Corrección de errores y mejoras
+*******************************
+
+Qflow 5.6.2  incorpora mejoras menores y solución de errores para optimizar la experiencia de los usuarios en la plataforma: 
+
+- **Cambios en valores por defecto:** se ajustaron los valores por defecto de ciertas configuraciones.

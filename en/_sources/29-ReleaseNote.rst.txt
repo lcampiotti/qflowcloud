@@ -1,0 +1,93 @@
+
+**********************
+Novedades  |news-icon|
+**********************
+
+.. toctree:: 
+   :maxdepth: 3
+   :caption: v6.0  
+    
+   29.13-ReleaseNote6_0
+
+.. toctree:: 
+   :maxdepth: 3
+   :caption: v5.6.2  
+    
+   29.12-ReleaseNote5_6_2
+
+.. toctree:: 
+   :maxdepth: 3
+   :caption: v5.6.1
+    
+   29.11-ReleaseNote5_6_1
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.6
+    
+   29.10-ReleaseNote5_6
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.5.4
+    
+   29.9-ReleaseNote5_5_4
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.5.3
+    
+   29.8-ReleaseNote5_5_3
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.5.1
+    
+   29.7-ReleaseNote5_5_1
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.5
+    
+   29.6-ReleaseNote5_5
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.4
+    
+   29.5-ReleaseNote5_4
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.3
+    
+   29.4-ReleaseNote5_3
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.2
+    
+   29.3-ReleaseNote5_2
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.1.2
+    
+   29.2-ReleaseNote5_1_2
+
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.1.1
+    
+   29.1-ReleaseNote5_1_1
+   
+.. toctree::
+   :maxdepth: 3
+   :caption: v5.1
+    
+   29.1-ReleaseNote5_1_Cloud
+
+   
+.. |news-icon| raw:: html
+
+   <i class="fa fa-star showOnlyInMenu" style="color: orange"></i>

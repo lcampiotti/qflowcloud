@@ -1,0 +1,38 @@
+
+v4.3-v5.0
+=========
+
+Uso de Web services REST
+************************
+En esta versión se agregan servicios REST que reemplazan a los anteriores web services SOAP. Si bien se 
+promueve el uso de servicios REST, los web services SOAP aún pueden ser instalados si se abre una consola 
+en modo administrador y se ejecuta el .msi correspondiente. Luego, se deberán instalar los servicios de 
+backend ya que los web services SOAP no se comunican con la Web API.
+
+Servicios de notificación en SAM
+********************************
+
+Los servicios de notificación que tradicionalmente se encontraban en el archivo "system.config", ahora se 
+administran desde SAM y son almacenados en la base de datos. Por lo tanto, los servicios de notificación 
+que se encuentran en el archivo de configuración son obsoletos y deberán ser cargados en SAM de forma 
+manual.
+
+Uso de herramientas de escritorio 
+*********************************
+
+Para usar las herramientas de escritorio BPM y BPA se deberán instalar los servicios de backend ya que 
+estas no se comunican con la Web API. En cuanto a la herramienta de escritorio OMM, queda deprecada 
+y de ahora en adelante se deberá usar la aplicación OMM Web.
+
+Parámetros de sistema
+*********************
+
+Se agregan dos parámetros de sistema al archivo de configuración que anteriormente estaban en la base 
+de datos: NonQueryCommandTimeout y FilterMultivalued. Luego se agrega un nuevo parámetro al archivo 
+que es CacheType. Más información de este nuevo parámetro en el manual de `Instalación y configuración <02-InstallationAndConfiguration.html>`_.
+
+Versión de .NET Framework
+*************************
+
+Se pasa a utilizar la versión 4.7.2 de .NET framework, cualquier integración o formulario personalizado 
+deberá tener esta versión del framework.

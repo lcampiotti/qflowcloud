@@ -1,0 +1,124 @@
+****************************************
+Microsoft Word
+****************************************
+
+Introducción
+============
+
+El propósito de este manual es detallar cómo configurar e integrar Qflow con Microsoft Word, permitiendo la creación de documentos personalizados utilizando plantillas de Word. Este conector permite generar documentos reemplazando etiquetas predefinidas por valores específicos, así como etiquetas de tipo {{Data: valor}} dentro del documento por datos de aplicación, con la opción de aplicar formatos específicos. Además, permite utilizar la etiqueta {{Role: Nombre del Rol}}, la cual se reemplaza automáticamente por los nombres de todos los integrantes del rol correspondiente. Es ideal para generar contratos, facturas, cartas, entre otros documentos personalizados de manera automática.
+
+Microsoft Word cuenta con la siguientes acciones:
+
+- `Crear documentos personalizados con plantillas <#id2>`_
+
+Formatos
+--------
+
+Los valores de tipo `DateTime`, `Date`, `Time` o numéricos pueden tener un formato personalizado aplicado para modificar su representación al mostrarlos.
+
+La sintaxis para aplicar un formato consiste en agregar un símbolo `|` (barra vertical) después del nombre de la etiqueta, seguido del formato deseado.
+
+A continuación, se muestran ejemplos de distintos datos con sus formatos aplicados:
+
+.. list-table:: Formatos
+    :header-rows: 1
+    :align: center
+    :width: 100%
+    :widths: 20 20 20 25 15
+
+    * - Dato
+      - Formato
+      - Dato de prueba
+      - Sintaxis
+      - Resultado
+    * - Fecha y hora completa
+      - dd/MM/yyyy HH:mm
+      - 2025-07-08 09:35:00
+      - {{FechaHora | dd/MM/yyyy HH:mm}}
+      - 08/07/2025 09:35
+    * - Solo fecha
+      - yyyy-MM-dd
+      - 2025-07-08
+      - {{Fecha | yyyy-MM-dd}}
+      - 2025-07-08
+    * - Solo hora
+      - HH:mm
+      - 09:35:00
+      - {{Hora | HH:mm}}
+      - 09:35
+    * - Decimal
+      - 0.00
+      - 1234.5
+      - {{Decimal | 0.00}}
+      - 1234.50
+    * - Porcentaje
+      - P
+      - 0.75
+      - {{Porcentaje | P}}
+      - 75.00 %
+
+Puedes consultar la `documentación de formatos de fechas`_ o la `documentación de formatos de numeros`_ para más información.
+
+.. _documentación de formatos de fechas: https://learn.microsoft.com/es-es/dotnet/standard/base-types/custom-date-and-time-format-strings
+.. _documentación de formatos de numeros: https://learn.microsoft.com/es-es/dotnet/standard/base-types/custom-numeric-format-strings
+
+Prerrequisitos
+==============
+
+Es necesario contar con una plantilla de Word que contenga las etiquetas a reemplazar, cargada como un dato de aplicación de tipo "Documento".
+
+Acciones
+========
+
+Se puede realizar la siguiente acción con Microsoft Word:
+
+Crear documentos personalizados con plantillas
+----------------------------------------------
+
+Esta acción permite generar un nuevo documento a partir de una plantilla de Word, reemplazando etiquetas por valores específicos proporcionados en la configuración o cargados como datos de aplicación, con la opción de aplicar formatos específicos utilizando el símbolo "|" seguido del formato deseado.
+
+.. figure:: _static/media/36_14-MicrosoftWordConnector/ExampleTemplate.png
+      :width: 550px
+      :align: center
+
+      Ejemplo de plantilla de contrato en Microsoft Word con etiquetas para reemplazo automático.
+
+.. list-table:: Entradas
+    :header-rows: 1
+    :align: center
+    :width: 100%
+    :widths: 25 75
+
+    * - Entrada
+      - Descripción
+    * - Plantilla de Word
+      - **Requerido.** Plantilla de Word que se usará para generar el documento, el dato de aplicación debe ser de tipo "Documento".
+    * - Valores para reemplazar las etiquetas
+      - Diccionario que asigna a cada etiqueta del documento el valor que la reemplazará. Los valores pueden ser textos, datos de aplicación o valores con formato, como fechas. Ejemplos: {{Empresa}} = Nombre de la empresa, {{Fecha | dd/MM/yyyy}} = 30/06/2025.
+    * - Nombre del archivo resultante
+      - Nombre que se le dará al archivo generado. Si no se especifica un nombre, se creará una nueva versión del documento original.
+
+.. figure:: _static/media/36_14-MicrosoftWordConnector/GeneralSettings.png
+      :width: 450px
+      :align: center
+
+      Configuración de entrada.
+
+.. list-table:: Salidas
+    :header-rows: 1
+    :align: center
+    :width: 100%
+    :widths: 25 75
+
+    * - Salida
+      - Descripción
+    * - Documento generado
+      - Este parámetro de salida debe ser un dato de aplicación de tipo "Documento". Contiene el documento Word resultante después de reemplazar las etiquetas de la plantilla. Si no se especifica, el documento generado se guardará automáticamente en los adjuntos del proceso.
+
+.. figure:: _static/media/36_14-MicrosoftWordConnector/OutputConfiguration.png
+      :width: 350px
+      :align: center
+
+      Configuración de salida.
+
+Una vez configurados estos valores, el conector generará un nuevo documento de Word con las etiquetas reemplazadas por los valores correspondientes.

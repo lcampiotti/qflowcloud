@@ -1,0 +1,137 @@
+v5.5.3
+======
+
+Resumen de características
+**************************
+
+Después del lanzamiento de `Qflow 5.5 <29.6-ReleaseNote5_5.html>`_, la última gran liberación que 
+incorporó los `Conectores <34-ConnectorsIndex.html>`_ a la herramienta, y la actualización `5.5.1 <29.7-ReleaseNote5_5_1.html>`_
+con correcciones y mejoras pensadas para optimizar la experiencia del usuario, 
+llega una nueva actualización: 5.5.3.
+
+Esta versión introduce nuevos conectores para la gestión documental, que permiten subir archivos 
+a tu propio repositorio y obtenerlos directamente desde Qflow, entre otras novedades.
+
+
+Nuevas funcionalidades
+**********************
+
+Conectores con Dropbox y OneDrive
+------------------------------------------------------------------------------
+
+En esta actualización, Qflow amplía su oferta de `Conectores <34-ConnectorsIndex.html>`_ presentando la 
+integración con `OneDrive <36.12-OneDriveConnector.html>`_ y `Dropbox <36.11-DropboxConnector.html>`_. 
+A través de este conector, los usuarios pueden optimizar sus procesos automatizados con acciones que 
+facilitan la gestión de archivos en la nube sin necesidad de programar. 
+
+**Acciones:**
+
+-  **Subir archivo:** permite cargar un documento a OneDrive o Dropbox desde Qflow. 
+   Se puede especificar la ruta en la que se desea guardar el archivo, y si la ruta no existe,
+   se creará automáticamente. Opcionalmente, se puede asignar un nombre específico al archivo y
+   elegir si debe reemplazarse en caso de que ya exista otro con el mismo nombre. 
+   La limitación de tamaño para los archivos es de 50 MB.
+
+-  **Obtener archivo:** permite obtener un archivo de OneDrive o Dropbox, proporcionando la ruta y
+   el nombre del documento. El archivo se adjunta automáticamente al proceso y, opcionalmente, 
+   puede guardarse en un dato de tipo documento. También está sujeta a una limitación de tamaño de 50 MB.
+
+-  **Obtener enlace de visualización:** permite generar un enlace para que los usuarios con los permisos 
+   necesarios puedan visualizar un archivo directamente en OneDrive o Dropbox, 
+   proporcionando la ruta y el nombre del documento.
+
+-  **Eliminar archivo:** permite eliminar un archivo de OneDrive o Dropbox proporcionando 
+   la ruta y el nombre del documento.
+
+.. figure:: _static/media/29_8-ReleaseNote/connectors.png
+    :width: 50%
+    :align: center
+    :alt: Nuevos conectores
+
+    Nuevos conectores
+
+
+Plantilla pre-creada de "Soporte de incidentes"
+-----------------------------------------------
+
+La nueva plantilla, personalizable y lista para usar, está diseñada para optimizar el soporte de 
+incidentes en entornos colaborativos. A partir del reporte de un nuevo incidente, 
+el flujo permite evaluar su relevancia, pudiendo descartarlo, solicitar más información al 
+usuario iniciador o asignar el incidente a un miembro del equipo de soporte para su resolución. 
+
+Una vez asignado, el miembro del equipo de soporte deberá enviar a validar su resolución, 
+solicitar más información u optar por no resolver el incidente. En el primer escenario, 
+la validación es realizada por el usuario informador del incidente, quien puede considerarla 
+válida o inválida. Si se clasifica como inválida, el incidente regresa al miembro del equipo
+de soporte designado para que intente resolverlo nuevamente o ajuste la solución proporcionada. 
+Si se considera válida, se notifica y el proceso concluye. Para más información, accede a 
+la sección de plantillas pre-creadas en `nuestra documentación <15-QflowDesign.html#plantillas-pre-creadas>`_.
+
+.. figure:: _static/media/29_8-ReleaseNote/incident-support.png
+    :width: 100%
+    :align: center
+    :alt: Plantilla de soporte de incidentes
+
+    Plantilla de soporte de incidentes
+
+
+Uso de regla de asignación en pasos de fórmula
+----------------------------------------------
+
+Se ha añadido una funcionalidad que permite aplicar `reglas de asignación <15-QflowDesign.html#roles-de-plantilla-de-proceso>`_
+en pasos de fórmula. En estos pasos, es posible asignar miembros de un rol a otro rol.
+
+.. figure:: _static/media/29_8-ReleaseNote/formula-task.png
+    :width: 50%
+    :align: center
+    :alt: Asignación de roles en pasos de fórmula
+
+    Asignación de roles en pasos de fórmula
+
+Veamos un ejemplo: supongamos un rol llamado "Equipo de Soporte", compuesto por tres miembros: Juan, María y Carlos;
+que determinará el "Encargado de Resolución". Si aplicamos la regla de asignación secuencial (Round Robin)
+al "Equipo de Soporte", esta se ejecutará automáticamente cuando se procese el paso de fórmula.
+
+De esta manera, en la primera ejecución del paso, Juan será asignado como "Encargado de Resolución". 
+Cuando se ejecute por segunda vez, se le asignará a María, y en la tercera ejecución será Carlos
+quien ocupe el rol. Este ciclo continúa de manera secuencial, después de que cada miembro haya sido asignado,
+el ciclo se reinicia, comenzando nuevamente con Juan.
+
+.. figure:: _static/media/29_8-ReleaseNote/round-robin-role.png
+    :width: 50%
+    :align: center
+    :alt: Rol con regla de asignación secuencial
+
+    Rol con regla de asignación secuencial
+
+De igual manera, pueden elegirse otras reglas de asignación. En un escenario similar, 
+configurando la regla "Usuario con menos tareas en template" al rol "Equipo de Soporte", 
+cada vez que se ejecute el paso de fórmula, se asignará como "Encargado de resolución" 
+al usuario que tenga menos tareas de soporte en ese momento.
+
+La nueva plantilla de "Soporte de incidentes" utiliza esta funcionalidad, 
+optimizando la gestión de reportes en tu organización. 
+
+
+Corrección de errores y mejoras
+*******************************
+
+-  Se corrige un error que provocaba que en en algunas tablas de Qflow Task las fechas no se mostraran en el formato 
+   correspondiente al idioma del navegador. Ahora, las fechas se muestran como día/mes/año en español 
+   y mes/día/año en inglés, por ejemplo. 
+
+-  Se implementan mejoras en textos para mayor claridad.
+
+
+Cambios técnicos
+----------------
+
+-  Se agregan las siguientes funciones a la `interfaz de scripting <10-ScriptingInterface.html>`_:
+
+   -  *GetGuestTaskLink(Guid flowStepID, string email): string*: método de IScriptHost que, 
+      dadas la ID de un paso del proceso y una dirección de correo, devuelve el enlace a 
+      la tarea externa correspondiente.
+
+   -  *GetGuestTaskLink(string flowStepName, string email): string*: método de IScriptHost que, 
+      dados el nombre de un paso del proceso y una dirección de correo, devuelve el enlace a 
+      la tarea externa correspondiente.

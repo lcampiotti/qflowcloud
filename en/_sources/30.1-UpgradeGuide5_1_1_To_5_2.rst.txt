@@ -1,0 +1,62 @@
+v5.1.1-v5.2
+===========
+
+Consideraciones de migración desde Qflow 5.1.1
+-----------------------------------------------
+
+Cambio en la firma de métodos en los controladores Flow y Attachment
+********************************************************************
+
+En la versión 5.2 varias firmas del controlador Flow y Attachment fueron cambiadas a llamadas asincrónicas.
+De esta forma en lugar de retornar un objeto T se retornará un objeto Task<T>. Se debe tener especial 
+cuidado en los custom forms desarrollados ya que al cambiar las dlls por las de la nueva versión pueden 
+necesitar algún ajuste. 
+
+La lista de métodos cambiados en el controlador Flow es la siguiente:
+   - Start
+   - Edit
+   - DisplayTask
+   - StartFlow
+   - StartFlowAndGetSimpleData
+   - EditFlow
+   - RespondTask
+
+La lista de métodos cambiados en el controlador Attachment es la siguiente:
+   - UploadAttachment
+   - AddFlowAttachment
+   - Download
+
+Sesión unificada en los sitios
+******************************
+
+En la version 5.2 de Qflow, los sitios pueden tener una sesión unificada, es decir, que cuando 
+un usuario se loguea en Qflow Design y tiene permisos en Qflow Team, al acceder a Qflow Team va 
+directo al home sin pasar por el login.
+Si se quiere evitar este comportamiento en algun sitio, simplemente hay que agregar dos appsettings 
+al web.config correspondiente.
+
+Estos son:
+   - UseUnifiedSession: en caso de que no se quiera utilizar debe tener el valor 'false'
+   - OwinCookieName: este es el nombre de la cookie que usará el sitio, se le puede asignar cualquier valor
+     distinto al valor de la cookie usada para la sesion unificada (QflowAuth). 
+     Ejemplo: QflowDesignerAuth, QflowTeamAuth, etc.
+
+Nuevos parámetros de sistema
+****************************
+
+Se agregaron una serie de parámetros de sistema en esta versión que cambian el comportamiento 
+de Qflow. Se deberá revisar el valor de cada uno de estos para verificar que todo funciona correctamente.
+
+Los parámetros son los siguientes:
+   - QflowBPMWebLink/QflowOMMLink/QflowSAMWebLink/QflowWebSiteLink: Estos parámetros deben ajustarse a 
+     los urls que usan las distintas herramientas de Qflow. Sin ellos no funcionará correctamente la navegación 
+     entre sitios que se puede encontrar en la sección derecha de los cabezales.
+   - NotifyUserOnCreation: Si este parámetro es Verdadero, Qflow le enviará un mail de bienvenida a la casilla 
+     de correo del usuario creado.
+   - UserWelcomeLink: Es el link que se le envía a los nuevos usuarios si el parámetro NotifyUserOnCreation está 
+     habilitado. Si se quiere usar deberá ajustarse a la url del sitio deseado. Se recomienda usar el url de Qflow Access.
+   - Logo/LogoLightVersion/TaskMiniLogo/TaskLogo: Se han agregado distintos parámetros correspondientes a 
+     los logos de las herramientas. Ahora el parámetro 'Logo' corresponde al logo de Qflow y será mostrado en el login de cada 
+     herramienta, así como también en la parte superior izquierda de Qflow Access. Si se quiere cambiar el logo de Qflow Task, 
+     ahora se deberá cambiar el parámetro TaskLogo.
+

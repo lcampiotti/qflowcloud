@@ -1,0 +1,65 @@
+v5.5.4
+======
+
+Resumen de características
+**************************
+
+Una nueva liberación de Qflow da la bienvenida a importantes `conectores <34-ConnectorsIndex.html>`_ 
+que integrarán tus procesos de negocios con herramientas externas de uso cotidiano, sin necesidad de programar. 
+
+Descubre Qflow 5.5.4 y explora el poder de las integraciones con WhatsApp y Microsoft Word 
+para llevar tu gestión de procesos al siguiente nivel.
+
+
+Nuevas funcionalidades
+**********************
+
+Conector con WhatsApp
+------------------------
+
+Con esta nueva actualización, Qflow amplía el alcance de sus `conectores <34-ConnectorsIndex.html>`_ para incluir a 
+`WhatsApp <36.13-WhatsAppTwilioConnector.html>`_, la principal herramienta de mensajería en el mercado. Con este conector, los usuarios podrán enviar mensajes 
+a múltiples destinatarios y consultar el estado de los mensajes enviados.
+
+**Acciones:**
+
+-  **Enviar mensaje con plantilla:** permite enviar un mensaje de WhatsApp a múltiples destinatarios, mediante la herramienta Twilio. 
+   Para ello, es necesario definir previamente una `plantilla de mensaje en Twilio <https://www.twilio.com/docs/content/create-templates-with-the-content-template-builder>`_, 
+   que deberá ser pre-aprobada por WhatsApp para su correcto funcionamiento. 
+   La plantilla puede incluir *placeholders* a ser reemplazados por valores definidos en el conector. Por ejemplo, el nombre del 
+   destinatario puede usarse para abrir el mensaje en el formato “Hola {{nombre}}”, que será completado con información 
+   extraída de los datos del proceso.
+
+-  **Obtener estado de mensajes:** permite consultar el estado de cada mensaje de WhatsApp enviado mediante Twilio, indicando si el mensaje fue entregado exitosamente o no.
+
+.. figure:: _static/media/29_9-ReleaseNote/WhatsAppConnector.png
+    :width: 50%
+    :align: center
+    :alt: Conector con WhatsApp
+
+    Conector con WhatsApp
+
+
+Conector con Microsoft Word
+----------------------------
+La nueva integración de Qflow con `Microsoft Word <36.14-MicrosoftWordConnector.html>`_ permite crear documentos basados en una plantilla directamente desde el 
+conector y es ideal para la gestión de contratos, facturas, cartas u otros documentos, facilitando su ágil personalización. 
+
+**Acciones:**
+
+-  **Crear documentos personalizados con plantillas:** genera documentos de Word utilizando plantillas prediseñadas. Podrás reemplazar automáticamente 
+   las etiquetas, como por ejemplo {{nombre}} o {{Nombre de la organización}}, con los datos que proporciones en el proceso y exportar el documento con los 
+   valores actualizados.
+
+.. figure:: _static/media/29_9-ReleaseNote/WordConnector.png
+    :width: 50%
+    :align: center
+    :alt: Conector con Microsoft Word
+
+    Conector con Microsoft Word
+
+
+Corrección de errores y mejoras
+*******************************
+
+-  Se presentan correcciones de errores y mejoras varias para optimizar la experiencia de los usuarios.

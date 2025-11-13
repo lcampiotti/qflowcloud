@@ -1,0 +1,4123 @@
+***********
+Qflow Task
+***********
+
+Introducción
+============
+
+El propósito de este manual es explicar el funcionamiento de Qflow Task.
+Este sitio es la herramienta que permite a los usuarios
+iniciar procesos, interactuar con ellos y ver sus datos.
+
+Organización de este manual
+===========================
+
+Este manual está dividido en las siguientes partes:
+
+-  :ref:`Descripción de Qflow Task`: describe brevemente el sitio, su
+   estructura y la relación de cada una de sus partes con las
+   funcionalidades de Qflow.
+
+-  :ref:`Trabajo con procesos y tareas`: describe cómo iniciar procesos, responder
+   tareas y hacer seguimiento de los procesos en ejecución. Explica
+   también el funcionamiento de las colas de trabajo, que permiten
+   asignar tareas a un grupo de personas (por ejemplo, un departamento
+   de una empresa o los empleados que trabajan en una misma sucursal) y
+   ayudan a dividir el trabajo eficientemente.
+
+-  :ref:`Herramientas de seguimiento y análisis de procesos`: explica cómo
+   utilizar vistas, gráficas, indicadores y tableros de control. Estas
+   herramientas permiten organizar y visualizar la información de los
+   procesos para facilitar su seguimiento y control.
+
+-  :ref:`Administración y configuración`: explica cómo desempeñar tareas de
+   administración y configuración, como definir permisos de acceso a las
+   diferentes secciones y elementos del sitio, configurar los vínculos del 
+   menú lateral, administrar las notificaciones de dispositivo y definir 
+   cómo se muestran las colas de trabajo.
+
+Descripción de Qflow Task
+=========================
+
+La :numref:`WebSite` muestra Qflow Task tal cual lo ve un usuario con todos los
+permisos cuando Qflow está recién instalado.
+
+.. _WebSite:
+
+.. figure:: _static/media/04-QflowTask/image1.png
+   :width: 100%
+   :align: center
+   :alt: Qflow Task
+
+   Qflow Task
+
+La página inicial de Qflow Task es, por defecto, un tablero de control, que
+se puede modificar para agregarle gráficas, indicadores y vistas, como
+se explica en la sección :ref:`Herramientas de seguimiento y análisis de
+procesos`. Para acceder a la página inicial desde cualquier otra página
+del sitio, haga clic en el logo de Qflow Task, arriba a la izquierda.
+
+Qflow Task tiene dos menús: un menú lateral, a la izquierda y un menú
+superior, que aparece en el rincón superior derecho.
+
+En el menú superior (:numref:`HeaderWebSite`), se muestran los siguientes vínculos:
+
+-  **Mis tareas:** permite acceder a la lista de tareas que esperan una
+   acción del usuario, el usuario no necesariamente debe tener permiso
+   de ver en el paquete correspondiente. El número que aparece con fondo
+   rojo indica la cantidad de estas tareas. Desde la lista de tareas se
+   puede acceder a los formularios que permiten responderlas. Además, 
+   cuenta con una función de respuesta rápida que permite seleccionar una o 
+   varias tareas y responderlas de manera rápida, como se explica en la sección:
+   :ref:`Respuesta rápida`.
+
+-  **Mis procesos:** permite acceder a la lista de procesos iniciados
+   por el usuario actual.
+
+-  **Mis notificaciones:** permite acceder a las notificaciones que se
+   le han enviado al usuario. Es común que estas notificaciones le sean
+   enviadas por correo electrónico. En todo caso, el usuario puede
+   acceder a ellas en Qflow Task mediante este vínculo.
+
+-  **Mis favoritos:** muestra una vista de vínculos favoritos y permite
+   modificar esa lista. También permite elegir la página de inicio.
+   Tiene un submenú con las siguientes opciones:
+
+   -  **Definir como página de inicio:** hace que la página actual sea
+      la página de inicio. Si el cursor está sobre esta opción, aparece
+      un ícono adicional (|image1|) que permite reestablecer la
+      página de inicio por defecto.
+
+   -  **Vínculos**: a la opción de definir la página actual como página
+      de inicio siguen los vínculos que se hayan agregado como
+      favoritos. Si el cursor se encuentra sobre alguno de los vínculos
+      existentes, aparece un ícono adicional (“\ |image2|\ ”) que
+      permite eliminar el vínculo de favoritos.
+
+   -  **Agregar a mis vínculos favoritos:** agrega a la lista de
+      vínculos favoritos un vínculo a la página actual.
+
+-  **Configurar:** permite acceder a las opciones de configuración. Las
+   opciones de configuración se describen en la sección :ref:`Administración y configuración`.
+
+-  **Chat de ayuda:** permite mostrar u ocultar el chat de asistencia con inteligencia artificial.
+
+-  **Acerca de:** muestra la versión actual del sistema, así como un link al manual, las novedades y al foro de Qflow.
+
+-  **Herramientas:** una vez presionado, desplegará una lista de opciones con las distintas herramientas de Qflow disponibles. Al hacer clic en una opción, se abrirá la herramienta correspondiente en una nueva pestaña del navegador.
+
+-  **Menú de usuario:** permite habilitar o deshabilitar las notificaciones, cerrar sesión (sign out) y acceder a la configuración de tu zona horaria. Para obtener más detalles, consulta la sección de manejo de zonas horarias. Para más información revisar la sección :ref:`Manejo de zonas horarias`.
+
+.. _HeaderWebSite:
+
+.. figure:: _static/media/04-QflowTask/image4.png
+   :width: 50%
+   :align: center
+   :alt: Menú superior
+
+   Menú superior
+
+.. figure:: _static/media/04-QflowTask/image5.png
+   :width: 50%
+   :align: center
+   :alt: Edición de favoritos
+
+   Edición de favoritos
+
+El menú lateral muestra varias opciones con sus nombres e íconos que los
+representan. Los nombres se pueden ocultar, haciendo que el menú se
+reduzca, ocupe menos espacio y solo se vean los íconos. Para esto se
+debe hacer clic en el ícono que aparece en el rincón superior izquierdo,
+al lado del logo de Qflow Task (:numref:`ReducedMenu`).
+
+.. _ReducedMenu:
+
+.. figure:: _static/media/04-QflowTask/image6.png
+   :width: 100%   
+   :align: center
+   :alt: Qflow Task con el menú reducido
+
+   Qflow Task con el menú reducido
+
+Las opciones por defecto del menú lateral son las que aparecen en la siguiente
+lista, sin embargo, los elementos del menú lateral pueden ser :ref:`modificados 
+<SideBarConfiguration>`. Tenga en cuenta que estos elementos pueden 
+mostrarse o no, dependiendo de los permisos del usuario.
+
+-  **Buscar:** permite ingresar un texto para buscar procesos o
+   elementos del menú lateral. Cuando se comienza a escribir en la caja
+   de texto, se despliega una lista con aquellos elementos del menú
+   cuyos títulos contengan el texto que se escribió. Además, se muestra
+   una opción que dice “Buscar proceso:” seguida del texto que se
+   escribió. Si se selecciona esta opción, Qflow busca los procesos que
+   contengan el texto ingresado en alguna de las columnas de la vista
+   “Procesos” y los muestra en esa vista (hacer esto es equivalente a
+   abrir la vista “Procesos” y hacer la misma búsqueda allí). Si el
+   texto ingresado tiene algún formato especial correspondiente a un
+   tipo de dato específico (por ejemplo, una fecha o un número), se
+   comparan los valores de las columnas de ese tipo con el texto
+   ingresado, incluyéndolos en el resultado si son iguales a él y no si
+   lo contienen. Por ejemplo, si se ingresa el número 23, el proceso
+   cuyo ID sea 23 se mostrará en el resultado de la búsqueda, porque su
+   valor es un número que coincide con el número 23. Pero no se mostrará
+   el proceso cuyo ID sea “223”, a pesar de que este número contenga el
+   texto “23” (salvo que el texto “23” aparezca en alguna otra columna
+   de la vista para ese proceso; por ejemplo, en la descripción de algún
+   proceso). Eso es porque la columna ID guarda datos de tipo numérico.
+
+-  **Iniciar proceso:** permite a los usuarios iniciar los procesos creados
+   en Qflow Design. 
+
+-  **General:** esta opción tiene las siguientes subopciones:
+
+   -  **Tablero de control principal:** permite acceder al tablero de
+      control principal (ver :ref:`Tableros de control`).
+      Este viene creado por defecto en Qflow y por defecto no tiene contenido.
+
+   -  **Procesos:** permite acceder a la lista de procesos que el
+      usuario tiene permiso de ver. Puede incluir procesos que no fueron
+      iniciados por él, a diferencia de la vista Mis procesos, que está
+      disponible a través del menú superior. Las vistas de procesos como
+      esta se describen en la sección :ref:`Trabajo con procesos y tareas`.
+
+   -  **Tareas:** permite acceder a la lista de tareas que el usuario
+      tiene permiso de ver. Puede incluir tareas que no están esperando
+      acciones suyas, a diferencia de la vista Mis tareas, que está
+      disponible a través del menú superior. Las vistas de tareas se
+      describen en la sección :ref:`Trabajar con tareas`.
+
+   -  **Notificaciones:** permite acceder a la lista de notificaciones
+      que el usuario tiene permiso de ver. Puede incluir notificaciones
+      que no le fueron enviadas al usuario actual, a diferencia de la
+      vista Mis notificaciones, que está disponible a través del menú
+      superior.
+
+   -  **Tareas respondidas por mí:** permite acceder a la lista de tareas 
+      que fueron respondidas por mi usuario.
+
+-  **Colas de trabajo:** permite acceder a una página que muestra las
+   colas de trabajo en las cuales el usuario tiene permiso de actuar.
+   Como subopciones aparecen esas mismas colas de trabajo, de modo que
+   el usuario puede acceder directamente a cada una de ellas. Las vistas
+   de colas de trabajo se describen en la sección :ref:`Colas de trabajo`.
+
+-  **Vistas:** permite acceder a la página de vistas. Las vistas se
+   describen en la sección :ref:`Vistas`. Como subopciones aparecen las
+   vistas para las cuales se definió que deben aparecer en el menú y
+   que el usuario tiene permiso de ver.
+
+-  **Gráficas:** permite acceder a la página de gráficas. Las gráficas
+   se describen en :ref:`Gráficas`. Como subopciones aparecen las gráficas para
+   las cuales se definió que deben aparecer en el menú y que el usuario
+   tiene permiso de ver.
+
+-  **Indicadores:** permite acceder a la página de indicadores. Los
+   indicadores se describen en :ref:`Indicadores`. Como subopciones aparecen los
+   indicadores para los cuales se definió que deben aparecer en el menú 
+   y que el usuario tiene permiso de ver.
+
+-  **Tableros de control:** permite acceder a la página de tableros de
+   control. Los tableros de control se describen en :ref:`Tableros de
+   control`. Como subopciones aparecen los tableros de control para los
+   cuales se definió que deben aparecer en el menú y que el usuario
+   tiene permiso de ver.
+
+Funcionamiento general de la interfaz de usuario
+------------------------------------------------
+
+Esta sección describe aspectos generales del funcionamiento de la
+interfaz de usuario del sitio. La mayor parte del sitio muestra listas
+de elementos, como por ejemplo los procesos de un paquete, en forma de
+tablas (:numref:`ProcessView`) o de conjuntos de íconos que representan los elementos
+(:numref:`TemplateIcons`) dentro de un recuadro.
+
+En ambos casos, sobre el recuadro que contiene la lista hay dos grupos
+de botones. El primero, a la izquierda, permite ejecutar operaciones
+sobre los elementos que se muestran. El segundo, a la derecha, permite
+actualizar la lista de elementos, buscar elementos y, en algunos casos,
+aplicarles filtros complejos y modificar la forma en que se muestran.
+
+Ejecución de operaciones
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Para ejecutar una operación sobre un elemento, hay dos opciones:
+
+1. Seleccionarlo y hacer clic en el botón que corresponde a la operación
+   (:numref:`OperationExecution`). Para seleccionar un elemento:
+
+   a. Si es un elemento que se muestra en una tabla, como por ejemplo un
+      proceso, haga clic en cualquier parte de la fila correspondiente
+      al elemento.
+
+   b. Si es un elemento que se muestra como un ícono (por ejemplo, una
+      plantilla), haga clic en el elemento, pero fuera del ícono que lo
+      representa. Si hace clic en el ícono, se ejecutará directamente la
+      operación por defecto. Por ejemplo, en el caso de un plantilla,
+      cuando se hace clic en el ícono se muestra el formulario que
+      permite iniciar un proceso basado en la plantilla. En el caso de
+      colas de trabajo, se muestra la bandeja de entrada de la cola.
+
+2. Hacer clic con el botón derecho en el elemento. Eso hace que Qflow
+   muestre un menú contextual en el que se podrá seleccionar la
+   operación deseada.
+
+Cuando los elementos se muestran en una tabla, la primera columna
+contiene casilleros que se pueden marcar. Si se marcan varios y se
+selecciona una operación aplicable a varios elementos (por ejemplo,
+pausar o finalizar procesos), esta se aplicará a todos los elementos
+seleccionados.
+
+.. _ProcessView:
+
+.. figure:: _static/media/04-QflowTask/image7.png
+   :width: 90%
+   :align: center
+   :alt: La vista “Procesos”, como todas las vistas de procesos, se muestra como una tabla
+
+   La vista “Procesos”, como todas las vistas de procesos, se muestra como una tabla
+
+.. _OperationExecution:
+
+.. figure:: _static/media/04-QflowTask/image8.png
+   :width: 90%
+   :align: center
+   :alt: Ejecución de una operación
+
+   Ejecución de una operación
+
+.. _TemplateIcons:
+
+.. figure:: _static/media/04-QflowTask/image9.png
+   :width: 90%
+   :align: center
+   :alt: Las vistas de plantillas muestran íconos en lugar de filas de una tabla
+
+   Las vistas de plantillas muestran íconos en lugar de filas de una tabla
+
+Opciones de búsqueda, visualización y filtros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los botones que se muestran agrupados sobre el recuadro que muestra la
+lista de elementos, a la derecha, permiten modificar qué se muestra en
+la lista y, en algunos casos, cómo se muestra. La :numref:`FilterOptions` tiene un
+detalle de esa parte de la pantalla, con una pequeña descripción de cada
+botón. Las opciones que permiten buscar y actualizar la lista están
+disponibles para todas las listas. Las otras, solamente cuando las
+listas se muestran como tablas. A continuación, se describe cada una en
+mayor detalle:
+
+-  **Buscar:** permite ingresar un texto. Qflow filtrará la vista,
+   mostrando solamente aquellos elementos que contengan en las columnas
+   de tipo texto el texto ingresado, o que tengan en columnas de otros
+   tipos valores iguales a los representados por el texto ingresado (por
+   ejemplo, si se ingresa un número, Qflow comparará el ID de cada
+   proceso de la lista, que es un número, con el número ingresado; ver
+   la descripción del elemento “Buscar” del menú lateral, más arriba).
+   Algunos datos de aplicación están asociados a dominios que buscan
+   información que está almacenada fuera de Qflow. Los valores de estos
+   datos son identificadores, que se guardan en Qflow y que se asocian
+   a descripciones, que se almacenan fuera de Qflow. Qflow no utiliza
+   esas descripciones para filtrar vistas.
+
+-  **Aplicar filtro avanzado:** permite filtrar la vista utilizando
+   expresiones complejas, como por ejemplo, “Todos los procesos que
+   pertenezcan a la plantilla ‘Aprobación de gastos’ o a la plantilla
+   ‘Solicitud de cliente’, que hayan sido iniciados entre el 1/1/2016 y
+   el 1/1/2017”, o incluso más complejas. Es útil cuando no alcanza con
+   el filtro disponible a través de la opción “Buscar”. Una explicación
+   detallada de cómo definir un filtro avanzado se da en la sección
+   sobre vistas (ver :ref:`Vistas`). Un filtro avanzado funciona como el
+   filtro de una vista, salvo que el filtro avanzado solo puede utilizar
+   columnas de la vista a la que se aplica, mientras que al definir el
+   filtro de una vista el usuario puede elegir qué columnas desea usar
+   para hacer el filtro. En el caso del filtro avanzado, entonces, no se
+   eligen columnas, sino que solo se construyen condiciones y grupos de
+   condiciones utilizando las columnas que aparecen en la vista.
+
+-  **Actualizar vista:** actualiza la pantalla que está mostrando la
+   vista para reflejar cambios que puedan haber ocurrido desde que se
+   actualizó la pantalla por última vez o desde que se ingresó a la
+   pantalla.
+
+-  **Filas/columnas:** cambia la forma de mostrar la vista: cada
+   elemento de la vista se muestra en una fila que, a su vez, tiene
+   varias subfilas, una por cada columna de la vista. La :numref:`LineColumnView`
+   muestra la misma vista y con los mismos elementos, que la :numref:`ProcessView`,
+   pero después de hacer clic en ese botón. Si se vuelve a hacer clic en
+   el botón, se vuelve al formato original. Es especialmente útil en el
+   caso de pantallas pequeñas o con tantas columnas que no todas caben
+   en la pantalla.
+
+-  **Seleccionar columnas a mostrar:** muestra la lista de columnas de
+   la vista, con casilleros que se pueden desmarcar para ocultar o
+   volver a mostrar las columnas que se deseen (:numref:`ProcessViewWithoutDescription`).
+
+-  **Exportar:** Exporta el contenido del listado a un archivo (formato
+   CSV, HTML y Excel) en el equipo del usuario.
+
+
+.. only:: onpremise
+
+   Por defecto, las operaciones de exportación se muestran como opciones agrupadas en 
+   un solo botón de acción que despliega una lista con las opciones de formato (como 
+   se ve en la :numref:`ExportOptionsList`), pero pueden ser configuradas para que 
+   se muestren como opciones separadas (como se ve en la :numref:`ExportOptionIcons`).
+   Para configurar esta preferencia, vea el manual de `instalación y configuración 
+   <02-InstallationAndConfiguration.html>`_.
+
+   .. _ExportOptionIcons:
+
+   .. figure:: _static/media/04-QflowTask/export-options-icons.png
+      :width: 50%
+      :align: center
+      :alt: Opciones de exportación como botones
+
+      Opciones de exportación como botones
+
+   .. _ExportOptionsList:
+
+   .. figure:: _static/media/04-QflowTask/export-options-list.png
+      :width: 50%
+      :align: center
+      :alt: Opciones de exportación agrupadas
+
+      Opciones de exportación agrupadas
+
+.. _FilterOptions:
+
+.. figure:: _static/media/04-QflowTask/image10.png
+   :width: 50%
+   :align: center
+   :alt: Opciones de visualización y filtros
+
+   Opciones de visualización y filtros
+
+.. _LineColumnView:
+
+.. figure:: _static/media/04-QflowTask/image11.png
+   :width: 80%
+   :align: center
+   :alt: Vista mostrada con la opción Filas/Columnas
+
+   Vista mostrada con la opción Filas/Columnas
+   
+.. _ProcessViewWithoutDescription:
+
+.. figure:: _static/media/04-QflowTask/image12.png
+   :width: 80%
+   :align: center
+   :alt: Vista "Procesos" sin la columna "Descripción", que se desmarcó
+
+   Vista "Procesos" sin la columna "Descripción", que se desmarcó
+
+Orden de los elementos en las tablas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Si se hace clic sobre el cabezal de alguna columna de una tabla, Qflow
+ordena los elementos de la vista por los valores de esa columna. La
+flechita que aparece al lado del título de la columna indica si se está
+ordenando la vista en orden creciente o decreciente de los valores de la
+columna seleccionada. Para alternar entre un orden creciente o
+decreciente, vuelva a hacer clic en el cabezal de la columna.
+
+Trabajo con procesos y tareas
+=============================
+
+Esta sección describe cómo iniciar procesos, ver sus datos y responder a
+sus tareas.
+
+Procesos, plantillas y tareas
+-----------------------------
+
+Los dos tipos principales de elemento con los que se trabaja en Qflow Task
+son los procesos y las tareas.
+
+Un proceso está basado en una plantilla, que especifica de forma general
+secuencias de actividades, datos y cómo se asignan a usuarios esas
+actividades, entre otros aspectos de un proceso. Un proceso es la
+ejecución de lo que está definido en una plantilla, con datos concretos.
+Por ejemplo, se puede hacer una plantilla para los procesos de
+aprobación de gastos, pero, aunque cada proceso vaya a tener la misma
+estructura, cada uno va a manejar montos distintos, enviar tareas a
+distintas personas, etc. Para iniciar un proceso hay que indicar qué
+plantilla se va a usar.
+
+Una vez iniciado un proceso, se generan tareas para las personas que
+participan de él. Por ejemplo, en un proceso de aprobación de gasto, a
+alguna persona o grupo de personas se le asigna la tarea de evaluar si
+el gasto se debe aprobar o no. Estas personas utilizan Qflow Task para
+responder.
+
+Esta sección explica cómo:
+
+-  **Iniciar un proceso:** iniciar un proceso implica seleccionar la
+   plantilla en la que se basará el proceso. La plantilla indica qué
+   actividades incluye el proceso, en qué orden se ejecutan, qué datos
+   tiene, quiénes deben ejecutar las tareas, etc. Una vez seleccionada
+   la plantilla, aparece un formulario para ingresar los datos iniciales
+   del proceso.
+
+-  **Trabajar con tareas:** un proceso en ejecución asigna tareas a
+   personas. Estas personas utilizan Qflow Task para responder tareas.
+   Usuarios con permisos especiales pueden asignar y reasignar tareas.
+
+-  **Trabajar con procesos:** una vez iniciado un proceso, puede
+   ejecutarse normalmente, pero también puede detenerse por errores,
+   atrasarse, etc. Qflow Task permite comprobar el estado de
+   los procesos, reintentar la ejecución de pasos que se detuvieron por
+   errores, hacer retroceder el proceso y otras actividades que permiten
+   corregir la ejecución de un proceso cuando hubo errores.
+
+Iniciar proceso
+---------------   
+
+Para iniciar un proceso:
+
+1. Haga clic en la opción “Iniciar proceso” del menú lateral. Esto hace
+   que Qflow muestre una pantalla con una vista que contiene las
+   plantillas de procesos que usted tiene permiso de iniciar.
+   Alternativamente, puede abrir alguna vista de plantillas que contenga
+   la plantilla que desee utilizar.
+
+2. Busque la plantilla que desea usar para iniciar el proceso. Si hay
+   muchas plantillas, puede escribir en el campo “Buscar” un texto con
+   parte del texto descriptivo que se muestra en pantalla para la
+   plantilla (el texto descriptivo está formado por el nombre de la
+   plantilla, el nombre de la versión entre paréntesis y la
+   descripción de la plantilla; ver :numref:`FlowTemplate`. Las plantillas que se
+   muestran no tienen descripción). Esto hace que Qflow filtre la lista y muestre 
+   solamente las plantillas que tengan ese texto.
+
+3. Haga clic en el ícono que representa la plantilla que desee utilizar
+   (por ejemplo, en el círculo con una letra A en el caso de la primera
+   plantilla de la :numref:`FlowTemplate`). Esto lo lleva al formulario de inicio del
+   proceso. Alternativamente, puede seleccionar la plantilla haciendo
+   clic en su nombre y después hacer clic en el botón de “Iniciar
+   proceso” (|image3|). La :numref:`StartFlowExample` muestra un formulario estándar de
+   Qflow.
+
+4. Llene el formulario de inicio. Esto incluye ingresar el nombre del
+   proceso, datos y posiblemente adjuntar archivos y seleccionar
+   quiénes desempeñarán ciertos roles. Para seleccionar un miembro de un
+   rol, empiece a escribir el nombre del miembro hasta que Qflow lo
+   muestre en una lista desplegable. Entonces, selecciónelo.
+
+5. Haga clic en “Iniciar”. Una vez iniciado el proceso, Qflow muestra
+   el formulario del proceso.
+
+.. _FlowTemplate:
+
+.. figure:: _static/media/04-QflowTask/image14.png
+   :width: 80%  
+   :align: center
+   :alt: Plantillas de procesos
+
+   Plantillas de procesos
+
+.. _StartFlowExample:
+
+.. figure:: _static/media/04-QflowTask/image15.png
+   :width: 80%
+   :align: center
+   :alt: Ejemplo de un formulario estándar de inicio de un proceso
+
+   Ejemplo de un formulario estándar de inicio de un proceso
+
+Inicio de procesos por usuarios externos o anónimos
+---------------------------------------------------
+
+Qflow permite configurar los procesos para que puedan ser iniciados por usuarios ajenos al sistema, 
+sin necesidad de estar registrados para hacerlo. Para que un proceso pueda ser 
+iniciado de esta manera, se debe configurar explicitamente en Qflow Design (ver el 
+`manual de Qflow Design <15-QflowDesign.html>`_ para mas detalles).
+
+Los procesos iniciados de forma anónima muestran a un usuario "Invitado" como usuario iniciador de proceso.
+
+Esta funcionalidad es muy útil en casos como procesos de encuesta, invitaciones a eventos, postulaciones 
+laborales y demás casos en los cuales podríamos querer que personas externas a la organización interactúen con 
+el sistema.
+
+Dado que las zonas horarias en las que Qflow muestra las fechas dependen de la preferencia del usuario, 
+y que en el caso de un inicio externo/anónimo no se tiene esa preferencia, se explicita la zona horaria 
+en la que se consideran las fechas en la parte superior izquierda del formulario 
+(:numref:`ExternalFlowStartForm`).
+
+.. only:: onpremise
+
+   .. admonition:: Nota
+
+      En la versión OnPremise del producto, la configuración del captcha requerido para iniciar 
+      procesos anónimos está deshabilitada por defecto debido a que el usuario debe configurarlo 
+      para ser usado. Para ver cómo hacer esta configuración, vea el manual de `instalación y 
+      configuración <02-InstallationAndConfiguration.html>`_.
+
+.. _ExternalFlowStartForm:
+
+.. figure:: _static/media/04-QflowTask/external-flow-start.png
+   :width: 70%
+   :align: center
+   :alt: Inicio de proceso externo/anónimo
+
+   Inicio de proceso externo/anónimo
+
+Trabajar con tareas
+-------------------
+
+Los procesos de Qflow suelen asignar tareas a los usuarios, ya sea
+directa o indirectamente a través de colas de trabajo. Un usuario al que
+se le asignó una tarea debe responder a ella, ya sea seleccionando una
+respuesta a una pregunta (por ejemplo, indicando si aprueba una acción)
+o indicando si finalizó la tarea. Esto se hace a través del sitio.
+
+Además, las tareas a veces requieren acciones administrativas. Por
+ejemplo, puede ser que una tarea esté asignada a alguien que está
+ausente y sea necesario asignársela a otra persona porque la primera no
+puede llevarla a cabo. Esto también se hace a través de Qflow Task.
+
+Tareas pendientes de un usuario
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Un usuario puede tener varias tareas que esperan una respuesta suya.
+Para consultar las tareas que tiene pendientes, por lo general lo más
+práctico es usar el vínculo “Mis tareas” del menú superior (ver
+:ref:`Descripción de Qflow Task`). El ícono de ese vínculo muestra la cantidad de
+tareas que el usuario tiene pendientes. Al hacer clic en ese ícono,
+aparece un menú con el asunto de algunas de las tareas pendientes
+(:numref:`PendingTaskMenu`). Al lado de cada asunto figura el estado (“Normal”, en el
+ejemplo). En la parte inferior del menú hay un vínculo que permite
+acceder a una vista que contiene todas las tareas pendientes del
+usuario. Esta vista muestra más datos.
+
+.. _PendingTaskMenu:
+
+.. figure:: _static/media/04-QflowTask/image16.png
+   :width: 30%
+   :align: center
+   :alt: Menú con tareas pendientes
+
+   Menú con tareas pendientes
+
+Responder una tarea
+~~~~~~~~~~~~~~~~~~~
+
+Si selecciona una tarea, ya sea haciéndole clic en el propio menú o en
+una vista de tareas, Qflow lo lleva al formulario de la tarea. Ese
+formulario muestra los datos del proceso y permite responder la tarea.
+
+Un usuario también puede responder tareas que hayan sido asignadas a
+colas de trabajo en las que tenga permiso de actuar (ver :ref:`Colas de
+trabajo`).
+
+.. _quickResponse:
+
+Respuesta rápida
+~~~~~~~~~~~~~~~~
+
+La función de respuesta rápida, que por defecto está configurada en la vista de mis tareas, permite a los usuarios 
+seleccionar una o varias tareas y responderlas de manera rápida (solo se mostrarán las respuestas en común entre las 
+tareas seleccionadas). Si una tarea tiene alcance requerido para datos, roles o adjuntos, o no permite respuesta
+rápida, la función estará deshabilitada y no podrá ser utilizada.
+Si alguna de las tareas seleccionadas requiere o admite comentarios, se mostrará un campo para ingresarlo. 
+Este comentario se aplicará a todas las tareas seleccionadas que los admitan.
+
+.. _MultipleResponseMyTaskTable:
+
+.. figure:: _static/media/04-QflowTask/image125.png
+   :width: 100%   
+   :align: center
+   :alt: Tabla de mis tareas
+
+   Tabla de mis tareas
+
+Se puede activar la respuesta rápida desde el botón en la tabla y desde el menú contextual (al hacer clic derecho dentro de la tabla).
+Se permite seleccionar varias tareas y al presionar el botón "responder múltiple" se abre una lista desplegable con las respuestas en común.
+
+
+.. _FastAnswerResponseMyTaskTable:
+
+.. figure:: _static/media/04-QflowTask/image126.png
+   :width: 100%
+   :align: center
+   :alt: Tabla de mis tareas
+
+   Tabla de mis tareas
+
+También permite contestar desde la tabla seleccionando una respuesta desde la lista desplegable en la columna 
+"respuesta rápida". Una vez que respondamos, veremos una notificación de que las tareas se están 
+respondiendo en segundo plano, podemos marcar "No mostrar este mensaje de nuevo" para dejar de recibir 
+esta notificación.
+
+
+.. admonition:: Nota
+   
+   Si el navegador soporta el uso de Service Workers, al responder se mostrará un menú debajo donde se podrá hacer seguimiento del progreso de las respuestas.
+   Este menú permite filtrar por los estados actuales de las tareas, si están completadas, en proceso o están en error.
+
+.. _TaskBackgroundPanel:
+
+.. figure:: _static/media/04-QflowTask/image127.png
+   :width: 100%
+   :align: center
+   :alt: Tareas en segundo plano
+
+   Tareas en segundo plano
+
+Adicionalmente, puede navegar a otras secciones del sitio mientras sus respuestas se completan en segundo plano.
+
+.. _TaskBackgroundTable:
+
+.. figure:: _static/media/04-QflowTask/image128.png
+   :width: 80%
+   :align: center
+   :alt: Tabla de tareas en segundo plano
+
+   Tabla de tareas en segundo plano
+
+Es posible configurar vistas personalizadas que utilicen esta funcionalidad. Para hacerlo, debes hacer 
+lo siguiente:
+
+1. Crear una vista de tipo "Mis tareas".
+2. Agregar la columna "Respuesta rápida de la tarea".
+3. En la columna agregada en el paso anterior, elegir "Mostrar respuestas de la tarea como lista para respuesta rápida" como formato 
+   de visualización.
+4. Guardar la configuración de la vista.
+
+Ahora ya tenemos una vista personalizada que nos permitirá dar respuesta rápida a nuestras tareas. Podemos usar la funcionalidad de 
+respuesta rápida en cualquier vista personalizada, así como también en la vista de "Mis tareas", dentro de :ref:`Tableros de control`.
+
+Por último, la función también permite responder directamente desde el mail de notificación de la tarea (si se tiene 
+configurado para ello). Si alguna de las posibles respuestas tiene configurado que se requieren comentario, al 
+responder la tarea se le envía a una pantalla para que pueda agregar el comentario, de no ser así se le mostrará
+un mensaje indicando que la tarea fue respondida.
+
+.. _EmailResponse:
+
+.. figure:: _static/media/04-QflowTask/image129.png
+   :width: 50%   
+   :align: center
+   :alt: Email con opciones de respuesta rápida
+
+   Email con opciones de respuesta rápida
+
+.. _ResponseScreen:
+
+.. figure:: _static/media/04-QflowTask/image130.png
+   :width: 50%   
+   :align: center
+   :alt: Mensaje de confirmación de respuesta
+
+   Mensaje de confirmación de respuesta
+
+.. _CommentRquiredScreen:
+
+.. figure:: _static/media/04-QflowTask/image131.png
+   :width: 50%   
+   :align: center
+   :alt: Pantalla para adición de comentario
+
+   Pantalla para adición de comentario
+
+Respuesta de tarea por usuarios externos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+De la misma manera que podemos configurar un proceso para que pueda ser iniciado por usuarios 
+externos al sistema, podemos configurar una tarea para que pueda ser respondida por usuarios externos también.
+
+Podemos asignar tareas a usuarios externos mediante el uso de su *correo electrónico* como destinatario de las mismas,
+de modo que al despacharse una tarea, recibirán un correo con un enlace de acceso al formulario de la tarea para 
+poder dar respuesta a la misma, sin necesitar de un usuario de Qflow. Podemos configurar datos, parámetros o 
+especificar directamente las direcciones de correo a las cuales despachar la tarea. Al igual que en el inicio de 
+tarea externo/anónimo, el formulario de respuesta de tareas externas muestra la zona horaria que Qflow considera 
+para todas las fechas y horas del formulario (:numref:`ExternalTaskForm`).
+
+.. figure:: _static/media/04-QflowTask/QflowTask_ExternalTaskAddressees.png
+   :width: 60%
+   :align: center
+   :alt: Tarea con destinatarios externos usando datos, parámetros y correos electrónicos 
+
+   Tarea con destinatarios externos usando datos, parámetros y correos electrónicos
+
+.. _ExternalTaskForm:
+
+.. figure:: _static/media/04-QflowTask/QflowTask_ExternalTaskForm.png
+   :width: 65%
+   :align: center
+   :alt: Formulario de respuesta de tarea externa
+
+   Formulario de respuesta de tarea externa
+
+Las acciones de los usuarios externos en sus tareas también se ven reflejadas en las auditorías e historiales del 
+sistema, identificados por el correo electrónico al cual fue despachada la tarea, indicando que es un usuario 
+*Invitado*.
+
+.. figure:: _static/media/04-QflowTask/QflowTask_ExternalTaskAudit.png
+   :width: 50%
+   :align: center
+   :alt: Historial de respuesta de tarea con usuario externo
+
+   Historial de respuesta de tarea con usuario externo
+
+Al igual que las tareas a usuarios de sistema, podremos generar alertas, recordatorios, vencimientos y delegaciones
+para las mismas, las cuales llegarán a los usuarios externos mediante su correo. Podemos delegar tareas de usuarios 
+externos a usuarios de sistema, pero no a usuarios externos.
+
+Para configurar que una pueda ser respondida por usuarios externos, vea la sección de `Respuesta de tarea externa <15-QflowDesign.html#respuesta-de-tarea-externa>`_
+en el manual de `Qflow Design <15-QflowDesign.html>`_.
+
+
+Mensajes de confirmación de inicio de proceso y respuesta de tarea
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cuando diseñamos procesos, en el paso de inicio y en tareas de usuario podemos definir mensajes de confirmación 
+que se muestran al iniciar procesos o al responder la tarea respectivamente. Estos se muestran tanto para usuarios
+de sistema como para usuarios externos.
+
+Estos mensajes pueden ser decorados con etiquetas para incluír datos, parámetros, información del proceso y otros
+elementos en el mensaje de confirmación.
+
+.. figure:: _static/media/04-QflowTask/QflowTask_ConfirmationMessage.png
+   :width: 60%
+   :align: center
+   :alt: Mensaje de confirmación
+
+   Mensaje de confirmación
+
+Para configurar mensajes de confirmación al inicio o para respuesta de tareas, vea la configuración específica 
+del `evento de inicio <15-QflowDesign.html#eventos-de-inicio>`_  y de `tarea de usuario <15-QflowDesign.html#tarea-de-usuario>`_ en el manual de `Qflow Design <15-QflowDesign.html>`_.
+
+Colas de trabajo
+~~~~~~~~~~~~~~~~
+
+Tareas asignadas a una cola de trabajo pueden ser respondidas por
+cualquier usuario que tenga permiso para actuar en esa cola. Como estas
+tareas no están asignadas a ninguna persona concreta, no aparecen en la
+vista “Mis tareas” de ninguno de los usuarios.
+
+Para revisar las tareas de una cola de trabajo a la que pertenece,
+utilice la sección “Colas de trabajo” del menú lateral. Para acceder a
+una pantalla que muestra todas las colas que usted está autorizado a
+ver, haga clic en el propio vínculo “Colas de trabajo”. Una vez en esa
+pantalla, puede acceder a una cola de trabajo haciendo clic en su ícono
+o seleccionándola y después haciendo clic en la flecha (|image4|).
+Alternativamente, puede acceder a una cola de trabajo directamente desde
+el menú lateral: si hace clic en la flechita que aparece al lado de la
+opción “Colas de trabajo”, las colas de trabajo en las que tiene permiso
+de actuar se muestran en el propio menú lateral (:numref:`WorkqueueList`). Para
+acceder a una de ellas, hágale clic.
+
+.. figure:: _static/media/04-QflowTask/image18.png
+   :width: 100%
+   :align: center
+   :alt: Pantalla de colas de trabajo con tres colas de trabajo
+
+   Pantalla de colas de trabajo con tres colas de trabajo
+
+.. _WorkqueueList:
+
+.. figure:: _static/media/04-QflowTask/image19.png
+   :width: 20%
+   :align: center
+   :alt: Opción "Colas del trabajo" del menú lateral, desplegada para mostrar tres colas de trabajo como subopciones
+
+   Opción "Colas del trabajo" del menú lateral, desplegada para mostrar tres colas de trabajo como subopciones
+
+Tareas de una cola de trabajo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La pantalla de una cola de trabajo (:numref:`WorkqueuePanel`) muestra la bandeja de
+entrada de esa cola.
+
+Para contestar una tarea asignada a una cola de trabajo, un usuario debe
+primero tomar esa tarea, de modo que otros usuarios no puedan trabajar
+en ella. Si más tarde el usuario decide no ejecutar la tarea, puede
+dejarla para que la tome otro usuario. De esta forma, se evita que dos
+usuarios trabajen simultáneamente en la misma tarea. Tenga en cuenta que
+si ingresa al formulario de una tarea para responderla, Qflow tomará
+automáticamente la tarea en su nombre.
+
+La columna “Estado” indica si una tarea está disponible para ser tomada 
+y en el caso de tareas tomadas por un usuario, la columna “Tarea tomada
+por” indica qué usuario la tiene consigo.
+
+La bandeja de entrada suele tener varias solapas. Cada una muestra una
+vista distinta de las tareas de la cola. Qué solapas se muestran para
+una determinada cola es algo que puede variar, ya que eso es
+configurable. Sin embargo, hay tres vistas que ya vienen predefinidas en
+Qflow y que probablemente aparecerán en la mayoría de los casos:
+
+-  **Activas:** muestra todas las tareas activas de la cola.
+
+-  **Tomadas por mí:** muestra solamente las tareas activas que estén
+   tomadas por el usuario.
+
+-  **Archivadas:** muestra solamente tareas archivadas.
+
+Las operaciones disponibles para las tareas de una cola de trabajo son
+las siguientes:
+
+-  **Archivar:** archiva temporalmente una tarea, de modo que esta deja
+   de estar activa y pasa a aparecer en la lista de tareas archivadas.
+   La tarea puede ser reactivada más tarde. Esta opción solo está
+   disponible para tareas activas.
+
+-  **Asignar:** permite asignar la tarea a algún usuario. Al asignar una
+   tarea a un usuario, la tarea queda tomada por él. Para que un usuario
+   pueda asignar una tarea a otro usuario, debe ser supervisor del nodo
+   al que pertenece ese usuario (ver manual de `Qflow Team <18-QflowTeam.html>`_). 
+   Además, el usuario al que se le asigna la tarea debe tener permiso para actuar en la cola de trabajo.
+
+-  **Responder:** lleva a la pantalla que permite responder la tarea. Si
+   la tarea no está tomada por el usuario, al comenzar a completarla la
+   tomará automáticamente.
+
+-  **Dejar:** permite dejar una tarea que había sido tomada.
+
+-  **Restaurar** permite reactivar una tarea archivada.
+
+-  **Tomar:** permite al usuario tomar la tarea para poder actuar en
+   ella. Si un usuario es supervisor de la cola de trabajo, puede tomar
+   una tarea que ya está tomada por otro, es decir, quitársela al otro y
+   tomarla para sí.
+
+Todas estas operaciones están disponibles en el menú contextual de la
+vista de la cola de trabajo, así como en los íconos que aparecen en la
+parte superior.
+
+.. _WorkqueuePanel:
+
+.. figure:: _static/media/04-QflowTask/image20.png
+   :width: 90%
+   :align: center
+   :alt: Vista de una cola de trabajo, con dos tareas
+
+   Vista de una cola de trabajo, con dos tareas
+
+Reasignar tareas
+~~~~~~~~~~~~~~~~
+
+Si un usuario tiene asignada una tarea, pero no la puede contestar (por
+ejemplo, porque está ausente), puede ser necesario reasignar la tarea a
+otra persona. También puede pasar que un usuario de una cola de trabajo
+esté ausente y tenga tomada una tarea y entonces sea necesario quitarle
+la tarea para que otro la conteste. En este último caso, se pueden
+utilizar las operaciones “Tomar” (un supervisor de la cola de trabajo
+puede tomar la tarea para sí) y “Asignar” (:ref:`Tareas de una cola de
+trabajo`).
+
+En el caso de una tarea asignada directamente a un usuario, se puede
+delegar la tarea. Esta operación quita la tarea de todos sus
+destinatarios y se la asigna a otro conjunto de destinatarios. Otra
+operación, “Delegar tarea a”, permite quitarle la tarea solamente a uno
+de los destinatarios de la tarea y asignársela a otro, manteniendo el
+resto de los destinatarios. Esta operación está disponible al ver los
+detalles de una tarea (donde se listan los destinatarios por separado) y
+en vistas de tareas individuales (“Tareas a”; “Creación de una
+vista”).
+
+Para delegar una tarea, búsquela en alguna vista de tareas (por ejemplo,
+la que aparece vía la opción “Tareas” del menú lateral) y seleccione la
+acción “Delegar tarea” (por ejemplo, haciendo clic con el botón derecho
+en el menú contextual y después en la opción “Delegar tarea”). Esto lo
+lleva a la pantalla de delegar tarea (:numref:`DelegateTask`), donde puede modificar
+el asunto de la tarea. La operación “Delegar tarea a” muestra una
+pantalla muy parecida, pero sin la opción “Delegar roles”, que no tiene
+sentido en ese caso.
+
+Para elegir los destinatarios, comience a escribir en el campo
+“Destinatarios” el nombre de un usuario al que desee asignar la tarea.
+Qflow mostrará un menú con los usuarios cuyos nombres contengan el
+texto que escriba. Seleccione el usuario deseado y repita el
+procedimiento si desea agregar más usuarios.
+
+Un usuario tiene la capacidad de delegar tareas a sí mismo o a los usuarios que supervisa.
+También puede delegar tareas a colas de trabajo donde tenga 
+permisos para "Actuar". Además, si tiene el permiso "Delegar tarea", puede delegar tareas actualmente 
+asignadas a usuarios que no lo tienen como supervisor. 
+Sin embargo, el destinatario final de la tarea siempre debe ser el usuario mismo, 
+uno de sus subordinados o una de sus colas de trabajo.
+
+La opción “Delegar roles” hace que se modifiquen los roles del proceso.
+Ejemplo: supongamos que la tarea que se está reasignando está asignada
+al rol “Evaluador”. El usuario Juan Pérez es quien está asignado a ese
+rol, por lo que es el destinatario de la tarea. Al delegar la tarea sin
+marcar la opción “Delegar roles”, la tarea es reasignada a otro usuario
+(por ejemplo, Pedro Gómez), pero Juan Pérez sigue en el rol “Evaluador”.
+Entonces, si más adelante en el proceso hay otra tarea asignada al rol
+“Evaluador”, esa tarea le será asignada a Juan Pérez, porque él sigue
+estando en el rol “Evaluador”. Si, por el contrario, se marca la opción
+“Delegar roles”, no solamente se reasigna la tarea que se está
+delegando, sino que se modifica el rol “Evaluador” de forma tal que
+Pedro Gómez pase a desempeñarlo. De ese modo, todas las tareas asignadas
+al rol “Evaluador” ya no serán asignadas a Juan Pérez, sino que le serán
+asignadas a Pedro Gómez.
+
+Una vez que haya agregado a la lista todos los destinatarios a quienes
+desee delegar la tarea, haga clic en “Delegar”. Qflow les enviará un
+mensaje indicando que se les ha asignado la tarea.
+
+.. _DelegateTask:
+
+.. figure:: _static/media/04-QflowTask/image21.png
+   :width: 90%
+   :align: center
+   :alt: Delegar tarea
+
+   Delegar tarea
+
+Reenvío de mensajes, envío de alertas y de recordatorios
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Qflow permite enviar alertas y recordatorios a los destinatarios de las
+tareas. Para enviar una alerta o recordatorio, vaya a la página de
+detalles de una tarea y seleccione las acciones “Enviar alertas” o
+“Enviar recordatorios”. También lo puede hacer a través de alguna vista
+de tareas individuales (vista de tipo “Tareas a”), que muestran una fila
+por cada destinatario de una tarea (en lugar de una fila por tarea, como
+las vistas de tareas).
+
+También se puede reenviar el mensaje que le informa a un usuario que
+tiene una tarea pendiente, mediante la acción “Reenviar correo”,
+accesible de la misma forma.
+
+Trabajar con procesos
+---------------------
+
+El seguimiento básico de procesos se hace a través de las vistas de
+procesos del sitio de Qflow Task. Esta sección explica cómo utilizar esas
+vistas, que permiten revisar el estado de cada proceso y solucionar
+problemas que pueden ocurrir durante su ejecución, como por ejemplo,
+cuando un proceso se detiene a causa de un error.
+
+Datos y operaciones sobre procesos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A través de las vistas de procesos se puede acceder a información de los
+procesos y ejecutar operaciones sobre ellos, como por ejemplo, hacer
+seguir la ejecución de un proceso que estaba detenido en un error o
+finalizar un proceso a la fuerza. Las vistas de procesos se muestran
+como tablas y funcionan como se describe en :ref:`Funcionamiento general 
+de la interfaz de usuario`, donde también se explica cómo acceder a las
+operaciones que están disponibles. En esta sección se explica cuáles son
+esas operaciones y cómo funcionan. Las operaciones disponibles son las
+siguientes:
+
+-  **Ver detalles:** permite ver datos detallados del proceso, como sus
+   datos de aplicación (datos que el proceso utiliza y puede modificar),
+   usuarios que participan, el diseño y en qué punto está, etc. Desde
+   esta pantalla se pueden ejecutar acciones administrativas. Esa
+   pantalla se describe en detalle más abajo (ver :ref:`Detalles del
+   proceso`).
+
+-  **Ver proceso:** permite ver el formulario del proceso. Si es un
+   formulario estándar, este muestra datos básicos del proceso, como en
+   qué plantilla está basado, cuándo fue iniciado, etc. Si es un
+   formulario personalizado, lo que muestra puede variar.
+
+-  **Ver tareas activas:** permite ver la lista de tareas que están
+   pendientes de respuesta, con información de quiénes son los
+   destinatarios. Puede haber más de una, porque un proceso puede tener
+   ramas que se ejecutan en paralelo. Esta pantalla se describe más
+   abajo (ver :ref:`Ver tareas activas`).
+
+-  **Reanudar:** si el proceso fue pausado, permite reanudar su
+   ejecución.
+
+-  **Finalizar:** permite finalizar administrativamente el proceso, es
+   decir, hacer que se dé por terminada su ejecución sin que llegue a un
+   paso final.
+
+-  **Pausar:** permite detener temporalmente la ejecución del proceso.
+
+Detalles del proceso
+^^^^^^^^^^^^^^^^^^^^
+
+La figura muestra la página de detalles de un proceso. Esta se divide en
+las siguientes solapas:
+
+-  General
+
+-  Diseño
+
+-  Seguimiento
+
+-  Hilos
+
+-  Detalle
+
+-  Historial
+
+General
+'''''''
+
+La solapa “General” (:numref:`FlowDetailsGeneral`) muestra datos básicos del proceso. Lo
+que se muestra en esta solapa es muy parecido a lo que se muestra en el
+formulario del proceso, cuando este es un formulario estándar (no
+personalizado). Se muestran dos grupos de datos: la información del
+proceso y la información de la plantilla del proceso.
+
+.. _FlowDetailsGeneral:
+
+.. figure:: _static/media/04-QflowTask/image22.png
+   :width: 90%
+   :align: center
+   :alt: Detalles del proceso/General
+
+   Detalles del proceso/General
+
+La mayoría de los datos que se muestran no requieren explicación. A
+continuación, se describen los restantes:
+
+-  **Estado:** indica el estado del proceso. El estado puede ser:
+
+   -  **Activo:** el proceso está en ejecución.
+
+   -  **Pausado:** el proceso fue pausado mediante la acción “Pausar”.
+
+   -  **Finalizado:** el proceso finalizó su ejecución naturalmente
+      (llegó a un paso de fin).
+
+   -  **Finalizado por el usuario:** el proceso fue finalizado por un
+      usuario (fue finalizado a la fuerza, sin haber llegado a un paso
+      de fin).
+
+   -  **En espera:** el proceso está esperando que uno o más usuarios
+      respondan tareas que tienen pendientes. Un proceso que está en
+      espera está activo (si se aplica un filtro a una vista, indicando
+      que solo se deben mostrar los procesos activos, los procesos que
+      están en espera se incluirán en la vista).
+
+   -  **En error:** el proceso está detenido porque hubo algún error en
+      su ejecución.
+
+-  **Bandera:** la bandera es un texto informativo que puede cambiar
+   cada vez que un proceso llega o sale de un paso. Funciona como una
+   suerte de etiqueta que da información sobre la situación del proceso.
+   Por ejemplo, el diseñador de un proceso de aprobación de gastos que
+   tiene una tarea “Aprobación de gerente” puede especificar que cuando
+   el proceso llegue a esa tarea, la bandera cambie al texto “Esperando
+   aprobación de gerente”. Cuando alguien ve el proceso en Qflow Task,
+   puede saber rápidamente cuál es su situación sin necesidad de, por
+   ejemplo, entrar a la pantalla de detalles.
+
+-  **Progreso:** indica el porcentaje de avance del proceso. Como la
+   bandera, el porcentaje de progreso del proceso no es calculado por
+   Qflow, sino que los diseñadores de un proceso son quienes indican
+   cuál es el porcentaje de progreso del proceso cuando este llega a un
+   determinado paso. Por lo tanto, si esta propiedad tiene o no sentido
+   depende de cómo se utiliza. Puede haber procesos que nunca pasan de
+   0% de porcentaje de avance porque quienes los diseñaron no
+   especificaron cómo debe variar ese porcentaje.
+
+Diseño
+''''''
+
+La solapa Diseño muestra el diagrama que representa el flujo del
+proceso. Ese diagrama es parecido al de la plantilla, pero muestra con
+distintos colores qué pasos ya se ejecutaron, qué pasos están siendo
+ejecutados, qué pasos quedan por ejecutar y qué pasos están detenidos
+debido a un error. La siguiente lista muestra qué color corresponde a
+cada estado:
+
+-  **Gris:** el paso nunca fue ejecutado.
+
+-  **Verde:** el paso ya fue ejecutado.
+
+-  **Amarillo:** el paso está en ejecución o en espera.
+
+-  **Rojo:** hubo un error en ese paso y el proceso está detenido debido a ese error.
+
+.. _NicoNicoNi:
+
+.. figure:: _static/media/04-QflowTask/image23.png
+   :width: 5.025in
+   :align: center
+   :alt: Diseño del proceso: el proceso pasó dos veces por el paso Revisar documento.
+
+   Diseño del proceso: el proceso pasó dos veces por el paso Revisar documento.
+
+Un paso de una plantilla puede ser ejecutado más de una vez en
+un proceso si el proceso tiene un bucle (el paso siguiente a un paso es
+un paso que ya había sido ejecutado antes). Cuando esto sucede, Qflow
+lo indica en el diagrama con un número que aparece sobre el paso (ver :numref:`NicoNicoNi`). 
+Este número solo aparece si el mismo paso del proceso fue ejecutado
+más de una vez, e indica cuántas veces ese paso fue ejecutado. Al
+posicionar el cursor sobre el número de ejecuciones del paso, se
+desplegarán burbujas con los números de ejecución. Al hacer clic en
+cualquiera de las ejecuciones se abrirán los detalles de esta.
+
+Seguimiento
+'''''''''''
+
+La solapa “Seguimiento” muestra información de los pasos ejecutados
+hasta ahora o que están siendo ejecutados (:numref:`Log`). Para todos los
+pasos se muestra la fecha en que comenzó su ejecución y para aquellos ya
+finalizados, se muestra también la fecha en la que finalizó su
+ejecución. Por defecto, se muestran solamente pasos interactivos
+(preguntas, tareas, notificaciones), hitos y, si el proceso finalizó
+naturalmente su ejecución, el paso de fin. Para que Qflow muestre otros
+pasos, marque la opción “Vista completa”.
+
+Haciendo clic en el símbolo de “+” de los pasos interactivos se pueden
+ver más datos (destinatario, si fue respondido, qué respuesta se dio,
+progreso, alertas y recordatorios, etc).
+
+Si el usuario tiene permisos en el paquete de “Administrar procesos”,
+tendrá la opción de Retroceder hasta el paso” (“\ |image6|\ ”), donde
+Qflow calculará y ejecutará el retroceso de la mínima cantidad
+necesaria de pasos a retroceder hasta el paso seleccionado. Esta acción
+altera el flujo del proceso y podría restablecer sus datos, por lo que
+se recomienda utilizar con cautela.
+
+Si hay etapas definidas para el proceso, la solapa incluye además dos
+gráficas: “Seguimiento del proceso” (:numref:`FlowLog`) y “Seguimiento del
+proceso por etapa” (:numref:`StageLog`). La primera muestra el desempeño del
+proceso respecto de la suma de los tiempos definidos para la etapa
+actual y las ya transcurridas. La segunda detalla el desempeño obtenido
+etapa por etapa. Cuando se hace clic en alguna de las etapas, la lista
+de pasos ejecutados muestra solamente los pasos pertenecientes a esa
+etapa.
+
+.. _Log:
+
+.. figure:: _static/media/04-QflowTask/image25.png
+   :width: 80%
+   :align: center
+   :alt: Seguimiento
+
+   Seguimiento
+
+.. _FlowLog:
+
+.. figure:: _static/media/04-QflowTask/image26.png
+   :width: 80%
+   :align: center
+   :alt: Seguimiento del proceso
+
+   Seguimiento del proceso
+
+.. _StageLog:
+
+.. figure:: _static/media/04-QflowTask/image27.png
+   :width: 80%
+   :align: center
+   :alt: Seguimiento del proceso por etapa
+
+   Seguimiento del proceso por etapa
+
+Hilos
+'''''
+
+La solapa “Hilos” (:numref:`ProcessThread`) muestra los hilos, es decir, ramas del
+proceso (secuencias de pasos) que se ejecutan simultáneamente. Un
+proceso tiene por lo menos un hilo, pero puede tener más si hay un paso
+de separación, pues este puede hacer que varios pasos sean ejecutados en
+paralelo. En ese caso, el proceso se divide en varios hilos (:numref:`ProcessWithTwoThreads`).
+Cuando un hilo se divide en varios hilos, se dice que éstos son hijos de
+aquel.
+
+.. _ProcessThread:
+
+.. figure:: _static/media/04-QflowTask/image28.png
+   :width: 90%
+   :align: center
+   :alt: Hilos de un proceso
+
+   Hilos de un proceso
+
+Para cada hilo, se muestra el estado en el que se encuentra. Para hilos
+en algunos estados (ver más abajo), se puede hacer que el proceso
+retroceda, como si se deshiciera la ejecución de algunos pasos (aunque
+sin alterar los datos). Hilos en error pueden ser ejecutados nuevamente
+para intentar recuperarlos (por ejemplo, si se eliminó la causa del
+error). Los estados posibles de un hilo son:
+
+-  **Ejecutando:** el hilo está en ejecución. Es raro ver un hilo en
+   este estado, puesto que los hilos avanzan muy rápidamente cuando
+   están en ese estado y la mayor parte del tiempo están en espera,
+   pero un hilo puede estar en este estado, por ejemplo, si se está
+   ejecutando un paso de código.
+
+-  **En espera:** el hilo está esperando la ocurrencia de algún evento,
+   en general, que un usuario conteste un paso. Es posible reintentar
+   la ejecución del paso actual de un hilo en espera. Para ello, haga
+   clic en el botón “Reintentar ejecución”. También es posible hacer
+   que el hilo retroceda hasta un paso anterior al actual, haciendo
+   clic en el botón “Retroceder”. Un hilo solo puede retroceder hasta
+   un paso de inicio, separación o de unión.
+
+-  **Error:** el hilo está detenido debido a un error. En la columna
+   “Histórico de mensajes de error” aparecen los errores que hubo en
+   el hilo. Es posible reintentar la ejecución del paso actual de un
+   hilo en error. Para ello, haga clic en el botón “Reintentar
+   ejecución”. También es posible hacer que el hilo retroceda hasta
+   un paso anterior al actual, haciendo clic en el botón
+   “Retroceder”. Un hilo solo puede retroceder hasta un paso de
+   inicio, separación o de unión.
+
+-  **Separación:** el hilo se separó en varios hilos y está esperando
+   que estos hilos vuelvan a unirse en un paso de unión. Un hilo solo
+   puede estar en este estado si el paso actual es un paso de
+   separación.
+
+-  **Pausado:** el hilo fue pausado.
+
+-  **Finalizado:** el hilo terminó su ejecución. Un hilo puede estar en
+   este estado, aunque aún esté esperando a hilos hijos.
+
+.. _ProcessWithTwoThreads:
+   
+.. figure:: _static/media/04-QflowTask/image29.png
+   :width: 40%
+   :align: center
+   :alt: El diseño de un proceso con dos hilos en ejecución
+
+   El diseño de un proceso con dos hilos en ejecución
+
+Detalle
+'''''''
+
+Como la solapa “General”, la solapa “Detalle” muestra los datos básicos
+del proceso, pero además muestra los datos de aplicación, roles,
+archivos adjuntos y la bitácora de comentarios. No permite modificarlos,
+algo que sí se puede hacer mediante el formulario de edición del
+proceso.
+
+De los datos de aplicación se muestran varias propiedades (nombre,
+descripción, valor, etc). Al igual que en una vista, se puede decidir
+ocultar algunas de las columnas que representan estas propiedades. Si un
+dato es multivaluado, sus valores se muestran uno a continuación del
+otro, separados por puntos y comas (“;”). Los datos se pueden mostrar
+agrupados. Esto sirve para datos que pertenecen al mismo grupo o bloque
+de línea (:numref:`DataBlocks`).
+
+.. figure:: _static/media/04-QflowTask/image30.png
+   :width: 100%
+   :align: center
+   :alt: Detalle
+
+   Detalle
+
+Si un dato fue modificado, se puede hacer clic en un botón con el
+símbolo “+” y desplegar el historial de modificación del dato. Para cada
+modificación, se indica el paso en el que se modificó el dato (por
+ejemplo, en una tarea), el valor anterior (“Último valor”), el valor que
+se le asignó (“Valor”) y la fecha de la modificación. Además, se muestra
+el tipo de acción y el usuario responsable de ella si corresponde. Las
+acciones que se registran son: iniciar proceso, editar proceso, guardar
+datos en tarea, responder tarea, retroceder, reintentar ejecución,
+ejecución de paso (no interactivo), delegación, ejecución de paso de
+bot.
+
+El historial de roles, comentarios y archivos adjuntos se pueden
+consultar de manera similar.
+
+.. _DataBlocks:
+
+.. figure:: _static/media/04-QflowTask/image31.png
+   :width: 90%
+   :align: center
+   :alt: Tres datos del bloque “Contactos” se muestran agrupados. “Solicitud” no pertenece al bloque.
+
+   Tres datos del bloque “Contactos” se muestran agrupados. “Solicitud” no pertenece al bloque.
+
+.. figure:: _static/media/04-QflowTask/image32.png
+   :width: 90% 
+   :align: center
+   :alt: El dato "Dato Historial" fue modificado dos veces
+
+   El dato "Dato Historial" fue modificado dos veces
+
+Historial
+'''''''''
+
+La solapa del historial, que se muestra solamente si el usuario tiene
+permiso de auditar en el paquete, muestra las operaciones ejecutadas
+sobre un proceso, quién las hizo y en qué fecha, entre otros datos. Por
+ejemplo, si corresponde, se muestra el nombre del paso sobre el que se
+realizó la operación. Tomar o dejar una tarea de una cola de trabajo
+también son acciones que se muestran en el historial.
+
+.. figure:: _static/media/04-QflowTask/image33.png
+   :width: 90%
+   :align: center
+   :alt: Historial
+
+   Historial
+
+Ver tareas activas
+^^^^^^^^^^^^^^^^^^
+
+La página de tareas activas muestra información de las tareas pendientes
+del proceso.
+
+.. figure:: _static/media/04-QflowTask/image34.png
+   :width: 90%
+   :align: center
+   :alt: Tareas activas
+
+   Tareas activas
+
+Consulte la sección :ref:`Trabajar con tareas` por información sobre cómo
+trabajar con tareas.
+
+.. _flowMonitoringAndAnalysisTools:
+
+Herramientas de seguimiento y análisis de procesos
+==================================================
+
+Esta sección describe algunos elementos que permiten facilitar el
+seguimiento de los procesos, así como organizar su información. Estos
+elementos son:
+
+-  **Vistas:** una vista es la definición de un conjunto de elementos
+   (por ejemplo, un conjunto de procesos o de tareas), incluyendo el
+   orden en que se muestran, qué columnas se muestran y qué elementos
+   se muestran (por ejemplo, solamente las tareas dirigidas a una
+   determinada cola de trabajo).
+
+-  **Gráficas:** Qflow permite definir gráficas para visualizar los
+   datos de los procesos.
+
+-  **Indicadores:** los indicadores son números que se calculan con los
+   datos de los procesos, que se muestran con alguna ayuda gráfica que
+   permita comprender más rápidamente su significado. Por ejemplo, un
+   indicador se puede representar con la figura de un termómetro, con
+   colores que varían según el valor del número (rojo para algo grave,
+   verde cuando todo está bien, etc).
+
+-  **Tableros de control:** un tablero de control es una página que
+   muestra vistas, gráficas e indicadores. Qflow permite definir
+   tableros de control para juntar en una misma página vistas, gráficas
+   e indicadores que estén relacionados o que permitan realizar alguna
+   tarea de seguimiento y control.
+
+.. _views:
+
+Vistas
+------
+
+Una vista es el resultado de aplicar un filtro a un conjunto de
+elementos, como por ejemplo, procesos. Dado un conjunto de elementos y
+un conjunto de criterios que permita distinguir algunos elementos de los
+demás, una vista es el subconjunto al que pertenecen esos elementos. Por
+ejemplo, un criterio para hacer una vista de procesos puede ser que los
+procesos pertenecientes a esa vista hayan sido iniciados en una
+determinada fecha.
+
+Buena parte de lo que se muestra en Qflow Task es una vista:
+
+-  **General:** las subopciones de la opción “General” del menú lateral
+   son vistas:
+
+   -  **Procesos:** es una vista de procesos.
+
+   -  **Tareas:** es una vista de tareas.
+
+   -  **Notificaciones:** es una vista de notificaciones.
+
+-  **Mis tareas:** es una vista de tareas que muestra solamente tareas
+   del usuario actual.
+
+-  **Mis procesos:** es una vista de procesos que muestra solamente
+   procesos iniciados por el usuario actual.
+
+-  **Mis notificaciones:** es una vista de notificaciones que muestra
+   solamente notificaciones enviadas al usuario actual.
+
+Las colas de trabajo también utilizan vistas.
+
+Estas vistas, que ya vienen predefinidas con Qflow, son vistas del
+sistema. Qflow permite crear otras vistas personalizadas, para
+facilitar la organización de la información. Al crear una vista, se
+puede definir si esta se mostrará en el menú lateral o no. Vistas que se
+incluyen en el menú lateral se muestran como subopciones de la opción
+“Vistas” de ese menú. Las demás vistas son accesibles desde la pantalla
+de vistas (:numref:`ViewsPanel`), a la cual se accede mediante un clic en la opción
+“Vistas”.
+
+Esta pantalla también sirve para crear y modificar vistas. Además,
+permite exportarlas e importarlas, de modo que se puede definir una
+vista en un ambiente (por ejemplo, en un ambiente de desarrollo o de
+prueba) y luego exportar su definición para importarla en otro ambiente
+(por ejemplo, un ambiente de producción).
+
+.. _ViewsPanel:
+
+.. figure:: _static/media/04-QflowTask/image35.png
+   :width: 90%
+   :align: center
+   :alt: Pantalla de vistas
+
+   Pantalla de vistas
+
+Creación de una vista
+~~~~~~~~~~~~~~~~~~~~~
+
+Una vista se puede crear desde cero, o también se puede copiar una vista
+ya existente.
+
+Para crear una vista, haga clic en la opción “Vistas” del menú lateral
+para acceder a la pantalla de vistas (:numref:`ViewsPanel`). Una vez allí, haga
+clic en el ícono de copiar vista (|image7|) o en el de agregar vista
+(+). Si hace clic en el de copiar vista, Qflow muestra
+directamente la pantalla de definición de la vista (ver :ref:`Definición de
+una vista`).
+
+Si hace clic en el ícono de agregar vista, Qflow lo lleva a una
+pantalla como la de la :numref:`ViewCreation`.
+
+En esta pantalla debe definir:
+
+-  **El paquete al que pertenecerá la vista:** una vista pertenece a un
+   determinado paquete, de la misma forma que las plantillas de
+   procesos. El paquete al que pertenece una vista es importante porque
+   determina muchos de los permisos que se aplican a la vista. Por
+   ejemplo, si un usuario puede modificar una vista depende de si ese
+   usuario tiene el permiso “Administrar vistas” para el paquete que
+   contiene esa vista. También define qué columnas están disponibles en
+   la vista (por ejemplo, qué datos de aplicación, ya que éstos también
+   tienen un lugar en la estructura de paquetes; consulte el manual del 
+   `Diseñador de Procesos del Negocio <15-QflowDesign.html>`_ por más información).
+
+-  **El tipo de la vista:** el tipo de la vista indica qué tipo de ítem
+   la vista contiene. Una vista puede contener ítems públicos o
+   privados y dentro de cada una de estas categorías hay varios tipos
+   de vista. Estos tipos indican qué tipos de elementos (plantillas,
+   procesos, tareas, etc.) se muestran en las vistas.
+
+.. _ViewCreation: 
+
+.. figure:: _static/media/04-QflowTask/image38.png
+   :width: 90%
+   :align: center
+   :alt: Primer paso de la creación de una vista
+
+   Primer paso de la creación de una vista
+
+Para seleccionar el paquete:
+
+1. Haga clic en el ícono que aparece al lado del nombre del paquete
+   raíz, como se muestra en la :numref:`PackageSelection`. Esto hace que aparezca el
+   árbol de paquetes y que el ícono en el que hizo clic cambie para
+   transformarse en un botón de confirmación (:numref:`OpenTree`).
+
+2. Haga clic en un paquete para seleccionarlo. Esto cambia el nombre que
+   aparece al lado del ícono en el que hizo clic para abrir el árbol
+   (:numref:`PackageSelection`).
+
+3. Haga clic en el botón de confirmación (|image9|). Esto cierra el
+   árbol de paquetes.
+
+.. _PackageSelection:
+
+.. figure:: _static/media/04-QflowTask/image40.png
+   :width: 50%
+   :align: center
+   :alt: Primer paso para selección de paquete
+
+   Primer paso para selección de paquete
+
+.. _OpenTree: 
+
+.. figure:: _static/media/04-QflowTask/image41.png
+   :width: 50%
+   :align: center
+   :alt: Árbol de paquetes abierto, listo para que se seleccione uno.
+
+   Árbol de paquetes abierto, listo para que se seleccione uno.
+
+.. figure:: _static/media/04-QflowTask/image42.png
+   :width: 50%
+   :align: center
+   :alt: Selección del paquete Pruebas.
+
+   Selección del paquete Pruebas.
+
+Para seleccionar el tipo de vista, utilice el cuadro que aparece en la
+parte derecha de la pantalla (:numref:`ViewSelector`). Hay dos categorías de tipos de
+vista: vistas de ítems públicos y vistas de ítems personales.
+Inicialmente se muestran solamente los tipos de vistas con ítems
+públicos. El ícono de la estrella permite cambiar la pantalla para que
+muestre los ítems de vistas de ítems personales y viceversa.
+
+.. _ViewSelector:
+
+.. figure:: _static/media/04-QflowTask/image43.png
+   :width: 50%
+   :align: center
+   :alt: Cuadro para seleccionar el tipo de vista. A la derecha, arriba, el ícono de la estrella para alternar entre vistas con ítems públicos y vistas con ítems personales.
+
+   Cuadro para seleccionar el tipo de vista. A la derecha, arriba, el ícono de la estrella para alternar entre vistas con ítems públicos y vistas con ítems personales.
+
+A continuación, se describen los tipos de vista:
+
+-  **Vistas de ítems públicos:** en principio cualquier usuario puede
+   verlas, a menos que se hayan definido permisos que restrinjan el
+   acceso a ellas. Las vistas públicas pueden ser de los siguientes
+   tipos:
+
+   -  **Acciones:** vistas que muestran acciones de control de tiempo
+      (recordatorios, alertas, delegaciones y vencimientos). Por
+      ejemplo, si una tarea se atrasa, Qflow puede enviar una alerta a
+      un conjunto de usuarios. En Qflow Task, se puede acceder a esa
+      alerta a través de una vista de acciones.
+
+   -  **Acciones a:** vistas que muestran acciones individuales. Una
+      acción está compuesta por varias acciones individuales. Por
+      ejemplo, si una alerta se envía a un conjunto de usuarios, como
+      por ejemplo, los usuarios de un nodo, esa alerta es una acción que
+      está compuesta por varias acciones individuales (“acciones a”),
+      una por cada uno de los usuarios del nodo. En pocas palabras,
+      estas vistas muestran un elemento por cada destinatario de la
+      acción, mientras que las vistas de acciones muestran un elemento
+      por acción, independientemente de la cantidad de destinatarios que
+      ella tenga.
+
+   -  **Notificaciones:** vistas que muestran notificaciones. La
+      subopción “Notificaciones” de la opción “General” del menú lateral
+      es un ejemplo de vista de este tipo.
+
+   -  **Notificaciones a:** vistas que muestran notificaciones
+      individuales (es decir, la vista muestra un elemento por cada
+      destinatario de la notificación).
+
+   -  **Plantillas de proceso:** vistas que muestran plantillas de
+      proceso. Estas vistas se pueden utilizar para iniciar procesos.
+
+   -  **Procesos:** vistas que muestran procesos. Desde estas vistas se
+      pueden ver los datos de los procesos, ver sus diagramas y en qué
+      paso se encuentran, etc. La subopción “Procesos” de la opción
+      “General” del menú lateral es un ejemplo de vista de este tipo.
+
+   -  **Tareas:** vistas que muestran tareas. La subopción “Tareas” de
+      la opción “General” del menú lateral es un ejemplo de vista de
+      este tipo.
+
+   -  **Tareas a:** vistas que muestran tareas individuales. Una tarea
+      está compuesta por varias tareas individuales, una por cada
+      destinatario de la tarea. Estas vistas muestran un elemento por
+      cada destinatario de una tarea.
+
+-  **Vistas de ítems personales:** las vistas de ítems personales hacen
+   referencia a un usuario en particular y solo pueden ser vistas por
+   ese usuario. Un ejemplo típico es “Mis tareas”, que muestra las
+   tareas del usuario actual. Las vistas personales pueden ser de los
+   siguientes tipos:
+
+   -  **Mis acciones:** muestran acciones individuales (“acciones a”)
+      cuyo destinatario es el usuario actual.
+
+   -  **Mis notificaciones:** muestran notificaciones individuales cuyo
+      destinatario es el usuario actual.
+
+   -  **Mis plantillas de proceso:** muestran plantillas de proceso cuyo
+      dueño es el usuario actual (el dueño de una plantilla se
+      especifica en Qflow Design).
+
+   -  **Mis procesos:** muestran procesos iniciados por el usuario
+      actual. La vista “Mis procesos”, que aparece en el menú superior,
+      es una vista de este tipo.
+
+   -  **Mis tareas:** muestran tareas individuales (“tareas a”) cuyo
+      destinatario es el usuario actual.
+
+   -  **Mis tareas respondidas:** muestran tareas que han sido
+      respondidas por el usuario actual.
+
+Una vez seleccionados el paquete y el tipo de la vista, haga clic en el
+botón “Continuar”. Esto lo lleva a la pantalla de definición de la
+vista.
+
+Definición de una vista
+~~~~~~~~~~~~~~~~~~~~~~~
+
+La pantalla de definición de una vista tiene las siguientes secciones:
+
+-  Detalles
+
+-  Columnas
+
+-  Ordenar
+
+-  Filtros
+
+-  Parámetros
+
+-  Permisos
+
+Al terminar de modificar las propiedades de cada una de esas secciones,
+debe hacer clic en “Listo”. Qflow validará los datos y si hay errores,
+le avisará. Si hace clic en el aviso de los errores, Qflow lo lleva la
+parte de la pantalla en la que puede corregir el error.
+
+A continuación, se explican las propiedades de cada sección de la
+pantalla de definición de una vista.
+
+Detalles
+^^^^^^^^
+
+La sección de detalles muestra el paquete y el tipo de la vista y
+permite elegir valores para las siguientes propiedades:
+
+-  **Nombre:** nombre de la vista. Este es el nombre que se muestra en
+   la lista de vistas.
+
+-  **Descripción:** descripción de la vista. Es la descripción que
+   aparece debajo del nombre de la vista.
+
+-  **Vista destacada (Mostrar vista en el árbol de navegación):** si
+   esta opción está marcada, Qflow muestra la vista en el árbol de
+   navegación.
+
+-  **Tamaño de página:** indica cuántos elementos se mostrarán en cada
+   página de la vista. Cuando se muestra una vista, no se muestran
+   todos los elementos de una vez, sino que se utilizan páginas para
+   mostrar una cantidad restringida de elementos.
+
+-  **Cantidad de páginas para desplegar:** cuando se muestra una página
+   de la vista, se muestran también botones para ir a la primera
+   página, a la anterior, a la siguiente y a la última. También se
+   muestran los números de las páginas anteriores y siguientes a la
+   actual. Este parámetro indica cuántos de estos números se
+   mostrarán.
+
+.. figure:: _static/media/04-QflowTask/image44.png
+   :width: 90%
+   :align: center
+   :alt: Definición de una vista: Detalles
+
+   Definición de una vista: Detalles
+
+.. _columns:
+
+Columnas
+^^^^^^^^
+
+Las vistas se muestran como tablas. La sección de columnas permite
+especificar qué columnas tendrá la tabla que representa una vista. Cada
+tipo de vista tiene un conjunto de columnas que se incluyen inicialmente
+al momento de crear una nueva vista, pero estas se pueden quitar y se
+pueden agregar otras.
+
+.. figure:: _static/media/04-QflowTask/image45.png
+   :width: 90%
+   :align: center
+   :alt: Definición de una vista: Columnas
+
+   Definición de una vista: Columnas
+
+Para **borrar** una columna o **modificar** sus propiedades,
+selecciónela. Cuando se selecciona una columna, Qflow muestra sus
+propiedades y habilita el botón que permite borrarla (ver :numref:`ColumnSelector`).
+
+.. _ColumnSelector:
+
+.. figure:: _static/media/04-QflowTask/image46.png
+   :width: 90%
+   :align: center
+   :alt: Sección de configuración de columnas
+
+   Sección de configuración de columnas
+
+
+Las propiedades de una columna son las siguientes:
+
+-  **Nombre:** no se puede modificar. Corresponde al tipo de la columna.
+   El tipo de la columna se selecciona al agregar la columna (ver más
+   abajo).
+
+-  **Cabezal:** es el título que se mostrará para esa columna al mostrar
+   la vista
+
+-  **Ancho:** ancho de la columna, ya sea en número de píxeles (px) o en
+   porcentaje (%).
+
+-  **Alineación:** alineación de la columna (izquierda, centro o
+   derecha).
+
+-  **Formato de visualización:** tipo de formato a aplicar sobre el
+   contenido de la columna (ver más abajo).
+
+-  **Permitir buscar por esta columna en la vista:** si la opción está marcada, 
+   se considerarán los valores de esta columna para filtrar resultados al usar el
+   campo de búsqueda en la parte superior de la vista. Algunas columnas, como por 
+   ejemplo aquellas que muestran datos de tipo "Hora" no permiten hacer búsquedas
+   por sus valores.
+
+Para **agregar una columna a la vista**, haga clic en el ícono de suma
+(“\ |image10|\ ”). Esto hace que aparezca, en la parte superior de la
+sección de columnas, un recuadro que muestra una lista con las columnas
+disponibles (:numref:`AddColumn`). Las columnas están agrupadas en categorías
+(“Columnas de sistema”, “Datos de aplicación”, “Roles de proceso”, en la
+figura). Para agregar una de ellas a la vista, hágale doble clic, o
+hágale clic y arrástrela hacia abajo, hacia donde dice “Arrastre aquí”.
+Alternativamente, puede seleccionar una, haciéndole clic y hacer clic
+en el ícono de suma que aparece en el cabezal de la lista de columnas.
+
+Para cambiar el orden de las columnas, hágale clic a una columna y
+arrástrela hacia el lugar en el que desea que esté en el orden. Por
+ejemplo, si desea que la columna “Destinatarios de la tarea” esté más a
+la izquierda que la columna “Fecha de inicio de la tarea”, arrástrela
+hasta que quede arriba de esta última.
+
+.. _AddColumn:
+
+.. figure:: _static/media/04-QflowTask/image48.png
+   :width: 80%
+   :align: center
+   :alt: Agregar una columna
+
+   Agregar una columna
+
+El formato de visualización define como se mostrará la columna en la
+vista. Se cuenta con nueve opciones por defecto:
+
+-  Ninguno.
+
+-  Mostrar como vínculo.
+
+-  Mostrar texto en mayúscula.
+
+-  Mostrar primera letra en mayúscula.
+
+-  Mostrar como vínculo al documento.
+
+-  Mostrar porcentaje (0-100) como barra de progreso.
+
+-  Mostrar respuestas de la tarea como lista para respuesta rápida.
+
+-  Mostrar el estado actual de la etapa del proceso.
+
+-  Mostrar el estado actual de la tarea.
+
+La :numref:`ViewWithLink` muestra un ejemplo de vista con el formato “Mostrar como
+vínculo”.
+
+.. _ViewWithLink:
+
+.. figure:: _static/media/04-QflowTask/image49.png
+   :width: 90%
+   :align: center
+   :alt: Ejemplo de vista con formato de vínculo en su última columna
+
+   Ejemplo de vista con formato de vínculo en su última columna
+
+Es posible agregar nuevas funciones de formato de columna en el archivo
+*Scripts\Views\ColumnFormatters.js* dentro del directorio de Qflow Task,
+el cual tiene formato de diccionario. Este proceso es sencillo siguiendo
+como ejemplo las funciones que ya existen.
+
+Dos consideraciones importantes son que el nombre de la nueva función
+debe tener el sufijo “Formatter” y que deben agregarse textos
+descriptivos en la clave “resources” del diccionario con el texto a
+mostrar entre las opciones para la columna. Los idiomas disponibles son
+español, inglés y portugués, pudiendo ingresar un texto para cada uno.
+
+Ordenar
+^^^^^^^
+
+La sección Ordenar (:numref:`Order`) permite especificar en qué orden se deben
+mostrar los elementos de la vista. Al igual que con las columnas, cuando
+se crea una vista también se incluye por defecto un criterio de
+ordenamiento, según el tipo de la vista (por ejemplo, para vistas de
+tareas, el criterio de ordenamiento por defecto es la fecha de inicio de
+la tarea).
+
+Para borrar o modificar un criterio de ordenamiento, selecciónelo
+haciéndole clic. Esto habilita el botón de borrar y hace que aparezcan
+las propiedades del criterio. Estas son:
+
+-  **Nombre de la columna:** no se puede modificar. Indica qué columna
+   se usa para ordenar. Corresponde al tipo de la columna, que se
+   selecciona al agregar la columna (ver más abajo).
+
+-  **Dirección:**
+
+   -  **Ascendente** (orden creciente; por ejemplo, de la A a la Z).
+
+   -  **Descendente** (orden decreciente; por ejemplo, de la Z a la A).
+
+El procedimiento para agregar un criterio de ordenamiento es similar al
+procedimiento para agregar una columna: hacer clic en el ícono de la
+suma que aparece al lado del ícono de borrar. Esto hace que aparezca la
+lista de columnas disponibles para ordenar la vista: arrastre la que
+desee hasta donde dice “Arrastrar aquí”, o selecciónela y haga clic en
+el ícono de suma que aparece arriba de la lista.
+
+Si hay varios criterios de ordenamiento, se aplican en orden. Para
+cambiar el orden de los criterios, seleccione uno y arrástrelo hacia
+donde desea que esté.
+
+.. _Order:
+
+.. figure:: _static/media/04-QflowTask/image50.png
+   :width: 90%
+   :align: center
+   :alt: Ordenar
+
+   Ordenar
+
+Filtros
+^^^^^^^
+
+La sección de filtro permite especificar qué propiedades debe cumplir un
+ítem para ser incluido en la vista. Por ejemplo, alguien podría querer
+crear una vista que muestre solamente las tareas de procesos de la
+plantilla “Solicitudes de clientes”. En ese caso, el filtro tendría una
+sola condición, que estaría definida por la columna “Nombre de la
+plantilla” y el valor “Solicitudes de clientes”. Es decir: la condición
+para que un elemento perteneciera a la vista sería tener el valor
+“Solicitudes de clientes” en la columna “Nombre de la plantilla”.
+
+Filtros complejos
+'''''''''''''''''
+
+El ejemplo anterior es muy sencillo, pero Qflow permite construir
+combinaciones complejas de condiciones de filtro. Los filtros de una
+vista pueden especificar condiciones para varias columnas y en varias
+combinaciones.
+
+Las condiciones se combinan con los operadores “Y” y “O”, para indicar
+si se deben cumplir simultáneamente (“Y”) o si basta con que se cumpla
+una de ellas (“O”) para que el filtro incluya un elemento en la vista.
+Por ejemplo, la vista de las tareas de los procesos de solicitudes de
+clientes que fueron iniciadas a partir del año 2016 tendría dos
+condiciones combinadas con el operador “Y”. Si se utilizara el operador
+“O”, cualquier proceso iniciado a partir del año 2016 aparecería en la
+vista aunque no perteneciera a la plantilla “Solicitudes de clientes” y
+cualquier proceso de esa plantilla aparecería en la vista aunque hubiese
+sido iniciado antes de 2016.
+
+Cuando se desean combinar condiciones con ambos operadores, se deben
+utilizar grupos de condiciones. Un grupo tiene varias condiciones, todas
+unidas por el mismo operador. Por ejemplo, para hacer la vista de los
+procesos de las plantillas “Solicitudes de clientes” y “Aprobación de
+gasto” que hayan sido iniciadas a partir de 2016, hay que utilizar tres
+condiciones que usan los dos operadores. La combinación de condiciones
+se podría representar así:
+
+(Nombre de la plantilla= Solicitudes de clientes **O** Nombre de la
+plantilla = Aprobación de gasto) **Y** Fecha de inicio >= 1/1/2016
+
+Los paréntesis indican que el operador “O” se debe aplicar antes que el
+operador “Y”: lo que está entre paréntesis se toma como una sola
+condición, que se debe cumplir simultáneamente con la condición “Fecha
+de inicio >= 1/1/2016”. Sin los paréntesis, alguien podría interpretar
+que la vista incluye los procesos de “Aprobación de gasto” iniciados a
+partir de 2016 y, además, todos los procesos de “Solicitudes de
+clientes”, independientemente de su fecha.
+
+En Qflow, la función que en el ejemplo cumplen los paréntesis la
+cumplen los grupos de condiciones. Un grupo de condiciones tiene varias
+condiciones combinadas con un operador. Para construir la expresión del
+ejemplo con grupos, lo que está entre paréntesis se pondría dentro de un
+grupo que utilizara el operador “O” y se combinaría mediante el
+operador “Y” con una la condición “Fecha de inicio >= 2016”.
+
+Otra forma de entender los grupos es considerar la :numref:`FiltersAndConditions`. En la
+figura, una condición es un nodo rectangular del árbol. Un grupo es una
+rama del árbol. En este caso, hay un solo grupo cuya raíz se representa
+mediante un círculo.
+
+.. _FiltersAndConditions:
+
+.. figure:: _static/media/04-QflowTask/image51.png
+   :width: 80%
+   :align: center
+   :alt: Combinación de filtros con grupos de condiciones
+
+   Combinación de filtros con grupos de condiciones
+
+Cómo definir filtros
+''''''''''''''''''''
+
+Para definir filtros, agregue las columnas que desee utilizar de la
+misma forma que se agregan columnas a la vista (ver :ref:`Columnas`):
+haciendo clic en el botón “\ |image12|\ ” y arrastrando las columnas
+deseadas hacia donde dice “Arrastrar aquí”.
+
+Para agregar una condición, haga clic en “+Condición”. Para agregar un
+grupo, haga clic en “+Grupo”.
+
+A la izquierda de cada condición aparece el operador que se utiliza para
+combinarla con las otras condiciones del mismo nivel (las que están en
+el mismo grupo, o las que están fuera de cualquier grupo junto con la
+que se está modificando). El botón “Todos” sirve para seleccionar el
+operador “Y” para todas las condiciones del nivel actual. El botón
+“Algunos” sirve para seleccionar el operador “O”. El botón con las
+flechitas que apuntan hacia cuatro sentidos diferentes permite mover un
+grupo o una condición. Se puede usar, por ejemplo, para mover una
+condición de un grupo a otro.
+
+Por ejemplo, para definir los filtros de una vista que debe mostrar
+solamente los procesos de las plantillas “Solicitudes de clientes” y
+“Aprobación de gasto” que hayan sido iniciados a partir del año 2016,
+proceda de la siguiente forma:
+
+1.  Haga clic en el ícono “+Grupo” para agregar un grupo. Esto crea un
+    grupo, con una condición vacía, como se muestra en la :numref:`NewGroup`.
+
+2.  Haga clic en el ícono “\ |image13|\ ”. Qflow muestra las columnas
+    disponibles para agregar a los filtros (:numref:`NewColumn`).
+
+3.  Arrastre la columna “Nombre de la plantilla” hacia el grupo que se
+    creó (:numref:`TwoConditions`).
+
+4.  El grupo ahora tiene dos condiciones, pero para la primera no hay
+    ninguna columna seleccionada. Seleccione, en la primera condición,
+    la columna “Nombre de la plantilla”, que es ahora una opción
+    seleccionable en la lista desplegable de la condición.
+
+5.  En la primera condición, al lado de donde dice “igual”, escriba el
+    nombre de la primera plantilla que desea incluir en el filtro:
+    “Solicitudes de clientes”.
+
+6.  En la segunda, escriba, en el lugar correspondiente, “Aprobación de
+    gasto”, que es el nombre de la segunda plantilla.
+
+7.  Haga clic en el botón “Alguna” del grupo. Por ahora, el resultado
+    debería ser como el que se ve en la :numref:`TwoConditionsInAGroup`. Falta agregar la
+    condición de la fecha de inicio.
+
+8.  Agregue la columna “Fecha de inicio del proceso”. Esto agrega dentro
+    del grupo una condición que usa la columna “Fecha de inicio del
+    proceso”. Pero lo que se desea es que esa condición esté fuera del
+    grupo (:numref:`ThreeConditionsInAGroup`).
+
+9.  Arrastre la condición hacia afuera del grupo, manteniendo el botón
+    del ratón apretado mientras el cursor está sobre el ícono “+” que
+    aparece en la condición. Mueva el ratón hacia arriba, hasta que la
+    condición esté sobre los botones “Todas” y “Alguna” que están fuera
+    del grupo. Suelte el botón del ratón. El resultado debería ser el de
+    la :numref:`MoveConditions`. Si la condición queda dentro del grupo, vuelva a
+    intentarlo, recordando que debe soltar el botón del ratón fuera del
+    grupo.
+
+10. Modifique esa condición para que el operador sea “mayor o igual” y
+    la fecha 1/1/2016 y los filtros quedarán prontos.
+
+.. _NewGroup:
+
+.. figure:: _static/media/04-QflowTask/image52.png
+   :width: 90%
+   :align: center
+   :alt: Un grupo que se acaba de crear
+
+   Un grupo que se acaba de crear
+
+.. _NewColumn:
+
+.. figure:: _static/media/04-QflowTask/image53.png
+   :width: 90%
+   :align: center
+   :alt: Se acaba de agregar la columna "Nombre de la plantilla"
+
+   Se acaba de agregar la columna "Nombre de la plantilla"
+
+.. _TwoConditions:
+
+.. figure:: _static/media/04-QflowTask/image54.png
+   :width: 90%
+   :align: center
+   :alt: Las dos condiciones del grupo usan la columna "Nombre de la plantilla"
+
+   Las dos condiciones del grupo usan la columna "Nombre de la plantilla"
+
+.. _TwoConditionsInAGroup:
+
+.. figure:: _static/media/04-QflowTask/image55.png
+   :width: 90%
+   :align: center
+   :alt: Dos condiciones dentro de un grupo
+
+   Dos condiciones dentro de un grupo
+
+.. _ThreeConditionsInAGroup:
+
+.. figure:: _static/media/04-QflowTask/image56.png
+   :width: 90%
+   :align: center
+   :alt: El grupo ahora tiene tres condiciones, pero una debe ser movida hacia afuera
+
+   El grupo ahora tiene tres condiciones, pero una debe ser movida hacia afuera
+
+.. _MoveConditions:
+
+.. figure:: _static/media/04-QflowTask/image57.png
+   :width: 90%
+   :align: center
+   :alt: Resultado de mover la nueva condición hacia afuera
+
+   Resultado de mover la nueva condición hacia afuera
+
+Parámetros
+^^^^^^^^^^
+
+En la sección de parámetros se pueden definir condiciones de filtro que,
+en lugar de comparar el valor de una columna con un valor fijo, lo
+compara con un valor que un usuario ingresa a la hora de ver la vista.
+
+Para agregar un parámetro:
+
+1. Haga clic en el botón “+”. Eso hace que Qflow muestre
+   las columnas disponibles para utilizar en el nuevo parámetro.
+
+2. Arrastre la columna que desee hacia donde dice “Arrastre aquí”. Eso
+   hace que la columna se agregue a la lista de columnas.
+
+3. Una vez agregada la columna, hágale clic para editar sus propiedades.
+   Las propiedades son:
+
+   a. **Nombre de la columna:** no se puede modificar. Se toma de la
+      columna que se seleccionó.
+
+   b. **Nombre:** el nombre del parámetro. Es el nombre que verá el
+      usuario cuando vaya que ingresar un valor para el parámetro.
+
+   c. **Operador:** el operador que se utilizará para comparar el valor
+      de la columna seleccionada con el valor que el usuario ingrese
+      para el parámetro.
+
+   d. **Requerido:** indica si el usuario está obligado a ingresar un
+      valor para el parámetro para poder acceder a la vista.
+
+Cuando una vista tiene varios parámetros, todas las condiciones se deben
+cumplir para que un determinado elemento pertenezca a la vista.
+
+Permisos
+^^^^^^^^
+
+La sección de permisos permite restringir el conjunto de personas que
+pueden ver una vista. Solo está disponible para vistas de ítems
+públicos. Las vistas de ítems personales solo pueden ser vistas por el
+usuario que las creó, por lo que no tiene sentido definir permisos para
+ellas.
+
+Para restringir el acceso a una vista:
+
+1. Marque la opción “Restringir acceso”.
+
+2. Donde dice “Acceso permitido a”, introduzca los miembros a los cuales
+   desee permitir ver la vista (:numref:`RestrictPermissions`). Para hacer eso, escriba,
+   donde dice “Comience a escribir un rol”, parte del nombre del
+   miembro de Qflow al que desee otorgar el permiso (el miembro puede
+   ser un rol, grupo, usuario, nodo o cola de trabajo de Qflow; ver
+   :ref:`Manejo de Permisos`). Qflow mostrará miembros cuyos nombres
+   contengan el texto ingresado. Haga clic en el miembro que desee
+   agregar para seleccionarlo. Esto lo agregará a la lista. Para
+   quitarlo, haga clic en la cruz que aparece en la parte derecha del
+   nombre.
+
+.. _RestrictPermissions:
+
+.. figure:: _static/media/04-QflowTask/image58.png
+   :width: 90%
+   :align: center
+   :alt: Restringir los permisos de acceso a una vista al rol “Diseñador”
+
+   Restringir los permisos de acceso a una vista al rol “Diseñador”
+
+.. figure:: _static/media/04-QflowTask/image59.png
+   :width: 30%
+   :align: center
+   :alt: El rol "Diseñador" en la lista de acceso permitido de una vista
+
+   El rol "Diseñador" en la lista de acceso permitido de una vista
+
+Importación y exportación de vistas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En la pantalla de las vistas, en la parte superior, hay dos botones, que
+permiten exportar vistas a un archivo que se puede importar en otro
+ambiente en el que Qflow esté instalado (por ejemplo, para exportarlos
+de un ambiente de desarrollo a un ambiente de prueba o producción).
+
+.. figure:: _static/media/04-QflowTask/image60.png
+   :width: 30%
+   :align: center
+   :alt: Pantalla de vistas con opciones de exportar e importar vistas
+
+   Pantalla de vistas con opciones de exportar e importar vistas
+
+Al hacer clic en el botón de exportar, aparece un menú con dos opciones:
+
+-  **Exportar todo:** exporta todas las vistas.
+
+-  **Exportar selección:** exporta las vistas seleccionadas.
+
+Si no hay ninguna vista seleccionada, solo se muestra la opción
+“Exportar todo”.
+
+Al hacer clic en cualquiera de las dos opciones se descargará un archivo
+que contiene la definición de vistas que se puede importar en otro
+ambiente.
+
+Para importar un archivo de vistas, haga clic en el botón de
+importación. Entonces podrá seleccionar el archivo que desee importar.
+
+.. _charts:
+
+Gráficas
+--------
+
+Qflow permite crear gráficas de varios tipos para facilitar la
+visualización de los datos de los procesos. Al igual que con las vistas,
+para cada gráfica se puede definir si esta se mostrará en el menú
+lateral o no. Gráficas que se incluyen en el menú lateral se muestran
+como subopciones de la opción “Gráficas” de ese menú. Las demás gráficas
+son accesibles desde la pantalla de gráficas, a la cual se accede
+mediante un clic en la opción “Gráficas”. Esta pantalla (:numref:`ChartPanel`)
+también sirve para crear y modificar gráficas. Además, permite exportar
+e importar definiciones de gráficas.
+
+.. _ChartPanel:
+
+.. figure:: _static/media/04-QflowTask/image61.png
+   :width: 80%   
+   :align: center
+   :alt: Pantalla de gráficas
+
+   Pantalla de gráficas
+
+Al terminar de modificar las propiedades de cada una de esas secciones,
+debe hacer clic en “Listo”. Qflow validará los datos y si hay errores,
+le avisará. Si hace clic en el aviso de los errores, Qflow lo lleva a la
+parte de la pantalla en la que puede corregir el error.
+
+A continuación, se explican las propiedades de cada sección de la
+pantalla de definición de una gráfica.
+
+Creación de gráficas
+~~~~~~~~~~~~~~~~~~~~
+
+El procedimiento para crear una gráfica es muy similar al proceso para
+crear una vista, también con las opciones de crear una gráfica desde
+cero o de copiar una ya existente. Al igual que con las vistas, en caso
+de crear una gráfica desde cero se debe seleccionar el paquete en el que
+se creará la gráfica y el tipo de ítems que se utilizarán como datos de
+la gráfica. Los tipos de ítems incluyen todos los que están disponibles
+para las vistas y dos más:
+
+-  Acciones recientes
+
+-  Mis acciones recientes
+
+Consulte la sección sobre creación de vistas (:ref:`Creación de una vista`)
+por más detalles.
+
+Definición de una gráfica
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La pantalla de definición de una gráfica tiene las siguientes secciones:
+
+-  Detalles
+
+-  Apariencia
+
+-  Medida
+
+-  Dimensiones
+
+-  Columnas
+
+-  Filtros
+
+-  Ordenar
+
+-  Parámetros
+
+-  Permisos
+
+A continuación, se describen las secciones “Apariencia”, “Medida” y
+“Dimensiones”. Las otras funcionan de forma análoga a las secciones con
+sus mismos nombres en la página de definición de una vista.
+La sección “Columnas” permite definir las columnas que aparecen
+en la tabla que acompaña la gráfica y en las tablas que aparecen cuando
+un usuario hace clic en ella. Por más información sobre cada una de
+ellas, consulte la sección :ref:`Definición de una vista`.
+
+Apariencia
+^^^^^^^^^^
+
+La sección “Apariencia” (:numref:`ChartTypes`) permite elegir el tipo de la gráfica
+(por ejemplo, si es una gráfica de torta o de barras. Los tipos
+disponibles son los siguientes:
+
+-  **Anillos:** una gráfica de anillos (:numref:`RingChart`) es similar a una
+   gráfica de torta, pero con un hueco en el medio (también se le puede
+   llamar “gráfica de rosquilla” o “gráfica de *donut*\ ”). Vea un
+   ejemplo en :ref:`Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)`.
+
+-  **Área superpuesta:** una gráfica de área superpuesta (:numref:`OverlappingAreaChart`)
+   representa los valores mediante una línea. El área debajo de la línea
+   se pinta con un color. Si hay más de una serie de datos, una de las
+   series se superpone a la otra (como si una estuviera en un papel y la
+   otra en otro papel que se coloca sobre el primero y a través del
+   cual es posible ver el de abajo). En esto se diferencia de la gráfica
+   de área apilada. Vea un ejemplo en :ref:`Ejemplo: gráfica de línea y gráfica de área`.
+
+-  **Área apilada:** similar a la gráfica de área superpuesta, pero si
+   hay más de una serie de datos, en lugar de superponer las áreas de
+   cada una, se apilan (:numref:`StackedAreaChart`). Una gráfica de área apilada que fue
+   hecha con los mismos datos que una gráfica de área superpuesta es más
+   alta porque un área se pone encima de la otra (se “apila”). Vea un
+   ejemplo en :ref:`Ejemplo: gráfica de línea y gráfica de área`.
+
+-  **Barras** **agrupadas:** gráfica de barras horizontales (:numref:`GroupedBarsChart`).
+   Si hay más de una dimensión, se agrupan los datos. Una gráfica de
+   barras de una dimensión podría tener, por ejemplo, una barra por cada
+   departamento de la empresa, con cada barra representando la cantidad
+   de tareas pendientes en el departamento correspondiente. Una gráfica
+   similar podría categorizar las tareas pendientes de cada departamento
+   en tres estados, por ejemplo: “Pendiente (normal)”, “Pendiente
+   (atrasada)” y “Finalizada”. Esta gráfica tendría tres dimensiones,
+   una por cada estado. A cada departamento le correspondería un grupo
+   de tres barras, cada una de las cuales correspondería a uno de los
+   tres estados. Un grupo de barras muestra las barras una al lado de la
+   otra, pero agrupadas, cerca una de la otra y lejos de las que
+   corresponden a otros grupos. Vea ejemplos en 
+   :ref:`Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)` y
+   :ref:`Ejemplo: gráficas con agrupamiento de datos (columnas apiladas y agrupadas; barras apiladas y agrupadas)`.
+
+-  **Barras apiladas:** similar a la de barras agrupadas, pero en lugar
+   de mostrar las barras de un mismo grupo una al lado de la otra, las
+   muestra una arriba de la otra, apiladas (:numref:`StackedBarsChart`). Vea ejemplos en
+   :ref:`Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)` 
+   y :ref:`Ejemplo: gráficas con agrupamiento de datos (columnas apiladas y agrupadas; barras apiladas y agrupadas)`.
+
+-  **Burbujas:** gráfica que representa los valores con círculos cuyo
+   tamaño es proporcional a la magnitud de los valores representados (la
+   medida; ver más abajo; :numref:`BubbleChart`). Estas gráficas deben tener al
+   menos dos dimensiones, una para las ordenadas (eje vertical, y) y
+   otra para las abscisas (eje horizontal, x). Estas dos dimensiones son
+   las coordenadas que determinan las posiciones de los círculos en el
+   sistema de ejes cartesianos y también se usan para agrupar los datos
+   (por cada par de valores únicos se dibuja un círculo; o sea que, si
+   un par se repite, se dibuja un solo círculo para todos). Dimensiones
+   adicionales cambian la forma de agrupar los datos. En este caso,
+   pueden surgir nuevas burbujas con el mismo centro que otras burbujas,
+   pero con diferente medida. Por ejemplo, puede haber dos registros con
+   el mismo valor para la primera dimensión (X), el mismo para la
+   segunda (Y) y un valor distinto para una tercera dimensión. Si la
+   medida depende de las tres dimensiones, habrá dos burbujas
+   superpuestas, una con mayor diámetro que la otra. La menor de ambas
+   será marcada con un borde de distinto color, por lo que ambas serán
+   visibles. Vea un ejemplo en :ref:`Ejemplo: gráfica de burbujas`.
+
+-  **Circular:** también llamado “gráfico de torta” (:numref:`CircularChart`). Vea un
+   ejemplo en :ref:`Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)`.
+
+-  **Columnas agrupadas:** lo mismo que las barras agrupadas, pero en
+   sentido vertical (:numref:`GroupedColumnsChart`). Vea ejemplos en 
+   :ref:`Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)` y
+   :ref:`Ejemplo: gráficas con agrupamiento de datos (columnas apiladas y agrupadas; barras apiladas y agrupadas)`.
+
+-  **Columnas apiladas:** lo mismo que las barras apiladas, pero en
+   sentido vertical (:numref:`StackedColumnsChart`). Vea ejemplos en 
+   :ref:`Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)` y
+   :ref:`Ejemplo: gráficas con agrupamiento de datos (columnas apiladas y agrupadas; barras apiladas y agrupadas)`.
+
+-  **Dispersión (XY):** una gráfica de dispersión muestra puntos en un
+   par de ejes cartesianos (:numref:`DispersionChart`). El eje horizontal corresponde a
+   la primera dimensión. El eje vertical corresponde a la medida. Si se
+   agrega una dimensión más, los puntos se representan con puntos de
+   colores y la gráfica muestra una referencia que indica qué valor de
+   esa dimensión corresponde a cada color. Vea un ejemplo en 
+   :ref:`Ejemplo: gráfica de dispersión`.
+
+-  **Línea:** una gráfica que representa los valores con líneas
+   continuas (:numref:`LineChart`). Si se definen dos dimensiones en lugar de una,
+   se dibuja una línea por cada valor de la segunda dimensión. Cada
+   línea tiene un color distinto. Por ejemplo, si la primera dimensión
+   es la fecha de inicio de los procesos y la segunda es el usuario
+   iniciador del proceso, se dibuja una línea por cada usuario que
+   inició un proceso. Cada línea representa los valores de la medida en
+   función de la fecha de inicio de los procesos. Vea un ejemplo en
+   :ref:`Ejemplo: gráfica de línea y gráfica de área`.
+
+.. _ChartTypes:
+
+.. figure:: _static/media/04-QflowTask/image62.png
+   :width: 90%
+   :align: center
+   :alt: Apariencia: tipos de gráfica disponibles. Los íconos que los representan son bastante ilustrativos
+
+   Apariencia: tipos de gráfica disponibles. Los íconos que los representan son bastante ilustrativos
+
+Medida
+^^^^^^
+
+La medida define los valores que se muestran gráficamente. Por ejemplo:
+en una gráfica de columnas, la medida es el valor que se utiliza para
+calcular la altura de cada una de las barras. En una gráfica de torta,
+la medida determina el tamaño de cada uno de los pedazos de la torta. La
+medida está compuesta por la definición de una columna y un **Tipo de
+agregación** (ver más abajo). La columna debe ser numérica, a menos que
+se utilice “Cantidad” como tipo de agregación.
+
+La propiedad **Tipo de agregación** define cómo se utilizará la columna
+indicada en “Medida” para calcular los valores que se utilizarán en la
+gráfica (para estos cálculos, solo se utilizan registros que hayan
+pasado por los filtros definidos en la solapa “Filtros”). Las opciones
+son las siguientes:
+
+-  **Cantidad:** indica que se deben contar los valores no nulos de la
+   columna indicada en “Medida”. Por ejemplo, si se quiere construir una
+   gráfica que muestre cuántos procesos inició cada usuario, se puede
+   utilizar el tipo de agregación “Cantidad” con la medida
+   “Identificador correlativo del proceso”. La dimensión sería la
+   columna “Usuario que inició el proceso”.
+
+-  **Máximo:** de la columna indicada, toma el valor máximo. Por
+   ejemplo, si para la medida se elige un dato de aplicación como
+   columna, la gráfica mostrará el valor máximo de ese dato de
+   aplicación.
+
+-  **Mínimo:** de la columna indicada, toma el valor mínimo.
+
+-  **Promedio:** la gráfica muestra el valor promedio de los valores que
+   tiene la columna elegida como medida.
+
+-  **Suma:** la gráfica muestra la suma de los valores de la columna
+   elegida como medida.
+
+Para elegir una columna:
+
+1. Haga clic en el ícono que aparece en el campo “Columna” (:numref:`Measure`).
+   Esto hace que aparezca la lista de columnas disponibles.
+
+2. Haga doble clic en la columna deseada. Esto selecciona la columna.
+   Para cambiar la columna, proceda de la misma forma.
+
+.. _Measure:
+
+.. figure:: _static/media/04-QflowTask/image63.png
+   :width: 80%
+   :align: center
+   :alt: Medida: el usuario está por seleccionar una columna
+
+   Medida: el usuario está por seleccionar una columna
+
+.. figure:: _static/media/04-QflowTask/image64.png
+   :width: 80%  
+   :align: center
+   :alt: Selección de la columna: columnas disponibles
+
+   Selección de la columna: columnas disponibles
+
+Dimensiones
+^^^^^^^^^^^
+
+Las **Dimensiones** definen las columnas que determinan los valores que se
+relacionan con la medida. Por ejemplo, suponiendo que queremos construir
+una gráfica de columnas y que seleccionamos solamente una dimensión, la
+gráfica tendrá una columna vertical por cada valor que tenga la columna
+seleccionada como dimensión. Todas las gráficas necesitan al menos una
+dimensión, pero para algunas se pueden definir varias.
+
+Consulte los ejemplos :ref:`Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)` y 
+:ref:`Ejemplo: gráficas con agrupamiento de datos (columnas apiladas y agrupadas; barras apiladas y agrupadas)`
+para ver cómo se utilizan estas propiedades en casos concretos de gráficas.
+
+Para agregar una dimensión, proceda de forma análoga a como se procede
+para agregar una columna a una vista (ver :ref:`Columnas`).
+
+Si hay más de una dimensión, el orden de las dimensiones importa. Por
+ejemplo, en una gráfica de columnas apiladas de dos dimensiones, la
+primera se usa para determinar los valores que van en el eje horizontal 
+y la segunda para determinar las categorías en las que se subdivide cada
+columna. Para cambiar el orden de las dimensiones, presione el botón en
+una de ellas y arrástrela hacia el lugar deseado en el orden.
+
+.. figure:: _static/media/04-QflowTask/image65.png
+   :width: 90%
+   :align: center
+   :alt: Agregar una dimensión a una gráfica
+
+   Agregar una dimensión a una gráfica
+
+Ejemplo: gráficas sin agrupamiento de datos (columnas, barras, anillo, circular)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Supongamos que se quiere construir una gráfica de columnas que muestre,
+para cada usuario, de cuántas plantillas es dueño. El tipo de la gráfica
+es “Plantillas”, puesto que se usarán datos de las plantillas, en
+particular, el dato de quién es el dueño de una plantilla. La apariencia
+de la gráfica es “Columnas apiladas” o “Columnas agrupadas”: no es
+importante puesto que solo usaremos una dimensión (no agruparemos datos)
+y el resultado es el mismo con los dos tipos de gráfica.
+
+En el eje horizontal se desea que aparezcan los nombres de los dueños de
+plantillas. Para cada uno de estos se debe dibujar una columna. Por lo
+tanto, se debe utilizar una dimensión que será la columna “Dueño de la
+plantilla”. No se necesitan otras dimensiones.
+
+Como lo que se quiere es contar las plantillas que tiene cada usuario,
+es claro que el tipo de agregación debe ser “Cantidad”. Como cada
+plantilla tiene un identificador, contar la cantidad de identificadores
+de plantillas es equivalente a contar las plantillas. Por lo tanto, como
+medida, se puede seleccionar “Id correlativo de la plantilla”.
+
+Los mismos datos sirven para hacer una gráfica de barras, con la única
+diferencia de que estas son horizontales. También sirven para hacer
+gráficas circulares y de anillos, pero en estos casos, en lugar de
+mostrarse la cantidad de plantillas de cada usuario, se mostrará el
+porcentaje del total que representa esa cantidad.
+
+.. figure:: _static/media/04-QflowTask/image66.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de columnas
+
+   Gráfica de columnas
+
+.. figure:: _static/media/04-QflowTask/image67.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de barras
+
+   Gráfica de barras
+
+.. _CircularChart:
+
+.. figure:: _static/media/04-QflowTask/image68.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica circular
+
+   Gráfica circular
+
+.. _RingChart:
+
+.. figure:: _static/media/04-QflowTask/image69.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de anillo
+
+   Gráfica de anillo
+
+Ejemplo: gráficas con agrupamiento de datos (columnas apiladas y agrupadas; barras apiladas y agrupadas)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Supongamos que se quiere construir una gráfica que muestre, para cada
+usuario, cuántos procesos inició de cada plantilla, como se muestra en
+la :numref:`StackedColumnsChart`: por cada usuario se muestra una columna y cada columna
+está dividida en varias secciones que representan la cantidad de
+procesos iniciados por ese usuario para cada plantilla.
+
+En este caso, se debe crear una gráfica con apariencia de “Columnas
+apiladas”. Como se deben utilizar datos de los procesos, el tipo de la
+gráfica es “Procesos”.
+
+En el eje horizontal va el usuario que inició el proceso. Por lo tanto,
+la primera dimensión que se necesita es la columna “Usuario iniciador
+del proceso”. La segunda dimensión es la columna “Nombre de la
+plantilla”, ya que queremos agrupar por plantilla los procesos iniciados
+por un mismo usuario (suponemos que no hay dos plantillas con el mismo
+nombre, lo cual es razonable).
+
+Esto tiene en cuenta todas las plantillas. Si quisiéramos excluir
+alguna, podríamos definir un filtro para hacerlo. Lo mismo si
+quisiéramos excluir usuarios, considerar procesos iniciados después de
+cierta fecha, etc.
+
+Con los mismos datos se pueden construir gráficas de columnas agrupadas
+y de barras, tanto apiladas como agrupadas.
+
+.. _StackedColumnsChart:
+
+.. figure:: _static/media/04-QflowTask/image70.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de columnas apiladas
+
+   Gráfica de columnas apiladas
+
+.. _GroupedColumnsChart:
+
+.. figure:: _static/media/04-QflowTask/image71.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de columnas agrupadas
+
+   Gráfica de columnas agrupadas
+
+.. _StackedBarsChart:
+
+.. figure:: _static/media/04-QflowTask/image72.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de barras apiladas
+
+   Gráfica de barras apiladas
+
+.. _GroupedBarsChart:
+
+.. figure:: _static/media/04-QflowTask/image73.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de barras agrupadas
+
+   Gráfica de barras agrupadas
+
+Ejemplo: gráfica de línea y gráfica de área
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Supongamos que se quiere construir una gráfica de línea que muestre,
+para cada usuario, cómo evolucionó la cantidad de procesos que inició a
+lo largo del tiempo. La gráfica debe mostrar una línea por cada usuario,
+con las fechas en el eje de las abscisas y la cantidad de procesos
+iniciados en el de las ordenadas.
+
+En este caso, tenemos dos dimensiones:
+
+1. La fecha. Para la fecha usamos un dato de aplicación que tenga la
+   fecha de inicio, porque la columna de sistema contiene la fecha con
+   horas y minutos y por lo cual no nos sirve. Para eso basta con que
+   el proceso tome la fecha de inicio y la almacene en un dato tipo
+   Fecha.
+
+2. La columna de sistema “Usuario iniciador del proceso”.
+
+Le medida usa como columna el identificador correlativo del proceso, con
+el tipo de agregación “Cantidad”.
+
+Con los mismos datos se puede hacer una gráfica de área. La gráfica de
+área superpuesta es similar a la de línea, pero colorea las áreas debajo
+de las líneas. La gráfica de área apilada suma las cantidades de
+procesos iniciados por ambos. Por ejemplo, si hay dos usuarios, uno de
+los cuales inició dos procesos el 20/11/2016 y el otro inició un
+proceso el mismo día, la gráfica de área común muestra un valor en el
+punto correspondiente a ese día y a la cantidad 2, pero una gráfica de
+área suma las cantidades y lo muestra en el punto correspondiente a ese
+día y la cantidad 3.
+
+.. _LineChart:
+
+.. figure:: _static/media/04-QflowTask/image74.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de línea
+
+   Gráfica de línea
+
+.. _StackedAreaChart:
+
+.. figure:: _static/media/04-QflowTask/image75.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de área apilada
+
+   Gráfica de área apilada
+
+.. _OverlappingAreaChart:
+
+.. figure:: _static/media/04-QflowTask/image76.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de área superpuesta
+
+   Gráfica de área superpuesta
+
+Ejemplo: gráfica de dispersión
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para hacer una gráfica de dispersión, se pueden usar datos muy similares
+a los del ejemplo de gráfica de línea, pero la primera dimensión debe
+ser un número. Si se modifica el ejemplo de la gráfica de línea (ver
+:ref:`Ejemplo: gráfica de línea y gráfica de área`) para que el dato de
+aplicación con la fecha sea de tipo número, se puede obtener una gráfica
+de dispersión en la que cada que para cada par formado por una fecha y
+una cantidad de solicitudes hay un punto en la gráfica. Al igual que con
+la gráfica de línea, se usan diferentes colores para diferentes
+usuarios.
+
+.. _DispersionChart:
+
+.. figure:: _static/media/04-QflowTask/image77.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de dispersión
+
+   Gráfica de dispersión
+
+Ejemplo: gráfica de burbujas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Una gráfica de burbujas requiere por lo menos dos dimensiones numéricas.
+Supongamos que una empresa tiene un proceso de solicitudes de clientes,
+cada una de las cuales lleva un nivel de prioridad con valores 1, 2 o 3.
+Se quiere hacer una gráfica que muestre, en cada fecha, una burbuja por
+cada nivel de prioridad. El tamaño de la burbuja debe ser proporcional
+al promedio de tiempo, expresado en horas, que llevó resolver la
+solicitud. La gráfica tendrá las siguientes dimensiones:
+
+1. **Fecha:** un dato de aplicación de tipo número que representa la
+   fecha (por ejemplo, el número 20161118 representa la fecha 18 de
+   noviembre de 2016; igual que en el ejemplo de la gráfica de
+   distribución).
+
+2. **Prioridad:** un dato de aplicación numérico que representa la
+   prioridad de la solicitud.
+
+Para la medida, como columna elegimos el dato de aplicación “Tiempo de
+respuesta”, que tiene un número indicando la cantidad de horas que llevó
+resolver la solicitud, con el tipo de agregación “Promedio”.
+
+El resultado se muestra en la :numref:`BubbleChart`.
+
+.. _BubbleChart:
+
+.. figure:: _static/media/04-QflowTask/image78.png
+   :width: 90%
+   :align: center
+   :alt: Gráfica de burbujas
+
+   Gráfica de burbujas
+
+Importación y exportación de gráficas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las gráficas se exportan e importan de forma análoga a las vistas. Ver 
+:ref:`Importación y exportación de vistas` por más información.
+
+.. _indicators:
+
+Indicadores
+-----------
+
+Qflow permite crear indicadores que hacen cálculos con los datos de los
+procesos y llegan a un resultado que se representa mediante un número y
+una figura que le agrega significado. Por ejemplo, se podría definir un
+indicador de la cantidad de tareas pendientes y si es mayor que un
+determinado número, mostrar el resultado en rojo.
+
+Al igual que con las vistas, para cada indicador se puede definir si se
+mostrará en el menú lateral o no. Indicadores que se incluyen en el menú
+lateral se muestran como subopciones de la opción “Indicadores” de ese
+menú. Los demás indicadores son accesibles desde la pantalla de
+indicadores, a la cual se accede mediante un clic en la opción
+“Indicadores”. Esta pantalla también sirve para crear y modificar
+indicadores. Además, permite importar y exportar indicadores.
+
+.. figure:: _static/media/04-QflowTask/image79.png
+   :width: 90%
+   :align: center
+   :alt: Pantalla de indicadores
+
+   Pantalla de indicadores
+
+Al terminar de modificar las propiedades de cada una de esas secciones,
+debe hacer clic en “Listo”. Qflow validará los datos y si hay errores,
+le avisará. Si hace clic en el aviso de los errores, Qflow lo lleva a la
+parte de la pantalla en la que puede corregir el error.
+
+A continuación, se explican las propiedades de cada sección de la
+pantalla de definición de un indicador.
+
+Creación de indicadores
+~~~~~~~~~~~~~~~~~~~~~~~
+
+El procedimiento para crear un indicador es muy similar al proceso para
+crear una vista, también con las opciones de crear un indicador desde
+cero o de copiar uno ya existente. Al igual que con las vistas, en caso
+de crear un indicador desde cero, se debe seleccionar el paquete en el
+que se creará el indicador y el tipo de ítems que se utilizarán como
+datos de este. Los tipos de ítems son los mismos que los que están
+disponibles para las gráficas, es decir, los mismos que para las vistas
+más “Acciones recientes” y “Mis acciones recientes”.
+
+Definición de un indicador
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La pantalla de definición de un indicador tiene las siguientes
+secciones:
+
+-  Detalles
+
+-  Rangos
+
+-  Fórmulas
+
+-  Filtros
+
+-  Parámetros
+
+-  Permisos
+
+A continuación, se describen las secciones Detalles, Rangos y Fórmulas.
+Las restantes funcionan de forma análoga a las secciones con los mismos
+nombres de la página de definición de vistas.
+
+.. _detalles-1:
+
+Detalles
+^^^^^^^^
+
+La sección de detalles es similar a la de vistas, pero contiene dos
+propiedades adicionales:
+
+-  Apariencia: indica la figura que se usará para representar el
+   indicador. Las opciones son:
+
+   -  **Medidor:** imagen de una aguja que marca un valor en una escala
+      graduada, similar a un velocímetro (:numref:`MeterAndThermometer`, a la izquierda). La
+      escala está dividida por rangos de distintos colores. Estos rangos
+      son los que se definen en la solapa “Rangos”. Cada rango se
+      muestra con el color definido para él (ver más abajo).
+
+   -  **Semáforo:** se muestra el valor sobre un fondo del color
+      correspondiente al rango al que pertenece (:numref:`Semaphore`).
+
+   -  **Termómetro:** se muestra el dibujo de un termómetro que marca el
+      valor que se representa (:numref:`MeterAndThermometer`). El color de la columna que
+      marca el termómetro es el que le corresponde al valor marcado de
+      acuerdo con el rango al que pertenece.
+
+-  **Dígitos decimales:** la cantidad de dígitos decimales que se
+   tendrán en cuenta para el resultado del cálculo del medidor.
+
+.. _MeterAndThermometer:
+
+.. figure:: _static/media/04-QflowTask/image80.png
+   :width: 70%
+   :align: center
+   :alt: Medidor y termómetro
+
+   Medidor y termómetro
+
+.. _Semaphore:
+
+.. figure:: _static/media/04-QflowTask/image81.png
+   :width: 70%
+   :align: center
+   :alt: Semáforo
+
+   Semáforo
+
+Rangos
+^^^^^^
+
+En la sección “Rangos” se definen los rangos que permiten categorizar
+los valores que mostrará el indicador. Cada rango se asocia a un color.
+En las figuras de ejemplo, el valor que se muestra en los indicadores
+está en un rango que se asoció al color amarillo.
+
+Para agregar un rango, haga clic en el ícono del símbolo de
+“\ |image15|\ ”. Eso hace que Qflow agregue el nuevo rango a la lista
+de rangos, con un nombre por defecto y muestre una barra que representa
+visualmente los rangos. Cuando recién se agregó un rango, la barra lo
+muestra con un color cualquiera y valores límite de 0 y 50 (:numref:`AddRange`).
+Para modificar las propiedades del rango, hágale clic. Qflow entonces
+muestra, al lado de la lista de rangos, las propiedades del rango
+(:numref:`RangeProperties`):
+
+-  **Nombre:** el nombre del rango se muestra en el indicador cuando un
+   valor pertenece al rango.
+
+-  **Límites:** los dos números que definen el rango.
+
+-  **Color:** color que se asocia al rango. Para modificar el color hay
+   un selector de colores (:numref:`RangeProperties`).
+
+.. _AddRange:
+
+.. figure:: _static/media/04-QflowTask/image82.png
+   :width: 90%   
+   :align: center
+   :alt: Agregar un rango
+
+   Agregar un rango
+
+.. _RangeProperties:
+
+.. figure:: _static/media/04-QflowTask/image83.png
+   :width: 90%   
+   :align: center
+   :alt: Propiedades de un rango
+
+   Propiedades de un rango
+
+Fórmulas
+^^^^^^^^
+
+En la sección “Fórmula” se define cómo calcular el valor que se muestra
+en el indicador. La fórmula se representa mediante un árbol que tiene un
+nodo para cada operación y para cada operando (:numref:`Formula`). En el ejemplo
+de la figura, a la suma de todos los valores de “Compras” se le resta la
+suma de todos los valores de “Ventas”. El árbol se define desde la raíz,
+en el tope, hacia abajo. Por lo tanto, lo primero que se define es la
+última operación que se ejecuta (la raíz), que es la que da como
+resultado el valor del indicador. A continuación, se definen los
+operandos de esa operación. Estos operandos pueden ser el resultado de
+otras operaciones, que a su vez también pueden tener operandos, los
+cuales pueden ser el resultado de operaciones y así sucesivamente.
+
+.. _Formula:
+
+.. figure:: _static/media/04-QflowTask/image84.png
+   :width: 100%
+   :align: center
+   :alt: Una fórmula que sustrae, de la suma de los valores del dato “Compras”, la suma de los valores del dato “Ventas”. El último nodo es del tipo “Columna” y sus propiedades se muestran al lado del árbol.
+
+   Una fórmula que sustrae, de la suma de los valores del dato “Compras”, la suma de los valores del dato “Ventas”. El último nodo es del tipo “Columna” y sus propiedades se muestran al lado del árbol.
+
+Los nodos del árbol pueden ser de varios tipos, cada uno de los cuales
+está asociado a un tipo de operación u operando. En el árbol, el tipo de
+un nodo se representa mediante un ícono (:numref:`NodeTypeButton`).
+
+.. _NodeTypeButton:
+
+.. figure:: _static/media/04-QflowTask/image85.png
+   :width: 50%
+   :align: center
+   :alt: Botones para asignar tipos de nodo, con los íconos que representan cada tipo
+
+   Botones para asignar tipos de nodo, con los íconos que representan cada tipo
+
+A continuación, se explica cada uno de los tipos de elemento:
+
+-  **Agregación:** un nodo de agregación es una operación que toma un
+   conjunto de datos (por ejemplo, todos los registros de un dato de
+   aplicación de los procesos) y los utiliza para calcular un valor. Un
+   ejemplo de operación de este tipo es calcular el promedio. Más
+   adelante se enumeran y describen estas operaciones.
+
+-  **Columna:** una columna de sistema o dato de aplicación. Una columna
+   determina un conjunto de datos que pueden ser utilizados como entrada
+   de una operación de agregación.
+
+-  **Constante:** un valor fijo de algún tipo. El tipo del valor tiene
+   que ser compatible con el tipo del valor que la operación que lo
+   utilizará espera como entrada. Qflow controla esto.
+
+-  **Conversión:** operación que convierte el parámetro de entrada al
+   tipo de dato que espera la operación que utiliza su resultado como
+   entrada.
+
+-  **Función:** una función toma parámetros y les aplica alguna función
+   estándar, como, por ejemplo, las operaciones aritméticas. También hay
+   funciones de manipulación de fechas o de cadenas de texto. Más
+   adelante se describe detalladamente cada una de las funciones
+   disponibles.
+
+Cuando se empieza a definir una fórmula, esta tiene solamente un nodo en
+el que no está especificada ninguna operación y ningún operando. Para
+asignar una operación a un nodo, selecciónelo y haga clic en el botón
+correspondiente al tipo de nodo deseado (:numref:`NodeTypeButton`). Esto mostrará, al
+lado del árbol, un recuadro con las propiedades del tipo del nodo (este
+recuadro también se muestra si se selecciona un nodo que ya tiene
+asignado un tipo; ver :numref:`Formula`).
+
+A continuación, se explica cómo especificar las propiedades de un nodo
+de la fórmula, según su tipo. En todos los casos, se puede ingresar un
+nombre para el nodo. Este nombre se muestra en el árbol de la fórmula,
+al lado del ícono que representa el tipo de nodo.
+
+Agregación
+''''''''''
+
+Un nodo de agregación permite elegir una de las siguientes operaciones,
+que se aplican a los nodos hijos del nodo de la agregación. Estas
+operaciones toman todos los valores de entrada (por ejemplo, todos los
+valores de un dato de aplicación) y como resultado devuelven un número.
+Por ejemplo, la operación “Máximo” devuelve el máximo de todos esos
+valores.
+
+-  **Cantidad:** cantidad de registros que tiene el operando.
+
+-  **Máximo:** el valor máximo de entre todos los valores definidos por
+   el operando.
+
+-  **Mínimo:** el valor mínimo de entre todos los valores definidos por
+   el operando.
+
+-  **Promedio:** promedio de los valores definidos por el operando.
+
+-  **Suma:** suma de todos los valores definidos por el operando.
+
+Ejemplo: si se selecciona la operación “Cantidad” y se la aplica a una
+columna que corresponda a un dato de aplicación, el resultado será la
+cantidad de valores que tenga ese dato de aplicación. Si se selecciona
+la operación “Suma”, será la suma de los valores de ese dato.
+
+.. figure:: _static/media/04-QflowTask/image86.png
+   :width: 50%
+   :align: center
+   :alt: Propiedades de un nodo de agregación
+
+   Propiedades de un nodo de agregación
+
+Columna
+'''''''
+
+Un nodo de tipo columna indica un dato de aplicación o una columna de
+sistema para que sirva de entrada para alguna operación.
+
+Para seleccionar una columna, haga clic en el ícono correspondiente
+(:numref:`ColumnSelection`). Qflow muestra dos solapas, una con datos de aplicación y
+otra con columnas del sistema. Busque el dato o columna que desee
+utilizar y hágale clic. Después, haga clic en el ícono de confirmación
+(:numref:`DataSelection`).
+
+.. _ColumnSelection:
+
+.. figure:: _static/media/04-QflowTask/image87.png
+   :width: 50%
+   :align: center
+   :alt: Selección de una columna
+
+   Selección de una columna
+
+.. _DataSelection:
+
+.. figure:: _static/media/04-QflowTask/image88.png
+   :width: 50%
+   :align: center
+   :alt: Selección del dato de aplicación “Compras” como columna.
+
+   Selección del dato de aplicación “Compras” como columna.
+
+Constante
+'''''''''
+
+En el caso de una constante, se ingresa el valor deseado.
+
+.. figure:: _static/media/04-QflowTask/image89.png
+   :width: 50%
+   :align: center
+   :alt: Definición de una constante
+
+   Definición de una constante
+
+Conversión
+''''''''''
+
+En el caso de una conversión, se selecciona el tipo del dato que se
+quiere convertir. Esto le indica a Qflow cómo interpretar los valores
+que se van a convertir. Estos valores se convierten al tipo de dato que
+necesita la operación indicada en el nodo padre de la conversión.
+
+.. figure:: _static/media/04-QflowTask/image90.png
+   :width: 50%
+   :align: center
+   :alt: Conversión
+
+   Conversión
+
+Función
+'''''''
+
+Hay varias categorías de funciones. Por ejemplo, hay funciones para las
+operaciones aritméticas, pero también hay funciones para manipular
+fechas. Las funciones que están disponibles para un nodo determinado
+dependen del tipo de dato que espera el nodo padre. Por ejemplo: el
+resultado del nodo raíz debe ser un número. Por lo tanto, las
+operaciones aritméticas están disponibles para ese nodo, pero
+operaciones cuyos resultados son textos o fechas no. Si están
+disponibles funciones de varios tipos, se muestran agrupadas por tipo,
+cada tipo en una solapa distinta (:numref:`FunctionSelection`). Algunas funciones
+requieren más de un operando. En estos casos, cuando las seleccione,
+Qflow agregará automáticamente los nodos requeridos, cuyas propiedades
+se deberán editar.
+
+-  **Funciones de fecha y hora**
+
+   -  **Año:** dada una fecha, devuelve el año al que pertenece. Por
+      ejemplo, si la fecha es 22/10/2013, el resultado es “2013”.
+
+   -  **Día:** dada una fecha, devuelve el número del día del mes de esa
+      fecha. Por ejemplo, si la fecha es 22/10/2013, el resultado es
+      “22”.
+
+   -  **Días entre:** dadas dos fechas, calcula la cantidad de días que
+      hay entre las dos. Si la primera fecha es posterior a la segunda,
+      devuelve un número negativo. El resultado de esta función puede
+      tener fracciones si las fechas tienen horas distintas.
+
+   -  **Fecha actual:** es una función sin argumentos cuyo resultado es
+      la fecha actual.
+
+   -  **Hora:** dada una fecha, devuelve el número correspondiente a la
+      hora. Por ejemplo, si la fecha es “22/10/2013 a las 15:54”,
+      devuelve “15”.
+
+   -  **Horas entre:** dadas dos fechas, devuelve la cantidad de horas
+      que hay entre las dos. Si la fecha más a la derecha del árbol es
+      anterior a la fecha de más a la izquierda, devuelve un número
+      negativo. El resultado de esta función puede tener fracciones si
+      las fechas tienen distinta cantidad de minutos.
+
+   -  **Mes:** dada una fecha, devuelve el número correspondiente al mes
+      al que pertenece (por ejemplo, si es una fecha de mayo, devuelve
+      “5”).
+
+   -  **Minutos:** dada una fecha, devuelve el número correspondiente a
+      la parte que indica minutos en esa fecha. Por ejemplo, si la fecha
+      es “22/10/2013 a las 15:54”, el resultado “54”.
+
+   -  **Minutos entre:** dadas dos fechas, devuelve la cantidad de
+      minutos que hay entre ellas. Si la fecha más a la derecha del
+      árbol es anterior a la fecha de más a la izquierda, devuelve un
+      número negativo. El resultado de esta función puede tener
+      fracciones si las fechas tienen distinta cantidad de segundos.
+
+   -  **Segundos:** dada una fecha, devuelve el número correspondiente a
+      la parte que indica los segundos. Por ejemplo, si la fecha es
+      “22/10/2013 a las 15:54:14”, el resultado es “14”.
+
+-  **Funciones numéricas:** estas funciones están representadas por los
+   símbolos usuales (por ejemplo, “+” para la suma). Para seleccionar
+   una, haga clic en el botón que tiene el símbolo.
+
+   -  **División:** divide el primer número de entrada entre el segundo.
+      Si hay un tercero, divide el cociente obtenido entre el tercero y
+      así sucesivamente.
+
+   -  **Producto:** resultado de multiplicar los parámetros de entrada.
+
+   -  **Resta:** resta de los parámetros de entrada (el primero menos el
+      segundo menos el tercero menos el cuarto y así sucesivamente).
+
+   -  **Suma:** suma de todos los operandos.
+
+-  **Funciones de texto**
+
+   -  **Concatenación:** concatena varios textos (los pega uno a
+      continuación de otro, en orden, para formar un nuevo texto).
+
+   -  **Índice de:** función que indica en qué posición de un texto se
+      encuentra un subconjunto de ese texto. Tiene tres argumentos:
+
+      -  **Texto:** el texto en el que hay que buscar otro texto.
+
+      -  **Subtexto:** el texto que se quiere buscar.
+
+      -  **Posición inicial:** posición a partir de la cual Qflow debe
+         buscar el texto indicado en “Subtexto”.
+
+      Ejemplo: si el texto es “Q-flow”, el subtexto “flow” y la posición
+      inicial es 0 (0 es la primera posición; 1 es la segunda, etc), el
+      resultado es 2.
+
+   -  **Largo:** cantidad de caracteres que tiene un texto.
+
+   -  **Subcadena:** el resultado de esta operación es devolver una parte
+      de un texto. Esta operación requiere tres operandos:
+
+      -  **Texto:** el texto del que se quiere obtener una parte.
+
+      -  **Posición inicial:** posición en la que comienza la parte que se
+         quiere obtener del texto original. La posición del primer carácter
+         es la posición 0; la del segundo, la posición 1; y así
+         sucesivamente.
+
+      -  **Largo:** largo del texto que se quiere obtener a partir de la
+         posición inicial. Ejemplo: dado el texto “La fecha es 10/10/14”,
+         para obtener la subcadena “10/10/14” se debe especificar la
+         posición inicial 12 y un largo de ocho caracteres.
+
+   -  **Recortar espacios:** quita los espacios al principio y al final de
+      un texto.
+
+-  **Funciones lógicas**
+
+   -  **No:** negación lógica (operación “NOT”). Si el operando tiene el
+      valor “Verdadero”, el resultado es “Falso” y viceversa.
+
+   -  **O:** disyunción lógica (operación “OR”), cuyo resultado es
+      “Verdadero” si y solo sí alguno de los operandos tiene valor
+      “Verdadero”.
+
+   -  **Y:** conjunción lógica (operación “AND”), cuyo resultado es
+      “Verdadero” si y solo si todos los operandos tienen el valor
+      “Verdadero”.
+
+.. _FunctionSelection:
+
+.. figure:: _static/media/04-QflowTask/image91.png
+   :width: 50%
+   :align: center
+   :alt: Selección de una función.
+
+   Selección de una función.
+
+.. _filtros-1:
+
+Filtros
+^^^^^^^
+
+Los filtros permiten restringir los datos que intervienen en el cálculo
+del indicador. Por ejemplo, en una fórmula que suma todos los valores de
+un dato de aplicación común a procesos de varias plantillas, se podría
+querer sumar solamente los valores de los datos de una de esas
+plantillas. Los filtros se definen de la misma forma que los filtros de
+las vistas (ver :ref:`Definición de una vista`).
+
+.. _parámetros-1:
+
+Parámetros
+^^^^^^^^^^
+
+Al igual que los filtros, los parámetros permiten restringir los datos
+que intervienen en el cálculo del indicador, pero ingresando valores
+para comparar al momento de ver el indicador. Los parámetros se definen
+de la misma forma que los parámetros de las vistas (ver :ref:`Definición de
+una vista`).
+
+.. _permisos-1:
+
+Permisos
+^^^^^^^^
+
+Permiten restringir el acceso al indicador. Se definen de la misma forma
+que los permisos de las vistas (ver :ref:`Definición de una vista`).
+
+Importación y exportación de indicadores
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los indicadores se exportan e importan de forma análoga a las vistas.
+Ver :ref:`Importación y exportación de vistas` por más información.
+
+.. _dashboards:
+
+Tableros de control
+-------------------
+
+Un tablero de control es una página que combina vistas, indicadores y
+gráficas.
+
+Al igual que con las vistas, para cada tablero de control se puede
+definir si se mostrará en el menú lateral o no. Tableros de control que
+se incluyen en el menú lateral se muestran como subopciones de la opción
+“Tableros de control” de ese menú. Los demás tableros de control son
+accesibles desde la pantalla de tableros de control, a la cual se accede
+mediante un clic en la opción “Tableros de control”. Esta pantalla
+también sirve para crear y modificar tableros de control. Además,
+permite importar y exportar tableros de control.
+
+.. figure:: _static/media/04-QflowTask/image92.png
+   :width: 90%
+   :align: center
+   :alt: Pantalla de tableros de control
+
+   Pantalla de tableros de control
+
+Creación de tableros de control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El procedimiento para crear un tablero de control es similar al proceso
+para crear una vista, también con las opciones de crear un tablero de
+control desde cero o de copiar uno ya existente. Al igual que con las
+vistas, en caso de crear un tablero de control desde cero, se debe
+seleccionar el paquete en el que se creará el tablero, e indicar si se
+trata de un tablero público o personal. Un tablero personal solo puede
+ser visto y modificado por el usuario que lo creó.
+
+Definición de un tablero de control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+La pantalla de definición de un tablero de control tiene una sección de
+detalles y otra de permisos. En esa pantalla no se define qué elementos
+componen el tablero. Eso se define en la página que aparece al ver el
+tablero.
+
+.. _detalles-2:
+
+Detalles
+^^^^^^^^
+
+Los detalles del tablero son similares a los de las vistas: incluyen su
+nombre, su descripción y un campo que permite indicar si el tablero se
+debe incluir en el menú lateral (“Tablero de control destacado”).
+
+.. figure:: _static/media/04-QflowTask/image93.png
+   :width: 90%
+   :align: center
+   :alt: Definición de un tablero de control
+
+   Definición de un tablero de control
+
+.. _permisos-2:
+
+Permisos
+^^^^^^^^
+
+La sección de permisos de un tablero de control es un poco diferente a
+las de vistas, gráficas e indicadores, porque para un tablero hay más de
+un permiso: como la página en la que se ve un tablero es también la
+página en la que lo edita para decidir qué elementos lo componen, los
+permisos de un tablero indican si se lo puede ver, pero también si se lo
+puede modificar. No se muestra si el tablero es personal. Al agregar un
+miembro a la lista de miembros con permisos, aparece una tabla en la que
+se debe marcar “Permitido” o “Denegado” en cada permiso.
+
+.. figure:: _static/media/04-QflowTask/image94.png
+   :width: 90%
+   :align: center
+   :alt: Permisos de un tablero de control
+
+   Permisos de un tablero de control
+
+Modificación de qué se muestra en un tablero de control
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para definir qué elementos se muestran en un tablero se utiliza la misma
+página en la que se ve el tablero. Solo usuarios que tienen permiso de
+modificar el tablero pueden cambiar los elementos que se muestran en él.
+
+Al ingresar a la página que muestra un tablero de control, si este está
+vacío se muestra una pantalla similar a de la :numref:`EmptyDashboard`. Para agregar
+elementos, haga clic en el vínculo que dice “Agregue nuevos elementos
+haciendo clic aquí”, o haga clic en el ícono del lápiz (“\ |image16|\ ”)
+que aparece en la parte superior derecha y que permite modificar el
+tablero. Entonces, Qflow muestra los elementos disponibles, cada tipo
+en una solapa (vistas, gráficas e indicadores; :numref:`DashboardElementsSelection`).
+
+Para agregar un elemento, hágale doble clic, o arrástrelo hacia abajo,
+soltándolo en la tira con el texto “Arrastre aquí” que aparece en la
+parte inferior de la pantalla. Para quitar un elemento, haga clic en la
+cruz que aparece en la esquina superior derecha.
+
+En general, será necesario modificar el tamaño del elemento. Para eso,
+haga clic en uno de los íconos que aparecen en las dos esquinas
+inferiores. Mantenga el botón del ratón apretado y muévalo hasta que el
+elemento alcance el tamaño deseado (:numref:`DashboardView`).
+
+Una vez finalizada la edición, haga clic en el botón de guardar
+(“\ |image17|\ ”).
+
+.. _EmptyDashboard:
+
+.. figure:: _static/media/04-QflowTask/image97.png
+   :width: 90%
+   :align: center
+   :alt: Tablero de control vacío
+
+   Tablero de control vacío
+
+.. _DashboardElementsSelection:
+
+.. figure:: _static/media/04-QflowTask/image98.png
+   :width: 90%
+   :align: center
+   :alt: Selección de elementos para un tablero de control
+
+   Selección de elementos para un tablero de control
+
+.. _DashboardView:
+
+.. figure:: _static/media/04-QflowTask/image99.png
+   :width: 90%
+   :align: center
+   :alt: Vista de procesos en un tablero de control. El usuario está cambiando su tamaño (ver cursor en la esquina inferior derecha). En la esquina superior derecha aparece la cruz que, si se le hace clic, quita la vista del tablero
+
+   Vista de procesos en un tablero de control. El usuario está cambiando su tamaño (ver cursor en la esquina inferior derecha). En la esquina superior derecha aparece la cruz que, si se le hace clic, quita la vista del tablero
+
+Importación y exportación de tableros de control
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los tableros de control se exportan e importan de forma análoga a las
+vistas. Ver :ref:`Importación y exportación de vistas` por más información.
+
+Administración y configuración
+==============================
+
+Las opciones de administración y configuración de Qflow Task están
+disponibles desde el menú superior. Bajo el vínculo “Configurar”, las
+opciones son:
+
+-  **Personalizar el menú lateral:** permite personalizar el menú lateral 
+   de Task. Esta configuración de menú aplica para todos los usuarios del 
+   espacio de trabajo.
+
+-  **Mis vínculos:** permite definir vínculos personales (solo visibles 
+   para el usuario que los define) que se muestran por debajo de los 
+   elementos del menú lateral. La configuración es análoga al menú lateral, 
+   permitiendo crear una estructura de carpetas, enlaces y subenlaces.
+
+-  **Vistas del sistema:** permite modificar las vistas del sistema,
+   como por ejemplo las vistas “Procesos”, “Tareas” y “Notificaciones”,
+   que vienen definidas por defecto en Qflow.
+
+-  **Bandejas de colas de trabajo:** permite definir qué vistas se
+   incluyen en la bandeja de cada cola de trabajo.
+
+-  **Permisos de paquete:** las plantillas y procesos se organizan en
+   paquetes. Esta sección permite asignar permisos de acceso de los
+   usuarios sobre los paquetes.
+
+-  **Permisos de la herramienta:** permite definir permisos de acceso al
+   propio sitio.
+
+.. figure:: _static/media/04-QflowTask/image100.png
+   :width: 50%   
+   :align: center
+   :alt: Opciones de administración y configuración
+
+   Opciones de administración y configuración
+
+Bajo el vínculo de “Configuración del usuario” (este vínculo solo es
+visible si se tiene un *sender* configurado), las opciones son:
+
+.. figure:: _static/media/04-QflowTask/image101.png
+   :width: 50%   
+   :align: center
+   :alt: Opciones al tener habilitadas las notificaciones de dispositivo
+
+   Opciones al tener habilitadas las notificaciones de dispositivo
+
+.. figure:: _static/media/04-QflowTask/image102.png
+   :width: 50%   
+   :align: center
+   :alt: Opciones al tener deshabilitadas las notificaciones de dispositivo
+
+   Opciones al tener deshabilitadas las notificaciones de dispositivo
+
+-  **Configuración de notificaciones de dispositivo:** permite habilitar
+   o deshabilitar las notificaciones de dispositivo.
+
+-  **Configuración de zona horaria:** permite configurar la zona horaria
+   del usuario.
+
+Esta configuración se mostrará bajo el vínculo de “Configurar”, junto
+con las demás, cuando el usuario se encuentre en pantallas de resolución
+pequeña.
+
+Cada una de estas opciones se explica detalladamente a continuación.
+Pero antes se explica cómo se asignan permisos en Qflow Task.
+
+Manejo de Permisos
+------------------
+
+Varios de los elementos manejados por Qflow Task pueden tener permisos
+de acceso. Es posible restringir el acceso a vistas, paquetes, ítems 
+del menú lateral y otros elementos.
+
+Este apartado explica los aspectos generales del manejo de permisos en
+Qflow Task. Un permiso establece qué usuarios pueden acceder
+a un determinado recurso y qué pueden hacer con ese recurso. Por lo
+tanto, al definir un permiso, es necesario definir a quién se le está
+dando el permiso y qué operaciones están incluidas en ese permiso.
+
+Roles y tipos de roles
+~~~~~~~~~~~~~~~~~~~~~~
+
+Para especificar a quién se le está confiriendo el permiso, se utilizan
+roles. Hay varios tipos de roles:
+
+-  **Roles:** son roles de seguridad. Son definidos en Qflow Team. Darle un permiso a un rol equivale a
+   darle ese permiso a los usuarios que desempeñan ese rol. Si uno de
+   esos usuarios deja de desempeñar ese rol, ya no tendrá ese permiso
+   (a menos que tuviera el mismo permiso a través de otro rol o de un
+   grupo). Si un usuario que no desempeña ese rol pasa a
+   desempeñarlo, pasa a tener ese permiso.
+
+-  **Grupos:** son entidades que permiten agrupar usuarios y roles que
+   tienen los mismos permisos. Los grupos son definidos en Qflow Team. Darle un permiso a un grupo
+   equivale a darle ese permiso a todos sus miembros. Si uno de esos
+   usuarios es quitado de ese grupo, ya no tendrá ese permiso (a menos
+   que tuviera el mismo permiso a través de otro grupo o de algún rol).
+   Si un usuario que no era miembro del grupo pasa a serlo, pasa a tener
+   ese permiso.
+
+-  **Usuarios:** son los usuarios concretos de Qflow.
+
+-  **Nodos:** son los nodos de la jerarquía de Qflow Team.
+   Un nodo suele estar asociado a un departamento de una organización.
+   Todos los usuarios pertenecen a algún nodo. Darle un permiso a un
+   nodo equivale a darle ese permiso a todos los usuarios de ese nodo,
+   de forma similar a lo que sucede con los grupos.
+
+-  **Colas de trabajo:** son un tipo particular de nodo.
+
+Cuando Qflow muestra una lista de permisos ya asignados, muestra el
+nombre del rol al que se le asignó el permiso, las operaciones incluidas
+en el permiso y el tipo del rol al que el permiso fue asignado. Este
+último dato se indica mediante un ícono que representa el tipo de rol.
+La :numref:`PermissionsListExample` muestra la correspondencia entre íconos y tipos de rol.
+
+.. _PermissionsListExample:
+
+.. figure:: _static/media/04-QflowTask/image103.png
+   :width: 60%
+   :align: center
+   :alt: Ejemplo de cómo se ve un rol, un usuario, una cola de trabajo, un nodo y un grupo en una lista de permisos
+
+   Ejemplo de cómo se ve un rol, un usuario, una cola de trabajo, un nodo y un grupo en una lista de permisos
+
+En algunos casos, la operación a la que refiere el permiso no se muestra
+porque está implícita. Por ejemplo, cuando se restringen los permisos a
+una vista, no se muestra el nombre de la operación al que se refieren
+los permisos porque éstos siempre son permisos para ver la vista. Lo
+mismo pasa con elementos del menú lateral, gráficas e indicadores.
+
+Operaciones incluidas en los permisos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las operaciones que pueden estar incluidas en un permiso dependen del
+recurso al que se aplica el permiso. Por ejemplo, el permiso de acceso a
+un tablero de control involucra dos operaciones: modificar el tablero y
+ver el tablero. En general, para cada permiso se pueden indicar dos
+cosas:
+
+1. Si se permite ejecutar la operación.
+
+2. Si se deniega el permiso de ejecutar la operación.
+
+Un usuario tiene permiso para realizar una operación sobre algún
+elemento si y solo si se cumplen simultáneamente las siguientes dos
+condiciones:
+
+1. Existe algún permiso otorgado al usuario que le permita realizar la
+   operación sobre el elemento en cuestión. Por ejemplo, el usuario
+   tiene el permiso, o algún rol o grupo del usuario tiene el permiso.
+
+2. No existe ninguna especificación de permisos que le niegue
+   explícitamente el permiso al usuario. O sea: ninguno de los roles,
+   grupos, etc. del usuario tienen acceso denegado a ese permiso.
+
+.. _SideBarConfiguration:
+
+Personalización del menú lateral
+--------------------------------
+
+La página de personalización del menú lateral permite crear, modificar y
+borrar los elementos que aparecen en el menú lateral. Esta configuración aplicará 
+para todos los usuarios del espacio de trabajo. También aquí se permite importar y 
+exportar la configuración de los elementos. 
+
+En ella, Qflow muestra el árbol de opciones del menú (:numref:`MenuConfigurationTree`), 
+el cual los muestra ordenados y agrupados tal como aparecen en el menú lateral.
+
+.. _MenuConfigurationTree:
+
+.. figure:: _static/media/04-QflowTask/menu-configuration-tree.png
+   :width: 80%
+   :align: center
+   :alt: Árbol de elementos del menú lateral
+
+   Árbol de elementos del menú lateral
+
+En la página de configuración del menú se muestra una estructura de árbol en donde 
+aparecen vínculos y carpetas. Una carpeta sirve para agrupar vínculos y hacerle clic 
+solo hace que muestre los vínculos y carpetas que contiene (no hace navegar hacia 
+ningún lado). Un vínculo también puede ser utilizado como agrupador, como si fuese 
+una carpeta que, además, contiene un vínculo, por lo que un vínculo puede contener
+carpetas y otros vínculos.
+
+Para las *carpetas*, la configuración permite configurar lo siguientes campos:
+
+-  **Nombre:** nombre con cual se muestra la carpeta en el menú.
+
+-  **Descripción:** descripción de la carpeta.
+
+-  **Ícono:** ícono con el que se muestra la carpeta en el menú. Cuando se escribe 
+   en este campo, se despliega una lista de íconos que coinciden con la búsqueda, 
+   permitiendo al usuario seleccionarlo.
+
+-  **Restringir acceso:** si la opción está marcada, permite especificar 
+   roles, usuarios o nodos que tengan acceso permitido o restringido a la carpeta.
+   Si no se agrega ningún miembro de Qflow a la lista, no se restringen los permisos. 
+   Si se agrega al menos uno, se utiliza la lista para determinar quién tiene permiso 
+   para ver la carpeta.
+
+.. figure:: _static/media/04-QflowTask/menu-folder-configuration.png
+   :width: 40%
+   :align: center
+   :alt: Configuración de carpeta del menú lateral
+
+   Configuración de carpeta del menú lateral
+
+Para el caso de vínculos, existen dos tipos: *personalizados* y *de sistema*:
+
+Los vínculos **personalizados** representan enlaces a direcciones 
+especificadas por el usuario. Estos se pueden usar para acceder a páginas 
+externas con un clic desde Qflow Task.
+
+.. figure:: _static/media/04-QflowTask/menu-custom-link-configuration.png
+   :width: 50%
+   :align: center
+   :alt: Configuración de elementos personalizados del menú lateral
+
+   Configuración de elementos personalizados del menú lateral
+
+Las propiedades específicas de los elementos personalizados son:
+
+-  **Nombre:** nombre que se muestra en el menú para el elemento.
+
+-  **URL:** dirección web a la que llevará el elemento al ser seleccionado.
+   Esta puede ser una dirección absoluta, en cuyo caso debe ser una dirección 
+   completa (es decir, completa con su protocolo, comenzando con "*https://*" 
+   o "*http://*"), o en caso de no serlo se considerará como una dirección 
+   relativa al sitio de Qflow Task.
+
+Los vínculos **de sistema** representan accesos directos a páginas de 
+Qflow Task, como por ejemplo, la sección de inicio de procesos, el listado 
+de vistas, gráficas, indicadores, etc. Las opciones disponibles se muestran 
+en una lista desplegable en la configuración del elemento.
+
+.. figure:: _static/media/04-QflowTask/menu-system-link-configuration.png
+   :width: 50%
+   :align: center
+   :alt: Configuración de elementos de sistema del menú lateral
+
+   Configuración de elementos de sistema del menú lateral
+
+Las propiedades específicas de los elementos de sistema son:
+
+-  **Vínculo de sistema:** lista desplegable que muestra las opciones de 
+   distintas secciones del sitio a las cuales se va a acceder al hacer clic
+   sobre el elemento. El enlace se mostrará en el menú lateral con el nombre 
+   del elemento seleccionado en la lista desplegable.
+
+Además de las propiedades específicas de cada tipo, se pueden configurar las 
+siguientes propiedades que son comúnes para ambos tipos de vínculo:
+
+-  **Descripción:** descripción del vínculo.
+
+-  **Ícono:** ícono con el que se muestra el vínculo en el menú. Cuando se 
+   escribe en este campo, se despliega una lista de íconos que coinciden 
+   con la búsqueda, permitiendo al usuario seleccionarlo.
+
+-  **Destino**
+
+   -  **Misma pestaña:** si esta opción está activada, cuando un usuario
+      haga clic en el vínculo, el navegador abrirá el vínculo en la
+      pestaña en la que se hizo clic. En caso de que sea un enlace externo, 
+      abandonará Qflow Task y navegará a la página a la que hace referencia 
+      el vínculo.
+
+   -  **Nueva pestaña:** si esta opción está activada, cuando un usuario
+      haga clic en el vínculo, el navegador abrirá el vínculo en una
+      nueva pestaña.
+
+-  **Restringir acceso:** si la opción está marcada, permite especificar 
+   roles, usuarios o nodos que tengan acceso permitido o restringido al vínculo.
+   Si no se agrega ningún miembro de Qflow a la lista, no se restringen los permisos. 
+   Si se agrega al menos uno, se utiliza la lista para determinar quién tiene permiso 
+   para ver el vínculo.
+
+.. figure:: _static/media/04-QflowTask/menu-restrict-access.png
+   :width: 50%
+   :align: center
+   :alt: Restringir permisos para vínculos del menú lateral
+
+   Restringir permisos para vínculos y carpetas del menú lateral
+
+Los cambios en la configuración del menú solo se guardan al hacer clic en el
+botón “Guardar”.
+
+En la parte superior derecha del recuadro donde se muestra el árbol de vínculos hay íconos 
+que permiten realizar operaciones: **borrar el vínculo seleccionado**, **agregar un
+vínculo** y **agregar una carpeta**. La :numref:`EditLinksButton` muestra los íconos y
+sus significados. Para ver y modificar las propiedades de un vínculo o
+carpeta, selecciónelo en el árbol. Para cambiarlo de lugar en el árbol,
+selecciónelo manteniendo apretado el botón del ratón y arrástrelo hacia
+el lugar donde desea que esté.
+
+.. _EditLinksButton:
+
+.. figure:: _static/media/04-QflowTask/image106.png
+   :width: 30%
+   :align: center
+   :alt: Botones para modificar el árbol de vínculos
+
+   Botones para modificar el árbol de vínculos
+
+Para crear un vínculo o carpeta, haga clic en el botón correspondiente.
+Eso hace que Qflow agregue el nuevo elemento al árbol, con el nombre
+“Nuevo vínculo” o “Nueva carpeta”. Después selecciónelo para modificar
+sus propiedades.
+
+Importación y exportación de configuración de menú lateral
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los botones de exportación e importación de configuración (ver :numref:`EditLinksButton`)
+permiten exportar la configuración de vínculos y carpetas del menú lateral a un archivo que 
+se puede importar en otro ambiente en el que esté instalado Qflow (por ejemplo, para exportarlos
+de un ambiente de desarrollo a un ambiente de prueba o producción).
+
+Al hacer clic en el botón de exportar, aparece un menú con dos opciones:
+
+-  **Exportar todo:** exporta todo el árbol de vínculos.
+
+-  **Exportar selección:** exporta la carpeta o el vínculo
+   seleccionados y todo lo que contienen (el subárbol cuya raíz es la
+   carpeta o vínculos seleccionados).
+
+Si no hay ningún vínculo o carpeta seleccionados, solo se muestra la
+opción “Exportar todo”.
+
+Al hacer clic en cualquiera de las dos opciones se descargará un archivo
+que contiene la definición de vínculos que se puede importar en otro
+ambiente.
+
+Para importar un archivo de configuración, haga clic en el botón de
+importación. Entonces podrá seleccionar el archivo que desee importar.
+Si el archivo contiene solamente una parte del árbol, el contenido del
+archivo se importará dentro del vínculo o carpeta que esté seleccionado.
+Si ningún vínculo o carpeta están seleccionados, entonces el contenido
+se importa en el primer nivel.
+
+Mis vínculos
+------------
+
+El concepto y la configuración de "Mis vínculos" es análoga a la de la 
+configuración del menú lateral, con las diferencias de que estos elementos 
+se muestran por debajo de los elementos definidos en el menú lateral, y solo 
+son visibles para usuario que los definió.
+
+Excluyendo la restricción de accesos, que no aplica para estos vínculos 
+personales, todo lo explicado anteriormente para los elementos del menú lateral sobre su 
+configuración y manejo aplican de igual manera para la sección de mis vínculos.
+
+Vistas del sistema
+------------------
+
+La página de configuración de vistas del sistema permite modificar las
+vistas que ya vienen predefinidas en Qflow. Se puede alterar el orden
+de las columnas que contienen o modificarlas para que muestren más o
+menos columnas.
+
+Las vistas del sistema se modifican de la misma forma que las vistas
+personalizadas. Consulte la sección :ref:`Definición de una vista` por
+instrucciones sobre cómo modificarlas. Las vistas del sistema son de los
+mismos tipos que las vistas comunes, pero existe un tipo adicional,
+“Bandeja”, que son vistas que se usan en las bandejas de las colas de
+trabajo.
+
+.. figure:: _static/media/04-QflowTask/image107.png
+   :width: 80%
+   :align: center
+   :alt: Vistas del sistema
+
+   Vistas del sistema
+
+Bandejas de colas de trabajo
+----------------------------
+
+La página de administración de bandejas permite definir qué vistas de
+bandejas se incluyen en cada bandeja. Cada cola de trabajo tiene
+asociada una bandeja para la cual se puede definir qué vistas debe
+incluir.
+
+También incluye vínculos, accesibles desde un ícono en la parte superior
+derecha de la pantalla:
+
+-  **Administrar bandeja de sistema:** lleva a una página en la que se
+   puede determinar qué vistas tiene la bandeja de sistema. Esta bandeja
+   es la que está asociada por defecto a las colas de trabajo. Por lo
+   tanto, si se crea una cola de trabajo nueva, tendrá las vistas que
+   tiene esta bandeja. La forma de especificar las vistas de esta
+   bandeja es la misma que para las otras bandejas (ver abajo; ver
+   también la :numref:`CustomizeViews`).
+
+-  **Administrar vistas de cola de trabajo:** permite crear, modificar y
+   borrar vistas de colas de trabajo, es decir, las vistas que se pueden
+   usar en las bandejas de las colas. Estas vistas se crean y definen de
+   la misma forma que las otras vistas (ver :ref:`Vistas`), pero para ellas
+   no se elige de qué tipo son (son todas de tipo “Bandeja”).
+
+Cuando un usuario entra en esta página, se le muestra el árbol de nodos
+de Qflow Team para que el usuario seleccione la cola de trabajo cuya bandeja
+desee modificar (las colas de trabajo son nodos especiales; por más
+información sobre nodos y colas de trabajo, consulte el manual del
+`Qflow Team <18-QflowTeam.html>`_). Además de colas de trabajo, se
+muestran nodos, porque una cola de trabajo puede pertenecer a un nodo
+que no es una cola de trabajo. Abra los nodos o colas de trabajo que
+correspondan hasta encontrar la cola de trabajo para la cual desea
+definir una bandeja.
+
+Al seleccionar una cola de trabajo, al lado de la imagen se muestra la
+opción “Personalizar las vistas de esta bandeja”, junto con la lista de
+vistas que están actualmente en ella.
+
+Por defecto, una cola de trabajo tiene las vistas de la bandeja de
+sistema.
+
+.. figure:: _static/media/04-QflowTask/image108.png
+   :width: 90%
+   :align: center
+   :alt: Administrar bandejas de colas de trabajo
+
+   Administrar bandejas de colas de trabajo
+
+Para quitar o agregar vistas a la bandeja seleccionada, marque la opción
+“Personalizar vistas de esta bandeja”. Esto hace que se vacíe la lista
+de vistas y que aparezcan botones para agregar y borrar vistas. Estas
+opciones son también las que aparecen cuando se está administrando las
+vistas de la bandeja de sistema.
+
+Al hacer clic en el botón de agregar (|image19|), aparecen las
+vistas disponibles para agregar a la bandeja. Son las mismas vistas que
+las que una cola de trabajo tiene por defecto. Arrastre las que desee
+hasta donde dice “Arrastre aquí”. Al finalizar, haga clic en “Guardar”.
+
+.. _CustomizeViews:
+
+.. figure:: _static/media/04-QflowTask/image109.png
+   :width: 60%
+   :align: center
+   :alt: Personalizar las vistas de esta bandeja
+
+   Personalizar las vistas de esta bandeja
+
+.. figure:: _static/media/04-QflowTask/image110.png
+   :width: 50%
+   :align: center
+   :alt: Agregar una vista a una bandeja
+
+   Agregar una vista a una bandeja
+
+Permisos de paquete
+-------------------
+
+La pantalla de permisos de paquete permite asignar permisos para
+ejecutar acciones sobre plantillas, procesos y tareas. Estos elementos
+están organizados en una estructura de paquetes similar a la estructura
+de carpetas de un sistema de archivos. Esta estructura se puede
+modificar en Qflow Design (vea el manual de esa
+herramienta por más detalles). Los permisos de paquete son los
+siguientes:
+
+-  **Administrar procesos:** permite realizar operaciones sobre los
+   procesos del paquete actual, como finalizar un proceso, hacerlo
+   retroceder o reintentar la ejecución de pasos.
+
+-  **Administrar gráficas:** permite crear, modificar y eliminar
+   gráficas y conceder permisos sobre ellas, así como importar y
+   exportar definiciones de gráficas.
+
+-  **Administrar indicadores:** permite crear, modificar y eliminar
+   indicadores y conceder permisos sobre ellos, así como importar y
+   exportar definiciones de indicadores.
+
+-  **Administrar seguridad:** permite modificar la configuración de
+   seguridad del paquete actual.
+
+-  **Administrar tablero de control principal:** permite modificar el
+   tablero de control principal, que es el que se muestra en la
+   página de inicio de Qflow Task.
+
+-  **Administrar tableros de control:** permite crear, modificar y
+   eliminar tableros de control y conceder permisos sobre ellos, así
+   como importar y exportar definiciones de tableros de control.
+
+-  **Administrar el menú lateral:** permite administrar el menú lateral 
+   de Qflow Task, lo cual incluye permite crear, modificar y eliminar
+   vínculos y conceder permisos sobres esos vínculos, así como
+   importar y exportar la configuración.
+
+-  **Administrar vistas:** permite crear, modificar y eliminar vistas
+   definidas sobre elementos del paquete actual, así como importar y
+   exportar definiciones de vistas.
+
+-  **Auditar:** permite ver información de auditoría de los ítems del
+   paquete.
+
+-  **Delegar tarea:** permite delegar tareas, reasignándolas.
+
+-  **Explorar:** permite ver detalles de los procesos del paquete actual
+   (ver todos los datos, roles y adjuntos del proceso en la vista de
+   detalles).
+
+-  **Iniciar proceso:** permite iniciar procesos basados en plantillas
+   del paquete actual.
+
+-  **Responder tareas:** permite responder tareas del paquete actual. Un
+   usuario puede responder una tarea si es destinatario de esa tarea,
+   suplente de un destinatario o supervisor de un destinatario.
+
+-  **Ver estadísticas:** permite ver las estadísticas de los ítems del
+   paquete.
+
+-  **Ver ítems:** permite visualizar los elementos del paquete actual.
+
+.. figure:: _static/media/04-QflowTask/image111.png
+   :width: 100%   
+   :align: center
+   :alt: Permisos de paquete
+
+   Permisos de paquete
+
+Por defecto, la página de permisos de paquete muestra los permisos del
+paquete Raíz. Para seleccionar otro paquete, haga clic en el botón de
+seleccionar paquete (|image20|), que aparece al lado del nombre del
+paquete seleccionado. Esto hace que Qflow muestre el árbol de paquetes
+y cambie este ícono por un ícono de confirmación (|image21|). Haga doble
+clic en el paquete deseado, o selecciónelo y haga clic en el ícono de
+confirmación.
+
+Al agregar un permiso, después de haber seleccionado el miembro al que
+se desea otorgar o negar permisos, aparece a la derecha de la lista de
+permisos un recuadro que permite marcar qué permisos se quieren asignar
+o denegar (:numref:`UpdatePermissions`). Este recuadro también aparece cuando se están
+editando los permisos de un miembro para ese paquete.
+
+| Además de permitir o denegar un permiso, se puede indicar si el
+  permiso es heredable, es decir, si el mismo permiso se aplica a los
+  paquetes descendientes del paquete que se está modificando.
+| Por ejemplo, si se le da a un usuario el permiso “Ver ítems” en el
+  paquete Raíz y se especifica que ese permiso es heredable, entonces
+  podrá ver los ítems de todos los paquetes del sistema, porque todos
+  los otros paquetes son descendientes del paquete Raíz (salvo que en
+  algún paquete se le niegue explícitamente ese permiso). En cambio, si
+  no se lo pone como heredable, el usuario podrá ver los ítems del
+  paquete Raíz, pero no los de otros paquetes (a menos que tenga algún
+  otro permiso que le permita hacerlo). El manual de `Qflow Team <18-QflowTeam.html>`_ 
+  tiene una explicación detallada de cómo
+  funcionan los permisos y la herencia de permisos.
+
+.. figure:: _static/media/04-QflowTask/image114.png
+   :width: 80%
+   :align: center
+   :alt: Selección de un paquete
+
+   Selección de un paquete
+
+.. figure:: _static/media/04-QflowTask/package-permissions-member-select.png
+   :width: 70%
+   :align: center
+   :alt: Selección de un miembro para modificar permisos
+
+   Selección de un miembro para modificar permisos
+
+.. _UpdatePermissions:
+
+.. figure:: _static/media/04-QflowTask/image115.png
+   :width: 80%   
+   :align: center
+   :alt: Modificación de permisos
+
+   Modificación de permisos
+
+Permisos de la herramienta
+--------------------------
+
+La pantalla de permisos de la herramienta permite definir quién puede
+acceder al sitio y si puede o no administrar aspectos de seguridad.
+
+Los dos permisos posibles son:
+
+-  **Administrar seguridad:** permite administrar la seguridad de Qflow
+   Task, o sea, modificar la configuración general.
+
+-  **Acceder a la herramienta:** permite acceder a Qflow Task.
+
+.. figure:: _static/media/04-QflowTask/image116.png
+   :width: 100%
+   :align: center
+   :alt: Administrar permisos de la herramienta
+
+   Administrar permisos de la herramienta
+
+Para agregar un permiso:
+
+1. Haga clic en el ícono “\ |image22|\ ”. Eso hace que Qflow muestre,
+   en la parte superior izquierda de la pantalla, una caja de texto para
+   ingresar el nombre de un miembro al que se pueden otorgar permisos.
+
+2. Comience a escribir el nombre del miembro para que Qflow muestre la
+   lista de miembros cuyos nombres contengan el texto ingresado y
+   seleccione el miembro deseado. Eso hace que Qflow agregue el miembro
+   a la lista y muestre, a la izquierda, un recuadro en el que se puede
+   marcar qué permisos tendrá el miembro. Por defecto, está marcado el
+   permiso “Acceder a la herramienta” (:numref:`PermissionsList`).
+
+3. Modifique los permisos según lo que desee y haga clic en “Guardar”.
+
+.. _PermissionsList:
+
+.. figure:: _static/media/04-QflowTask/image117.png
+   :width: 80%   
+   :align: center
+   :alt: Lista de permisos en la que se acaba de agregar el rol "Diseñador", con recuadro a la derecha para asignar permisos.
+
+   Lista de permisos en la que se acaba de agregar el rol "Diseñador", con recuadro a la derecha para asignar permisos.
+
+Configuración de notificaciones de dispositivo
+----------------------------------------------
+
+Para poder utilizar las notificaciones de dispositivo debe tener
+configurado correctamente un *sender* de notificaciones de usuario. Para
+más detalles ver el manual de `Qflow Admin <19-QflowAdmin.html>`_.
+
+También debe tener el *sender* correspondiente seleccionado para su
+usuario. Ver manual de `Qflow Team <18-QflowTeam.html>`_. 
+De lo contrario no recibirá notificaciones de dispositivo, aunque las tenga habilitadas.
+
+**Configurar las notificaciones de dispositivo**
+
+Al ingresar por primera vez al sitio y teniendo el *sender* configurado
+correctamente desde Qflow Admin. Se le mostrara un *popup* en el que se pregunta
+si desea habilitar las notificaciones de dispositivo, con 3 opciones:
+Sí, No y Cerrar (‘x’) Ver :numref:`NotificationsPopup`.
+
+.. _NotificationsPopup:
+
+.. figure:: _static/media/04-QflowTask/image118.png
+   :width: 100%
+   :align: center
+   :alt: Popup para habilitar notificaciones de dispositivo al ingresar por primera vez a Qflow Task.
+
+   Popup para habilitar notificaciones de dispositivo al ingresar por primera vez a Qflow Task.
+
+Si selecciona “Cerrar”, se interpretará que no desea tomar la decisión
+en el momento, por lo que el *popup* se cerrará y se le volverá a
+mostrar cuando vuelva a ingresar al sitio luego de 7 días o al borrar
+los datos del navegador.
+
+Si selecciona la opción “No”, se guardará su preferencia y no se le
+volverá a mostrar el *popup*.
+
+Si selecciona la opción “Sí”:
+
+-  Si nunca se configuraron las notificaciones en el navegador que se
+   está utilizando (Ej: Chrome) se mostrará el *popup* nativo del
+   navegador, donde se podrá permitir las notificaciones, bloquearlas o
+   cerrar. Ver :numref:`ConfigureChromeNotifications`
+
+   -  Si en este punto decide cerrar el cartel, no se habilitarán las
+      notificaciones de Qflow Task. La herramienta volverá a preguntarle, pasados 7
+      días, si desea activar las notificaciones.
+
+   -  Si decide bloquear las notificaciones del navegador, no se
+      habilitarán las notificaciones de Qflow Task y se volverá a preguntar
+      pasados los 7 días.
+
+   -  Si selecciona la opción permitir, se habilitarán las
+      notificaciones de Qflow Task exitosamente.
+
+.. _ConfigureChromeNotifications:
+   
+.. figure:: _static/media/04-QflowTask/image119.png
+   :width: 50%
+   :align: center
+   :alt: Configurar notificaciones en navegador Google Chrome.
+
+   Configurar notificaciones en navegador Google Chrome.
+
+Si el usuario ya tiene configuradas (bloqueadas o habilitadas) las
+notificaciones en el navegador:
+
+-  En el caso de que estén habilitadas, las notificaciones se
+   habilitarán automáticamente al seleccionar la opción Sí en el *popup*
+   del sitio.
+
+-  En el caso de que estén bloqueadas y seleccione la opción “Sí”, se
+   mostrará una alerta (:numref:`BlockedNotifications`) indicando que tiene las
+   notificaciones del navegador bloqueadas y que debe habilitarlas, este
+   procedimiento deberá realizarlo de forma manual en su navegador. En
+   este caso se le volverá a preguntar si desea activarlas pasados 7
+   días.
+
+.. _BlockedNotifications:
+
+.. figure:: _static/media/04-QflowTask/image120.png
+   :width: 50%
+   :align: center
+   :alt: Aviso de notificaciones de dispositivo bloqueadas en navegador.
+
+   Aviso de notificaciones de dispositivo bloqueadas en navegador.
+
+Una vez guardadas las preferencias de notificaciones de dispositivo,
+siempre podrá volver a cambiarlas desde el menú de “Configuración del
+usuario” del menú superior. Si deshabilita las notificaciones desde el
+menú, estas se estarán deshabilitando para todos los dispositivos. En
+cambio, si las habilita, serán habilitadas únicamente en el dispositivo
+desde el que se está realizando la acción.
+
+Si tiene las notificaciones de dispositivo habilitadas, al ingresar
+desde un nuevo dispositivo, se le dará la opción de permitir, o no, la
+recepción de notificaciones en ese dispositivo en particular (:numref:`EnableNotificationsMessage`). 
+Teniendo en cuenta, al igual que antes, la configuración del
+navegador que se esté utilizando. Si no las tiene habilitadas no se
+mostrará ningún mensaje.
+
+.. _EnableNotificationsMessage:
+
+.. figure:: _static/media/04-QflowTask/image121.png
+   :width: 100%
+   :align: center
+   :alt: Mensaje para activar notificaciones en dispositivo actual.
+
+   Mensaje para activar notificaciones en dispositivo actual.
+
+
+
+Manejo de zonas horarias
+------------------------
+
+Qflow cuenta con la posibilidad de cambiar la zona horaria del usuario. Esta 
+preferencia se encuentra en el menú superior, al hacer clic, se despliega un panel 
+que permite seleccionar la nueva zona horaria.
+
+.. figure:: _static/media/04-QflowTask/image122.png
+   :width: 50%   
+   :align: center
+   :alt: Opción para cambiar la zona horaria del usuario.
+
+   Opción para cambiar la zona horaria del usuario.
+
+.. figure:: _static/media/04-QflowTask/image123.png
+   :width: 50%   
+   :align: center
+   :alt: Panel para seleccionar la zona horaria del usuario.
+
+   Panel para seleccionar la zona horaria del usuario.
+
+Si se cambia la zona horaria, luego de refrescar el navegador, todas las fechas de Qflow Task
+serán visualizadas en la zona horaria elegida. Es decir, dos usuarios con 
+distintas preferencias pueden ver fechas distintas en los datos de un proceso, pero 
+estas representar el mismo momento en el tiempo. En los selectores de fecha y 
+hora puede encontrarse una aclaración del desplazamiento de la zona horaria del usuario.
+
+.. figure:: _static/media/04-QflowTask/image124.png
+   :width: 30%   
+   :align: center
+   :alt: Selector de fecha y hora.
+
+   Selector de fecha y hora.
+
+Finalmente si se visualiza una fecha y esta no tiene ningún tipo de aclaración, 
+puede asumirse que se encuentra en la zona horaria del usuario.
+
+.. |image1| image:: _static/media/04-QflowTask/image2.png
+   :width: 0.14272in
+.. |image2| image:: _static/media/04-QflowTask/image3.png
+   :width: 0.14583in
+.. |image3| image:: _static/media/04-QflowTask/image13.png
+   :width: 0.20472in
+.. |image4| image:: _static/media/04-QflowTask/image17.png
+   :width: 0.20472in
+.. |image6| image:: _static/media/04-QflowTask/image24.png
+   :width: 0.24008in
+.. |image7| image:: _static/media/04-QflowTask/image36.png
+   :width: 0.19676in
+.. |image8| image:: _static/media/04-QflowTask/image37.png
+   :width: 0.18863in
+.. |image9| image:: _static/media/04-QflowTask/image39.png
+   :width: 0.18898in
+.. |image10| image:: _static/media/04-QflowTask/image47.png
+   :width: 0.15069in
+.. |image12| image:: _static/media/04-QflowTask/image47.png
+   :width: 0.15069in
+.. |image13| image:: _static/media/04-QflowTask/image47.png
+   :width: 0.15069in
+.. |image14| image:: _static/media/04-QflowTask/image47.png
+   :width: 0.15069in
+.. |image15| image:: _static/media/04-QflowTask/image47.png
+   :width: 0.15069in
+.. |image16| image:: _static/media/04-QflowTask/image95.png
+   :width: 0.19549in
+.. |image17| image:: _static/media/04-QflowTask/image96.png
+   :width: 0.19006in
+.. |image19| image:: _static/media/04-QflowTask/image47.png
+   :width: 0.15069in
+.. |image20| image:: _static/media/04-QflowTask/image112.png
+   :width: 0.18898in
+.. |image21| image:: _static/media/04-QflowTask/image113.png
+   :width: 0.14173in
+.. |image22| image:: _static/media/04-QflowTask/image47.png
+   :width: 0.15069in
