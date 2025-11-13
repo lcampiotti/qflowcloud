@@ -5,43 +5,43 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-    *   [Introducción a las herramientas de Qflow](26-QflowToolsTutorial.html)
-    *   [Crea tu primer proceso](06-Tutorial.html)
-    *   [Diseña un proceso de quejas](23-DesignTutorial.html)
-    *   [Descubre Qflow Task](24-QflowTaskTutorial.html)
-    *   [Configura el equipo](27-QflowTeamTutorial.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+    *   [Introducción a las herramientas de Qflow](26-QflowToolsTutorial.md)
+    *   [Crea tu primer proceso](06-Tutorial.md)
+    *   [Diseña un proceso de quejas](23-DesignTutorial.md)
+    *   [Descubre Qflow Task](24-QflowTaskTutorial.md)
+    *   [Configura el equipo](27-QflowTeamTutorial.md)
     *   [Administra y monitorea el sistema](#)
         *   [Introducción](#introduccion)
         *   [Parámetros de sistema](#parametros-de-sistema)
         *   [Estadísticas](#estadisticas)
-    *   [Crea tu formulario personalizado](37-QformTutorial.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+    *   [Crea tu formulario personalizado](37-QformTutorial.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Tutoriales](TutorialsIndex.html)
+*   [](index.md)
+*   [Tutoriales](TutorialsIndex.md)
 *   Administra y monitorea el sistema
 
 - - -
@@ -151,9 +151,9 @@ Las gráficas de estadísticas de Q-points utilizados, usuarios habilitados y es
 
 Figura 293 Gráficas de estadísticas de Q-points utilizados, usuarios habilitados y estadísticas de almacenamiento[](#id11 "Link to this image")
 
-Por último, si quiere más información sobre el resto de las opciones del sitio que no se detallaron en el tutorial, puede ver el manual de [Qflow Admin](19-QflowAdmin.html).
+Por último, si quiere más información sobre el resto de las opciones del sitio que no se detallaron en el tutorial, puede ver el manual de [Qflow Admin](19-QflowAdmin.md).
 
-[Anterior](27-QflowTeamTutorial.html "Configura el equipo") [Siguiente](37-QformTutorial.html "Crea tu formulario personalizado")
+[Anterior](27-QflowTeamTutorial.md "Configura el equipo") [Siguiente](37-QformTutorial.md "Crea tu formulario personalizado")
 
 - - -
 
