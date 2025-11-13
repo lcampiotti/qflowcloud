@@ -5,42 +5,42 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
-    *   [Interfaz de scripting](10-ScriptingInterface.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
+    *   [Interfaz de scripting](10-ScriptingInterface.md)
     *   [Web services API](#)
         *   [Introducción](#introduccion)
         *   [Organización de este manual](#organizacion-de-este-manual)
         *   [Convenciones usadas en este manual](#convenciones-usadas-en-este-manual)
         *   [API de servicios](#api-de-servicios)
         *   [Descripción de los web services](#descripcion-de-los-web-services)
-    *   [Referencia de la biblioteca JavaScript](32-JavaScriptLibraryReference.html)
-    *   [Tutoriales](31-Development.html#tutoriales)
+    *   [Referencia de la biblioteca JavaScript](32-JavaScriptLibraryReference.md)
+    *   [Tutoriales](31-Development.md#tutoriales)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Desarrolladores](31-Development.html)
+*   [](index.md)
+*   [Desarrolladores](31-Development.md)
 *   Web services API
 
 - - -
@@ -106,7 +106,7 @@ Para autenticarse, puede hacer uso del método que se encuentra en el grupo Auth
 
 Este método devuelve un token de autenticación al pasarle las credenciales de un usuario: logon, contraseña y el identificador del espacio de trabajo en el que se encuentra. El parámetro “grant\_type” debe tener el valor “password”. El token obtenido se puede agregar a la autorización del cabezal con clave “bearer” para usar los servicios estando autenticado. Si no se utiliza, se iniciará sesión cada vez que se use un servicio.
 
-Para ver más sobre el uso de los servicios web mediante Swagger, dirigase a [nuestro tutorial sobre el tema](33-WebServicesSwaggerTutorial.html).
+Para ver más sobre el uso de los servicios web mediante Swagger, dirigase a [nuestro tutorial sobre el tema](33-WebServicesSwaggerTutorial.md).
 
 ## Descripción de los web services[](#descripcion-de-los-web-services "Link to this heading")
 
@@ -123,7 +123,7 @@ El web service Status simplemente cuenta con un método y es utilizado para veri
 
 ### WebBot[](#webbot "Link to this heading")
 
-El web service WebBot es el que permite que un bot pueda obtener información acerca de qué tareas tiene pendientes, e informar a Qflow acerca de qué tareas completó y canceló. Una explicación de qué es un bot y para qué sirve puede ser encontrada en el [manual de Qflow Design](15-QflowDesign.html).
+El web service WebBot es el que permite que un bot pueda obtener información acerca de qué tareas tiene pendientes, e informar a Qflow acerca de qué tareas completó y canceló. Una explicación de qué es un bot y para qué sirve puede ser encontrada en el [manual de Qflow Design](15-QflowDesign.md).
 
 Un bot, en general, utilizará los métodos de WebBot de la siguiente forma:
 
@@ -322,7 +322,7 @@ El web service WebList tiene métodos para obtener listas de tareas.
 
 ### WebOperations[](#weboperations "Link to this heading")
 
-El web service WebOperations tiene métodos para delegar una tarea, para finalizar un proceso y para trabajar con el evento de atrapar señal (ver [manual de Qflow Design](15-QflowDesign.html)). Un evento de atrapar señal puede ser configurado para que espere la ocurrencia de una acción externa. La forma de indicarle a Qflow que la acción externa tuvo lugar es invocar alguno de los dos métodos del web service WebOperations que tienen ese propósito.
+El web service WebOperations tiene métodos para delegar una tarea, para finalizar un proceso y para trabajar con el evento de atrapar señal (ver [manual de Qflow Design](15-QflowDesign.md)). Un evento de atrapar señal puede ser configurado para que espere la ocurrencia de una acción externa. La forma de indicarle a Qflow que la acción externa tuvo lugar es invocar alguno de los dos métodos del web service WebOperations que tienen ese propósito.
 
 #### Métodos de WebOperations[](#metodos-de-weboperations "Link to this heading")
 
@@ -481,7 +481,7 @@ El web service WebStart tiene métodos que inician procesos.
 *   **GetNewFlowInfo(Guid templateId):NewFlowMessage** – dado un template indicado por su identificador global, devuelve un objeto de tipo NewFlowMessage que puede ser utilizado para iniciar in proceso con el método StartFlow.
     
 
-[Anterior](10-ScriptingInterface.html "Interfaz de scripting") [Siguiente](14-CustomFormDesign.html "<no title>")
+[Anterior](10-ScriptingInterface.md "Interfaz de scripting") [Siguiente](14-CustomFormDesign.md "<no title>")
 
 - - -
 
