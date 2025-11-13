@@ -5,39 +5,39 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
-    *   [Interfaz de scripting](10-ScriptingInterface.html)
-    *   [Web services API](20-WebServicesAPI.html)
-    *   [Referencia de la biblioteca JavaScript](32-JavaScriptLibraryReference.html)
-    *   [Tutoriales](31-Development.html#tutoriales)
-        *   [Consumir Servicios REST desde dominios de Qflow](25-RESTDomainTutorial.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
+    *   [Interfaz de scripting](10-ScriptingInterface.md)
+    *   [Web services API](20-WebServicesAPI.md)
+    *   [Referencia de la biblioteca JavaScript](32-JavaScriptLibraryReference.md)
+    *   [Tutoriales](31-Development.md#tutoriales)
+        *   [Consumir Servicios REST desde dominios de Qflow](25-RESTDomainTutorial.md)
         *   [Uso de API de servicios web con Swagger](#)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Desarrolladores](31-Development.html)
+*   [](index.md)
+*   [Desarrolladores](31-Development.md)
 *   Uso de API de servicios web con Swagger
 
 - - -
@@ -112,7 +112,7 @@ Este método recibe un objeto JSON con las propiedades «Name», «Description»
 
 Una vez que modificamos el objeto de entrada, damos «Execute» para correr el método. Si todo sale bien, veremos un código de respuesta 200, y una respuesta de identificador, que es el identificador del grupo creado. Este dato es útil ya que podemos verificar que se haya creado exitosamente usando el método **GetGroup** del controlador WebOrganization, pasando como parámetro el identificador que obtuvimos como resultado del método **CreateGroup**. Si el método nos devuelve los datos del grupo que creamos, entonces podemos verificar que el grupo se creó correctamente.
 
-[Anterior](25-RESTDomainTutorial.html "Consumir Servicios REST desde dominios de Qflow")
+[Anterior](25-RESTDomainTutorial.md "Consumir Servicios REST desde dominios de Qflow")
 
 - - -
 
