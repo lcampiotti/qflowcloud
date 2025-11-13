@@ -5,22 +5,22 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
 *   [Qflow Design](#)
     *   [Introducción](#introduccion)
     *   [Organización de este manual](#organizacion-de-este-manual)
@@ -64,15 +64,15 @@ Inicio
         *   [Visibilidad y asignación del formulario:](#visibilidad-y-asignacion-del-formulario)
         *   [Vista previa y prueba en dispositivos](#vista-previa-y-prueba-en-dispositivos)
         *   [Barra superior del diseñador](#barra-superior-del-disenador)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
+*   [](index.md)
 *   Qflow Design
 
 - - -
@@ -289,7 +289,7 @@ Para configurar el evento de inicio, haz doble clic en él. Lo único que se nec
 
 Figura 435 Propiedades del evento de inicio[](#id38 "Link to this image")
 
-La visibilidad permite especificar qué datos y roles son visibles y modificables en actividades interactivas, como lo es una tarea de usuario o un evento de inicio. En el inicio del proceso, interesa que el usuario pueda asignar valores a los datos de aplicación. Entonces, en la subsección de datos, marca todos los datos de aplicación, haciendo clic en la caja que aparece al lado del cabezal de la columna “Nombre de datos” ([Figura 436](#assigneditablescope)). Después, haz clic en el botón correspondiente a la visibilidad “Editable” ([![editableVisibilityIcon](_images/editableVisibilityIcon.png)](_images/editableVisibilityIcon.png)). En la columna “Visibilidad”, todos los datos pasarán a tener el valor “Editable”. Haz clic en el botón de aceptar (✓) para guardar los cambios. Para ver más información sobre visibilidad, vaya a la sección [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios).
+La visibilidad permite especificar qué datos y roles son visibles y modificables en actividades interactivas, como lo es una tarea de usuario o un evento de inicio. En el inicio del proceso, interesa que el usuario pueda asignar valores a los datos de aplicación. Entonces, en la subsección de datos, marca todos los datos de aplicación, haciendo clic en la caja que aparece al lado del cabezal de la columna “Nombre de datos” ([Figura 436](#assigneditablescope)). Después, haz clic en el botón correspondiente a la visibilidad “Editable” ([![editableVisibilityIcon](_images/editableVisibilityIcon.png)](_images/editableVisibilityIcon.png)). En la columna “Visibilidad”, todos los datos pasarán a tener el valor “Editable”. Haz clic en el botón de aceptar (✓) para guardar los cambios. Para ver más información sobre visibilidad, vaya a la sección [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.md#visibilidad-de-datos-roles-adjuntos-y-comentarios).
 
 [![Asignación de visibilidad “Editable”](_images/image1913.png)](_images/image1913.png)
 
@@ -413,7 +413,7 @@ Una vez que terminas de definir el proceso, guarda tu diseño. Haz clic en el í
 
 Finalmente, debes publicar la versión actual de la plantilla. De lo contrario, cuando ingreses a Qflow Task para iniciar un proceso, no encontrarás la plantilla que acabas de diseñar. Para eso, usa el boton de publicar que se encuentra a la derecha en la barra de acciones. También puedes buscar la plantilla en el árbol de paquetes, hacer clic derecho en ella y seleccionar, en el menú, “Publicar”.
 
-Una vez publicada la plantilla, para iniciar un proceso y poder realizar pruebas, haz clic en el botón “Iniciar proceso” en la barra de acciones. También puedes acceder directamente desde Qflow Task. Para más información, consulta el manual de [Qflow Task](04-QflowTask.html).
+Una vez publicada la plantilla, para iniciar un proceso y poder realizar pruebas, haz clic en el botón “Iniciar proceso” en la barra de acciones. También puedes acceder directamente desde Qflow Task. Para más información, consulta el manual de [Qflow Task](04-QflowTask.md).
 
 ### Segunda versión de proceso de quejas[](#segunda-version-de-proceso-de-quejas "Link to this heading")
 
@@ -421,7 +421,7 @@ El proceso anterior tiene el defecto de que el gerente comercial siempre tiene q
 
 Una posibilidad es categorizar las quejas y definir un encargado para cada categoría. Al iniciar un proceso, el iniciador ve una lista de categorías de quejas y elige una. Una vez iniciado un proceso, se asigna la tarea de atender la queja al encargado correspondiente a la categoría seleccionada. Se puede incluir una categoría “Otra” para contemplar quejas que no se ajustan a ninguna de las categorías definidas. Quejas en esa categoría se comportan como antes: el gerente comercial decide quién se encarga de ellas.
 
-Para hacer este cambio, se necesita un nuevo dato para la categoría. Un dato se asocia a un dominio, que indica, entre otras cosas, cómo se muestra y qué tipo de datos tiene. Un dominio también puede definir un conjunto de valores posibles para el dato (para conocer más información acerca de los dominios, vea la sección [Dominios](15-QflowDesign.html#dominios)). Por eso, crearemos un dominio nuevo que indicará que sus datos, en lugar de mostrarse como una caja de texto cuando son editables, deben mostrarse como listas desplegables (“Combo box”). El dominio también definirá las categorías que aparecerán en la lista. En el ejemplo, las categorías serán tres: “Producto defectuoso”, “Mala atención” y “Otra”. En Qflow Task, se podrá ver como muestra la [Figura 452](#comboboxinwebsite).
+Para hacer este cambio, se necesita un nuevo dato para la categoría. Un dato se asocia a un dominio, que indica, entre otras cosas, cómo se muestra y qué tipo de datos tiene. Un dominio también puede definir un conjunto de valores posibles para el dato (para conocer más información acerca de los dominios, vea la sección [Dominios](15-QflowDesign.md#dominios)). Por eso, crearemos un dominio nuevo que indicará que sus datos, en lugar de mostrarse como una caja de texto cuando son editables, deben mostrarse como listas desplegables (“Combo box”). El dominio también definirá las categorías que aparecerán en la lista. En el ejemplo, las categorías serán tres: “Producto defectuoso”, “Mala atención” y “Otra”. En Qflow Task, se podrá ver como muestra la [Figura 452](#comboboxinwebsite).
 
 [![Combo box en Qflow Task](_images/image383.png)](_images/image383.png)
 
@@ -612,11 +612,11 @@ En una tarea de código se puede escribir código que accede a los datos del pro
 
 Este código se puede escribir en las propiedades de la tarea de código (ver [Tarea de código](#tarea-de-codigo)), pero también se puede escribir en una integración ad hoc (ver [Integraciones](#integraciones)).
 
-Las funciones que provee Qflow para interactuar con los datos de sus procesos se describen detalladamente en el manual de la [Interfaz de Scripting](10-ScriptingInterface.html).
+Las funciones que provee Qflow para interactuar con los datos de sus procesos se describen detalladamente en el manual de la [Interfaz de Scripting](10-ScriptingInterface.md).
 
 #### Colas de trabajo[](#colas-de-trabajo "Link to this heading")
 
-Otra práctica común es utilizar colas de trabajo como miembros de los roles en lugar de cuentas de usuario. En lugar de asignar las tareas a usuarios particulares, se asignan a colas de trabajo (“Departamento de envíos”). Una cola de trabajo está asociada a permisos que indican quiénes pueden tomar tareas asignadas a ella. Por ejemplo, sólo los usuarios del departamento de envíos pueden tomar tareas de la cola “Departamento de envíos”. Así, cuando una tarea es asignada a esa cola de trabajo, todos los que pueden tomar tareas de esa cola son notificados y cualquiera de ellos puede tomar la tarea para sí y encargarse de ella. El concepto de cola de trabajo está explicado en el manual de [Qflow Team](18-QflowTeam.html). Ese manual también explica cómo crear colas de trabajo.
+Otra práctica común es utilizar colas de trabajo como miembros de los roles en lugar de cuentas de usuario. En lugar de asignar las tareas a usuarios particulares, se asignan a colas de trabajo (“Departamento de envíos”). Una cola de trabajo está asociada a permisos que indican quiénes pueden tomar tareas asignadas a ella. Por ejemplo, sólo los usuarios del departamento de envíos pueden tomar tareas de la cola “Departamento de envíos”. Así, cuando una tarea es asignada a esa cola de trabajo, todos los que pueden tomar tareas de esa cola son notificados y cualquiera de ellos puede tomar la tarea para sí y encargarse de ella. El concepto de cola de trabajo está explicado en el manual de [Qflow Team](18-QflowTeam.md). Ese manual también explica cómo crear colas de trabajo.
 
 ## Operación de la interfaz de usuario[](#operacion-de-la-interfaz-de-usuario "Link to this heading")
 
@@ -673,7 +673,7 @@ Para la edición de la zona horaria se debe seleccionar la opción “Usuario ac
 
 [![Panel de zona horaria de preferencia](_images/timezone2.PNG)](_images/timezone2.PNG)
 
-La función de configuración tiene la opción de administración de permisos de la herramienta, la cual se explica en el manual de [Qflow Team](18-QflowTeam.html).
+La función de configuración tiene la opción de administración de permisos de la herramienta, la cual se explica en el manual de [Qflow Team](18-QflowTeam.md).
 
 #### El menú lateral[](#el-menu-lateral "Link to this heading")
 
@@ -772,7 +772,7 @@ Para cada elemento, hay disponibles varias operaciones a las cuales se accede me
     
 *   **Formularios del proceso:** abre un submenú con dos opciones: “Formulario de edición del proceso” y “Formulario del proceso”. Estas opciones permiten abrir la ventana de propiedades de esos formularios para:
     
-    *   Definir la visibilidad de datos, roles, adjuntos y comentarios (ver [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios)).
+    *   Definir la visibilidad de datos, roles, adjuntos y comentarios (ver [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.md#visibilidad-de-datos-roles-adjuntos-y-comentarios)).
         
     *   Asociar validaciones a los formularios (ver [Validaciones](#validaciones)).
         
@@ -1003,7 +1003,7 @@ Un usuario tiene permiso para ejecutar una acción si se cumple simultáneamente
 *   El usuario no está asociado a algún rol de seguridad, grupo, nodo o cola de trabajo al que se le haya negado ese permiso, o a su propia cuenta de usuario se le ha negado ese permiso.
     
 
-También puede suceder que el usuario no cumpla estas condiciones, pero sea sustituto de uno que sí las cumpla, y en ese caso también tendría permiso. Por más detalles acerca del manejo de permisos en Qflow, consulta el manual de [Qflow Team](18-QflowTeam.html), donde también se explica cómo asociar usuarios con roles de seguridad, nodos, grupos y colas de trabajo.
+También puede suceder que el usuario no cumpla estas condiciones, pero sea sustituto de uno que sí las cumpla, y en ese caso también tendría permiso. Por más detalles acerca del manejo de permisos en Qflow, consulta el manual de [Qflow Team](18-QflowTeam.md), donde también se explica cómo asociar usuarios con roles de seguridad, nodos, grupos y colas de trabajo.
 
 ### Plantillas pre-creadas[](#plantillas-pre-creadas "Link to this heading")
 
@@ -1096,7 +1096,7 @@ El formulario de definición de etapas se comporta de la misma forma que las lis
 
 Figura 497 Configuración de etapas[](#id100 "Link to this image")
 
-La opción “Usar calendario” permite seleccionar un calendario para que sea utilizado al calcular los vencimientos. Si no se se marca esta opción, los vencimientos se calcularán sin tomar en cuenta fines de semana, feriados, etc ([Figura 498](#usecalendarconfiguration)). Para más información sobre calendarios, consulta el manual de [Qflow Team](18-QflowTeam.html).
+La opción “Usar calendario” permite seleccionar un calendario para que sea utilizado al calcular los vencimientos. Si no se se marca esta opción, los vencimientos se calcularán sin tomar en cuenta fines de semana, feriados, etc ([Figura 498](#usecalendarconfiguration)). Para más información sobre calendarios, consulta el manual de [Qflow Team](18-QflowTeam.md).
 
 [![Configuración de “Usar calendario”](_images/image844.png)](_images/image844.png)
 
@@ -1383,7 +1383,7 @@ Figura 515 Sección General de datos[](#id118 "Link to this image")
     
 *   **Descripción:** es opcional.
     
-*   **Dominio:** es el dominio del dato, que define el tipo y el control (el elemento de interfaz de usuario) usado para mostrar el dato. El dominio de dato puede ser cualquiera de los dominios básicos provistos por Qflow, pero también puede ser un dominio creado por un usuario y que esté en el mismo paquete el dato, en el paquete padre o en alguno de sus ancestros (ver [Dominios](15-QflowDesign.html#dominios) por instrucciones sobre la creación de dominios). Los dominios básicos son:
+*   **Dominio:** es el dominio del dato, que define el tipo y el control (el elemento de interfaz de usuario) usado para mostrar el dato. El dominio de dato puede ser cualquiera de los dominios básicos provistos por Qflow, pero también puede ser un dominio creado por un usuario y que esté en el mismo paquete el dato, en el paquete padre o en alguno de sus ancestros (ver [Dominios](15-QflowDesign.md#dominios) por instrucciones sobre la creación de dominios). Los dominios básicos son:
     
     *   **Verdadero/Falso:** los datos de este tipo sólo tienen dos valores posibles: verdadero o falso.
         
@@ -1464,7 +1464,7 @@ Figura 519 Datos de un bloque de línea[](#id122 "Link to this image")
 
 #### Visibilidad: qué datos se pueden ver y modificar en cada interacción con un proceso[](#visibilidad-que-datos-se-pueden-ver-y-modificar-en-cada-interaccion-con-un-proceso "Link to this heading")
 
-Por defecto, los usuarios no pueden ver ni modificar los datos de aplicación al iniciar un proceso o durante la ejecución de éste. Para permitir que un usuario pueda ver o modificar los datos de aplicación, configure la visibilidad de éstos en los pasos donde desea que puedan ser vistos o modificados. También es posible configurarlo en el formulario y el formulario de edición del proceso. La visibilidad de los datos también especifica, para el caso de los datos de bloques de líneas y datos que aceptan múltiples valores, si los usuarios pueden agregar o borrar instancias, así como también los límites a la cantidad de instancias que se pueden tener. Para obtener información al respecto, consulte la sección [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios).
+Por defecto, los usuarios no pueden ver ni modificar los datos de aplicación al iniciar un proceso o durante la ejecución de éste. Para permitir que un usuario pueda ver o modificar los datos de aplicación, configure la visibilidad de éstos en los pasos donde desea que puedan ser vistos o modificados. También es posible configurarlo en el formulario y el formulario de edición del proceso. La visibilidad de los datos también especifica, para el caso de los datos de bloques de líneas y datos que aceptan múltiples valores, si los usuarios pueden agregar o borrar instancias, así como también los límites a la cantidad de instancias que se pueden tener. Para obtener información al respecto, consulte la sección [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.md#visibilidad-de-datos-roles-adjuntos-y-comentarios).
 
 ### Roles de plantilla de proceso[](#roles-de-plantilla-de-proceso "Link to this heading")
 
@@ -1567,7 +1567,7 @@ Qflow incluye dos roles que comúnmente se definen para usarlos en los procesos.
 
 Por defecto, los usuarios no pueden ver ni modificar los roles de un proceso durante su inicio o ejecución. Para permitir que los usuarios puedan ver o modificar los roles de un proceso, configura la visibilidad de los roles en los elementos del diseño donde deseas que sean vistos o modificados. La visibilidad de los roles también especifica, para aquellos que aceptan valores múltiples, si los usuarios pueden agregar o borrar miembros, y establece límites a la cantidad de miembros que los usuarios pueden agregar o borrar.
 
-Por información sobre cómo configurar la visibilidad, consulta [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios).
+Por información sobre cómo configurar la visibilidad, consulta [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.md#visibilidad-de-datos-roles-adjuntos-y-comentarios).
 
 ### Dominios[](#dominios "Link to this heading")
 
@@ -2245,7 +2245,7 @@ Los parámetros de aplicación son entidades que permiten separar datos de confi
 
 De la misma forma, puede haber varias integraciones distintas que usan el mismo web service (cada una invocando una operación distinta, por ejemplo). En ese caso también es preferible almacenar la información del web service en un solo lugar del cual todas las integraciones obtienen los datos de conexión. Los parámetros de aplicación permiten guardar datos como esos, y utilizarlos en tareas de servicio, en fuentes de datos para dominios que los usen, en integraciones, y como etiquetas o parámetros en otros pasos.
 
-Además, para los [conectores](34-ConnectorsIndex.html) que Qflow ofrece con otras herramientas, también es necesario utilizar un parámetro de aplicación de conexión que almacena los datos necesarios para conectarse con dicha herramienta.
+Además, para los [conectores](34-ConnectorsIndex.md) que Qflow ofrece con otras herramientas, también es necesario utilizar un parámetro de aplicación de conexión que almacena los datos necesarios para conectarse con dicha herramienta.
 
 #### Propiedades de un parámetro de aplicación[](#propiedades-de-un-parametro-de-aplicacion "Link to this heading")
 
@@ -2362,11 +2362,11 @@ El último paso implica ingresar los valores de los datos de conexión. Los dato
 
 Figura 572 Configuración de parámetro de conexión[](#id175 "Link to this image")
 
-Una vez guardado, ya podrá ser utilizado como conexión para tareas de servicio que usen esa misma herramienta como conector. Para más información puede ver la especificación de cada tipo de conexión en el artículo correspondiente a la herramienta en la sección de [conectores](34-ConnectorsIndex.html).
+Una vez guardado, ya podrá ser utilizado como conexión para tareas de servicio que usen esa misma herramienta como conector. Para más información puede ver la especificación de cada tipo de conexión en el artículo correspondiente a la herramienta en la sección de [conectores](34-ConnectorsIndex.md).
 
 ### Utilización de un parámetro de aplicación[](#utilizacion-de-un-parametro-de-aplicacion "Link to this heading")
 
-Un parámetro se puede utilizar en varios contextos en los cuales es necesario especificar el tipo de información que se guarda en un parámetro de aplicación. En un dominio que usa un web service como fuente de datos, por ejemplo, es necesario especificar la URL del web service. El usuario puede optar por especificar la URL en las propiedades del propio dominio (“Definir en la configuración del origen de datos”) o utilizar un parámetro de aplicación. Los parámetros de aplicación se pueden utilizar también en integraciones. Un parámetro de aplicación de tipo “Texto” se puede utilizar como etiqueta (consulte la sección [Etiquetas](#etiquetas)), como destinatario de una tarea externa (ver [Respuesta de tarea externa](#respuesta-de-tarea-externa)) o como parte de las condiciones de una compuerta (ver [Compuertas](#compuertas)). Un parámetro de aplicación de este tipo también se puede asociar a parámetros de bots y de integraciones, en tareas de servicio asícronas y síncronas respectivamente. Además, estos parámetros están disponibles en el código que se escribe en actividades de código o en _assemblies_ de tipo Qflow (que contienen clases derivadas de CodeScriptBase; ver el manual de la [Interfaz de Scripting](10-ScriptingInterface.html)).
+Un parámetro se puede utilizar en varios contextos en los cuales es necesario especificar el tipo de información que se guarda en un parámetro de aplicación. En un dominio que usa un web service como fuente de datos, por ejemplo, es necesario especificar la URL del web service. El usuario puede optar por especificar la URL en las propiedades del propio dominio (“Definir en la configuración del origen de datos”) o utilizar un parámetro de aplicación. Los parámetros de aplicación se pueden utilizar también en integraciones. Un parámetro de aplicación de tipo “Texto” se puede utilizar como etiqueta (consulte la sección [Etiquetas](#etiquetas)), como destinatario de una tarea externa (ver [Respuesta de tarea externa](#respuesta-de-tarea-externa)) o como parte de las condiciones de una compuerta (ver [Compuertas](#compuertas)). Un parámetro de aplicación de este tipo también se puede asociar a parámetros de bots y de integraciones, en tareas de servicio asícronas y síncronas respectivamente. Además, estos parámetros están disponibles en el código que se escribe en actividades de código o en _assemblies_ de tipo Qflow (que contienen clases derivadas de CodeScriptBase; ver el manual de la [Interfaz de Scripting](10-ScriptingInterface.md)).
 
 ### Manejadores de eventos[](#manejadores-de-eventos "Link to this heading")
 
@@ -2814,7 +2814,7 @@ Figura 594 Mensaje de confirmación al usuario[](#id197 "Link to this image")
 
 ##### Formulario[](#formulario "Link to this heading")
 
-En esta pestaña podemos configurar la [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios).
+En esta pestaña podemos configurar la [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.md#visibilidad-de-datos-roles-adjuntos-y-comentarios).
 
 ##### Dev tools[](#dev-tools "Link to this heading")
 
@@ -2895,7 +2895,7 @@ Una tarea de usuario asigna una tarea a un usuario o grupo de usuarios, y los de
 
 ##### Formulario[](#id12 "Link to this heading")
 
-Permite especificar el acceso a datos, roles y adjuntos (ver [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios)).
+Permite especificar el acceso a datos, roles y adjuntos (ver [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.md#visibilidad-de-datos-roles-adjuntos-y-comentarios)).
 
 ##### Plazos[](#plazos "Link to this heading")
 
@@ -2970,7 +2970,7 @@ El formulario de propiedades de una tarea de notificación de usuario tiene las 
 
 *   **General:** permite especificar el asunto del correo electrónico que recibirán los destinatarios configurados en la sección «Participantes».
     
-*   **Formulario:** permite definir qué datos de la aplicación, roles, adjuntos y comentarios serán visibles en el formulario. (ver [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios)). Ademas de un texto de ayuda para los usuarios. Cuando vean la notificación en Qflow Task, podrán ver el texto de ayuda al hacer clic en el ícono de ayuda (“?”). El texto puede contener código HTML.
+*   **Formulario:** permite definir qué datos de la aplicación, roles, adjuntos y comentarios serán visibles en el formulario. (ver [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.md#visibilidad-de-datos-roles-adjuntos-y-comentarios)). Ademas de un texto de ayuda para los usuarios. Cuando vean la notificación en Qflow Task, podrán ver el texto de ayuda al hacer clic en el ícono de ayuda (“?”). El texto puede contener código HTML.
     
 *   **Dev tools:** permite asociar validaciones a la tarea. Ver [Asociación de una validación a un formulario](#asociacion-de-una-validacion-a-un-formulario).
     
@@ -3383,7 +3383,7 @@ Una tarea de código, además del nombre y de la descripción, tiene las siguien
 *   **Código:** es el código del script.
     
 
-El código contiene un procedimiento llamado “Execute”. Cuando un proceso ejecute el código, llamará a ese procedimiento. El código se escribe dentro de una clase derivada de la clase CodeScriptBase, definida por Qflow. Esa clase tiene un conjunto de métodos y propiedades que permiten trabajar con los datos del proceso. Por más información sobre cómo usar esos métodos y propiedades, consulte el manual de [Referencia de la Interfaz de Scripting de Qflow](10-ScriptingInterface.html).
+El código contiene un procedimiento llamado “Execute”. Cuando un proceso ejecute el código, llamará a ese procedimiento. El código se escribe dentro de una clase derivada de la clase CodeScriptBase, definida por Qflow. Esa clase tiene un conjunto de métodos y propiedades que permiten trabajar con los datos del proceso. Por más información sobre cómo usar esos métodos y propiedades, consulte el manual de [Referencia de la Interfaz de Scripting de Qflow](10-ScriptingInterface.md).
 
 [![Propiedades de una tarea de código](_images/image1814.png)](_images/image1814.png)
 
@@ -3395,7 +3395,7 @@ Figura 627 Propiedades de una tarea de código[](#id230 "Link to this image")
 
 Figura 628 Tarea de servicio[](#id231 "Link to this image")
 
-La tarea de servicio es un tipo de paso utilizado para ejecutar una integración definida por el usuario (ver [Integraciones](#integraciones)) o para emplear alguno de los conectores predefinidos que ofrece Qflow (ver [Conectores](34-ConnectorsIndex.html)).
+La tarea de servicio es un tipo de paso utilizado para ejecutar una integración definida por el usuario (ver [Integraciones](#integraciones)) o para emplear alguno de los conectores predefinidos que ofrece Qflow (ver [Conectores](34-ConnectorsIndex.md)).
 
 El panel de configuración de la tarea de servicio muestra un flujo de pasos a completar antes de poder guardar el paso.
 
@@ -3448,7 +3448,7 @@ Figura 633 Configuración de tarea de servicio finalizada[](#id236 "Link to t
 
 ##### Configuración de un conector[](#configuracion-de-un-conector "Link to this heading")
 
-Para configurar un conector, ver la página de [configuración de conectores desde una tarea de servicio](35-ConnectorParameterConfig.html).
+Para configurar un conector, ver la página de [configuración de conectores desde una tarea de servicio](35-ConnectorParameterConfig.md).
 
 #### Tarea de servicio asíncrono[](#tarea-de-servicio-asincrono "Link to this heading")
 
@@ -3658,9 +3658,9 @@ Cada componente incluye un ícono de engranaje que permite acceder a su **panel 
 
 En el diseñador de formularios, los componentes se incorporan desde el panel izquierdo mediante la acción de arrastrar y soltar. Según su tipo, pueden generar un nuevo dato en Design, reutilizar uno ya definido o simplemente añadir elementos visuales sin asociar datos.
 
-*   **Componentes por tipo de dato** (Texto, Número, Combo Box, etc.): Al arrastrar uno de estos componentes al formulario, se crea un **nuevo dato** asociado al dominio correspondiente. En ese caso, se solicita definir un **nombre** para identificar el dato dentro del proceso. Para más información sobre los dominios disponibles, consulte la sección [Dominios](15-QflowDesign.html#dominios).
+*   **Componentes por tipo de dato** (Texto, Número, Combo Box, etc.): Al arrastrar uno de estos componentes al formulario, se crea un **nuevo dato** asociado al dominio correspondiente. En ese caso, se solicita definir un **nombre** para identificar el dato dentro del proceso. Para más información sobre los dominios disponibles, consulte la sección [Dominios](15-QflowDesign.md#dominios).
     
-*   **Componentes de rol**: Permiten cargar un rol definido en el proceso y mostrarlo como campo en el formulario. Este campo puede utilizarse, por ejemplo, para asignar dinámicamente un rol a un usuario. Su visibilidad se configura desde el mismo panel utilizado para los datos, donde se define si el campo será visible, editable, requerido u ausente. Para más información, consulte la sección [Roles de plantilla de proceso](15-QflowDesign.html#roles-de-plantilla-de-proceso).
+*   **Componentes de rol**: Permiten cargar un rol definido en el proceso y mostrarlo como campo en el formulario. Este campo puede utilizarse, por ejemplo, para asignar dinámicamente un rol a un usuario. Su visibilidad se configura desde el mismo panel utilizado para los datos, donde se define si el campo será visible, editable, requerido u ausente. Para más información, consulte la sección [Roles de plantilla de proceso](15-QflowDesign.md#roles-de-plantilla-de-proceso).
     
 *   **Datos y roles existentes**: A través de las opciones **Seleccionar datos existentes** o **Seleccionar roles existentes**, es posible insertar elementos ya definidos en Design. Estos elementos heredan sus configuraciones previas. Dentro del formulario, sus propiedades pueden editarse, y los cambios realizados se reflejan también en el entorno de diseño.
     
@@ -3690,7 +3690,7 @@ Los datos definidos en la **plantilla** o en la **versión** permiten modificar 
 
 Un mismo formulario puede asignarse a uno o más **elementos** del proceso, siempre que se trate de un **Evento de inicio** o una **Tarea de usuario**. Esta asignación se realiza desde **Design**, utilizando el **panel de propiedades** del elemento correspondiente.
 
-La visibilidad de los campos se configura exclusivamente en el **diseñador de formularios**, donde se define cómo aparecerá cada dato en cada uno de los pasos del proceso: editable, requerido, solo lectura o ausente. Para más información sobre estas configuraciones, consulte la sección [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.html#visibilidad-de-datos-roles-adjuntos-y-comentarios).
+La visibilidad de los campos se configura exclusivamente en el **diseñador de formularios**, donde se define cómo aparecerá cada dato en cada uno de los pasos del proceso: editable, requerido, solo lectura o ausente. Para más información sobre estas configuraciones, consulte la sección [Visibilidad de datos, roles, adjuntos y comentarios](15-QflowDesign.md#visibilidad-de-datos-roles-adjuntos-y-comentarios).
 
  
 | Visibilidad | Comportamiento |
@@ -3775,7 +3775,7 @@ Nota
 
 La publicación de la versión del proceso es obligatoria para que el formulario se ejecute en contexto real.
 
-[Anterior](04-QflowTask.html "Qflow Task") [Siguiente](18-QflowTeam.html "Qflow Team")
+[Anterior](04-QflowTask.md "Qflow Task") [Siguiente](18-QflowTeam.md "Qflow Team")
 
 - - -
 
