@@ -5,55 +5,55 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
     *   [Configuración de Conectores desde una Tarea de Servicio](#)
-    *   [Microsoft Teams](36.1-MicrosoftTeamsConnector.html)
-    *   [Outlook](36.2-OutlookConnector.html)
-    *   [Slack](36.3-SlackConnector.html)
-    *   [Trello](36.4-TrelloConnector.html)
-    *   [OpenAI](36.5-OpenAIConnector.html)
-    *   [Jira Cloud](36.6-JiraCloudConnector.html)
-    *   [Redmine](36.7-RedmineConnector.html)
-    *   [DocuSign](36.8-DocuSignConnector.html)
-    *   [Google Calendar](36.9-GoogleCalendarConnector.html)
-    *   [Dropbox](36.11-DropboxConnector.html)
-    *   [OneDrive](36.12-OneDriveConnector.html)
-    *   [WhatsApp](36.13-WhatsAppTwilioConnector.html)
-    *   [Microsoft Word](36.14-MicrosoftWordConnector.html)
-    *   [ILovePDF](36.15-ILovePDFConnector.html)
-*   [Desarrolladores](31-Development.html)
+    *   [Microsoft Teams](36.1-MicrosoftTeamsConnector.md)
+    *   [Outlook](36.2-OutlookConnector.md)
+    *   [Slack](36.3-SlackConnector.md)
+    *   [Trello](36.4-TrelloConnector.md)
+    *   [OpenAI](36.5-OpenAIConnector.md)
+    *   [Jira Cloud](36.6-JiraCloudConnector.md)
+    *   [Redmine](36.7-RedmineConnector.md)
+    *   [DocuSign](36.8-DocuSignConnector.md)
+    *   [Google Calendar](36.9-GoogleCalendarConnector.md)
+    *   [Dropbox](36.11-DropboxConnector.md)
+    *   [OneDrive](36.12-OneDriveConnector.md)
+    *   [WhatsApp](36.13-WhatsAppTwilioConnector.md)
+    *   [Microsoft Word](36.14-MicrosoftWordConnector.md)
+    *   [ILovePDF](36.15-ILovePDFConnector.md)
+*   [Desarrolladores](31-Development.md)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Conectores](34-ConnectorsIndex.html)
+*   [](index.md)
+*   [Conectores](34-ConnectorsIndex.md)
 *   Configuración de Conectores desde una Tarea de Servicio
 
 - - -
 
 # Configuración de Conectores desde una Tarea de Servicio[](#configuracion-de-conectores-desde-una-tarea-de-servicio "Link to this heading")
 
-A continuación, se presenta cómo configurar un conector desde una Tarea de Servicio (ver [Tarea de servicio](15-QflowDesign.html#tarea-de-servicio)) para utilizar un servicio de terceros. A modo de ejemplo se utiliza Jira Cloud. Este procedimiento es aplicable de manera similar para otras aplicaciones y tipos de parámetros de aplicación.
+A continuación, se presenta cómo configurar un conector desde una Tarea de Servicio (ver [Tarea de servicio](15-QflowDesign.md#tarea-de-servicio)) para utilizar un servicio de terceros. A modo de ejemplo se utiliza Jira Cloud. Este procedimiento es aplicable de manera similar para otras aplicaciones y tipos de parámetros de aplicación.
 
 Se deben seguir los pasos indicados a continuación:
 
@@ -69,7 +69,7 @@ Se deben seguir los pasos indicados a continuación:
     
     Figura 789 Selección de Acción[](#id3 "Link to this image")
     
-3.  Es posible utilizar un parámetro de aplicación previamente creado que ya incluya la conexión con terceros, o crear uno nuevo (ver [Parámetros de aplicación](15-QflowDesign.html#parametros-de-aplicacion)) . Al crear, se solicitan los parámetros necesarios para la conexión, se detalla donde obtener sus valores en la sección correspondiente de cada aplicación (ver [Conectores](34-ConnectorsIndex.html#conectores)):
+3.  Es posible utilizar un parámetro de aplicación previamente creado que ya incluya la conexión con terceros, o crear uno nuevo (ver [Parámetros de aplicación](15-QflowDesign.md#parametros-de-aplicacion)) . Al crear, se solicitan los parámetros necesarios para la conexión, se detalla donde obtener sus valores en la sección correspondiente de cada aplicación (ver [Conectores](34-ConnectorsIndex.md#conectores)):
     
     [![ServiceTaskConfig3](_images/ServiceTaskConfig3.png)](_images/ServiceTaskConfig3.png)
     
@@ -88,13 +88,13 @@ Se cuenta con parámetros de entrada y de salida. Los parámetros de entrada son
 
 Los parámetros marcados con un asterisco (\*) son obligatorios. También es posibe utilizar parámetros adicionales, expandiendo la sección **Parámetros adicionales**. Hay parámetros con mensajes de ayuda que explican su uso con mayor detalle.
 
-Cada parámetro cuenta con un tipo, estos pueden ser textos, fechas, documentos, boolean (Verdadero/Falso), números, y GUID. Todos estos, se pueden completar con utilizar datos de aplicación (ver [Datos de aplicación](15-QflowDesign.html#datos-de-aplicacion)) y parámetros de aplicación (ver [Parámetros de aplicación](15-QflowDesign.html#parametros-de-aplicacion)). Además, en los parámetros de tipo texto, número y GUID se permite escribir directamente el contenido como literal.
+Cada parámetro cuenta con un tipo, estos pueden ser textos, fechas, documentos, boolean (Verdadero/Falso), números, y GUID. Todos estos, se pueden completar con utilizar datos de aplicación (ver [Datos de aplicación](15-QflowDesign.md#datos-de-aplicacion)) y parámetros de aplicación (ver [Parámetros de aplicación](15-QflowDesign.md#parametros-de-aplicacion)). Además, en los parámetros de tipo texto, número y GUID se permite escribir directamente el contenido como literal.
 
 La opción de **Auto mapear** detecta si hay datos o parámetros con un nombre acorde a la entrada y los asigna automáticamente.
 
 Al completar de llenar los parámetros, se debe seleccionar **Finalizar** para configurar el conector para la acción deseada. Con esto se ha configurado el conector para la acción seleccionada en la Tarea de Servicio y queda listo para ser utilizado en el proceso.
 
-[Anterior](34-ConnectorsIndex.html "Conectores") [Siguiente](36.1-MicrosoftTeamsConnector.html "Microsoft Teams")
+[Anterior](34-ConnectorsIndex.md "Conectores") [Siguiente](36.1-MicrosoftTeamsConnector.md "Microsoft Teams")
 
 - - -
 
