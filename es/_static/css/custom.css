@@ -1,0 +1,200 @@
+.wy-table-responsive table td {
+    white-space: normal;
+}
+
+.figure img{
+    padding-bottom: 20px;
+}
+
+img.align-center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.wy-nav-content {
+    max-width: 1200px !important;
+}
+
+.rst-content {
+    margin-top: 30px;
+}
+
+.urudata-header {
+    margin-bottom: 0px;
+    position: fixed;
+    height: 40px;width: 100%;
+    z-index: 100;
+    background-color: #34CC99;
+}
+
+.wy-side-scroll > .wy-side-nav-search > a img.logo{
+    height: 90px;
+}
+
+.options-menu {
+    text-align: right;
+}
+
+.option {
+    display: inline-block;
+    padding: 10px;
+}
+
+.option:last-child {
+    margin-right: 10px;
+}
+
+.option a {
+    color: white;
+}
+
+.option a:hover {
+    color: #f5f5f5;
+}
+
+.language-option {
+    display: inline-block;
+    color: white;
+}
+
+.selected-language {
+    display: inline-block;
+    color: #f5f5f5;
+    padding-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        display: none;
+    }
+}
+
+nav .wy-side-nav-search {
+    background-color: #103D66;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+nav.wy-nav-side {
+    background-color: #103D66;
+}
+
+nav .wy-menu-vertical a {
+    color: white;
+}
+
+nav .wy-menu-vertical p.caption {
+    color: white;
+}
+
+nav .wy-menu-vertical a:hover {
+    background-color: #185184;
+}
+
+nav .wy-menu-vertical li.toctree-l2 > a {
+    background-color: #185184;
+    color: white;
+}
+
+nav .wy-menu-vertical li.toctree-l2.current > a {
+    background-color: #1D619D;
+}
+
+nav .wy-menu-vertical li.toctree-l2 > a:hover {
+    background-color: #1D619D;
+}
+
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+    background-color: #1D619D;
+    color: white;
+}
+
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a:hover {
+    background-color: #1D619D;
+    color: white;
+}
+
+.wy-nav-content-wrap > .wy-nav-top {
+    background: #34CC99;
+}
+
+.wy-menu.wy-menu-vertical li.current a {
+    border-right: none;
+}
+
+.wy-nav-content-wrap .showOnlyInMenu{
+    display: none;
+}
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
+.wy-menu-vertical li button.toctree-expand {
+    color: white;
+}
+
+.wy-menu-vertical .toctree-l1 .toctree-l2.current>a button.toctree-expand:before {
+    content: "\f068" !important;
+    font-size: 0.8em;
+    font-family: FontAwesome !important;
+}
+
+.wy-menu-vertical .toctree-l1 .toctree-l2 button.toctree-expand:before {
+    content: "\2b" !important;
+    font-weight: 900 !important;
+    font-family: 'Lato' !important;
+}
+
+.wy-menu-vertical li.toctree-l2 button.toctree-expand {
+    color: #ffffff;
+}
+
+.wy-menu-vertical .toctree-l1.current>a button.toctree-expand {
+    color: #404040;
+}
+
+.toctree-12.current>a button.toctree-expand {
+    color: #ffffff;
+}
+
+.wy-menu-vertical li.current>a button.toctree-expand{
+    width: 0.8em;
+    color: #ffffff;
+}
+
+.wy-menu-vertical .toctree-l1 button.toctree-expand:before {
+    content: "\f107" !important;
+}
+
+.wy-menu-vertical .toctree-l1.current>a button.toctree-expand:before {
+    content: "\f068" !important;
+    font-family: FontAwesome !important;
+}
+
+.wy-menu-vertical li.toctree-l2 a:hover button.toctree-expand {
+    color: #103D66;
+}
+
+.language-select {
+    margin-left: 12px;
+}
+
+.wy-side-nav-search input[type=text] {
+    padding: 7.4px 12px !important;
+}
+
+.rst-content div.vertical-margin > .highlight {
+    margin: 12px 0;
+}
+
+.docutils caption {
+    caption-side: bottom;
+}
