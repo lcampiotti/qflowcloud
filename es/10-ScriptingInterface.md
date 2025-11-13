@@ -5,39 +5,39 @@
 *   [Centro de Ayuda](https://qflowbpm.com/es/centro-de-ayuda/)
 *   [Contáctanos](https://qflowbpm.com/es/contacto/)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
 Cloud (latest) 5.5 OnPremise (latest) 5.2 OnPremise 5.1.1 OnPremise
 
 English Español
 
-selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html'); } } } http.open('HEAD', url, true); http.send(); }
+selectElement('versionSelect', getVersion()); selectElement('languageSelect', getLanguage()); function selectElement(id, valueToSelect) { let element = document.getElementById(id); element.value = valueToSelect; } function getLanguage() { if (window.location.href.includes('/es/')) { return '/es/'; } else { return '/en/'; } } function getVersion() { if (window.location.href.includes('/qflowcloud/')) { return '/qflowcloud/'; } else if (window.location.href.includes('/qflow5\_1\_1/')) { return '/qflow5\_1\_1/'; } else if (window.location.href.includes('/qflow5\_2/')) { return '/qflow5\_2/'; } else { return '/qflow5\_5/'; } } function redirectToSite(url) { var http = new XMLHttpRequest(); http.onreadystatechange = function() { if (http.readyState === 4) { if (http.status !== 404) { window.location.href = url; } else { window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.md'); } } } http.open('HEAD', url, true); http.send(); }
 
   
 
 Inicio
 
-*   [Novedades](29-ReleaseNote.html)
-*   [Introducción a Qflow](01-QflowIntroduction.html)
-*   [Tutoriales](TutorialsIndex.html)
-*   [Qflow Task](04-QflowTask.html)
-*   [Qflow Design](15-QflowDesign.html)
-*   [Qflow Team](18-QflowTeam.html)
-*   [Qflow Admin](19-QflowAdmin.html)
-*   [Consumo de Q-points](21-Q-pointsConsumption.html)
-*   [Conectores](34-ConnectorsIndex.html)
-*   [Desarrolladores](31-Development.html)
+*   [Novedades](29-ReleaseNote.md)
+*   [Introducción a Qflow](01-QflowIntroduction.md)
+*   [Tutoriales](TutorialsIndex.md)
+*   [Qflow Task](04-QflowTask.md)
+*   [Qflow Design](15-QflowDesign.md)
+*   [Qflow Team](18-QflowTeam.md)
+*   [Qflow Admin](19-QflowAdmin.md)
+*   [Consumo de Q-points](21-Q-pointsConsumption.md)
+*   [Conectores](34-ConnectorsIndex.md)
+*   [Desarrolladores](31-Development.md)
     *   [Interfaz de scripting](#)
         *   [Introducción](#introduccion)
         *   [Referencia de la interfaz de scripting de Qflow](#referencia-de-la-interfaz-de-scripting-de-qflow)
-    *   [Web services API](20-WebServicesAPI.html)
-    *   [Referencia de la biblioteca JavaScript](32-JavaScriptLibraryReference.html)
-    *   [Tutoriales](31-Development.html#tutoriales)
+    *   [Web services API](20-WebServicesAPI.md)
+    *   [Referencia de la biblioteca JavaScript](32-JavaScriptLibraryReference.md)
+    *   [Tutoriales](31-Development.md#tutoriales)
 
-[Qflow](index.html)
+[Qflow](index.md)
 
-*   [](index.html)
-*   [Desarrolladores](31-Development.html)
+*   [](index.md)
+*   [Desarrolladores](31-Development.md)
 *   Interfaz de scripting
 
 - - -
@@ -69,7 +69,7 @@ Los scripts deben ser escritos en C# o Visual Basic .Net, y pueden acceder a las
 > *   System.Xml.Linq.dll
 >     
 
-Para utilizar clases de otros componentes debe utilizar una integración de tipo “Assembly” o “Qflow Assembly”. Consulte el manual de [Qflow Design](15-QflowDesign.html) para obtener más información sobre esos tipos de integración. Naturalmente, los componentes que sean utilizados en integraciones de esos tipos pueden haber sido desarrollados en cualquier lenguaje compatible con el framework .NET.
+Para utilizar clases de otros componentes debe utilizar una integración de tipo “Assembly” o “Qflow Assembly”. Consulte el manual de [Qflow Design](15-QflowDesign.md) para obtener más información sobre esos tipos de integración. Naturalmente, los componentes que sean utilizados en integraciones de esos tipos pueden haber sido desarrollados en cualquier lenguaje compatible con el framework .NET.
 
 **Importante:** Con la inclusión del soporte a distintas zonas horarias, todas las fechas obtenidas ya sea por métodos o en propiedades de las distintas clases de Scripting se encuentran en la zona horaria UTC 0. Esto no aplica para las fechas retornadas por los métodos GetCalendarDate de IScriptHost.
 
@@ -652,7 +652,7 @@ La clase User representa un usuario de Qflow.
     
 *   **Email: string:** devuelve la dirección de correo electrónico del usuario.
     
-*   **ExtendedProperties: NameValueCollection:** devuelve la lista de propiedades personalizadas del usuario (propiedades que no vienen con Qflow y que fueron creadas por la organización; ver manual de [Qflow Team](18-QflowTeam.html) y manual de [instalación y configuración](02-InstallationAndConfiguration.html)).
+*   **ExtendedProperties: NameValueCollection:** devuelve la lista de propiedades personalizadas del usuario (propiedades que no vienen con Qflow y que fueron creadas por la organización; ver manual de [Qflow Team](18-QflowTeam.md) y manual de [instalación y configuración](02-InstallationAndConfiguration.md)).
     
 *   **IsEnabled: bool:** indica el usuario está habilitado.
     
@@ -714,7 +714,7 @@ Los objetos de la clase SPConnectionConfiguration representan parámetros de apl
 *   **ListId: Guid:** identificador de la lista de SharePoint a la que apunta la conexión.
     
 
-[Anterior](31-Development.html "Desarrolladores") [Siguiente](20-WebServicesAPI.html "Web services API")
+[Anterior](31-Development.md "Desarrolladores") [Siguiente](20-WebServicesAPI.md "Web services API")
 
 - - -
 
