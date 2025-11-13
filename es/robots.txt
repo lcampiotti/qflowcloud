@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://qflowbpm.com/docs/qflowcloud/en/sitemap.xml
